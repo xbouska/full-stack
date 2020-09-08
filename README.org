@@ -1,3 +1,9 @@
+* linux
+** ssh how to create trust between computers
+** awk / sed / grep / bash / tail / head
+** bash 
+*** co je to here doc?
+** co je to regexp
 * (data) BASE: 
 ** co je to CAP teorem?
 ** co be to ACID?
@@ -20,7 +26,8 @@
 ** Java: co jsou to generika
 ** Co je to Local-Variable Type inference
 ** Jaky je rozdil mezi hashCode a equals(), co je to contrakt
-* JS: co je to iife
+* JS: 
+** co je to iife
 ** JS: jak funguje dedicnost v JS
 ** JS: co je to hoisting
 * DDD: 
@@ -31,9 +38,12 @@
 * BASICS: 
 ** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
 * FP: 
-** co je to FP - functional programming -jake jsou jeho hlavni rysy
-* JAVA: 
-* LANG: co je to Garbage Collector
+** co je to FP - functional programming 
+** jake jsou jeho hlavni rysy
+
+* LANG:
+** co je to Garbage Collector
+** strongly typed languages vs weakly typed
 * SEC: 
 ** co je to AES
 ** co je to base64
@@ -43,5 +53,7 @@
 ** SEC: Oauth2/OIDC
 
 * OOP:
-** jake znate navrhove vzory
+** jake znate navrhove vzory?
+** popist me Abstract Factory 
+** Popiste mi 
 
