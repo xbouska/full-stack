@@ -28,20 +28,21 @@
 #+creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)
 #+latex_header:
 
-* Architecture and design
+* Architecture
 ** DDD
-*** co je to bounded context
-*** co je to ubiquotous language
-***  rozdil mezi entity and Value Object
-** messaging
+*** bounded context
+*** ubiquotous language
+*** Entity and Value Object
+** Messaging
 *** queue vs topics
 *** delivery: at least once at most once exactly once
+* Design principals
 ** DRY
 ** KISS
 ** YAGNI
-** MOSCOW
 ** DoD
 ** DoR
+** MOSCOW
 * Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
@@ -63,8 +64,11 @@
 ** BASE
 ** transaction isolation levels
 ** eventual consistency
-** co je to big table
-** co je to big query
+** big table
+** big query
+** slowly moving dimensions
+** OLAP vs OLTP
+** Apache Drill .. a jeho kamaradi
 * Cloud
 ** IAAS
 ** FINOPS
