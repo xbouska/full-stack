@@ -45,6 +45,7 @@
 * Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
+** ls / ps / htop
 ** bash 
 *** co je to here doc?
 ** co je to regexp
