@@ -1,3 +1,11 @@
+* Architecture: 
+** co je to DDD
+** DDD: co je to bounded context
+** co je to ubiquotous language
+** DDD: jaky je rozdil mezi entity and Value Object
+** messagng
+*** queue vs topics
+*** delivery: at least once at most once exactly once
 * linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
@@ -9,9 +17,20 @@
 ** co be to ACID?
 ** co je to BASE
 ** jake znate transaction isolation levels
-** 
+** co je to big table
+** co je to big query
+* cloud
+** co je to IAAS
+** co je to FINOPS
+** DEVSECOPS
+** Cloud native
 * K8S: 
 ** co je to ingress a exgress?
+** co je to pod
+** co je to service mesh
+** etcd
+** konsul
+** zookeeper
 * DEVOPS: 
 ** co je to docker, docker file, docker compose
 ** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
@@ -30,11 +49,6 @@
 ** co je to iife
 ** JS: jak funguje dedicnost v JS
 ** JS: co je to hoisting
-* DDD: 
-** co je to DDD
-** DDD: co je to bounded context
-** co je to ubiquotous language
-** DDD: jaky je rozdil mezi entity and Value Object
 * BASICS: 
 ** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
 * FP: 
