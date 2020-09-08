@@ -71,22 +71,30 @@
 ** DEVSECOPS
 ** Cloud native architecture
 * K8S: 
-** co je to ingress a exgress?
-** co je to pod
-** co je to service mesh
+** pod
+** node
+** service mesh
+** ingress and exgress?
 ** etcd
-** konsul
-** zookeeper
 * DEVOPS / SRE
-** docker 
-*** docker file
-*** docker compose
-** Chef
-** Puppet, 
-** Ansible
-** Terraform
-** Cloud Formation
-** Tail Latency
+** tools
+*** docker 
+**** docker file
+**** docker compose
+*** Chef
+*** Puppet, 
+*** Ansible
+*** Terraform
+*** Cloud Formation
+*** hashicorp consul
+*** hashicorp vault
+*** zookeeper
+** Observability
+*** 3 pillars
+**** logs
+**** metrics
+**** traces
+*** Tail Latency
 * FE 
 ** CORS
 ** React
@@ -99,10 +107,21 @@
 ** co je to CIDR co je to netmast
 ** co je to unicode, utf-8, ASCII, EBCDIC
 * JAVA: 
-** Co prinasi java 9 - co je to project jigsaw
-** Java: co jsou to generika
+** Java EE
+*** access intent
+**** optimistic vs pessimistic
+** Java 9 - project jigsaw
+** Loom
+** diamod operator
+** generics
 ** Co je to Local-Variable Type inference
 ** Jaky je rozdil mezi hashCode a equals(), co je to contrakt
+** JCF:
+*** List, Set
+*** ArrayList vs LinkedList
+*** StringBuilder vs String Buffer vs String
+*** BigDecimal vs float
+
 * JS: 
 ** co je to iife
 ** JS: jak funguje dedicnost v JS
@@ -110,18 +129,22 @@
 * BASICS: 
 ** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
 * FP: 
-** co je to FP - functional programming 
-** jake jsou jeho hlavni rysy
+** functional programming?
+** main properties
+** Monoid
+** Functor
+** Applicative
+** Monad
+** kleisli functor
+** Optics
+*** Lenses
+*** prisms
 ** recursion schemes
 *** catamorphisms
 *** anamorphisms
 *** hylomorphisms
 *** paramorphisms
 
-** Monoid
-** Functor
-** Applicative
-** Monad
 * LANG:
 ** co je to Garbage Collector
 ** strongly typed languages vs weakly typed
