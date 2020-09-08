@@ -1,29 +1,74 @@
-* Architecture: 
-** co je to DDD
-** DDD: co je to bounded context
-** co je to ubiquotous language
-** DDD: jaky je rozdil mezi entity and Value Object
-** messagng
+#+options: html-link-use-abs-url:nil html-postamble:auto
+#+options: html-preamble:t html-scripts:t html-style:t
+#+options: html5-fancy:nil tex:t
+#+html_doctype: xhtml-strict
+#+html_container: div
+#+description:
+#+keywords:
+#+html_link_home:
+#+html_link_up:
+#+html_mathjax:
+#+html_head:
+#+html_head_extra:
+#+subtitle:
+#+infojs_opt:
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: README
+#+date: <2020-09-08 Út>
+#+author: Richard Bouška
+#+email: xbouska@linux
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.3)
+#+creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)
+#+latex_header:
+
+* Architecture and design
+** DDD
+*** co je to bounded context
+*** co je to ubiquotous language
+***  rozdil mezi entity and Value Object
+** messaging
 *** queue vs topics
 *** delivery: at least once at most once exactly once
-* linux
+** DRY
+** KISS
+** YAGNI
+** MOSCOW
+** DoD
+** DoR
+* Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
 ** bash 
 *** co je to here doc?
 ** co je to regexp
-* (data) BASE: 
-** co je to CAP teorem?
-** co be to ACID?
-** co je to BASE
-** jake znate transaction isolation levels
+** NFS
+** file types: 
+*** block device
+*** character device
+*** named pipe
+*** symlink
+** /etc/resolv.conf
+* Data
+** CAP theorem
+** Beyond CAP database systems
+** ACID
+** BASE
+** transaction isolation levels
+** eventual consistency
 ** co je to big table
 ** co je to big query
-* cloud
-** co je to IAAS
-** co je to FINOPS
+* Cloud
+** IAAS
+** FINOPS
 ** DEVSECOPS
-** Cloud native
+** Cloud native architecture
 * K8S: 
 ** co je to ingress a exgress?
 ** co je to pod
@@ -31,15 +76,27 @@
 ** etcd
 ** konsul
 ** zookeeper
-* DEVOPS: 
-** co je to docker, docker file, docker compose
-** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
+* DEVOPS / SRE
+** docker 
+*** docker file
+*** docker compose
+** Chef
+** Puppet, 
+** Ansible
+** Terraform
+** Cloud Formation
+** Tail Latency
 * FE 
-** co je to react-hooks a jak se to pouziva?
-** jaky je rozdil mezi React a React native
+** CORS
+** React
+*** react-hooks a jak se to pouziva?
+*** jaky je rozdil mezi React a React native
+** The Elm Architecture (TEA)
 * IT: 
+** co je to bit 
+*** XOR, OR, AND, BitShift
 ** co je to CIDR co je to netmast
-** IT: co je to unicode, utf-8, ASCII, EBCDIC
+** co je to unicode, utf-8, ASCII, EBCDIC
 * JAVA: 
 ** Co prinasi java 9 - co je to project jigsaw
 ** Java: co jsou to generika
@@ -54,20 +111,58 @@
 * FP: 
 ** co je to FP - functional programming 
 ** jake jsou jeho hlavni rysy
+** recursion schemes
+*** catamorphisms
+*** anamorphisms
+*** hylomorphisms
+*** paramorphisms
 
+** Monoid
+** Functor
+** Applicative
+** Monad
 * LANG:
 ** co je to Garbage Collector
 ** strongly typed languages vs weakly typed
-* SEC: 
-** co je to AES
-** co je to base64
+* Security:
+** LDAP
+*** object class
+**** inetOrgPerson
+*** iod
+*** CN, DN, SN,
+** owasp top10
+** Bock Ciphers
+*** ECB, CBC, OFB, CFB, CTR  - what they are
+:PROPERTIES:
+:study:    https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
+:END:
+*** AES
+*** DES
+** Hash
+*** base64
 ** co je to symetricka a asymetricka sifra
-** SEC: co je to PKI, co je to X509
-** SEC: co je to LDAP
-** SEC: Oauth2/OIDC
-
+** bastillion.io
+** PKI
+** X509
+** Oauth2/OIDC
+*** grant types:
+**** Authorization Code
+**** Client Credentials
+**** Device Code
+**** Refresh Token
+**** PKCE
+**** (Implicit Flow)
+**** (Password Grant)
+*** Scope
+:answer:
+A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. 
+Often, applications will want to make use of the information that has already been created in an online resource.
+To do so, the application must ask for authorization to access this information on a user’s behalf. 
+When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
+and the authorization server uses the Scope parameter to respond with the access that was actually granted.
+:end:
 * OOP:
 ** jake znate navrhove vzory?
 ** popist me Abstract Factory 
-** Popiste mi 
+** Singleton
 
