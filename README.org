@@ -5,13 +5,26 @@
 ** DDD: jaky je rozdil mezi entity and Value Object
 ** messagng
 *** queue vs topics
-*** delivery: at least once at most once exactly once
+*** message delivery mode: 
+- at least once at most once exactly once
+** micro-service
+** orchestration vs choreography
+** Enterprise Architecture Integration Patterns
+* observability
+** kibana
+** graphana
+** ELK
 * linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
 ** bash 
 *** co je to here doc?
 ** co je to regexp
+** list open ports
+** iptables
+** BPF
+** list open files
+** stdin std our
 * (data) BASE: 
 ** co je to CAP teorem?
 ** co be to ACID?
@@ -19,6 +32,12 @@
 ** jake znate transaction isolation levels
 ** co je to big table
 ** co je to big query
+** Elastic Search
+*** Bloom Filter
+** MongoDB
+** SQL
+*** partitionning
+*** inner vs outher join
 * cloud
 ** co je to IAAS
 ** co je to FINOPS
