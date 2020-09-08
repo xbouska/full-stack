@@ -1,33 +1,47 @@
-rosim cokoliv vas napadne, pro inspiraci:
-K8S: co je to ingress a exgress?
-BASE: co je to CAP teorem?
-BASE co be to ACID?
-DATA: co je to BASE
-DATA: jake znate transaction isolation levels
-DEVOPS: co je to docker, docker file, docker compose
-FE: co je to react-hooks a jak se to pouziva?
-FE:jaky je rozdil mezi React a React native
-DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
-IT: co je to CIDR co je to netmast
-JAVA: co prinasi java 9 - co je to project jigsaw
-JS: co je to iife
-JS: jak funguje dedicnost v JS
-JS: co je to hoisting
-Java: co jsou to generika
-DDD: co je to DDD
-DDD: co je to bounded context
-BASICS: co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
-FP: co je to FP - functional programming -jake jsou jeho hlavni rysy
-JAVA: co je to Local-Variable Type inference
-LANG: co je to Garbage Collector
-JAVA: jakey je rozdil mezi hashCode a equals(), co je to contrakt
-DDD: coje to ubiquotous language
-SEC: co je to AES
-SEC: co je to base64
-SEC: co je to symetricka a asymetricka sifra
-OOP: jake znate navrhove vzory
-DDD: jaky je rozdil mezi entity and Value Object
-IT: co je to unicode, utf-8, ASCII, EBCDIC
-SEC: co je to PKI, co je to X509
-SEC: co je to LDAP
-SEC: Oauth2/OIDC
+* (data) BASE: 
+** co je to CAP teorem?
+** co be to ACID?
+** co je to BASE
+** jake znate transaction isolation levels
+** 
+* K8S: 
+** co je to ingress a exgress?
+* DEVOPS: 
+** co je to docker, docker file, docker compose
+** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
+* FE 
+** co je to react-hooks a jak se to pouziva?
+** jaky je rozdil mezi React a React native
+* IT: 
+** co je to CIDR co je to netmast
+** IT: co je to unicode, utf-8, ASCII, EBCDIC
+* JAVA: 
+** Co prinasi java 9 - co je to project jigsaw
+** Java: co jsou to generika
+** Co je to Local-Variable Type inference
+** Jaky je rozdil mezi hashCode a equals(), co je to contrakt
+* JS: co je to iife
+** JS: jak funguje dedicnost v JS
+** JS: co je to hoisting
+* DDD: 
+** co je to DDD
+** DDD: co je to bounded context
+** co je to ubiquotous language
+** DDD: jaky je rozdil mezi entity and Value Object
+* BASICS: 
+** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
+* FP: 
+** co je to FP - functional programming -jake jsou jeho hlavni rysy
+* JAVA: 
+* LANG: co je to Garbage Collector
+* SEC: 
+** co je to AES
+** co je to base64
+** co je to symetricka a asymetricka sifra
+** SEC: co je to PKI, co je to X509
+** SEC: co je to LDAP
+** SEC: Oauth2/OIDC
+
+* OOP:
+** jake znate navrhove vzory
+
