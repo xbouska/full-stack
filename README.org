@@ -110,13 +110,13 @@
 *** XOR, OR, AND, BitShift
 ** co je to CIDR co je to netmast
 ** co je to unicode, utf-8, ASCII, EBCDIC
-* JAVA: 
+* Java: 
 ** Java EE
 *** access intent
 **** optimistic vs pessimistic
 ** Java 9 - project jigsaw
 ** Loom
-** diamod operator
+** Diamond operator
 ** generics
 ** Co je to Local-Variable Type inference
 ** Jaky je rozdil mezi hashCode a equals(), co je to contrakt
@@ -126,15 +126,29 @@
 *** StringBuilder vs String Buffer vs String
 *** BigDecimal vs float
 
+** TODO Spring
+
 * JS: 
 ** co je to iife
-** JS: jak funguje dedicnost v JS
-** JS: co je to hoisting
+** inheritance model of JS
+** hoisting
+** event loop
+** promisses
+** observables
+** RxJS
+** JS modular system
 * BASICS: 
 ** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
 * FP: 
 ** functional programming?
 ** main properties
+** Lambda Calculus
+*** α-conversion: 
+- changing bound variables;
+*** β-reduction: 
+- applying functions to their arguments;
+*** η-reduction: 
+- which captures a notion of extensionality.
 ** Monoid
 ** Functor
 ** Applicative
