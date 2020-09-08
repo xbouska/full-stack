@@ -53,6 +53,14 @@
 * DEVOPS: 
 ** co je to docker, docker file, docker compose
 ** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
+** GIT
+*** pull-request
+*** cherry pick
+*** flow - jake znate?
+*** co je to git push
+*** rebase vs merge - semantical and syntactical diff
+*** co je to git stash
+*** 
 * FE 
 ** co je to react-hooks a jak se to pouziva?
 ** jaky je rozdil mezi React a React native
