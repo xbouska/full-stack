@@ -31,30 +31,33 @@
 * Architecture
 ** DDD                                                             :SUBJECT:
 *** bounded context                                               :SUBJECT:
-*** ubiquotous language
-*** Entity and Value Object
+*** ubiquotous language                                           :SUBJECT:
+*** Entity and Value Object                                       :SUBJECT:
 ** Messaging
 *** queue
 *** topics
 *** message delivery mode: 
 - at least once at most once exactly once
-** micro-service
+** micro-service-architecture
 ** Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
 * Design principles
-** DRY
-** KISS
-** YAGNI
+** DRY                                                             :SUBJECT:
+** KISS                                                            :SUBJECT:
+** YAGNI                                                           :SUBJECT:
+** open-close principal                                            :SUBJECT:
+* project flow
 ** MOSCOW
 ** DoD
 ** DoR
+
 * Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
 ** ls / ps / htop
-** bash 
-*** co je to here doc?
+** bash                                                            :SUBJECT:
+*** co je to here doc?                                           :QUESTION:
 ** co je to regexp
 ** list open ports
 ** iptables
@@ -104,20 +107,21 @@
 * DEVOPS: 
 ** co je to docker, docker file, docker compose
 ** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
-** GIT
-*** pull-request
-*** cherry pick
-*** flow - jake znate?
-*** co je to git push
-*** rebase vs merge - semantical and syntactical diff
-*** stash
+
 * DEVOPS / SRE
-** tools
-*** docker 
+** Tools
+*** Git
+**** pull-request
+**** cherry pick
+**** flow
+**** git push
+**** rebase vs merge - semantical and syntactical diff
+**** stash
+*** docker
 **** docker file
 **** docker compose
 *** Chef
-*** Puppet, 
+*** Puppet
 *** Ansible
 *** Terraform
 *** Cloud Formation
@@ -248,6 +252,7 @@ and the authorization server uses the Scope parameter to respond with the access
 ** jake znate navrhove vzory?
 ** popist me Abstract Factory 
 ** Singleton
+
 * TODO unsorted
 ** High cohesion
 ** Low coupling
@@ -277,6 +282,9 @@ and the authorization server uses the Scope parameter to respond with the access
 ** Paxos raft zab - distributed consensus
 ** Multi master replycation
 ** Backup strategy
-** Artifactory
-** Nexus
-** 
+** Jaký je rozdíl mezi Java a JavaEE
+** Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika...
+** Co je to aplikační server a nějaký příklad
+** ORM a JPA
+** Co jsou to transakce
+** Znáš Spring?
