@@ -67,22 +67,6 @@
 *** named pipe
 *** symlink
 ** /etc/resolv.conf
-* (data) BASE: 
-** co je to CAP teorem?
-** co be to ACID?
-** co je to BASE
-** jake znate transaction isolation levels
-** co je to big table
-** co je to big query
-** Elastic Search
-*** Bloom Filter
-** MongoDB
-** SQL
-*** partitionning
-*** inner vs outher join
-* cloud
-** co je to IAAS
-** co je to FINOPS
 
 * Data
 ** CAP theorem
@@ -96,6 +80,12 @@
 ** OLAP vs OLTP
 ** slowly moving dimensions
 ** Apache Drill .. a jeho kamaradi
+** Elastic Search
+*** Bloom Filter
+** MongoDB
+** SQL
+*** inner vs outher join
+*** partitionning
 * Cloud
 ** IAAS
 ** FINOPS
