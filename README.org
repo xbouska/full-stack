@@ -16,12 +16,18 @@
 ** Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
+** Event Sourcing
+** CQRS
 * Design principles
 ** DRY                                                             :SUBJECT:
 ** KISS                                                            :SUBJECT:
 ** YAGNI                                                           :SUBJECT:
 ** open-close principal                                            :SUBJECT:
-* project flow
+** High cohesion                                                   :SUBJECT:
+** Low coupling                                                    :SUBJECT:
+* Project Flow
+** Jira 
+** Confluence
 ** MOSCOW
 ** DoD
 ** DoR
@@ -46,10 +52,21 @@
 *** symlink
 ** /etc/nsswitch.conf
 ** /etc/resolv.conf
+** ip
+#+begin_src bash :output verbatim
+ip addr sh
+ip route sh
+#+end_src
+
 * Data
+** SQL
+*** inner vs outher join
+*** partitionning
+** ACID
+** Wall
+** Distributed consensus: Paxos Raft Zab
 ** CAP theorem
 ** Beyond CAP database systems
-** ACID
 ** BASE
 ** transaction isolation levels
 ** eventual consistency
@@ -57,32 +74,24 @@
 ** big query
 ** OLAP vs OLTP
 ** slowly moving dimensions
-** Apache Drill .. a jeho kamaradi
 ** Elastic Search
 *** Bloom Filter
 ** MongoDB
-** SQL
-*** inner vs outher join
-*** partitionning
+** Apache Drill .. a jeho kamaradi
+** Multi master replication
+** ORM
+** JPA
+** QueryDSL
+** Backup strategy
 * Cloud
+** Cloud native architecture
 ** IAAS
 ** FINOPS
 ** DEVSECOPS
-** Cloud native architecture
 ** storage:
 *** S3
 *** GCS
 *** min.io
-* K8S: 
-** pod
-** node
-** service mesh
-** ingress and exgress?
-** etcd
-* DEVOPS: 
-** co je to docker, docker file, docker compose
-** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
-
 * DEVOPS / SRE
 ** Tools
 *** Git
@@ -92,9 +101,16 @@
 **** git push
 **** rebase vs merge - semantical and syntactical diff
 **** stash
-*** docker
+*** Docker
 **** docker file
 **** docker compose
+**** docker swarm
+*** K8S: 
+**** pod
+**** node
+**** service mesh
+**** ingress and exgress?
+**** etcd
 *** Chef
 *** Puppet
 *** Ansible
@@ -103,28 +119,36 @@
 *** hashicorp consul
 *** hashicorp vault
 *** zookeeper
+*** kibana
+*** graphana
+*** ELK
 ** Observability
 *** 3 pillars
 **** logs
 **** metrics
 **** traces
 *** Tail Latency
-
-** kibana
-** graphana
-** ELK
-* FE 
+* Front End
+** Java Script
+*** co je to iife
+*** inheritance model of JS
+*** hoisting
+*** event loop
+*** promisses
+*** observables
+*** RxJS
+*** JS modular system
 ** CORS
 ** React
 *** react-hooks a jak se to pouziva?
 *** jaky je rozdil mezi React a React native
 ** The Elm Architecture (TEA)
-* IT: 
-** co je to bit 
+* Information Technology
+** bit / byte / endian / float
 *** XOR, OR, AND, BitShift
 ** co je to CIDR co je to netmast
 ** co je to unicode, utf-8, ASCII, EBCDIC
-* Java: 
+* Java
 ** Java EE
 *** access intent
 **** optimistic vs pessimistic
@@ -148,40 +172,34 @@ Co přinesl Spring Boot do Spring ekosystému?
 Strašně zjednodušený start aplikace. Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default". Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem. V každém případě je to one liner. Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
 No a pak všetečný otázky na JavaEE a EJB2 a tak. To už znáš sám líp než já. :wink:
 
-* JS: 
-** co je to iife
-** inheritance model of JS
-** hoisting
-** event loop
-** promisses
-** observables
-** RxJS
-** JS modular system
+** Java exception handling                                         :SUBJECT:
+
 * BASICS: 
 ** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
-* FP: 
-** functional programming?
-** main properties
+* Functional Proramming
 ** Lambda Calculus
-*** α-conversion: 
-- changing bound variables;
-*** β-reduction: 
+*** α-conversion
+- changing bound variables
+*** β-reduction
 - applying functions to their arguments;
-*** η-reduction: 
+*** η-reduction
 - which captures a notion of extensionality.
 ** Monoid
 ** Functor
 ** Applicative
 ** Monad
-** kleisli functor
+** Kleisli Functor
 ** Optics
 *** Lenses
-*** prisms
+*** Prisms
 ** recursion schemes
 *** catamorphisms
 *** anamorphisms
 *** hylomorphisms
 *** paramorphisms
+
+** Persistent data structure - Chris Okasaki
+** Immutability                                                    :SUBJECT:
 
 * LANG:
 ** co je to Garbage Collector
@@ -223,43 +241,32 @@ To do so, the application must ask for authorization to access this information 
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
-* OOP:
-** jake znate navrhove vzory?
-** popist me Abstract Factory 
-** Singleton
-
-* TODO unsorted
-** High cohesion
-** Low coupling
-** Blu green deployment
-** Unit testing
+* Quality
+** Blue green deployment
 ** Code coverage
 ** Cyclomatic complexity                                           :SUBJECT:
 ** Code quality                                                    :SUBJECT:
-** Java exception handling                                         :SUBJECT:
-** Immutability                                                    :SUBJECT:
-** Persistent data structure - Chris okasaki
+** Antifragile architecture
+** Unit testing
+
+* Object Oriented Programming
+** Gof Design Patterns
+*** Abstract Factory 
+*** Singleton
+
+* TODO unsorted
 ** Code complexity O notation
 ** Amortized complexity
-** ip addr sh IP route sh
 ** Maven
 ** Gradle
 ** ReasonML
-** Antifragile architecture
 ** Less
 ** Sass
-** Jira 
-** Confluence
 ** Uml
 ** C4
 ** Org42
-** Wall
-** Paxos raft zab - distributed consensus
-** Multi master replycation
-** Backup strategy
 ** Jaký je rozdíl mezi Java a JavaEE
 ** Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika...
 ** Co je to aplikační server a nějaký příklad
-** ORM a JPA
 ** Co jsou to transakce
 ** Znáš Spring?
