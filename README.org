@@ -34,19 +34,21 @@
 *** ubiquotous language
 *** Entity and Value Object
 ** Messaging
-*** queue vs topics
+*** queue
+*** topics
 *** message delivery mode: 
 - at least once at most once exactly once
 ** micro-service
-** orchestration vs choreography
 ** Enterprise Architecture Integration Patterns
-* Design principals
+*** orchestration
+*** choreography
+* Design principles
 ** DRY
 ** KISS
 ** YAGNI
+** MOSCOW
 ** DoD
 ** DoR
-** MOSCOW
 * Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
@@ -58,7 +60,7 @@
 ** iptables
 ** BPF
 ** list open files
-** stdin std our
+** stdin stdout stderr
 ** NFS
 ** file types: 
 *** block device
@@ -66,7 +68,6 @@
 *** named pipe
 *** symlink
 ** /etc/resolv.conf
-
 * Data
 ** CAP theorem
 ** Beyond CAP database systems
@@ -90,6 +91,10 @@
 ** FINOPS
 ** DEVSECOPS
 ** Cloud native architecture
+** storage:
+*** S3
+*** GCS
+*** min.io
 * K8S: 
 ** pod
 ** node
@@ -105,8 +110,7 @@
 *** flow - jake znate?
 *** co je to git push
 *** rebase vs merge - semantical and syntactical diff
-*** co je to git stash
-*** 
+*** stash
 * DEVOPS / SRE
 ** tools
 *** docker 
@@ -158,6 +162,12 @@
 *** BigDecimal vs float
 
 ** TODO Spring
+Jako jeho CV je docela impresivní, tak bych asi akorát ověřil, jestli nepřehání. Osobně by mě - čistě z pohledu BE - zajímalo, jestli FAKT zná ten Spring a pokud jo, tak jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. Takže za mě hlavně:
+Jaký je rozdíl mezi JavaEE a Springem?
+JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí. Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+Co přinesl Spring Boot do Spring ekosystému?
+Strašně zjednodušený start aplikace. Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default". Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem. V každém případě je to one liner. Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+No a pak všetečný otázky na JavaEE a EJB2 a tak. To už znáš sám líp než já. :wink:
 
 * JS: 
 ** co je to iife
@@ -238,4 +248,32 @@ and the authorization server uses the Scope parameter to respond with the access
 ** jake znate navrhove vzory?
 ** popist me Abstract Factory 
 ** Singleton
-
+* TODO unsorted
+** High cohesion
+** Low coupling
+** Blu green deployment
+** Unit testing
+** Code coverage
+** Cyclomatic complexity                                           :SUBJECT:
+** Code quality                                                    :SUBJECT:
+** Java exception handling                                         :SUBJECT:
+** Immutability                                                    :SUBJECT:
+** Persistent data structure - Chris okasaki
+** Code complexity O notation
+** Amortized complexity
+** ip addr sh IP route sh
+** Maven
+** Gradle
+** ReasonML
+** Antifragile architecture
+** Less
+** Sass
+** Jira 
+** Confluence
+** Uml
+** C4
+** Org42
+** Wall
+** Paxos raft zab - distributed consensus
+** Multi master replycation
+** Backup strategy
