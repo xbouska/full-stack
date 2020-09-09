@@ -29,8 +29,8 @@
 #+latex_header:
 
 * Architecture
-** DDD
-*** bounded context
+** DDD                                                             :SUBJECT:
+*** bounded context                                               :SUBJECT:
 *** ubiquotous language
 *** Entity and Value Object
 ** Messaging
@@ -277,3 +277,6 @@ and the authorization server uses the Scope parameter to respond with the access
 ** Paxos raft zab - distributed consensus
 ** Multi master replycation
 ** Backup strategy
+** Artifactory
+** Nexus
+** 
