@@ -3,27 +3,41 @@
 
 
 * Architecture
-** DDD
-*** bounded context
-*** ubiquotous language
-*** Entity and Value Object
+** DDD                                                             :SUBJECT:
+*** bounded context                                               :SUBJECT:
+*** ubiquotous language                                           :SUBJECT:
+*** Entity and Value Object                                       :SUBJECT:
 ** Messaging
-*** queue vs topics
-*** delivery: at least once at most once exactly once
-* Design principals
-** DRY
-** KISS
-** YAGNI
+*** queue
+*** topics
+*** message delivery mode: 
+- at least once at most once exactly once
+** micro-service-architecture
+** Enterprise Architecture Integration Patterns
+*** orchestration
+*** choreography
+* Design principles
+** DRY                                                             :SUBJECT:
+** KISS                                                            :SUBJECT:
+** YAGNI                                                           :SUBJECT:
+** open-close principal                                            :SUBJECT:
+* project flow
+** MOSCOW
 ** DoD
 ** DoR
-** MOSCOW
+
 * Linux
 ** ssh how to create trust between computers
 ** awk / sed / grep / bash / tail / head
 ** ls / ps / htop
-** bash 
-*** co je to here doc?
+** bash                                                            :SUBJECT:
+*** co je to here doc?                                           :QUESTION:
 ** co je to regexp
+** list open ports
+** iptables
+** BPF
+** list open files
+** stdin stdout stderr
 ** NFS
 ** file types: 
 *** block device
@@ -41,27 +55,48 @@
 ** eventual consistency
 ** big table
 ** big query
-** slowly moving dimensions
 ** OLAP vs OLTP
+** slowly moving dimensions
 ** Apache Drill .. a jeho kamaradi
+** Elastic Search
+*** Bloom Filter
+** MongoDB
+** SQL
+*** inner vs outher join
+*** partitionning
 * Cloud
 ** IAAS
 ** FINOPS
 ** DEVSECOPS
 ** Cloud native architecture
+** storage:
+*** S3
+*** GCS
+*** min.io
 * K8S: 
 ** pod
 ** node
 ** service mesh
 ** ingress and exgress?
 ** etcd
+* DEVOPS: 
+** co je to docker, docker file, docker compose
+** DEVOPS: co je to cheff pupet, ansible, terraform , cloud formation - co maji spolecneho jaky je mezi nimi rozdil
+
 * DEVOPS / SRE
-** tools
-*** docker 
+** Tools
+*** Git
+**** pull-request
+**** cherry pick
+**** flow
+**** git push
+**** rebase vs merge - semantical and syntactical diff
+**** stash
+*** docker
 **** docker file
 **** docker compose
 *** Chef
-*** Puppet, 
+*** Puppet
 *** Ansible
 *** Terraform
 *** Cloud Formation
@@ -74,6 +109,10 @@
 **** metrics
 **** traces
 *** Tail Latency
+
+** kibana
+** graphana
+** ELK
 * FE 
 ** CORS
 ** React
@@ -102,6 +141,12 @@
 *** BigDecimal vs float
 
 ** TODO Spring
+Jako jeho CV je docela impresivní, tak bych asi akorát ověřil, jestli nepřehání. Osobně by mě - čistě z pohledu BE - zajímalo, jestli FAKT zná ten Spring a pokud jo, tak jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. Takže za mě hlavně:
+Jaký je rozdíl mezi JavaEE a Springem?
+JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí. Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+Co přinesl Spring Boot do Spring ekosystému?
+Strašně zjednodušený start aplikace. Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default". Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem. V každém případě je to one liner. Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+No a pak všetečný otázky na JavaEE a EJB2 a tak. To už znáš sám líp než já. :wink:
 
 * JS: 
 ** co je to iife
@@ -183,3 +228,38 @@ and the authorization server uses the Scope parameter to respond with the access
 ** popist me Abstract Factory 
 ** Singleton
 
+* TODO unsorted
+** High cohesion
+** Low coupling
+** Blu green deployment
+** Unit testing
+** Code coverage
+** Cyclomatic complexity                                           :SUBJECT:
+** Code quality                                                    :SUBJECT:
+** Java exception handling                                         :SUBJECT:
+** Immutability                                                    :SUBJECT:
+** Persistent data structure - Chris okasaki
+** Code complexity O notation
+** Amortized complexity
+** ip addr sh IP route sh
+** Maven
+** Gradle
+** ReasonML
+** Antifragile architecture
+** Less
+** Sass
+** Jira 
+** Confluence
+** Uml
+** C4
+** Org42
+** Wall
+** Paxos raft zab - distributed consensus
+** Multi master replycation
+** Backup strategy
+** Jaký je rozdíl mezi Java a JavaEE
+** Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika...
+** Co je to aplikační server a nějaký příklad
+** ORM a JPA
+** Co jsou to transakce
+** Znáš Spring?
