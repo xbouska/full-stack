@@ -40,7 +40,6 @@
 ** micro-service
 ** orchestration vs choreography
 ** Enterprise Architecture Integration Patterns
-
 * Design principals
 ** DRY
 ** KISS
