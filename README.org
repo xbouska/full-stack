@@ -18,7 +18,8 @@
 *** Beyond CAP database systems
 *** Wall: Write Ahead Logs
 *** Distributed consensus: Paxos Raft Zab
-*** transaction isolation levels
+*** Transactions
+**** transaction isolation levels
 *** eventual consistency
 *** big table
 *** big query
@@ -63,12 +64,16 @@
 
 * Cloud
 ** Cloud native architecture
-** IAAS
+** IaaS
+** PaaS
+** SaaS
 ** FINOPS
 ** DEVSECOPS
 ** storage:
 *** S3
-*** GCS
+*** GCS bucket
+**** api
+**** what it is good for
 *** min.io
 * DEVOPS / SRE
 ** Linux
@@ -331,4 +336,3 @@ public final int hashCode() {
 ** C4
 ** Org42
 ** Co jsou to transakce
-** Znáš Spring?
