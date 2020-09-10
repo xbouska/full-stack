@@ -2,11 +2,36 @@
 #+OPTIONS: d:t  prop:t tags:t |:t
 
 
-* Architecture
+* Architecture & Design
 ** DDD                                                             :SUBJECT:
 *** bounded context                                               :SUBJECT:
 *** ubiquotous language                                           :SUBJECT:
 *** Entity and Value Object                                       :SUBJECT:
+** Data architecture and tools
+*** ACID
+*** BASE
+*** SQL
+**** inner vs outher join
+**** partitionning
+*** ORM
+*** CAP theorem
+*** Beyond CAP database systems
+*** Wall: Write Ahead Logs
+*** Distributed consensus: Paxos Raft Zab
+*** transaction isolation levels
+*** eventual consistency
+*** big table
+*** big query
+*** OLAP vs OLTP
+*** slowly moving dimensions
+*** Elastic Search
+**** Bloom Filter
+*** MongoDB
+*** Apache Drill .. a jeho kamaradi
+*** Multi master replication
+*** JPA
+*** QueryDSL
+*** Backup strategy
 ** Messaging
 *** queue
 *** topics
@@ -18,71 +43,24 @@
 *** choreography
 ** Event Sourcing
 ** CQRS
-* Design principles
-** DRY                                                             :SUBJECT:
-** KISS                                                            :SUBJECT:
-** YAGNI                                                           :SUBJECT:
-** open-close principal                                            :SUBJECT:
-** High cohesion                                                   :SUBJECT:
-** Low coupling                                                    :SUBJECT:
-* Project Flow
-** Jira 
+** CRUD
+** Pragmatic Design principes
+*** DRY                                                           :SUBJECT:
+*** KISS                                                          :SUBJECT:
+*** YAGNI                                                         :SUBJECT:
+*** open-close principal                                          :SUBJECT:
+*** High cohesion                                                 :SUBJECT:
+*** Low coupling                                                  :SUBJECT:
+* Project 
+** Scrum
+** Kanban
+** Lean
+** Jira
 ** Confluence
 ** MOSCOW
 ** DoD
 ** DoR
 
-* Linux
-** ssh how to create trust between computers
-** awk / sed / grep / bash / tail / head
-** ls / ps / htop
-** bash                                                            :SUBJECT:
-*** co je to here doc?                                           :QUESTION:
-** co je to regexp
-** list open ports
-** iptables
-** BPF
-** list open files
-** stdin stdout stderr
-** NFS
-** file types: 
-*** block device
-*** character device
-*** named pipe
-*** symlink
-** /etc/nsswitch.conf
-** /etc/resolv.conf
-** ip
-#+begin_src bash :output verbatim
-ip addr sh
-ip route sh
-#+end_src
-
-* Data
-** SQL
-*** inner vs outher join
-*** partitionning
-** ACID
-** Wall
-** Distributed consensus: Paxos Raft Zab
-** CAP theorem
-** Beyond CAP database systems
-** BASE
-** transaction isolation levels
-** eventual consistency
-** big table
-** big query
-** OLAP vs OLTP
-** slowly moving dimensions
-** Elastic Search
-*** Bloom Filter
-** MongoDB
-** Apache Drill .. a jeho kamaradi
-** Multi master replication
-** ORM
-** JPA
-** QueryDSL
-** Backup strategy
 * Cloud
 ** Cloud native architecture
 ** IAAS
@@ -93,6 +71,31 @@ ip route sh
 *** GCS
 *** min.io
 * DEVOPS / SRE
+** Linux
+*** ssh how to create trust between computers
+*** awk / sed / grep / bash / tail / head
+*** ls / ps / htop
+*** bash                                                          :SUBJECT:
+**** co je to here doc?                                         :QUESTION:
+*** co je to regexp
+*** list open ports
+*** iptables
+*** BPF
+*** list open files
+*** stdin stdout stderr
+*** NFS
+*** file types: 
+**** block device
+**** character device
+**** named pipe
+**** symlink
+*** /etc/nsswitch.conf
+*** /etc/resolv.conf
+*** ip
+#+begin_src bash :output verbatim
+ip addr sh
+ip route sh
+#+end_src
 ** Tools
 *** Git
 **** pull-request
@@ -106,18 +109,26 @@ ip route sh
 **** docker compose
 **** docker swarm
 *** K8S: 
+**** helm
+**** chart
+**** template
 **** pod
 **** node
 **** service mesh
+**** ingress controller
 **** ingress and exgress?
 **** etcd
+*** Terraform
+**** resource
+**** module
+**** state
+**** backend
 *** Chef
 *** Puppet
 *** Ansible
-*** Terraform
 *** Cloud Formation
-*** hashicorp consul
-*** hashicorp vault
+*** Hashicorp consul
+*** Hashicorp vault
 *** zookeeper
 *** kibana
 *** graphana
@@ -128,102 +139,64 @@ ip route sh
 **** metrics
 **** traces
 *** Tail Latency
-* Front End
-** Java Script
-*** co je to iife
-*** inheritance model of JS
-*** hoisting
-*** event loop
-*** promisses
-*** observables
-*** RxJS
-*** JS modular system
+* Web Front End
 ** CORS
 ** React
-*** react-hooks a jak se to pouziva?
-*** jaky je rozdil mezi React a React native
+*** react-hooks
+*** React 
+*** React Native
+** HTML
+** CSS
+*** Less
+*** Sass
 ** The Elm Architecture (TEA)
-* Information Technology
+* IT+CS
 ** bit / byte / endian / float
-*** XOR, OR, AND, BitShift
-** co je to CIDR co je to netmast
-** co je to unicode, utf-8, ASCII, EBCDIC
-* Java
-** Java EE
-*** access intent
-**** optimistic vs pessimistic
-** Java 9 - project jigsaw
-** Loom
-** Diamond operator
-** generics
-** Co je to Local-Variable Type inference
-** Jaky je rozdil mezi hashCode a equals(), co je to contrakt
-** JCF:
-*** List, Set
-*** ArrayList vs LinkedList
-*** StringBuilder vs String Buffer vs String
-*** BigDecimal vs float
+*** XOR, OR, AND, Shift (logic vs aritmetic
+*** mantisa exponent jednickovy a dvojkovy doplnek
+** TCP/IP
+*** CIDR
+*** netmask
+** Unicode
+*** What is unicode
+*** utf-8
+*** ASCII
+*** EBCDIC
+** XML JSON YAML ...
+*** yaml
+*** json
+*** xml
 
-** TODO Spring
-Jako jeho CV je docela impresivní, tak bych asi akorát ověřil, jestli nepřehání. Osobně by mě - čistě z pohledu BE - zajímalo, jestli FAKT zná ten Spring a pokud jo, tak jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. Takže za mě hlavně:
-Jaký je rozdíl mezi JavaEE a Springem?
-JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí. Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
-Co přinesl Spring Boot do Spring ekosystému?
-Strašně zjednodušený start aplikace. Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default". Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem. V každém případě je to one liner. Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
-No a pak všetečný otázky na JavaEE a EJB2 a tak. To už znáš sám líp než já. :wink:
+** Code complexity O notation
+** Amortized complexity
 
-** Java exception handling                                         :SUBJECT:
-
-* BASICS: 
-** co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho
 * Functional Proramming
-** Lambda Calculus
+** Lambda Calculus                                                 :SUBJECT:
 *** α-conversion
 - changing bound variables
 *** β-reduction
 - applying functions to their arguments;
 *** η-reduction
 - which captures a notion of extensionality.
-** Monoid
-** Functor
-** Applicative
-** Monad
-** Kleisli Functor
-** Optics
-*** Lenses
-*** Prisms
-** recursion schemes
-*** catamorphisms
-*** anamorphisms
-*** hylomorphisms
-*** paramorphisms
+** Patterns
+*** Monoid
+*** Functor
+*** Applicative
+*** Monad
+*** Kleisli Functor
+*** Optics
+**** Lenses
+**** Prisms
+*** Recursion Schemes
+**** catamorphisms
+**** anamorphisms
+**** hylomorphisms
+**** paramorphisms
 
-** Persistent data structure - Chris Okasaki
-** Immutability                                                    :SUBJECT:
+**** Persistent data structure - Chris Okasaki
+**** Immutability                                                :SUBJECT:
 
-* LANG:
-** co je to Garbage Collector
-** strongly typed languages vs weakly typed
 * Security:
-** LDAP
-*** object class
-**** inetOrgPerson
-*** iod
-*** CN, DN, SN,
-** owasp top10
-** Bock Ciphers
-*** ECB, CBC, OFB, CFB, CTR  - what they are
-:PROPERTIES:
-:study:    https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
-:END:
-*** AES
-*** DES
-** Hash
-*** base64
-** co je to symetricka a asymetricka sifra
-** bastillion.io
-** PKI
-** X509
 ** Oauth2/OIDC
 *** grant types:
 **** Authorization Code
@@ -241,32 +214,121 @@ To do so, the application must ask for authorization to access this information 
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
-* Quality
+** LDAP
+*** object class
+**** inetOrgPerson
+*** OID
+*** CN, DN, SN,
+** OWASP top 10
+*** A1:2017-Injection
+*** A2:2017-Broken Authentication
+***  A3:2017-Sensitive Data Exposure
+***  A4:2017-XML External Entities (XXE)
+***  A5:2017-Broken Access Control
+***  A6:2017-Security Misconfiguration
+***  A7:2017-Cross-Site Scripting (XSS)
+***  A8:2017-Insecure Deserialization
+***  A9:2017-Using Components with Known Vulnerabilities
+***  A10:2017-Insufficient Logging & Monitoring
+** Ciphers
+*** Block Ciphers
+**** ECB, CBC, OFB, CFB, CTR  - what they are
+:PROPERTIES:
+:study:    https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
+:END:
+**** AES
+**** DES
+*** Hash
+***** base64
+*** symetricka sifra
+*** asymetricka sifra
+** bastillion.io
+** PKI
+** X509
+
+* Languages:
+** Java Script
+*** co je to iife
+*** inheritance model of JS
+*** hoisting
+*** event loop
+*** promisses
+*** observables
+*** RxJS
+*** JS modular system
+** Java
+*** Java 9 - project jigsaw
+*** hashCode vs equals()
+*** hashCode()
+**** is this code wrong? yes / no / why                         :QUESTION:
+Imagine you replace all haskCode implementation by this - what will happen
+#+begin_src java :output verbatim
+@Override
+public final int hashCode() {
+    int result = 17;
+    return result;
+}
+#+end_src
+*** contract? in Java 
+*** Generics
+*** Diamond operator
+*** Local-Variable Type inference
+*** Loom
+*** Java EE
+**** access intent
+***** optimistic vs pessimistic
+*** Java Collections Framework:
+**** List vs Set vs Map
+**** ArrayList vs LinkedList
+*** StringBuilder vs String Buffer vs String
+*** BigDecimal vs float
+
+*** TODO Spring
+**** Osobně by mě - čistě z pohledu BE - zajímalo, jestli 
+**** FAKT zná ten Spring a pokud jo,
+**** jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. 
+- To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. 
+- No a pak všetečný otázky na JavaEE a EJB2 a tak. 
+**** Jaký je rozdíl mezi JavaEE a Springem?
+- JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
+- Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+**** Co přinesl Spring Boot do Spring ekosystému?
+- Strašně zjednodušený start aplikace.
+- Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".
+- Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
+- V každém případě je to one liner.
+- Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+
+*** Jaký je rozdíl mezi Java a JavaEE
+*** Co je to aplikační server a nějaký příklad
+*** Java exception handling                                       :SUBJECT:
+** NodeJS
+- npm
+- yarn
+- nvm
+- popular libraries
+
+** Garbage Collector
+** strongly typed languages vs weakly typed
+* Quality and Testing
 ** Blue green deployment
 ** Code coverage
 ** Cyclomatic complexity                                           :SUBJECT:
 ** Code quality                                                    :SUBJECT:
 ** Antifragile architecture
 ** Unit testing
-
+** AB testing
 * Object Oriented Programming
 ** Gof Design Patterns
 *** Abstract Factory 
 *** Singleton
 
 * TODO unsorted
-** Code complexity O notation
-** Amortized complexity
 ** Maven
 ** Gradle
 ** ReasonML
-** Less
-** Sass
 ** Uml
 ** C4
 ** Org42
-** Jaký je rozdíl mezi Java a JavaEE
-** Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika...
-** Co je to aplikační server a nějaký příklad
 ** Co jsou to transakce
 ** Znáš Spring?
