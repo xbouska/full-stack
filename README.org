@@ -52,9 +52,10 @@
 *** open-close principal                                          :SUBJECT:
 *** High cohesion                                                 :SUBJECT:
 *** Low coupling                                                  :SUBJECT:
-* Project 
+* Project Process Documentation
 ** Scrum
 ** Kanban
+** XP
 ** Lean
 ** Jira
 ** Confluence
@@ -62,6 +63,9 @@
 ** DoD
 ** DoR
 
+** Uml
+** C4
+** Org42
 * Cloud
 ** Cloud native architecture
 ** IaaS
@@ -145,15 +149,24 @@ ip route sh
 **** traces
 *** Tail Latency
 * Web Front End
-** CORS
 ** React
 *** react-hooks
 *** React 
 *** React Native
 ** HTML
+*** Chrome Development Tools
+*** HTML5 Layout 
+**** answer
+- <header>: It is used to define a header for a document or a section.
+- <nav>: It is used to define a container for navigation links
+- <section>: It is used to define a section in a document
+- <article>: It is used to define an independent, self-contained article
+- <aside>: It is used to define content aside from the content (like a sidebar)
+- <footer>: It is used to define a footer for a document or a section
 ** CSS
 *** Less
 *** Sass
+** CORS
 ** The Elm Architecture (TEA)
 * IT+CS
 ** bit / byte / endian / float
@@ -227,14 +240,14 @@ and the authorization server uses the Scope parameter to respond with the access
 ** OWASP top 10
 *** A1:2017-Injection
 *** A2:2017-Broken Authentication
-***  A3:2017-Sensitive Data Exposure
-***  A4:2017-XML External Entities (XXE)
-***  A5:2017-Broken Access Control
-***  A6:2017-Security Misconfiguration
-***  A7:2017-Cross-Site Scripting (XSS)
-***  A8:2017-Insecure Deserialization
-***  A9:2017-Using Components with Known Vulnerabilities
-***  A10:2017-Insufficient Logging & Monitoring
+*** A3:2017-Sensitive Data Exposure
+*** A4:2017-XML External Entities (XXE)
+*** A5:2017-Broken Access Control
+*** A6:2017-Security Misconfiguration
+*** A7:2017-Cross-Site Scripting (XSS)
+*** A8:2017-Insecure Deserialization
+*** A9:2017-Using Components with Known Vulnerabilities
+*** A10:2017-Insufficient Logging & Monitoring
 ** Ciphers
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
@@ -252,6 +265,7 @@ and the authorization server uses the Scope parameter to respond with the access
 ** X509
 
 * Languages:
+** ReasonML
 ** Java Script
 *** co je to iife
 *** inheritance model of JS
@@ -312,29 +326,41 @@ try {
   log.error("Oh no!", e.getMessage());
 }
 #+end_src
-- Zdaleka největší průšvih je, že jsme přišli o stack trace! Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
+***** answer
+- Zdaleka největší průšvih je, že jsme přišli o stack trace!
+  - Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
 - Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
-- Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná. Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
+- Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná.
+  - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
 - A další věci, jako stupidní message "Oh no!", atd.
 *** Maven
 **** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
+***** answer
 - dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
 - Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekne, které z nich chce používat (a už nemusí deklarovat scope a verzi).
 - dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane.
 - Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
 **** K čemu se používá scope provided?
+***** answer
 - Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
 - Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
 - Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 
+*** Implemetations
+**** GraalVM
+**** Quarcus
+**** AdoptOpenJDK
 ** NodeJS
 - npm
 - yarn
 - nvm
 - popular libraries
 
-** Garbage Collector
-** strongly typed languages vs weakly typed
+** Language theory
+*** Garbage Collector
+*** Type systems
+**** strongly typed
+**** weakly typed
 * Quality and Testing
 ** Blue green deployment
 ** Code coverage
@@ -351,7 +377,4 @@ try {
 
 * TODO unsorted
 ** Gradle
-** ReasonML
-** Uml
-** C4
-** Org42
+
