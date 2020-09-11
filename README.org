@@ -352,4 +352,3 @@ try {
 ** Uml
 ** C4
 ** Org42
-** Co jsou to transakce
