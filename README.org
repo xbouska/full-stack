@@ -276,24 +276,15 @@ public final int hashCode() {
 #+end_src
 *** contract? in Java 
 *** Generics
-*** Diamond operator
-*** Local-Variable Type inference
-*** Loom
 *** Java EE
 **** access intent
 ***** optimistic vs pessimistic
 *** Java Collections Framework:
 **** List vs Set vs Map
 **** ArrayList vs LinkedList
-*** StringBuilder vs String Buffer vs String
+*** StringBuilder vs StringBuffer vs String
 *** BigDecimal vs float
-
-*** TODO Spring
-**** Osobně by mě - čistě z pohledu BE - zajímalo, jestli 
-**** FAKT zná ten Spring a pokud jo,
-**** jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. 
-- To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. 
-- No a pak všetečný otázky na JavaEE a EJB2 a tak. 
+*** Spring
 **** Jaký je rozdíl mezi JavaEE a Springem?
 - JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
 - Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
@@ -303,10 +294,28 @@ public final int hashCode() {
 - Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
 - V každém případě je to one liner.
 - Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
-
-*** Jaký je rozdíl mezi Java a JavaEE
+**** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem?
+- JavaEE to má implicitní a Spring explicitní
+- V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
+- Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá. Zapínáme si je explicitně pomocí anotace.
+*** Jaký je rozdíl mezi Java SE a JavaEE
+- Java SE se používá hlavně pro nějaké procesy, které se nastartují, provedou nějakou činost a skončí
+- JavaEE se používá hlavně pro aplikace, které jsou nasazené na nějakém trvale běžícím serveru a vystavují buď nějaké služby nebo přímo front end.
 *** Co je to aplikační server a nějaký příklad
 *** Java exception handling                                       :SUBJECT:
+**** Jaký je rozdíl mezi checked a unchecked exceptionou
+**** Co všechno je špatně na tomto kusu kódu
+#+begin_src java :output verbatim
+try {
+  // ...
+} catch (Exception e) {
+  log.error("Oh no!", e.getMessage());
+}
+#+end_src
+- Zdaleka největší průšvih je, že jsme přišli o stack trace! Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
+- Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
+- Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná. Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
+- A další věci, jako stupidní message "Oh no!", atd.
 ** NodeJS
 - npm
 - yarn
@@ -324,12 +333,20 @@ public final int hashCode() {
 ** Unit testing
 ** AB testing
 * Object Oriented Programming
+** Polymorphism
 ** Gof Design Patterns
 *** Abstract Factory 
 *** Singleton
 
 * TODO unsorted
 ** Maven
+*** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
+- dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu. Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekné, které z nich chce používat (a už nemusí deklarovat scope a verzi).
+- dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane. Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
+*** K čemu se používá scope provided?
+- Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
+- Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
+- Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 ** Gradle
 ** ReasonML
 ** Uml
