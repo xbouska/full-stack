@@ -9,7 +9,18 @@
 *** Entity and Value Object                                       :SUBJECT:
 ** Data architecture and tools
 *** ACID
+**** What does ti mean?
+***** answer
+- atomicity
+- consistency
+- isolation
+- durability
 *** BASE
+**** what does it mean?
+***** answer
+- Basic Availability
+- Soft-state
+- Eventual consistency
 *** SQL
 **** inner vs outher join
 **** partitionning
@@ -17,9 +28,45 @@
 *** CAP theorem
 *** Beyond CAP database systems
 *** Wall: Write Ahead Logs
-*** Distributed consensus: Paxos Raft Zab
+**** what it is good for
+*** Distributed consensus: 
+**** Paxos 
+**** Raft 
+**** Zab
 *** Transactions
-**** transaction isolation levels
+**** transaction problems that are prevented by isolation:
+***** What are they and what they mean?
+****** answer:
+- Dirty reads
+- non-repeatable reads
+- phantom reads
+**** JDBC transaction isolation levels
+***** what are they and what they prevent from?
+****** answer
+- TRANSACTION_READ_UNCOMMITTED
+  - Dirty reads, non-repeatable reads and phantom reads can occur.
+- TRANSACTION_READ_COMMITTED
+  - Dirty reads are prevented; non-repeatable reads and phantom reads can occur.
+- TRANSACTION_REPEATABLE_READ
+  - Dirty reads and non-repeatable reads are prevented; phantom reads can occur.
+- TRANSACTION_SERIALIZABLE
+  - Dirty reads, non-repeatable reads and phantom reads are prevented. 
+**** ANSI/ISO levels
+***** answer
+- serializable
+- repeatable read
+- read committed
+- read uncommitted
+- The Serializable isolation level guarantees that concurrent transactions run as they would if you would run sequentially one by one in order.
+- One step weaker is the Read Repeatable isolation level that allows Phantom Reads to happen in the transaction. Contrary to transactions running in the Serializable mode, the set of rows that is returned by two consecutive select queries in a transaction can differ. This can happen if another transaction adds or removes rows from the table we are querying.
+- Even weaker is the Read Commited isolation level. Two consecutive select statements in a transaction can return different data. Contrary to the Read Repeatable level, this level allows not only the set of rows to change, but also the data that those rows contain. This can happen if another transaction modifies the rows.
+- The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
+**** ORACLE:
+***** answer
+- READ COMMITTED (the default)
+- SERIALIZABLE.
+  - that what Oracle call SERIALIZABLE is actually snapshot isolation.
+**** PostgreSQL
 *** eventual consistency
 *** big table
 *** big query
@@ -28,10 +75,8 @@
 *** Elastic Search
 **** Bloom Filter
 *** MongoDB
-*** Apache Drill .. a jeho kamaradi
+*** Apache Drill
 *** Multi master replication
-*** JPA
-*** QueryDSL
 *** Backup strategy
 ** Messaging
 *** queue
@@ -114,7 +159,9 @@ ip route sh
 **** rebase vs merge - semantical and syntactical diff
 **** stash
 *** Docker
+**** dockerhub :-)
 **** docker file
+**** docker image
 **** docker compose
 **** docker swarm
 *** K8S: 
@@ -200,7 +247,6 @@ Access-Control-Request-Headers
 Access-Control-Request-Method
 Origin
 #+end_src
-*** 
 ** The Elm Architecture (TEA)
 * IT+CS
 ** bit / byte / endian / float
@@ -250,9 +296,9 @@ Origin
 
 * Security:
 ** Oauth2/OIDC
-*** grant types:
-**** Authorization Code
-**** Client Credentials
+*** grant (flow) types:
+**** Authorization Code Flow
+**** Client Credentials Flow
 **** Device Code
 **** Refresh Token
 **** PKCE
@@ -367,6 +413,8 @@ try {
 - Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná.
   - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
 - A další věci, jako stupidní message "Oh no!", atd.
+*** JPA
+*** QueryDSL
 *** Maven
 **** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
 ***** answer
