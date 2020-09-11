@@ -262,8 +262,6 @@ and the authorization server uses the Scope parameter to respond with the access
 *** RxJS
 *** JS modular system
 ** Java
-*** Java 9 - project jigsaw
-*** hashCode vs equals()
 *** hashCode()
 **** is this code wrong? yes / no / why                         :QUESTION:
 Imagine you replace all haskCode implementation by this - what will happen
@@ -274,15 +272,17 @@ public final int hashCode() {
     return result;
 }
 #+end_src
+*** hashCode vs equals()
 *** contract? in Java 
-*** Generics
-*** Java EE
-**** access intent
-***** optimistic vs pessimistic
 *** Java Collections Framework:
 **** List vs Set vs Map
 **** ArrayList vs LinkedList
 *** StringBuilder vs StringBuffer vs String
+*** Generics
+*** Java 9 - project jigsaw
+*** JavaEE / JacartaEE
+**** access intent
+***** optimistic vs pessimistic
 *** BigDecimal vs float
 *** Spring
 **** Jaký je rozdíl mezi JavaEE a Springem?
@@ -316,6 +316,17 @@ try {
 - Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
 - Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná. Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
 - A další věci, jako stupidní message "Oh no!", atd.
+*** Maven
+**** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
+- dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
+- Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekne, které z nich chce používat (a už nemusí deklarovat scope a verzi).
+- dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane.
+- Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
+**** K čemu se používá scope provided?
+- Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
+- Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
+- Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
+
 ** NodeJS
 - npm
 - yarn
@@ -339,14 +350,6 @@ try {
 *** Singleton
 
 * TODO unsorted
-** Maven
-*** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
-- dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu. Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekné, které z nich chce používat (a už nemusí deklarovat scope a verzi).
-- dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane. Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
-*** K čemu se používá scope provided?
-- Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
-- Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
-- Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 ** Gradle
 ** ReasonML
 ** Uml
