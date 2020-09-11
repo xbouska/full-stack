@@ -163,18 +163,52 @@ ip route sh
 - <article>: It is used to define an independent, self-contained article
 - <aside>: It is used to define content aside from the content (like a sidebar)
 - <footer>: It is used to define a footer for a document or a section
+*** What is iframe good for?
+**** answer
+An iframe is used to display a web page within a web page.
+Syntax:
+#+begin_src html :output verbatim
+<iframe src="URL"></iframe>  
+#+end_src
+Example:
+#+begin_src html :output verbatim
+<iframe src="demo_iframe.html" width="200px" height="200px"></iframe>  
+#+end_src
+Target to a link:
+#+begin_src html :output verbatim
+<iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
+#+end_src
 ** CSS
 *** Less
 *** Sass
 ** CORS
+:PROPERTIES:
+:lerning:  https://www.codecademy.com/articles/what-is-cors
+:END:
+*** why is CORS necessary?
+*** How Does CORS Manage Requests From External Resources?
+*** What http headers were added by CORS?
+**** answer
+#+begin_src html :output verbatim
+Access-Control-Allow-Origin
+Access-Control-Allow-Credentials
+Access-Control-Allow-Headers
+Access-Control-Allow-Methods
+Access-Control-Expose-Headers
+Access-Control-Max-Age
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Origin
+#+end_src
+*** 
 ** The Elm Architecture (TEA)
 * IT+CS
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logic vs aritmetic
 *** mantisa exponent jednickovy a dvojkovy doplnek
 ** TCP/IP
+*** IP address / netmask
 *** CIDR
-*** netmask
 ** Unicode
 *** What is unicode
 *** utf-8
