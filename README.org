@@ -85,7 +85,7 @@
 *** message delivery mode: 
 - at least once at most once exactly once
 ** micro-service-architecture
-** Enterprise Architecture Integration Patterns
+** TODO Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
 ** Event Sourcing
@@ -118,6 +118,9 @@
 ** PaaS
 ** SaaS
 ** FINOPS
+*** data at rest cost
+*** transfer cost
+*** cpu cost
 ** DEVSECOPS
 ** storage:
 *** S3
@@ -168,7 +171,7 @@ ip route sh
 **** TODO linux namespaces 
 **** TODO cgroups
 **** TODO OCI
-**** TODO volumes, 
+**** TODO volumes,
 **** TODO networks
 **** TODO BuildKit
 
@@ -220,9 +223,9 @@ ip route sh
 *** Tail Latency
 * Web Front End
 ** React
-*** react-hooks
-*** React 
-*** React Native
+*** TODO React 
+*** TODO React Native
+*** TODO react-hooks
 ** HTML
 *** Chrome Development Tools
 *** HTML5 Layout 
@@ -273,7 +276,7 @@ Origin
 ** The Elm Architecture (TEA)
 * IT+CS
 ** bit / byte / endian / float
-*** XOR, OR, AND, Shift (logic vs aritmetic
+*** XOR, OR, AND, Shift (logical vs aritmetic)
 *** mantisa exponent jednickovy a dvojkovy doplnek
 ** TCP/IP
 *** IP address / netmask
@@ -315,7 +318,7 @@ Origin
 **** paramorphisms
 
 **** Persistent data structure - Chris Okasaki
-**** Immutability                                                :SUBJECT:
+*** Immutability                                                  :SUBJECT:
 
 * Security:
 ** Oauth2/OIDC
@@ -340,7 +343,7 @@ and the authorization server uses the Scope parameter to respond with the access
 **** inetOrgPerson
 *** OID
 *** CN, DN, SN,
-** OWASP top 10
+** OWASP top 10 2017
 *** A1:2017-Injection
 *** A2:2017-Broken Authentication
 *** A3:2017-Sensitive Data Exposure
