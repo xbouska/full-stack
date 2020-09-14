@@ -1,35 +1,54 @@
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readthedoc.setup
+#+BEGIN_COMMENT
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
+#+END_COMMENT
+#+OPTIONS: html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+OPTIONS: d:t  prop:t tags:t |:t
 #+OPTIONS: H:2 num:1 toc:t ^:nil
 
 
-* Architecture & Design
-** DDD                                                             :SUBJECT:
-*** bounded context                                               :SUBJECT:
-*** ubiquotous language                                           :SUBJECT:
-*** Entity and Value Object                                       :SUBJECT:
+* Architecture & Design                                              :DOMAIN:
+** DDD                                                             :TOPIC:
+*** bounded context                                               :TOPIC:
+*** ubiquotous language                                           :TOPIC:
+*** Entity and Value Object                                       :TOPIC:
 ** Data architecture and tools
-*** ACID
-**** What does ti mean?
-***** answer
+*** background
+**** ACID
+***** What does ti mean?                                       :QUESTION:
+:ANSWER:
 - atomicity
 - consistency
 - isolation
 - durability
-*** BASE
-**** what does it mean?
-***** answer
+:END:
+**** BASE
+***** what does it mean?                                       :QUESTION:
+:ANSWER:
 - Basic Availability
 - Soft-state
 - Eventual consistency
+:END:
+**** ORM
+***** whatit is                                                :QUESTION:
+***** object relation impedance mismatch                       :QUESTION:
+***** bottom up                                                :QUESTION:
+***** tom down                                                 :QUESTION:
+***** meet in the middle                                       :QUESTION:
+**** CAP theorem
+***** Beyond CAP database systems
+**** Wall: Write Ahead Logs
+***** what it is good for
+
+**** eventual consistency
+**** Multi master replication
+**** OLAP vs OLTP
+**** slowly moving dimensions
+**** Backup strategy
 *** SQL
 **** inner vs outher join
 **** partitionning
-*** ORM
-*** CAP theorem
-*** Beyond CAP database systems
-*** Wall: Write Ahead Logs
-**** what it is good for
 *** Distributed consensus: 
 **** Paxos 
 **** Raft 
@@ -37,13 +56,14 @@
 *** Transactions
 **** transaction problems that are prevented by isolation:
 ***** What are they and what they mean?
-****** answer:
+:ASWER:
 - Dirty reads
 - non-repeatable reads
 - phantom reads
+:END:
 **** JDBC transaction isolation levels
 ***** what are they and what they prevent from?
-****** answer
+:ANSWER:
 - TRANSACTION_READ_UNCOMMITTED
   - Dirty reads, non-repeatable reads and phantom reads can occur.
 - TRANSACTION_READ_COMMITTED
@@ -52,6 +72,7 @@
   - Dirty reads and non-repeatable reads are prevented; phantom reads can occur.
 - TRANSACTION_SERIALIZABLE
   - Dirty reads, non-repeatable reads and phantom reads are prevented. 
+:END:
 **** ANSI/ISO levels - 
 ***** what they are
 :ANSWER:
@@ -68,22 +89,20 @@
 - The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
 :END:
 **** ORACLE:
-***** answer
+:ANSWER:
 - READ COMMITTED (the default)
 - SERIALIZABLE.
   - that what Oracle call SERIALIZABLE is actually snapshot isolation.
+:END:
 **** PostgreSQL
-*** eventual consistency
-*** big table
-*** big query
-*** OLAP vs OLTP
-*** slowly moving dimensions
-*** Elastic Search
-**** Bloom Filter
-*** MongoDB
-*** Apache Drill
-*** Multi master replication
-*** Backup strategy
+*** Tools
+**** big table
+**** big query
+**** Elastic Search
+***** Bloom Filter
+**** MongoDB
+**** Apache Drill
+
 ** Messaging
 *** queue
 *** topics
@@ -97,15 +116,15 @@
 ** CQRS
 ** CRUD
 ** Pragmatic Design principes
-*** DRY                                                           :SUBJECT:
-*** KISS                                                          :SUBJECT:
-*** YAGNI                                                         :SUBJECT:
-*** open-close principal                                          :SUBJECT:
-*** High cohesion                                                 :SUBJECT:
-*** Low coupling                                                  :SUBJECT:
-* Project Process Documentation
-** Scrum                                                           :SUBJECT:
-** Kanban                                                          :SUBJECT:
+*** DRY                                                           :TOPIC:
+*** KISS                                                          :TOPIC:
+*** YAGNI                                                         :TOPIC:
+*** open-close principal                                          :TOPIC:
+*** High cohesion                                                 :TOPIC:
+*** Low coupling                                                  :TOPIC:
+* Project Process Documentation                                      :DOMAIN:
+** Scrum                                                             :TOPIC:
+** Kanban                                                            :TOPIC:
 ** XP
 ** Lean
 ** Jira
@@ -117,7 +136,7 @@
 ** Uml
 ** C4
 ** Org42
-* Cloud
+* Cloud                                                              :DOMAIN:
 ** Cloud native architecture
 ** IaaS
 ** PaaS
@@ -133,14 +152,14 @@
 **** api
 **** what it is good for
 *** min.io
-* DEVOPS / SRE
+* DEVOPS / SRE                                                       :DOMAIN:
 ** Linux
 *** ssh how to create trust between computers
 *** awk / sed / grep / bash / tail / head
 *** rsync
 *** mount
 *** ls / ps / htop
-*** bash                                                          :SUBJECT:
+*** bash                                                          :TOPIC:
 **** co je to here doc?                                         :QUESTION:
 *** co je to regexp
 *** list open ports
@@ -228,7 +247,7 @@ ip route sh
 **** metrics
 **** traces
 *** Tail Latency
-* Web Front End
+* Web Front End                                                      :DOMAIN:
 ** React
 *** TODO React 
 *** TODO React Native
@@ -236,15 +255,16 @@ ip route sh
 ** HTML
 *** Chrome Development Tools
 *** HTML5 Layout 
-**** answer
+:ANSWER:
 - <header>: It is used to define a header for a document or a section.
 - <nav>: It is used to define a container for navigation links
 - <section>: It is used to define a section in a document
 - <article>: It is used to define an independent, self-contained article
 - <aside>: It is used to define content aside from the content (like a sidebar)
 - <footer>: It is used to define a footer for a document or a section
-*** What is iframe good for?
-**** answer
+:END:
+*** What is iframe good for?                                     :QUESTION:
+:ANSWER:
 An iframe is used to display a web page within a web page.
 Syntax:
 #+begin_src html :output verbatim
@@ -258,6 +278,7 @@ Target to a link:
 #+begin_src html :output verbatim
 <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
 #+end_src
+:END:
 ** CSS
 *** Less
 *** Sass
@@ -265,10 +286,10 @@ Target to a link:
 :PROPERTIES:
 :lerning:  https://www.codecademy.com/articles/what-is-cors
 :END:
-*** why is CORS necessary?
-*** How Does CORS Manage Requests From External Resources?
-*** What http headers were added by CORS?
-**** answer
+*** why is CORS necessary?                                       :QUESTION:
+*** How Does CORS Manage Requests From External Resources?       :QUESTION:
+*** What http headers were added by CORS?                        :QUESTION:
+:ANSWER:
 #+begin_src html :output verbatim
 Access-Control-Allow-Origin
 Access-Control-Allow-Credentials
@@ -280,8 +301,9 @@ Access-Control-Request-Headers
 Access-Control-Request-Method
 Origin
 #+end_src
+:END:
 ** The Elm Architecture (TEA)
-* IT+CS
+* IT+CS                                                              :DOMAIN:
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** mantisa exponent jednickovy a dvojkovy doplnek
@@ -301,33 +323,7 @@ Origin
 ** Code complexity O notation
 ** Amortized complexity
 
-* Functional Programming
-** Lambda Calculus                                                 :SUBJECT:
-*** α-conversion
-- changing bound variables
-*** β-reduction
-- applying functions to their arguments;
-*** η-reduction
-- which captures a notion of extensionality.
-** Patterns
-*** Monoid
-*** Functor
-*** Applicative
-*** Monad
-*** Kleisli Functor
-*** Optics
-**** Lenses
-**** Prisms
-*** Recursion Schemes
-**** catamorphisms
-**** anamorphisms
-**** hylomorphisms
-**** paramorphisms
-
-**** Persistent data structure - Chris Okasaki
-*** Immutability                                                  :SUBJECT:
-
-* Security:
+* Security:                                                          :DOMAIN:
 ** Oauth2/OIDC
 *** grant (flow) types:
 **** Authorization Code Flow
@@ -376,10 +372,43 @@ and the authorization server uses the Scope parameter to respond with the access
 ** bastillion.io
 ** PKI
 ** X509
+*** Why does GoDaddy have four different certificate chain, G2, G3, G4? :QUESTION:
+:ANSWER:
 
-* Languages:
-** ReasonML
-** Java Script
+:END:
+* Languages & programming:                                           :DOMAIN:
+** Functional Programming                                           :TOPIC:
+*** Lambda Calculus                                                 :TOPIC:
+**** α-conversion
+- changing bound variables
+**** β-reduction
+- applying functions to their arguments;
+**** η-reduction
+- which captures a notion of extensionality.
+*** Patterns
+**** Monoid
+**** Functor
+**** Applicative
+**** Monad
+**** Kleisli Functor
+**** Optics
+***** Lenses
+***** Prisms
+**** Recursion Schemes
+***** catamorphisms
+***** anamorphisms
+***** hylomorphisms
+***** paramorphisms
+
+***** Persistent data structure - Chris Okasaki
+**** Immutability                                                  :TOPIC:
+** Object Oriented Programming                                      :TOPIC:
+*** Polymorphism
+*** Gof Design Patterns
+**** Abstract Factory 
+**** Singleton
+** ReasonML                                                          :TOPIC:
+** Java Script                                                       :TOPIC:
 *** co je to iife
 *** inheritance model of JS
 *** hoisting
@@ -388,9 +417,10 @@ and the authorization server uses the Scope parameter to respond with the access
 *** observables
 *** RxJS
 *** JS modular system
-** Java
-*** hashCode()
-**** is this code wrong? yes / no / why                         :QUESTION:
+** Java                                                              :TOPIC:
+*** Basic Java
+**** hashCode()
+***** is this code wrong? yes / no / why                       :QUESTION:
 Imagine you replace all haskCode implementation by this - what will happen
 #+begin_src java :output verbatim
 @Override
@@ -399,39 +429,70 @@ public final int hashCode() {
     return result;
 }
 #+end_src
-*** hashCode vs equals()
-*** contract? in Java 
-*** Java Collections Framework:
-**** List vs Set vs Map
-**** ArrayList vs LinkedList
-*** StringBuilder vs StringBuffer vs String
-*** Generics
-*** Java 9 - project jigsaw
-*** JavaEE / JacartaEE
-**** access intent
-***** optimistic vs pessimistic
-*** BigDecimal vs float
+**** hashCode vs equals()
+**** what is a contract?                                        :QUESTION:
+**** Java Collections Framework:
+***** what is a difference between List vs Set vs Map          :QUESTION:
+***** what is the difference ArrayList vs LinkedList           :QUESTION:
+**** StringBuilder vs StringBuffer vs String
+**** Generics
+**** Java 9 - project jigsaw
+**** BigDecimal vs float
+**** Java exception handling                                       :TOPIC:
+***** what is the difference betwen checked and unchecked exception? :QUESTION:
+***** Co všechno je špatně na tomto kusu kódu                  :QUESTION:
+#+begin_src java :output verbatim
+try {
+  // ...
+} catch (Exception e) {
+  log.error("Oh no!", e.getMessage());
+}
+#+end_src
+:ANSWER:
+- Zdaleka největší průšvih je, že jsme přišli o stack trace!
+  - Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
+- Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
+- Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná.
+  - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
+- A další věci, jako stupidní message "Oh no!", atd.
+:END:
+**** JPA
+**** QueryDSL
+**** Maven
+***** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>? :QUESTION:
+:ANSWER:
+- dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
+- Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekne, které z nich chce používat (a už nemusí deklarovat scope a verzi).
+- dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane.
+- Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
+:END:
+***** K čemu se používá scope provided?                        :QUESTION:
+:ANSWER:
+- Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
+- Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
+- Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
+:END:
 *** Spring & Spring Boot
-**** Difference between spting abd spting boot
-**** Jaký je rozdíl mezi JavaEE a Springem?
+**** Difference between spting abd spting boot                  :QUESTION:
+**** Jaký je rozdíl mezi JavaEE a Springem?                     :QUESTION:
 - JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
 - Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
-**** Co přinesl Spring Boot do Spring ekosystému?
+**** Co přinesl Spring Boot do Spring ekosystému?               :QUESTION:
 - Strašně zjednodušený start aplikace.
 - Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".
 - Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
 - V každém případě je to one liner.
 - Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
-**** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem?
+**** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem? :QUESTION:
 - JavaEE to má implicitní a Spring explicitní
 - V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
 - Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá. Zapínáme si je explicitně pomocí anotace.
-**** What is the difference betweek JPA and Hibernate?
+**** What is the difference betweek JPA and Hibernate?          :QUESTION:
 :ANSWER:
 - JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
 - Hibernate is an implementation of Java Persistence API and offers benefits of loose coupling
 :END:
-**** Can use jetty instead of tomcat in spring-boot-starter-web?
+**** Can use jetty instead of tomcat in spring-boot-starter-web? :QUESTION:
 :ANSWER:
 - Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:
 #+begin_src xml :output verbatim
@@ -451,72 +512,37 @@ public final int hashCode() {
 </dependency>
 #+end_src
 :END:
-*** Jaký je rozdíl mezi Java SE a JavaEE
+*** JavaEE / JacartaEE
+**** access intent
+***** optimistic vs pessimistic
+**** Jaký je rozdíl mezi Java SE a JavaEE
 - Java SE se používá hlavně pro nějaké procesy, které se nastartují, provedou nějakou činost a skončí
 - JavaEE se používá hlavně pro aplikace, které jsou nasazené na nějakém trvale běžícím serveru a vystavují buď nějaké služby nebo přímo front end.
-*** Co je to aplikační server a nějaký příklad
-*** Java exception handling                                       :SUBJECT:
-**** what is the difference betwen checked and unchecked exception?
-**** Co všechno je špatně na tomto kusu kódu
-#+begin_src java :output verbatim
-try {
-  // ...
-} catch (Exception e) {
-  log.error("Oh no!", e.getMessage());
-}
-#+end_src
-:ANSWER:
-- Zdaleka největší průšvih je, že jsme přišli o stack trace!
-  - Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
-- Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
-- Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná.
-  - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
-- A další věci, jako stupidní message "Oh no!", atd.
-:END:
-*** JPA
-*** QueryDSL
-*** Maven
-**** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>?
-***** answer
-- dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
-- Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekne, které z nich chce používat (a už nemusí deklarovat scope a verzi).
-- dependencies v otcovském pomu znamenají, že každý sub-modul všechny takové dependence automaticky dostane.
-- Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.
-**** K čemu se používá scope provided?
-***** answer
-- Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu
-- Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
-- Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
-
+**** Co je to aplikační server a nějaký příklad
 *** Implemetations
 **** GraalVM
 **** Quarcus
 **** AdoptOpenJDK
-** NodeJS
+** NodeJS                                                            :TOPIC:
 - npm
 - yarn
 - nvm
 - popular libraries
 
-** Language theory
+** Language theory                                                   :TOPIC:
 *** Garbage Collector
 *** Type systems
 **** strongly typed
 **** weakly typed
-* Quality and Testing
+* Quality and Testing                                                :DOMAIN:
 ** Blue green deployment
 ** Code coverage
-** Cyclomatic complexity                                           :SUBJECT:
-** Code quality                                                    :SUBJECT:
+** Cyclomatic complexity                                           :TOPIC:
+** Code quality                                                    :TOPIC:
 ** Antifragile architecture
 ** Unit testing
 ** AB testing
-* Object Oriented Programming
-** Polymorphism
-** Gof Design Patterns
-*** Abstract Factory 
-*** Singleton
-
 * TODO unsorted
 ** Gradle
+
 
