@@ -52,16 +52,21 @@
   - Dirty reads and non-repeatable reads are prevented; phantom reads can occur.
 - TRANSACTION_SERIALIZABLE
   - Dirty reads, non-repeatable reads and phantom reads are prevented. 
-**** ANSI/ISO levels
-***** answer
+**** ANSI/ISO levels - 
+***** what they are
+:ANSWER:
 - serializable
 - repeatable read
 - read committed
 - read uncommitted
+:END:
+***** define some
+:ANSWER:
 - The Serializable isolation level guarantees that concurrent transactions run as they would if you would run sequentially one by one in order.
 - One step weaker is the Read Repeatable isolation level that allows Phantom Reads to happen in the transaction. Contrary to transactions running in the Serializable mode, the set of rows that is returned by two consecutive select queries in a transaction can differ. This can happen if another transaction adds or removes rows from the table we are querying.
 - Even weaker is the Read Commited isolation level. Two consecutive select statements in a transaction can return different data. Contrary to the Read Repeatable level, this level allows not only the set of rows to change, but also the data that those rows contain. This can happen if another transaction modifies the rows.
 - The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
+:END:
 **** ORACLE:
 ***** answer
 - READ COMMITTED (the default)
@@ -99,8 +104,8 @@
 *** High cohesion                                                 :SUBJECT:
 *** Low coupling                                                  :SUBJECT:
 * Project Process Documentation
-** Scrum
-** Kanban
+** Scrum                                                           :SUBJECT:
+** Kanban                                                          :SUBJECT:
 ** XP
 ** Lean
 ** Jira
@@ -132,6 +137,8 @@
 ** Linux
 *** ssh how to create trust between computers
 *** awk / sed / grep / bash / tail / head
+*** rsync
+*** mount
 *** ls / ps / htop
 *** bash                                                          :SUBJECT:
 **** co je to here doc?                                         :QUESTION:
@@ -404,7 +411,8 @@ public final int hashCode() {
 **** access intent
 ***** optimistic vs pessimistic
 *** BigDecimal vs float
-*** Spring
+*** Spring & Spring Boot
+**** Difference between spting abd spting boot
 **** Jaký je rozdíl mezi JavaEE a Springem?
 - JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
 - Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
@@ -418,12 +426,37 @@ public final int hashCode() {
 - JavaEE to má implicitní a Spring explicitní
 - V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
 - Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá. Zapínáme si je explicitně pomocí anotace.
+**** What is the difference betweek JPA and Hibernate?
+:ANSWER:
+- JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
+- Hibernate is an implementation of Java Persistence API and offers benefits of loose coupling
+:END:
+**** Can use jetty instead of tomcat in spring-boot-starter-web?
+:ANSWER:
+- Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:
+#+begin_src xml :output verbatim
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+#+end_src
+:END:
 *** Jaký je rozdíl mezi Java SE a JavaEE
 - Java SE se používá hlavně pro nějaké procesy, které se nastartují, provedou nějakou činost a skončí
 - JavaEE se používá hlavně pro aplikace, které jsou nasazené na nějakém trvale běžícím serveru a vystavují buď nějaké služby nebo přímo front end.
 *** Co je to aplikační server a nějaký příklad
 *** Java exception handling                                       :SUBJECT:
-**** Jaký je rozdíl mezi checked a unchecked exceptionou
+**** what is the difference betwen checked and unchecked exception?
 **** Co všechno je špatně na tomto kusu kódu
 #+begin_src java :output verbatim
 try {
@@ -432,13 +465,14 @@ try {
   log.error("Oh no!", e.getMessage());
 }
 #+end_src
-***** answer
+:ANSWER:
 - Zdaleka největší průšvih je, že jsme přišli o stack trace!
   - Musíme nechat zalogovat celý objekt "e" a nebo aspoň přímo jeho ST.
 - Chytáme příliš obecný typ, takže nemůžeme nijak rozlišit mezi jednotlivými typy chyb.
 - Kombinace chytání příliš obecné chyby a neudělání re-throw, je velmi nebezpečná.
   - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
 - A další věci, jako stupidní message "Oh no!", atd.
+:END:
 *** JPA
 *** QueryDSL
 *** Maven
