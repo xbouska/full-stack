@@ -1,11 +1,13 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
 #+BEGIN_COMMENT
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
 #+END_COMMENT
+#+BEGIN_COMMENT
 #+OPTIONS: html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
+#+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:2 num:1 toc:t ^:nil
+#+OPTIONS: H:1 num:1 toc:t ^:nil
 
 
 * Architecture & Design                                              :DOMAIN:
@@ -96,20 +98,78 @@
 :END:
 **** PostgreSQL
 *** Tools
-**** big table
-**** big query
+**** Big Table
+**** Big Query
 **** Elastic Search
 ***** Bloom Filter
 **** MongoDB
 **** Apache Drill
-
 ** Messaging
 *** queue
 *** topics
 *** message delivery mode: 
 - at least once at most once exactly once
+** HTTP Family
+*** HTTP
+**** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
+:ANSWER:
+- Accept headers:
+  - tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as application/xml then XML response will be sent. For Accept header application/json, server will send the JSON response.
+- Content-Type header:
+  - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+:END:
+**** What is Server-Sent Events  (SSE)                          :QUESTION:
+:ANSWER:
+- is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
+- They are commonly used to send message updates or continuous data streams to a browser client
+  - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
+    - through which a client requests a particular URL in order to receive an event stream.
+:END:
+*** REST
+**** What are the HTTP methods supported by REST?               :QUESTION:
+:ANSWER:
+HTTP methods supported by REST are:
+
+| GET     | It requests a resource at the request URL. It should not contain a request body as it will be discarded. Maybe it can be cached locally or on the server. |
+| POST    | It submits information to the service for processing; it should typically return the modified or new resource                                             |
+| PUT     | At the request URL it update the resource                                                                                                                 |
+| DELETE  | At the request URL it removes the resource                                                                                                                |
+| OPTIONS | It indicates which techniques are supported                                                                                                               |
+| HEAD    | About the request URL it returns meta information                                                                                                         |
+:END:
+
+**** What is the purpose of HTTP Status Code?                   :QUESTION:
+:ANSWER:
+HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
+
+Consider following status codes:
+| 200 | OK                    | shows success.                                                                                                                                     |
+| 201 | CREATED               | when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.                      |
+| 304 | NOT MODIFIED          | used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc. |
+| 400 | BAD REQUEST           | states that invalid input is provided e.g. validation error, missing data.                                                                         |
+| 401 | FORBIDDEN             | states that user is not having access to method being used for example, delete access without admin rights.                                        |
+| 404 | NOT FOUND             | states that method is not available.                                                                                                               |
+| 409 | CONFLICT              | states conflict situation while executing the method for example, adding duplicate entry.                                                          |
+| 500 | INTERNAL SERVER ERROR | states that server has thrown some exception while executing the method.                                                                           |
+:END:
+**** What is statelessness in RESTful Webservices?              :QUESTION:
+:ANSWER:
+- As per REST architecture, a RESTful web service should not keep a client state on server.
+- This restriction is called statelessness.
+- It is responsibility of the client to pass its context to server and then server can store this context to process client's further request.
+- For example, session maintained by server is identified by session identifier passed by the client.
+:END:
+**** what is the difference between PUT and POST?               :QUESTION:
+
+:ANSWER:
+- PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
+- POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource
+- PUT is idempotent meaning, invoking it any number of times will not have an impact on resources.
+- However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
+:END:
+
 ** micro-service-architecture
-** TODO Enterprise Architecture Integration Patterns
+** Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
 ** Event Sourcing
@@ -122,6 +182,7 @@
 *** open-close principal                                          :TOPIC:
 *** High cohesion                                                 :TOPIC:
 *** Low coupling                                                  :TOPIC:
+**** What is temporal coupling?                                 :QUESTION:
 * Project Process Documentation                                      :DOMAIN:
 ** Scrum                                                             :TOPIC:
 ** Kanban                                                            :TOPIC:
@@ -145,6 +206,7 @@
 *** data at rest cost
 *** transfer cost
 *** cpu cost
+*** 
 ** DEVSECOPS
 ** storage:
 *** S3
@@ -176,7 +238,7 @@
 *** /etc/nsswitch.conf
 *** /etc/resolv.conf
 *** ip
-#+begin_src bash :output verbatim
+#+begin_src bash
 ip addr sh
 ip route sh
 #+end_src
@@ -249,33 +311,35 @@ ip route sh
 *** Tail Latency
 * Web Front End                                                      :DOMAIN:
 ** React
-*** TODO React 
-*** TODO React Native
-*** TODO react-hooks
+*** React 
+*** React Native
+*** react-hooks
 ** HTML
 *** Chrome Development Tools
 *** HTML5 Layout 
 :ANSWER:
-- <header>: It is used to define a header for a document or a section.
-- <nav>: It is used to define a container for navigation links
-- <section>: It is used to define a section in a document
-- <article>: It is used to define an independent, self-contained article
-- <aside>: It is used to define content aside from the content (like a sidebar)
-- <footer>: It is used to define a footer for a document or a section
+#+begin_src html
+<header> It is used to define a header for a document or a section.
+<nav> It is used to define a container for navigation links
+<section> It is used to define a section in a document
+<article> It is used to define an independent, self-contained article
+<aside> It is used to define content aside from the content (like a sidebar)
+<footer> It is used to define a footer for a document or a section
+#+end_src
 :END:
 *** What is iframe good for?                                     :QUESTION:
 :ANSWER:
 An iframe is used to display a web page within a web page.
 Syntax:
-#+begin_src html :output verbatim
+#+begin_src html
 <iframe src="URL"></iframe>  
 #+end_src
 Example:
-#+begin_src html :output verbatim
+#+begin_src html
 <iframe src="demo_iframe.html" width="200px" height="200px"></iframe>  
 #+end_src
 Target to a link:
-#+begin_src html :output verbatim
+#+begin_src html
 <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
 #+end_src
 :END:
@@ -290,7 +354,7 @@ Target to a link:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
 *** What http headers were added by CORS?                        :QUESTION:
 :ANSWER:
-#+begin_src html :output verbatim
+#+begin_src html
 Access-Control-Allow-Origin
 Access-Control-Allow-Credentials
 Access-Control-Allow-Headers
@@ -374,7 +438,10 @@ and the authorization server uses the Scope parameter to respond with the access
 ** X509
 *** Why does GoDaddy have four different certificate chain, G2, G3, G4? :QUESTION:
 :ANSWER:
-
+- "G" stands for Root certificates generation.
+- Basically, it identifies the generation (version) of a Root certificate that signs the Chain of trust.
+- When CA needs to get a new chain (for example, because of upgrade from SHA-1 to SHA-256), they just increment the generation number.
+- This is good because obsolete certificates can be better identified.
 :END:
 * Languages & programming:                                           :DOMAIN:
 ** Functional Programming                                           :TOPIC:
@@ -422,7 +489,7 @@ and the authorization server uses the Scope parameter to respond with the access
 **** hashCode()
 ***** is this code wrong? yes / no / why                       :QUESTION:
 Imagine you replace all haskCode implementation by this - what will happen
-#+begin_src java :output verbatim
+#+begin_src java
 @Override
 public final int hashCode() {
     int result = 17;
@@ -435,13 +502,65 @@ public final int hashCode() {
 ***** what is a difference between List vs Set vs Map          :QUESTION:
 ***** what is the difference ArrayList vs LinkedList           :QUESTION:
 **** StringBuilder vs StringBuffer vs String
+**** Can we have static method in the interface?                :QUESTION:
+:ANSWER:
+- Yes, we can have static method in the interface from Java 8.
+:END:
+****  You have a list of Custom objects? How can you sort them? :QUESTION:
+:ANSWER:
+You need to use Comparable or Comparator interface to sort list of custom objects.
+:END:
+**** How to create thread safe Singleton in Java                :QUESTION:
+:ANSWER:
+- use double checked locking
+- use class loader
+- use enum
+- Read more: https://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz6Y1Y1v8C1
+:END:
+**** Difference between Listand Set in Java?                    :QUESTION:
+:ANSWER:
+- hint: List is ordered and allows duplicate. Set is unordered and doesn't allow duplicate elements.
+:END:
+**** How do you prevent a class from being sub-classed in Java? :QUESTION:
+:ANSWER:
+- just make its constructor private
+:END:
+**** Difference between throw and throws keyword in Java?
+:ANSWER:
+- throws declare what exception a method can throw in case of error but throw keyword actually throws an exception. 
+- See Java Fundamentals: Exception Handling to learn more about Exception handling in Java. 
+:END:
+**** Difference between Iterator and Enumeration in Java?
+:ANSWER:
+- Iterator also gives you the ability to remove an element while iterating while Enumeration doesn't allow that.
+:END:
+**** What is IdentityHashMap in Java?  :QUESTION:
+:ANSWER:
+- A Map, which uses  the == equality operator to check equality instead of the equals() method.
+:END:
+**** What is String pool in Java?  :QUESTION:
+:ANSWER:
+- A pool of String literals. Remember it's moved to heap from perm gen space in JDK 7.
+:END:
+**** Can a Serializable class contain a non-serializable field in Java?  :QUESTION:
+:ANSWER:
+- Yes, but you need to make it either static or transient.
+:END:
+**** Difference between this and super in Java?  :QUESTION:
+:ANSWER:
+- this refers to the current instance while super refers to an instance of the superclass.
+:END:
+**** Difference between Comparator and Comparable in Java?  :QUESTION:
+:ANSWER:
+- Comparator defines custom ordering while Comparable defines the natural order of objects, e.g. the alphabetic order for String. See The Complete Java MasterClass to learn more about sorting in Java. 
+:END:
 **** Generics
 **** Java 9 - project jigsaw
 **** BigDecimal vs float
 **** Java exception handling                                       :TOPIC:
 ***** what is the difference betwen checked and unchecked exception? :QUESTION:
 ***** Co všechno je špatně na tomto kusu kódu                  :QUESTION:
-#+begin_src java :output verbatim
+#+begin_src java
 try {
   // ...
 } catch (Exception e) {
@@ -472,6 +591,7 @@ try {
 - Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
 - Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 :END:
+**** Gradle
 *** Spring & Spring Boot
 **** Difference between spting abd spting boot                  :QUESTION:
 **** Jaký je rozdíl mezi JavaEE a Springem?                     :QUESTION:
@@ -495,7 +615,7 @@ try {
 **** Can use jetty instead of tomcat in spring-boot-starter-web? :QUESTION:
 :ANSWER:
 - Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:
-#+begin_src xml :output verbatim
+#+begin_src xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
@@ -542,7 +662,6 @@ try {
 ** Antifragile architecture
 ** Unit testing
 ** AB testing
-* TODO unsorted
-** Gradle
+
 
 
