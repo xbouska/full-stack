@@ -1,5 +1,6 @@
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readthedoc.setup
 #+OPTIONS: d:t  prop:t tags:t |:t
+#+OPTIONS: H:2 num:1 toc:t ^:nil
 
 
 * Architecture & Design
@@ -152,28 +153,48 @@ ip route sh
 #+end_src
 ** Tools
 *** Git
-**** pull-request
-**** cherry pick
-**** flow
-**** git push
-**** rebase vs merge - semantical and syntactical diff
-**** stash
+**** TODO pull-request
+**** TODO cherry pick
+**** TODO flow
+**** TODO git push
+**** TODO rebase vs merge - semantical and syntactical diff
+**** TODO stash
 *** Docker
-**** dockerhub :-)
-**** docker file
-**** docker image
-**** docker compose
-**** docker swarm
-*** K8S: 
+**** TODO dockerhub :-)
+**** TODO docker file
+**** TODO docker image
+**** TODO docker compose
+**** TODO docker swarm
+**** TODO linux namespaces 
+**** TODO cgroups
+**** TODO OCI
+**** TODO volumes, 
+**** TODO networks
+**** TODO BuildKit
+
+*** K8S / Kubernetes: 
 **** helm
 **** chart
 **** template
+**** cluster
 **** pod
 **** node
 **** service mesh
 **** ingress controller
 **** ingress and exgress?
 **** etcd
+**** secret
+**** operator
+**** CRD / Custom Resources
+:answer:
+- A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.
+- A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
+- Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods.
+:end:
+**** liveness/readines probes
+**** kubectl
+**** CNCF
+
 *** Terraform
 **** resource
 **** module
@@ -189,6 +210,8 @@ ip route sh
 *** kibana
 *** graphana
 *** ELK
+*** DynaTrace
+*** Piwik
 ** Observability
 *** 3 pillars
 **** logs
@@ -268,7 +291,7 @@ Origin
 ** Code complexity O notation
 ** Amortized complexity
 
-* Functional Proramming
+* Functional Programming
 ** Lambda Calculus                                                 :SUBJECT:
 *** α-conversion
 - changing bound variables
