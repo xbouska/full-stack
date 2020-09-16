@@ -244,10 +244,38 @@ Consider following status codes:
 *** GCS bucket
 **** api
 **** what it is good for
-*** min.io
+*** MinIO Object Storage
 * DEVOPS / SRE                                                       :DOMAIN:
 ** Tools
 *** Git
+**** What is the use of Staging area or Indexing in Git?        :QUESTION:
+:ANSWER:
+From Git’s perspective, there are three areas where the file changes can be kept i.e.:
+- working directory,
+- staging area, and
+- repository.
+
+
+- First, you make changes in your project’s working directory stored on your computer file system.
+- All the changes remain here until you add them to an intermediate area called staging area.
+
+- You can stage the changes by executing ~git add .~
+- This staging area gives you a preview of your next commit and basically lets you fine-tune your commits.
+- You can add or remove changes in the staging area until you are satisfied with the version you are going to commit.
+
+- Once you verify your changes and sign off the stage changed, then you can finally commit the changes.
+- Upon commit, they go the local repository i.e. into ~.git/objects~ directory.
+
+- If you use Git GUI, then you will see the option to stage your changes.
+
+- In the below screenshot, the file sample.txt is under unstaged changes area which means that it’s in your working directory.
+
+- Staging is also referred to as indexing because git maintains an index file to keep track of your file changes across these three areas.
+- The files which are staged are currently in your index.
+- When you add changes to the staging area, then the information in the index gets updated.
+- When you do a commit, its actually what’s in the index that gets committed, and not what’s in the working directory.
+- You can use the git status command to see what’s in the index.
+:END:
 **** TODO pull-request
 **** TODO cherry pick
 **** TODO flow
