@@ -7,8 +7,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:1 num:1 toc:t ^:nil
-
+#+OPTIONS: H:1 num:3 toc:t ^:t
 
 * Architecture & Design                                              :DOMAIN:
 ** DDD                                                             :TOPIC:
@@ -18,7 +17,7 @@
 ** Data architecture and tools
 *** background
 **** ACID
-***** What does ti mean?                                       :QUESTION:
+***** What does ACID ti mean?                                  :QUESTION:
 :ANSWER:
 - atomicity
 - consistency
@@ -33,7 +32,7 @@
 - Eventual consistency
 :END:
 **** ORM
-***** whatit is                                                :QUESTION:
+***** what is it                                               :QUESTION:
 ***** object relation impedance mismatch                       :QUESTION:
 ***** bottom up                                                :QUESTION:
 ***** tom down                                                 :QUESTION:
@@ -42,11 +41,37 @@
 ***** Beyond CAP database systems
 **** Wall: Write Ahead Logs
 ***** what it is good for
-
 **** eventual consistency
 **** Multi master replication
 **** OLAP vs OLTP
 **** slowly moving dimensions
+***** What is it?                                              :QUESTION:
+-  Type 0 - The passive method
+- Type 1 - Overwriting the old value
+- Type 2 - Creating a new additional record
+- Type 3 - Adding a new column
+- Type 4 - Using historical table
+- Type 6 - Combine approaches of types 1,2,3 (1+2+3=6)
+***** Type 0 - The passive method.                             :QUESTION:
+- In this method no special action is performed upon dimensional changes. Some dimension data can remain the same as it was first time inserted, others may be overwritten.
+***** Type 1 - Overwriting the old value.                      :QUESTION:
+- In this method no history of dimension changes is kept in the database. The old dimension value is simply overwritten be the new one. This type is easy to maintain and is often use for data which changes are caused by processing corrections(e.g. removal special characters, correcting spelling errors).
+***** Type 2 - Creating a new additional record.               :QUESTION:
+- In this methodology all history of dimension changes is kept in the database. You capture attribute change by adding a new row with a new surrogate key to the dimension table. Both the prior and new rows contain as attributes the natural key(or other durable identifier). Also 'effective date' and 'current indicator' columns are used in this method. There could be only one record with current indicator set to 'Y'. For 'effective date' columns, i.e. start_date and end_date, the end_date for current record usually is set to value 9999-12-31. Introducing changes to the dimensional model in type 2 could be very expensive database operation so it is not recommended to use it in dimensions where a new attribute could be added in the future.
+***** Type 3 - Adding a new column.                            :QUESTION:
+- In this type usually only the current and previous value of dimension is kept in the database. The new value is loaded into 'current/new' column and the old one into 'old/previous' column. Generally speaking the history is limited to the number of column created for storing historical data. This is the least commonly needed technique.
+***** Type 4 - Using historical table.                         :QUESTION:
+- In this method a separate historical table is used to track all dimension's attribute historical changes for each of the dimension. The 'main' dimension table keeps only the current data e.g. customer and customer_history tables.
+***** Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).    :QUESTION:
+- In this type we have in dimension table such additional columns as:
+
+- current_type - for keeping current value of the attribute. All history records for given item of attribute have the same current value.
+- historical_type - for keeping historical value of the attribute. All history records for given item of attribute could have different values.
+- start_date - for keeping start date of 'effective date' of attribute's history.
+- end_date - for keeping end date of 'effective date' of attribute's history.
+- current_flag - for keeping information about the most recent record.
+
+- In this method to capture attribute change we add a new record as in type 2. The current_type information is overwritten with the new one as in type 1. We store the history in a historical_column as in type 3.
 **** Backup strategy
 *** SQL
 **** inner vs outher join
@@ -97,6 +122,12 @@
   - that what Oracle call SERIALIZABLE is actually snapshot isolation.
 :END:
 **** PostgreSQL
+***** Explain about Multi version concurrency control?         :question:
+:ANSWER:
+- Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.
+- This removes the time lag for the user to log into his database.
+- This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
+:END:
 *** Tools
 **** Big Table
 **** Big Query
@@ -108,7 +139,9 @@
 *** queue
 *** topics
 *** message delivery mode: 
-- at least once at most once exactly once
+- at least once
+- at most once
+- exactly once
 ** HTTP Family
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
@@ -186,17 +219,16 @@ Consider following status codes:
 * Project Process Documentation                                      :DOMAIN:
 ** Scrum                                                             :TOPIC:
 ** Kanban                                                            :TOPIC:
-** XP
-** Lean
-** Jira
-** Confluence
-** MOSCOW
-** DoD
-** DoR
-
-** Uml
-** C4
-** Org42
+** XP                                                                :TOPIC:
+** Lean                                                              :TOPIC:
+** Jira                                                              :TOPIC:
+** Confluence                                                        :TOPIC:
+** MOSCOW                                                            :TOPIC:
+** DoD                                                               :TOPIC:
+** DoR                                                               :TOPIC:
+** Uml                                                               :TOPIC:
+** C4                                                                :TOPIC:
+** Org42                                                             :TOPIC:
 * Cloud                                                              :DOMAIN:
 ** Cloud native architecture
 ** IaaS
@@ -206,7 +238,6 @@ Consider following status codes:
 *** data at rest cost
 *** transfer cost
 *** cpu cost
-*** 
 ** DEVSECOPS
 ** storage:
 *** S3
@@ -215,33 +246,6 @@ Consider following status codes:
 **** what it is good for
 *** min.io
 * DEVOPS / SRE                                                       :DOMAIN:
-** Linux
-*** ssh how to create trust between computers
-*** awk / sed / grep / bash / tail / head
-*** rsync
-*** mount
-*** ls / ps / htop
-*** bash                                                          :TOPIC:
-**** co je to here doc?                                         :QUESTION:
-*** co je to regexp
-*** list open ports
-*** iptables
-*** BPF
-*** list open files
-*** stdin stdout stderr
-*** NFS
-*** file types: 
-**** block device
-**** character device
-**** named pipe
-**** symlink
-*** /etc/nsswitch.conf
-*** /etc/resolv.conf
-*** ip
-#+begin_src bash
-ip addr sh
-ip route sh
-#+end_src
 ** Tools
 *** Git
 **** TODO pull-request
@@ -259,7 +263,7 @@ ip route sh
 **** TODO linux namespaces 
 **** TODO cgroups
 **** TODO OCI
-**** TODO volumes,
+**** TODO volumes
 **** TODO networks
 **** TODO BuildKit
 
@@ -303,6 +307,33 @@ ip route sh
 *** ELK
 *** DynaTrace
 *** Piwik
+** Linux
+*** ssh how to create trust between computers
+*** awk / sed / grep / bash / tail / head
+*** rsync
+*** mount
+*** ls / ps / htop
+*** bash                                                          :TOPIC:
+**** co je to here doc?                                         :QUESTION:
+*** co je to regexp
+*** list open ports
+*** iptables
+*** BPF
+*** list open files
+*** stdin stdout stderr
+*** NFS
+*** file types: 
+**** block device
+**** character device
+**** named pipe
+**** symlink
+*** /etc/nsswitch.conf
+*** /etc/resolv.conf
+*** ip
+#+begin_src bash
+ip addr sh
+ip route sh
+#+end_src
 ** Observability
 *** 3 pillars
 **** logs
@@ -348,7 +379,7 @@ Target to a link:
 *** Sass
 ** CORS
 :PROPERTIES:
-:lerning:  https://www.codecademy.com/articles/what-is-cors
+:learning:  https://www.codecademy.com/articles/what-is-cors
 :END:
 *** why is CORS necessary?                                       :QUESTION:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
@@ -383,10 +414,8 @@ Origin
 *** yaml
 *** json
 *** xml
-
 ** Code complexity O notation
 ** Amortized complexity
-
 * Security:                                                          :DOMAIN:
 ** Oauth2/OIDC
 *** grant (flow) types:
@@ -496,7 +525,7 @@ public final int hashCode() {
     return result;
 }
 #+end_src
-**** hashCode vs equals()
+**** hashCode vs equals()                                       :QUESTION:
 **** what is a contract?                                        :QUESTION:
 **** Java Collections Framework:
 ***** what is a difference between List vs Set vs Map          :QUESTION:
@@ -517,7 +546,7 @@ You need to use Comparable or Comparator interface to sort list of custom object
 - use enum
 - Read more: https://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz6Y1Y1v8C1
 :END:
-**** Difference between Listand Set in Java?                    :QUESTION:
+**** Difference between List and Set in Java?                   :QUESTION:
 :ANSWER:
 - hint: List is ordered and allows duplicate. Set is unordered and doesn't allow duplicate elements.
 :END:
@@ -525,12 +554,12 @@ You need to use Comparable or Comparator interface to sort list of custom object
 :ANSWER:
 - just make its constructor private
 :END:
-**** Difference between throw and throws keyword in Java?
+**** Difference between throw and throws keyword in Java?       :QUESTION:
 :ANSWER:
 - throws declare what exception a method can throw in case of error but throw keyword actually throws an exception. 
 - See Java Fundamentals: Exception Handling to learn more about Exception handling in Java. 
 :END:
-**** Difference between Iterator and Enumeration in Java?
+**** Difference between Iterator and Enumeration in Java?       :QUESTION:
 :ANSWER:
 - Iterator also gives you the ability to remove an element while iterating while Enumeration doesn't allow that.
 :END:
@@ -554,12 +583,9 @@ You need to use Comparable or Comparator interface to sort list of custom object
 :ANSWER:
 - Comparator defines custom ordering while Comparable defines the natural order of objects, e.g. the alphabetic order for String. See The Complete Java MasterClass to learn more about sorting in Java. 
 :END:
-**** Generics
-**** Java 9 - project jigsaw
-**** BigDecimal vs float
-**** Java exception handling                                       :TOPIC:
-***** what is the difference betwen checked and unchecked exception? :QUESTION:
-***** Co všechno je špatně na tomto kusu kódu                  :QUESTION:
+**** BigDecimal vs float                                        :QUESTION:
+**** what is the difference betwen checked and unchecked exception? :QUESTION:
+**** Co všechno je špatně na tomto kusu kódu                    :QUESTION:
 #+begin_src java
 try {
   // ...
@@ -575,7 +601,33 @@ try {
   - Pokud nechceme dělat re-throw, měli bychom chytat jen ten typ, kterého se to týká.
 - A další věci, jako stupidní message "Oh no!", atd.
 :END:
+**** Explain Java 7 ARM (Automatic Resource Managemet) Feature and multi-catch block? :QUESTION:
+- If you are catching a lot of exceptions in a single try block, you will notice that catch block code looks very ugly and mostly consists of redundant code to log the error,
+- keeping this in mind Java 7 one of the feature was multi-catch block where we can catch multiple exceptions in a single catch block.
+- The catch block with this feature looks like below:
+
+#+begin_src java
+  catch(IOException | SQLException | Exception ex){
+      logger.error(ex);
+      throw new MyException(ex.getMessage());
+  }
+#+end_src
+- Most of the time, we use finally block just to close the resources and sometimes we forget to close them and get runtime exceptions when the resources are exhausted.
+- These exceptions are hard to debug and we might need to look into each place where we are using that type of resource to make sure we are closing it.
+- So java 7 one of the improvement was try-with-resources where we can create a resource in the try statement itself and use it inside the try-catch block.
+- When the execution comes out of try-catch block, runtime environment automatically close these resources.
+- Sample of try-catch block with this improvement is:
+
+#+begin_src java
+  try (MyResource mr = new MyResource()) {
+      System.out.println("MyResource created in try-with-resources");
+  } catch (Exception e) {
+      e.printStackTrace();
+  }
+#+end_src
 **** JPA
+**** Generics
+**** Java 9 - project jigsaw
 **** QueryDSL
 **** Maven
 ***** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>? :QUESTION:
@@ -593,20 +645,41 @@ try {
 :END:
 **** Gradle
 *** Spring & Spring Boot
-**** Difference between spting abd spting boot                  :QUESTION:
+:PROPERTIES:
+:lerning:  https://www.baeldung.com/spring-interview-questions
+:END:
 **** Jaký je rozdíl mezi JavaEE a Springem?                     :QUESTION:
 - JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
 - Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+**** Difference between spring and spting boot                 :QUESTION:
 **** Co přinesl Spring Boot do Spring ekosystému?               :QUESTION:
+:ANSWER:
 - Strašně zjednodušený start aplikace.
 - Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".
 - Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
 - V každém případě je to one liner.
 - Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+:END:
 **** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem? :QUESTION:
+:ANSWER:
 - JavaEE to má implicitní a Spring explicitní
 - V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
-- Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá. Zapínáme si je explicitně pomocí anotace.
+- Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá.
+- Zapínáme si je explicitně pomocí anotace.
+:END:
+**** How Would You Enable Transactions in Spring and What Are Their Benefits? :QUESTION:
+:ANSWER:
+There are two distinct ways to configure Transactions:
+- with *annotations* or
+- by using *Aspect Oriented Programming* (AOP)  each with their advantages.
+
+The benefits of using Spring Transactions, according to the official docs, are:
+
+- Provide a consistent programming model across different transaction APIs such as JTA, JDBC, Hibernate, JPA, and JDO
+- Support declarative transaction management
+- Provide a simpler API for programmatic transaction management than some complex transaction APIs such as JTA
+- Integrate very well with Spring's various data access abstractions
+:END:
 **** What is the difference betweek JPA and Hibernate?          :QUESTION:
 :ANSWER:
 - JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
@@ -632,13 +705,98 @@ try {
 </dependency>
 #+end_src
 :END:
+**** What Is Reactive Programming?                              :QUESTION:
+:ANSWER:
+- Reactive programming is about:
+  - non-blocking,
+  - event-driven applications that
+  - scale with a small number of threads, with
+  - back pressure being a key ingredient that aims to ensure producers don't overwhelm consumers.
+
+- The primary benefits of reactive programming are:
+
+- increased utilization of computing resources on multicore and multi-CPU hardware
+- and increased performance by reducing serialization
+- Reactive programming is generally event-driven, in contrast to reactive systems, which are message-driven.
+- Thus, using reactive programming does not mean we're building a reactive system, which is an architectural style.
+
+However, reactive programming may be used as a means to implement reactive systems if we follow the Reactive Manifesto, which is quite vital to understand.
+
+- Based on this, reactive systems have four important characteristics:
+  - Responsive: the system should respond in a timely manner
+  - Resilient: in case the system faces any failure, it should stay responsive
+  - Elastic: reactive systems can react to changes and stay responsive under varying workload
+  - Message-driven: reactive systems need to establish a boundary between components by relying on asynchronous message passing
+:END:
+**** What Is Spring Webflux?                                    :QUESTION:
+:ANSWER:
+- Spring WebFlux is Spring's reactive-stack web framework, and it's an alternative to Spring MVC.
+
+- In order to achieve this reactive model and be highly scalable, the entire stack is non-blocking. Check out our tutorial on Spring 5 WebFlux for additional details.
+:END:
+**** What Are the Mono and Flux Types?                          :QUESTION:
+:ANSWER:
+- The WebFlux framework in Spring Framework 5 uses Reactor as its async foundation.
+
+- This project provides two core types: Mono to represent a single async value, and Flux to represent a stream of async values.
+
+- They both implement the ~Publisher~ interface defined in the Reactive Streams specification.
+
+Mono implements ~Publisher~ and returns 0 or 1 elements:
+#+begin_src java
+public abstract class Mono<T> implements Publisher<T> {...}
+#+end_src
+Also, Flux implements ~Publisher~ and returns N elements:
+
+#+begin_src java
+public abstract class Flux<T> implements Publisher<T> {...}
+#+end_src
+By definition, the two types represent streams, hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method. Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
+:END:
+**** What Is the Use of Webclient and Webtestclient?            :QUESTION:
+:ANSWER:
+- *WebClient* is a component in the new Web Reactive framework that can act as a reactive client for performing non-blocking HTTP requests.
+  - Being a reactive client, it can handle reactive streams with back pressure, and it can take full advantage of Java 8 lambdas.
+  - It can also handle both sync and async scenarios.
+
+- On the other hand, the *WebTestClient* is a similar class that we can use in tests.
+  - Basically, it's a thin shell around the WebClient. It can connect to any server over an HTTP connection. It can also bind directly to WebFlux applications using mock request and response objects, without the need for an HTTP server.
+:END:
+**** What Are the Disadvantages of Using Reactive Streams?      :QUESTION:
+:ANSWER:
+The major disadvantages of using reactive streams are:
+
+- Troubleshooting a Reactive application is a bit difficult; be sure to check out our tutorial on debugging reactive streams for some handy debugging tips
+- There is limited support for reactive data stores, as traditional relational data stores have yet to embrace the reactive paradigm
+- There's an extra learning curve when implementing
+:END:
+**** Is Spring 5 Compatible With Older Versions of Java?        :QUESTION:
+:ANSWER:
+In order to take advantage of Java 8 features, the Spring codebase has been revamped. This means older versions of Java cannot be used. Hence, the framework requires a minimum of Java 8.
+:END:
+**** Can We Use Both Web Mvc and Webflux in the Same Application? :QUESTION:
+:ANSWER:
+- As of now, Spring Boot will only allow either Spring MVC or Spring WebFlux, as Spring Boot tries to auto-configure the context depending on the dependencies that exist in its classpath.
+- Also, Spring MVC cannot run on Netty. 
+-  Moreover, MVC is a blocking paradigm and WebFlux is a non-blocking style, therefore we shouldn't be mixing both together, as they serve different purposes.
+:END:
+**** What Is the Role of the @Autowired Annotation?             :QUESTION:
+- The @Autowired annotation can be used with fields or methods for injecting a bean by type.
+- This annotation allows Spring to resolve and inject collaborating beans into your bean.
+**** "Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?" :QUESTION:
+:ANSWER:
+- "Lépe se to testuje - máme větší kontrolu nad dependencemi a můžeme je mockovat dle libosti a velmi snadno.
+- Současně tím v testech vynucujeme nějakou inicializaci těchto dependencí. Jinak by klidně mohly být null.
+- Je to takový mnohem přirozenější a intuitivnější způsob inicializace v OOP světě.
+- Asi jediná nevýhoda: pokud bude dependencí hodně, začne to být trochu nepřehledné."
+:END:
 *** JavaEE / JacartaEE
 **** access intent
 ***** optimistic vs pessimistic
-**** Jaký je rozdíl mezi Java SE a JavaEE
+**** Jaký je rozdíl mezi Java SE a JavaEE                       :QUESTION:
 - Java SE se používá hlavně pro nějaké procesy, které se nastartují, provedou nějakou činost a skončí
 - JavaEE se používá hlavně pro aplikace, které jsou nasazené na nějakém trvale běžícím serveru a vystavují buď nějaké služby nebo přímo front end.
-**** Co je to aplikační server a nějaký příklad
+**** Co je to aplikační server a nějaký příklad                 :QUESTION:
 *** Implemetations
 **** GraalVM
 **** Quarcus
@@ -656,12 +814,9 @@ try {
 **** weakly typed
 * Quality and Testing                                                :DOMAIN:
 ** Blue green deployment
+** AB testing
 ** Code coverage
 ** Cyclomatic complexity                                           :TOPIC:
 ** Code quality                                                    :TOPIC:
 ** Antifragile architecture
 ** Unit testing
-** AB testing
-
-
-
