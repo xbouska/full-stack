@@ -135,6 +135,31 @@
 ***** Bloom Filter
 **** MongoDB
 **** Apache Drill
+*** 5.1.1 inner vs outher join  typy spojení DB tabulek, inner  výsledek musí obsahovat průnik obou tabulek, outer  výsledek obsahuje data z jedné či druhé, případně z obou tabulek pokud klíč existuje v obou tabulkách …  záleží na typu outer joinu - Full/left/right
+5.1.2 partitionning 
+- co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální
+- proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -> vice partiton
+*** DB Index 
+-	Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
+ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity
+*** Constraint
+-	Omezení hodnoty vkládané do atribut, foreign key constraint  hodnota musí existovat v referenční tabulce, primary key constaint  unikátní hodnota v tabulce
+*** Agregace  group by
+*** Co jsou window funkce?  
+- kalkulace/agregace nad množinou dat, přičemž každý prvek množiny může mít výsledek agregace jiný …. Např funkce lead/lag/rank/row_number/first/last/
+*** CTE (with)  
+- syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu, lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )
+*** DML/DDL
+- manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
+*** Pojem datawarehouse?  
+- úložiště dat, organizovaných do určité struktury, pro účely analýzy dat … podpora business procesů organizace
+*** Star schema  DB schema 
+- tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay
+*** Snowflake  DB schema 
+- faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF
+
+WAL  možná bych dal obecně transakční log?  log kde je historie všech provedených DB operací nad danou instancí/databází. Z logu se zapisují záznamy do datových souborů. Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery); u postgre se dá použít například i k replikaci databáze
+
 ** Messaging
 *** queue
 *** topics
