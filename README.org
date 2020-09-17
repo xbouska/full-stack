@@ -10,7 +10,7 @@
 #+OPTIONS: H:1 num:3 toc:t ^:t tex:nil
 #+EXPORT_FILE_NAME: fullstack.html
 
-#+BEGIN_SRC emacs-lisp :exports none :results none
+#+BEGIN_SRC emacs-lisp :exports none :results verbatim
 (org-html-export-to-html nil t nil nil)
  #+END_SRC
 
@@ -20,7 +20,7 @@
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
 ** Data architecture and tools                                       :TOPIC:
-*** background
+*** background                                                      :TOPIC:
 **** ACID
 ***** What does ACID ti mean?                                  :QUESTION:
 :ANSWER:
