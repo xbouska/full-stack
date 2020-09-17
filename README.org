@@ -7,22 +7,23 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:1 num:3 toc:t ^:t tex:nil
+#+OPTIONS: H:7 num:3 toc:t ^:t tex:nilh
 #+EXPORT_FILE_NAME: public/fullstack.html
 
 #+BEGIN_SRC emacs-lisp :exports none :results verbatim
 (org-html-export-to-html nil t nil nil)
  #+END_SRC
 
+all we need to know
 * Architecture & Design                                              :DOMAIN:
+basic of architecture 
 ** DDD                                                             :TOPIC:
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
 ** Data architecture and tools                                       :TOPIC:
 *** background                                                      :TOPIC:
-**** ACID
-***** What does ACID ti mean?                                  :QUESTION:
+**** What does ACID ti mean?                                    :QUESTION:
 :ANSWER:
 - atomicity
 - consistency
@@ -426,9 +427,9 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** block device
 **** character device
 **** named pipe
-**** symlink
-*** /etc/nsswitch.conf
-*** /etc/resolv.conf
+/**** symlink
+*** etc/nsswitch./conf
+*** etc/resolv.conf
 *** ip
 #+begin_src bash
 ip addr sh
@@ -479,7 +480,7 @@ Target to a link:
 *** Sass
 ** CORS
 :PROPERTIES:
-:learning:  https://www.codecademy.com/articles/what-is-cors
+:learning: https://www.codecademy.com/articles/what-is-cors
 :END:
 *** why is CORS necessary?                                       :QUESTION:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
@@ -516,7 +517,7 @@ Origin
 *** xml
 ** Code complexity O notation
 ** Amortized complexity
-* Security:                                                          :DOMAIN:
+* Security                                                          :DOMAIN:
 ** Oauth2/OIDC
 *** grant (flow) types:
 **** Authorization Code Flow
@@ -534,6 +535,61 @@ To do so, the application must ask for authorization to access this information 
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
+** JWT
+:PROPERTIES:
+:study:    https://tools.ietf.org/html/rfc7519
+:END:
+*** What are the registered claim names?                        :QUESTION:
+*** What is "iss" (Issuer) Claim?                                :QUESTION:
+:ANSWER:
+- The "iss" (issuer) claim identifies the principal that issued the JWT.
+- The processing of this claim is generally application specific.
+- The "iss" value is a case-sensitive string containing a StringOrURI value.
+- Use of this claim is OPTIONAL.
+:END:
+*** What is "sub" (Subject) Claim                                :QUESTION:
+:ANSWER:
+- The "sub" (subject) claim identifies the principal that is the subject of the JWT.
+- The claims in a JWT are normally statements about the subject.
+- The subject value MUST either be scoped to be locally unique in the context of the issuer or be globally unique.
+- The processing of this claim is generally application specific.
+- The "sub" value is a case-sensitive string containing a StringOrURI value.
+- Use of this claim is OPTIONAL.
+:END:
+*** What is "aud" (Audience) Claim                               :QUESTION:
+:ANSWER:
+- The "aud" (audience) claim identifies the recipients that the JWT is intended for.
+- Each principal intended to process the JWT MUST identify itself with a value in the audience claim.
+- If the principal processing the claim does not identify itself with a value in the "aud" claim when this claim is present, then the JWT MUST be rejected.
+- In the general case, the "aud" value is an array of case-sensitive strings, each containing a StringOrURI value.
+- In the special case when the JWT has one audience, the "aud" value MAY be a single case-sensitive string containing a StringOrURI value.
+- The interpretation of audience values is generally application specific.
+- Use of this claim is OPTIONAL.
+:END:
+*** What is "exp" (Expiration Time) Claim                        :QUESTION:
+- The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.
+- The processing of the "exp" claim requires that the current date/time MUST be before the expiration date/time listed in the "exp" claim.
+- Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
+- Its value MUST be a number containing a NumericDate value.
+- Use of this claim is OPTIONAL. 
+*** What is "nbf" (Not Before) Claim                             :QUESTION:
+- The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.
+- The processing of the "nbf" claim requires that the current date/time MUST be after or equal to the not-before date/time listed in the "nbf" claim.
+- Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
+- Its value MUST be a number containing a NumericDate value.
+- Use of this claim is OPTIONAL.
+*** What is "iat" (Issued At) Claim                              :QUESTION:
+- The "iat" (issued at) claim identifies the time at which the JWT was issued.
+- This claim can be used to determine the age of the JWT.
+- Its value MUST be a number containing a NumericDate value.
+- Use of this claim is OPTIONAL.
+*** What is "jti" (JWT ID) Claim                                 :QUESTION:
+- The "jti" (JWT ID) claim provides a unique identifier for the JWT.
+- The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object;
+- if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.
+- The "jti" claim can be used to prevent the JWT from being replayed.
+- The "jti" value is a case-sensitive string.
+- Use of this claim is OPTIONAL.
 ** LDAP
 *** object class
 **** inetOrgPerson
@@ -554,7 +610,7 @@ and the authorization server uses the Scope parameter to respond with the access
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
-:study:    https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
+:study:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
 :END:
 **** AES
 **** DES
@@ -572,7 +628,7 @@ and the authorization server uses the Scope parameter to respond with the access
 - When CA needs to get a new chain (for example, because of upgrade from SHA-1 to SHA-256), they just increment the generation number.
 - This is good because obsolete certificates can be better identified.
 :END:
-* Languages & programming:                                           :DOMAIN:
+* Languages & programming                                           :DOMAIN:
 ** Functional Programming                                           :TOPIC:
 *** Lambda Calculus                                                 :TOPIC:
 **** α-conversion
