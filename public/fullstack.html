@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-17 Thu 16:59 -->
+<!-- 2020-09-17 Thu 21:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -257,39 +257,708 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org38cb270">1. Architecture &amp; Design&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#orge7293e0">2. Project Process Documentation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org058f238">3. Cloud&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org8792ed4">4. DEVOPS / SRE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org7cf8f4a">5. Web Front End&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org1c384ff">6. IT+CS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org9723d01">7. Security:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org4485b1e">8. Languages &amp; programming:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
-<li><a href="#org88ebf48">9. Quality and Testing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a></li>
+<li><a href="#org3e23a41">1. Architecture &amp; Design&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#orgdcd9f23">1.1. DDD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org42e9770">1.1.1. bounded context&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org6b92301">1.1.2. ubiquotous language&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgb6bbf1c">1.1.3. Entity and Value Object&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org1cbd92f">1.2. Data architecture and tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org0e53409">1.2.1. background&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org99e4e4d">What does ACID ti mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org53eeeac">BASE</a>
+<ul>
+<li><a href="#org30f02e3">what does it mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org62a970f">ORM</a>
+<ul>
+<li><a href="#orgfb2f18b">what ORM (object-relational-mapping ) means&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgcde4e60">object relation impedance mismatch&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org0dd010a">bottom up&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgfe4d24d">tom down&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org5c66706">meet in the middle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgd5e66ce">CAP theorem</a>
+<ul>
+<li><a href="#org1ec8e56">Beyond CAP database systems</a></li>
+</ul>
+</li>
+<li><a href="#orgebc6282">Wall: Write Ahead Logs</a>
+<ul>
+<li><a href="#org8013284">what it is good for</a></li>
+</ul>
+</li>
+<li><a href="#org797c7f9">eventual consistency</a></li>
+<li><a href="#org70e620b">Multi master replication</a></li>
+<li><a href="#org48ad161">OLAP vs OLTP</a></li>
+<li><a href="#org9300e7c">slowly moving dimensions</a>
+<ul>
+<li><a href="#org0133853">What is it?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org0283dfe">Type 0 - The passive method.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org6b4e19e">Type 1 - Overwriting the old value.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org26b9f46">Type 2 - Creating a new additional record.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org8249230">Type 3 - Adding a new column.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgdf950cb">Type 4 - Using historical table.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgf5a0e88">Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org6cd0930">Backup strategy</a>
+<ul>
+<li><a href="#org78147d5">full vs incremental backup</a></li>
+<li><a href="#org24a5a01">snapshots</a></li>
+<li><a href="#orga9d52e1">on-line replica</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org514c910">1.2.2. SQL</a>
+<ul>
+<li><a href="#orgc482825">partitionning</a></li>
+<li><a href="#org6931f65">inner vs outher join</a></li>
+<li><a href="#org90527cc">DB Index</a></li>
+<li><a href="#org5de4843">Constraint</a></li>
+<li><a href="#orgeee5ed5">Agregace (group by)</a></li>
+<li><a href="#orgd8745a3">Co jsou window funkce?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org468438c">what is a defference between CTE and temp table?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org117e130">CTE (with)</a></li>
+<li><a href="#orgdfbf342">DML/DDL</a></li>
+</ul>
+</li>
+<li><a href="#org7df7b70">1.2.3. Distributed consensus:</a>
+<ul>
+<li><a href="#orgf4c6b36">Paxos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org414cf52">Raft&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgdf82f12">Zab&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org5d1e04d">1.2.4. Transactions</a>
+<ul>
+<li><a href="#org3f991c8">transaction problems that are prevented by isolation:</a>
+<ul>
+<li><a href="#orgd6ac69e">What are they and what they mean?</a></li>
+</ul>
+</li>
+<li><a href="#org3cfcf49">JDBC transaction isolation levels</a>
+<ul>
+<li><a href="#orgc9b0158">what are they and what they prevent from?</a></li>
+</ul>
+</li>
+<li><a href="#orge95f3eb">ANSI/ISO levels -</a>
+<ul>
+<li><a href="#org633a2c1">what they are</a></li>
+<li><a href="#orgaada832">define some</a></li>
+</ul>
+</li>
+<li><a href="#org6fbfb65">ORACLE:</a></li>
+<li><a href="#org5bc2667">PostgreSQL</a>
+<ul>
+<li><a href="#orgf44df04">Explain about Multi version concurrency control?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="question">question</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1df0097">1.2.5. Tools &amp; services</a>
+<ul>
+<li><a href="#org9cd29ab">Big Table</a></li>
+<li><a href="#orgb0db170">Big Query</a></li>
+<li><a href="#org779b5ef">Elastic Search</a>
+<ul>
+<li><a href="#org292dc71">Bloom Filter</a></li>
+</ul>
+</li>
+<li><a href="#org5c39ce5">MongoDB</a></li>
+<li><a href="#orgea9ed86">Apache Drill</a></li>
+</ul>
+</li>
+<li><a href="#org7238bd0">1.2.6. Datawarehouse?</a></li>
+<li><a href="#org5967b69">1.2.7. Star schema  structure</a></li>
+<li><a href="#orgb995521">1.2.8. Snowflake schema  structure</a></li>
+<li><a href="#org8259a8d">1.2.9. WAL  / transactional log?</a></li>
+</ul>
+</li>
+<li><a href="#orgc278f9e">1.3. Messaging&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org21b171d">1.3.1. queue</a></li>
+<li><a href="#org5c1da86">1.3.2. topics</a></li>
+<li><a href="#org53a54a5">1.3.3. message delivery mode:</a></li>
+</ul>
+</li>
+<li><a href="#org2d580a2">1.4. HTTP Family&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org7ec5c81">1.4.1. HTTP</a>
+<ul>
+<li><a href="#org1e24724">What is the use of Accept and Content-Type Headers in HTTP Request?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org7b85a0a">What is Server-Sent Events  (SSE)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgb9a000a">1.4.2. REST</a>
+<ul>
+<li><a href="#org902f631">What are the HTTP methods supported by REST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orga03c221">What is the purpose of HTTP Status Code?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org721f483">What is statelessness in RESTful Webservices?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge6d6ab5">what is the difference between PUT and POST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org26de5ba">1.5. micro-service-architecture</a></li>
+<li><a href="#org8bf6dc4">1.6. Enterprise Architecture Integration Patterns</a>
+<ul>
+<li><a href="#org577fba3">1.6.1. orchestration</a></li>
+<li><a href="#org1713672">1.6.2. choreography</a></li>
+</ul>
+</li>
+<li><a href="#orgbe2f3f6">1.7. Event Sourcing</a></li>
+<li><a href="#org882cf00">1.8. CQRS</a></li>
+<li><a href="#org7bea6e4">1.9. CRUD</a></li>
+<li><a href="#orga3b27b5">1.10. Pragmatic Design principes</a>
+<ul>
+<li><a href="#org96ad8ba">1.10.1. DRY&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgcb781da">1.10.2. KISS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgf3e231f">1.10.3. YAGNI&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgb4f438a">1.10.4. open-close principal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org9787eee">1.10.5. High cohesion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgbe11139">1.10.6. Low coupling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgf49a55b">What is temporal coupling?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgef541fa">2. Project Process Documentation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#org06f8d27">2.1. Scrum&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgc138582">2.2. Kanban&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org6bed011">2.3. XP&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org2783e4a">2.4. Lean&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgab299b5">2.5. Jira&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgd12b9d2">2.6. Confluence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org1f8516d">2.7. MOSCOW&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgc4d730b">2.8. DoD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org78ade86">2.9. DoR&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org21100e9">2.10. Uml&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org4a1d739">2.11. C4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org72e6d10">2.12. Org42&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orga71ca15">3. Cloud&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#orgbf89b38">3.1. Cloud native architecture</a></li>
+<li><a href="#orgdb63f6f">3.2. IaaS</a></li>
+<li><a href="#org7f4761e">3.3. PaaS</a></li>
+<li><a href="#orge5f9b3a">3.4. SaaS</a></li>
+<li><a href="#orga6551eb">3.5. FINOPS</a>
+<ul>
+<li><a href="#org79c5e7d">3.5.1. data at rest cost</a></li>
+<li><a href="#orgd9c3bd3">3.5.2. transfer cost</a></li>
+<li><a href="#org78e9c87">3.5.3. cpu cost</a></li>
+</ul>
+</li>
+<li><a href="#orga47bf56">3.6. DEVSECOPS</a></li>
+<li><a href="#org3ecd97b">3.7. storage:</a>
+<ul>
+<li><a href="#org340bd9b">3.7.1. S3</a></li>
+<li><a href="#orge973f2c">3.7.2. GCS bucket</a>
+<ul>
+<li><a href="#orgf59772d">api</a></li>
+<li><a href="#org2ec7a5d">what it is good for</a></li>
+</ul>
+</li>
+<li><a href="#org5e50f9e">3.7.3. MinIO Object Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc13b7c1">4. DEVOPS / SRE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#orgde3834d">4.1. Tools</a>
+<ul>
+<li><a href="#orgd134aa6">4.1.1. Git&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org926e46c">What is the use of Staging area or Indexing in Git?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org805d86b"><span class="todo TODO">TODO</span> pull-request</a></li>
+<li><a href="#orgf6351bd"><span class="todo TODO">TODO</span> cherry pick</a></li>
+<li><a href="#org7abc248"><span class="todo TODO">TODO</span> flow</a></li>
+<li><a href="#orgb7af66c"><span class="todo TODO">TODO</span> git push</a></li>
+<li><a href="#orged0d37b"><span class="todo TODO">TODO</span> rebase vs merge - semantical and syntactical diff</a></li>
+<li><a href="#orgc259980"><span class="todo TODO">TODO</span> stash</a></li>
+</ul>
+</li>
+<li><a href="#org875911f">4.1.2. Docker&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orge0385dc"><span class="todo TODO">TODO</span> dockerhub :-)</a></li>
+<li><a href="#org5d79e11"><span class="todo TODO">TODO</span> docker file</a></li>
+<li><a href="#orgb1eb015"><span class="todo TODO">TODO</span> docker image</a></li>
+<li><a href="#org6ad3d4e"><span class="todo TODO">TODO</span> docker compose</a></li>
+<li><a href="#org74f0dc0"><span class="todo TODO">TODO</span> docker swarm</a></li>
+<li><a href="#orgd3ec1ec"><span class="todo TODO">TODO</span> linux namespaces</a></li>
+<li><a href="#orgdb89bf1"><span class="todo TODO">TODO</span> cgroups</a></li>
+<li><a href="#orgb6b59a9"><span class="todo TODO">TODO</span> OCI</a></li>
+<li><a href="#org6c24699"><span class="todo TODO">TODO</span> volumes</a></li>
+<li><a href="#org81a0d35"><span class="todo TODO">TODO</span> networks</a></li>
+<li><a href="#org924a713"><span class="todo TODO">TODO</span> BuildKit</a></li>
+</ul>
+</li>
+<li><a href="#orgc930a3d">4.1.3. K8S / Kubernetes:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgbeaa9b6">helm</a></li>
+<li><a href="#org8ac175b">chart</a></li>
+<li><a href="#orgab6e6a5">template</a></li>
+<li><a href="#org5562594">cluster</a></li>
+<li><a href="#org7123917">pod</a></li>
+<li><a href="#org929cb30">node</a></li>
+<li><a href="#orgc171e6e">service mesh</a></li>
+<li><a href="#org2b79e3a">ingress controller</a></li>
+<li><a href="#org82d1e32">ingress and exgress?</a></li>
+<li><a href="#orge6853c6">etcd</a></li>
+<li><a href="#org5aa4ff1">secret</a></li>
+<li><a href="#orga6f9be7">operator</a></li>
+<li><a href="#org8710818">CRD / Custom Resources</a></li>
+<li><a href="#org105bb7b">liveness/readines probes</a></li>
+<li><a href="#org2302334">kubectl</a></li>
+<li><a href="#org357cc63">CNCF</a></li>
+</ul>
+</li>
+<li><a href="#org07eb3ed">4.1.4. Terraform&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org3a05641">resource</a></li>
+<li><a href="#orgb0471f5">module</a></li>
+<li><a href="#orge7cc1b2">state</a></li>
+<li><a href="#org8960ccf">backend</a></li>
+</ul>
+</li>
+<li><a href="#org62a5804">4.1.5. Chef&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org6273c26">4.1.6. Puppet&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org2502f7c">4.1.7. Ansible&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org1fc7273">4.1.8. Cloud Formation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgeb49509">4.1.9. Hashicorp consul&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org7ca36ec">4.1.10. Hashicorp vault&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org77d57df">4.1.11. zookeeper&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org37b4279">4.1.12. kibana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org35ecfa2">4.1.13. graphana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgf2d39ee">4.1.14. ELK&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orga48f8e8">4.1.15. DynaTrace&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgc3214d6">4.1.16. Piwik&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org07f72c7">4.2. Linux</a>
+<ul>
+<li><a href="#orgbcf37e2">4.2.1. ssh how to create trust between computers</a></li>
+<li><a href="#org765c9c6">4.2.2. awk / sed / grep / bash / tail / head</a></li>
+<li><a href="#orgbc68bb2">4.2.3. rsync</a></li>
+<li><a href="#orgbb9ccd3">4.2.4. mount</a></li>
+<li><a href="#org77302f0">4.2.5. ls / ps / htop</a></li>
+<li><a href="#org4d0c01b">4.2.6. bash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgcb79c90">co je to here doc?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgcfe120c">4.2.7. co je to regexp</a></li>
+<li><a href="#org1c57b9d">4.2.8. list open ports</a></li>
+<li><a href="#orge4af138">4.2.9. iptables</a></li>
+<li><a href="#org84b9de5">4.2.10. BPF</a></li>
+<li><a href="#org1c32670">4.2.11. list open files</a></li>
+<li><a href="#org1765a33">4.2.12. stdin stdout stderr</a></li>
+<li><a href="#org10eb33a">4.2.13. NFS</a></li>
+<li><a href="#orge68aad6">4.2.14. file types:</a>
+<ul>
+<li><a href="#orgb52a654">block device</a></li>
+<li><a href="#org68f5146">character device</a></li>
+<li><a href="#org452876e">named pipe</a></li>
+<li><a href="#orgdf36daf">/symlink</a></li>
+</ul>
+</li>
+<li><a href="#org647abac">4.2.15. etc/nsswitch./conf</a></li>
+<li><a href="#org237b361">4.2.16. etc/resolv.conf</a></li>
+<li><a href="#org1722c02">4.2.17. ip</a></li>
+</ul>
+</li>
+<li><a href="#orgeda677c">4.3. Observability</a>
+<ul>
+<li><a href="#orgf64d690">4.3.1. 3 pillars</a>
+<ul>
+<li><a href="#org22e6322">logs</a></li>
+<li><a href="#org2f34aad">metrics</a></li>
+<li><a href="#org2843874">traces</a></li>
+</ul>
+</li>
+<li><a href="#org7c9ac8d">4.3.2. Tail Latency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org965d7a4">5. Web Front End&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#orgdc8d2f3">5.1. React</a>
+<ul>
+<li><a href="#org963576b">5.1.1. React</a></li>
+<li><a href="#org3ee4823">5.1.2. React Native</a></li>
+<li><a href="#org184281e">5.1.3. react-hooks</a></li>
+</ul>
+</li>
+<li><a href="#org2f0d693">5.2. HTML</a>
+<ul>
+<li><a href="#org30f5d45">5.2.1. Chrome Development Tools</a></li>
+<li><a href="#org227c927">5.2.2. HTML5 Layout</a></li>
+<li><a href="#orgd2f9bd7">5.2.3. What is iframe good for?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org33aafec">5.3. CSS</a>
+<ul>
+<li><a href="#org1bc6f50">5.3.1. Less</a></li>
+<li><a href="#orgb06564b">5.3.2. Sass</a></li>
+</ul>
+</li>
+<li><a href="#orgb80be62">5.4. CORS</a>
+<ul>
+<li><a href="#orgc115bee">5.4.1. why is CORS necessary?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org3c7a0d6">5.4.2. How Does CORS Manage Requests From External Resources?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org3006424">5.4.3. What http headers were added by CORS?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgdbfc767">5.5. The Elm Architecture (TEA)</a></li>
+</ul>
+</li>
+<li><a href="#orgc28d2b8">6. IT+CS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#org0458b38">6.1. bit / byte / endian / float</a>
+<ul>
+<li><a href="#org23097da">6.1.1. XOR, OR, AND, Shift (logical vs aritmetic)</a></li>
+<li><a href="#org65b0a9d">6.1.2. mantisa exponent jednickovy a dvojkovy doplnek</a></li>
+</ul>
+</li>
+<li><a href="#orgc52339c">6.2. TCP/IP</a>
+<ul>
+<li><a href="#org66a99af">6.2.1. IP address / netmask</a></li>
+<li><a href="#org223f222">6.2.2. CIDR</a></li>
+</ul>
+</li>
+<li><a href="#orgce155af">6.3. Unicode</a>
+<ul>
+<li><a href="#org8b4e9d5">6.3.1. What is unicode</a></li>
+<li><a href="#orgad9d8a6">6.3.2. utf-8</a></li>
+<li><a href="#org2ccf056">6.3.3. ASCII</a></li>
+<li><a href="#org33c552e">6.3.4. EBCDIC</a></li>
+</ul>
+</li>
+<li><a href="#org7012f9e">6.4. XML JSON YAML &#x2026;</a>
+<ul>
+<li><a href="#org7e1f03b">6.4.1. yaml</a></li>
+<li><a href="#org8e8fc99">6.4.2. json</a></li>
+<li><a href="#org76c1a23">6.4.3. xml</a></li>
+</ul>
+</li>
+<li><a href="#org4729edb">6.5. Code complexity O notation</a></li>
+<li><a href="#org093ad42">6.6. Amortized complexity</a></li>
+</ul>
+</li>
+<li><a href="#org155e55c">7. Security&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#org3e84306">7.1. Oauth2/OIDC</a>
+<ul>
+<li><a href="#org0b3734b">7.1.1. grant (flow) types:</a>
+<ul>
+<li><a href="#org86bd3b3">Authorization Code Flow</a></li>
+<li><a href="#org237a4d5">Client Credentials Flow</a></li>
+<li><a href="#org69c0b88">Device Code</a></li>
+<li><a href="#orgebaaca5">Refresh Token</a></li>
+<li><a href="#orgfdfb94a">PKCE</a></li>
+<li><a href="#orgd673054">(Implicit Flow)</a></li>
+<li><a href="#orga265a1f">(Password Grant)</a></li>
+</ul>
+</li>
+<li><a href="#org20276dd">7.1.2. Scope</a></li>
+</ul>
+</li>
+<li><a href="#org3f74272">7.2. JWT</a>
+<ul>
+<li><a href="#org1768cb4">7.2.1. What a re the registered claim names?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org5ddaf0b">7.2.2. What is "iss" (Issuer) Claim?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org8b44a35">7.2.3. What is "sub" (Subject) Claim</a></li>
+<li><a href="#orgbeb6962">7.2.4. 4.1.3.  "aud" (Audience) Claim</a></li>
+<li><a href="#org564fc2f">7.2.5. 4.1.4.  "exp" (Expiration Time) Claim</a></li>
+<li><a href="#orgb3a3b8e">7.2.6. 4.1.5.  "nbf" (Not Before) Claim</a></li>
+<li><a href="#org3f33594">7.2.7. 4.1.6.  "iat" (Issued At) Claim</a></li>
+<li><a href="#org38e98ea">7.2.8. 4.1.7.  "jti" (JWT ID) Claim</a></li>
+</ul>
+</li>
+<li><a href="#org0a79923">7.3. LDAP</a>
+<ul>
+<li><a href="#org1fe28b3">7.3.1. object class</a>
+<ul>
+<li><a href="#orgef68b5a">inetOrgPerson</a></li>
+</ul>
+</li>
+<li><a href="#org69a0009">7.3.2. OID</a></li>
+<li><a href="#org640689f">7.3.3. CN, DN, SN,</a></li>
+</ul>
+</li>
+<li><a href="#org838a2c9">7.4. OWASP top 10 2017</a>
+<ul>
+<li><a href="#org744f38b">7.4.1. A1:2017-Injection</a></li>
+<li><a href="#org29c51f8">7.4.2. A2:2017-Broken Authentication</a></li>
+<li><a href="#org302150b">7.4.3. A3:2017-Sensitive Data Exposure</a></li>
+<li><a href="#orgca985d4">7.4.4. A4:2017-XML External Entities (XXE)</a></li>
+<li><a href="#orga942437">7.4.5. A5:2017-Broken Access Control</a></li>
+<li><a href="#org42d7c20">7.4.6. A6:2017-Security Misconfiguration</a></li>
+<li><a href="#org7a381b7">7.4.7. A7:2017-Cross-Site Scripting (XSS)</a></li>
+<li><a href="#org49c99db">7.4.8. A8:2017-Insecure Deserialization</a></li>
+<li><a href="#org8eeac96">7.4.9. A9:2017-Using Components with Known Vulnerabilities</a></li>
+<li><a href="#org6c075e5">7.4.10. A10:2017-Insufficient Logging &amp; Monitoring</a></li>
+</ul>
+</li>
+<li><a href="#org4a8e72a">7.5. Ciphers</a>
+<ul>
+<li><a href="#org2a588aa">7.5.1. Block Ciphers</a>
+<ul>
+<li><a href="#org53d4b24">ECB, CBC, OFB, CFB, CTR  - what they are</a></li>
+<li><a href="#orga4ab584">AES</a></li>
+<li><a href="#orgdde65ae">DES</a></li>
+</ul>
+</li>
+<li><a href="#org379136d">7.5.2. Hash</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org8d8fce5">base64</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org016e123">7.5.3. symetricka sifra</a></li>
+<li><a href="#orgbfd441f">7.5.4. asymetricka sifra</a></li>
+</ul>
+</li>
+<li><a href="#org02e179c">7.6. bastillion.io</a></li>
+<li><a href="#orgb99e83c">7.7. PKI</a></li>
+<li><a href="#orge0c09c4">7.8. X509</a>
+<ul>
+<li><a href="#org548b269">7.8.1. Why does GoDaddy have four different certificate chain, G2, G3, G4?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org86fd644">8. Languages &amp; programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#org786e45e">8.1. Functional Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgb3d9e81">8.1.1. Lambda Calculus&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgf4d7442">α-conversion</a></li>
+<li><a href="#org16e25b7">β-reduction</a></li>
+<li><a href="#org0ba8bf5">η-reduction</a></li>
+</ul>
+</li>
+<li><a href="#org8fef60a">8.1.2. Patterns</a>
+<ul>
+<li><a href="#orgd71ee59">Monoid</a></li>
+<li><a href="#orgf8ab762">Functor</a></li>
+<li><a href="#orgf0806f6">Applicative</a></li>
+<li><a href="#orgc2d138a">Monad</a></li>
+<li><a href="#orgc1af581">Kleisli Functor</a></li>
+<li><a href="#org3a4739c">Optics</a>
+<ul>
+<li><a href="#orgd4d4ee9">Lenses</a></li>
+<li><a href="#org13be2be">Prisms</a></li>
+</ul>
+</li>
+<li><a href="#org2f2f1f8">Recursion Schemes</a>
+<ul>
+<li><a href="#orgfce6975">catamorphisms</a></li>
+<li><a href="#orgdcf1865">anamorphisms</a></li>
+<li><a href="#org1635153">hylomorphisms</a></li>
+<li><a href="#org0a627c0">paramorphisms</a></li>
+<li><a href="#org269844c">Persistent data structure - Chris Okasaki</a></li>
+</ul>
+</li>
+<li><a href="#org5dff212">Immutability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9d7cd53">8.2. Object Oriented Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orga5ed241">8.2.1. Polymorphism</a></li>
+<li><a href="#orgabc1ddd">8.2.2. Gof Design Patterns</a>
+<ul>
+<li><a href="#org310fb18">Abstract Factory</a></li>
+<li><a href="#org5e00970">Singleton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5f4f8f9">8.3. ReasonML&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orga873ff5">8.4. Java Script&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org50e609c">8.4.1. co je to iife</a></li>
+<li><a href="#org6e636d7">8.4.2. inheritance model of JS</a></li>
+<li><a href="#orgc55c1a5">8.4.3. hoisting</a></li>
+<li><a href="#orgc98be0b">8.4.4. event loop</a></li>
+<li><a href="#org160601c">8.4.5. promisses</a></li>
+<li><a href="#orga55ab88">8.4.6. observables</a></li>
+<li><a href="#org86732a2">8.4.7. RxJS</a></li>
+<li><a href="#orga18d80c">8.4.8. JS modular system</a></li>
+</ul>
+</li>
+<li><a href="#orgec4751f">8.5. Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#org652d874">8.5.1. Basic Java</a>
+<ul>
+<li><a href="#orga1db659">hashCode()</a>
+<ul>
+<li><a href="#org160637c">is this code wrong? yes / no / why&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orge178f57">hashCode vs equals()&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgf6daa0d">what is a contract?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge7d4115">Java Collections Framework:</a>
+<ul>
+<li><a href="#org63023a2">what is a difference between List vs Set vs Map&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org22f2523">what is the difference ArrayList vs LinkedList&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org37f7725">StringBuilder vs StringBuffer vs String</a></li>
+<li><a href="#org8bcd47b">Can we have static method in the interface?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org73ad93f">You have a list of Custom objects? How can you sort them?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge739b7a">How to create thread safe Singleton in Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org3222c34">Difference between List and Set in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge842b8a">How do you prevent a class from being sub-classed in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org200bcf9">Difference between throw and throws keyword in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgb0e3dae">Difference between Iterator and Enumeration in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgd19fca0">What is IdentityHashMap in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgd49dc64">What is String pool in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgbd1fbd4">Can a Serializable class contain a non-serializable field in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org7603966">Difference between this and super in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org8dfdf09">Difference between Comparator and Comparable in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org6315fbd">BigDecimal vs float&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgcf46c26">what is the difference betwen checked and unchecked exception?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org82ddf58">Co všechno je špatně na tomto kusu kódu&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org0b52a14">Explain Java 7 ARM (Automatic Resource Managemet) Feature and multi-catch block?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org3629dc8">JPA</a></li>
+<li><a href="#org74c3573">Generics</a></li>
+<li><a href="#org9632cb6">Java 9 - project jigsaw</a></li>
+<li><a href="#org79c289c">QueryDSL</a></li>
+<li><a href="#org62ace75">Maven</a>
+<ul>
+<li><a href="#org72ddf68">Jaký je rozdíl mezi &lt;dependencies&gt; a &lt;dependencyManagement&gt;?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge109583">K čemu se používá scope provided?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org889fc62">Gradle</a></li>
+</ul>
+</li>
+<li><a href="#orgc3a3297">8.5.2. Spring &amp; Spring Boot</a>
+<ul>
+<li><a href="#orgb86a4d0">Jaký je rozdíl mezi JavaEE a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgff31e97">Difference between spring and spting boot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orge02891f">Co přinesl Spring Boot do Spring ekosystému?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orga363e82">Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgef2527e">How Would You Enable Transactions in Spring and What Are Their Benefits?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgf132cd3">What is the difference betweek JPA and Hibernate?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org25bd419">Can use jetty instead of tomcat in spring-boot-starter-web?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org9b2c795">What Is Reactive Programming?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org7c98ff4">What Is Spring Webflux?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org4d0ca66">What Are the Mono and Flux Types?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org633831e">What Is the Use of Webclient and Webtestclient?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org6914a2e">What Are the Disadvantages of Using Reactive Streams?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#orgbe3b468">Is Spring 5 Compatible With Older Versions of Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org72aaedb">Can We Use Both Web Mvc and Webflux in the Same Application?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org7e439b8">What Is the Role of the @Autowired Annotation?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org5813bd1">"Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?"&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgacfa9b2">8.5.3. JavaEE / JacartaEE</a>
+<ul>
+<li><a href="#orgd3ce408">access intent</a>
+<ul>
+<li><a href="#org5841a71">optimistic vs pessimistic</a></li>
+</ul>
+</li>
+<li><a href="#org4bf588e">Jaký je rozdíl mezi Java SE a JavaEE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+<li><a href="#org7c4f66a">Co je to aplikační server a nějaký příklad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgb757270">8.5.4. Implemetations</a>
+<ul>
+<li><a href="#orgc32e4e5">GraalVM</a></li>
+<li><a href="#org855151e">Quarcus</a></li>
+<li><a href="#org0010257">AdoptOpenJDK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge51f296">8.6. NodeJS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#org4db341e">8.7. Language theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a>
+<ul>
+<li><a href="#orgbd7e1a1">8.7.1. Garbage Collector</a></li>
+<li><a href="#org78c3340">8.7.2. Type systems</a>
+<ul>
+<li><a href="#orgd98de54">strongly typed</a></li>
+<li><a href="#org6f22253">weakly typed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8255162">9. Quality and Testing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></a>
+<ul>
+<li><a href="#org58a30a0">9.1. Blue green deployment</a></li>
+<li><a href="#org000a6a2">9.2. AB testing</a></li>
+<li><a href="#org265eeae">9.3. Code coverage</a></li>
+<li><a href="#org45c8bcc">9.4. Cyclomatic complexity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgefd72ce">9.5. Code quality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></a></li>
+<li><a href="#orgbc20eee">9.6. Antifragile architecture</a></li>
+<li><a href="#org9b97996">9.7. Unit testing</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org38cb270" class="outline-2">
-<h2 id="org38cb270"><span class="section-number-2">1</span> Architecture &amp; Design&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+<p>
+all we need to know
+</p>
+<div id="outline-container-org3e23a41" class="outline-2">
+<h2 id="org3e23a41"><span class="section-number-2">1</span> Architecture &amp; Design&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-1">
+<p>
+basic of architecture 
+</p>
 </div>
-<ol class="org-ol">
-<li><a id="org467eac9"></a>DDD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="orgaf20dae"></a>bounded context&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org0ac17d0"></a>ubiquotous language&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgd950d38"></a>Entity and Value Object&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-</ol>
-</li>
-<li><a id="orgc1545cf"></a>Data architecture and tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="org5b38a82"></a>background&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="orge16c61f"></a>ACID<br />
-<ul class="org-ul">
-<li><a id="org414603a"></a>What does ACID ti mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-org414603a">
+<div id="outline-container-orgdcd9f23" class="outline-3">
+<h3 id="orgdcd9f23"><span class="section-number-3">1.1</span> DDD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org42e9770" class="outline-4">
+<h4 id="org42e9770"><span class="section-number-4">1.1.1</span> bounded context&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org6b92301" class="outline-4">
+<h4 id="org6b92301"><span class="section-number-4">1.1.2</span> ubiquotous language&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgb6bbf1c" class="outline-4">
+<h4 id="orgb6bbf1c"><span class="section-number-4">1.1.3</span> Entity and Value Object&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+</div>
+<div id="outline-container-org1cbd92f" class="outline-3">
+<h3 id="org1cbd92f"><span class="section-number-3">1.2</span> Data architecture and tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org0e53409" class="outline-4">
+<h4 id="org0e53409"><span class="section-number-4">1.2.1</span> background&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div>
+<div id="outline-container-org99e4e4d" class="outline-5">
+<h5 id="org99e4e4d">What does ACID ti mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org99e4e4d">
 <ul class="org-ul">
 <li>atomicity</li>
 <li>consistency</li>
@@ -297,48 +966,74 @@ for the JavaScript code in this tag.
 <li>durability</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="orgf3ca249"></a>BASE<br />
-<ul class="org-ul">
-<li><a id="orga7fc450"></a>what does it mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orga7fc450">
+</div>
+<div id="outline-container-org53eeeac" class="outline-5">
+<h5 id="org53eeeac">BASE</h5>
+<div class="outline-text-5" id="text-org53eeeac">
+</div>
+<div id="outline-container-org30f02e3" class="outline-6">
+<h6 id="org30f02e3">what does it mean?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org30f02e3">
 <ul class="org-ul">
 <li>Basic Availability</li>
 <li>Soft-state</li>
 <li>Eventual consistency</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org9a36ea4"></a>ORM<br />
-<ul class="org-ul">
-<li><a id="org151c092"></a>what ORM (object-relational-mapping ) means&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgcda722e"></a>object relation impedance mismatch&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgfe80931"></a>bottom up&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgc70f860"></a>tom down&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgfa827f1"></a>meet in the middle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-</ul>
-</li>
-<li><a id="orgf156c33"></a>CAP theorem<br />
-<ul class="org-ul">
-<li><a id="org257feee"></a>Beyond CAP database systems<br /></li>
-</ul>
-</li>
-<li><a id="org6f38b7f"></a>Wall: Write Ahead Logs<br />
-<ul class="org-ul">
-<li><a id="org8528473"></a>what it is good for<br /></li>
-</ul>
-</li>
-<li><a id="org3b789fc"></a>eventual consistency<br /></li>
-<li><a id="org7ee2ab7"></a>Multi master replication<br /></li>
-<li><a id="org3232907"></a>OLAP vs OLTP<br /></li>
-<li><a id="orga6b1156"></a>slowly moving dimensions<br />
-<ul class="org-ul">
-<li><a id="org96bc23f"></a>What is it?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-org96bc23f">
+</div>
+</div>
+<div id="outline-container-org62a970f" class="outline-5">
+<h5 id="org62a970f">ORM</h5>
+<div class="outline-text-5" id="text-org62a970f">
+</div>
+<div id="outline-container-orgfb2f18b" class="outline-6">
+<h6 id="orgfb2f18b">what ORM (object-relational-mapping ) means&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+<div id="outline-container-orgcde4e60" class="outline-6">
+<h6 id="orgcde4e60">object relation impedance mismatch&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+<div id="outline-container-org0dd010a" class="outline-6">
+<h6 id="org0dd010a">bottom up&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+<div id="outline-container-orgfe4d24d" class="outline-6">
+<h6 id="orgfe4d24d">tom down&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+<div id="outline-container-org5c66706" class="outline-6">
+<h6 id="org5c66706">meet in the middle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+</div>
+<div id="outline-container-orgd5e66ce" class="outline-5">
+<h5 id="orgd5e66ce">CAP theorem</h5>
+<div class="outline-text-5" id="text-orgd5e66ce">
+</div>
+<div id="outline-container-org1ec8e56" class="outline-6">
+<h6 id="org1ec8e56">Beyond CAP database systems</h6>
+</div>
+</div>
+<div id="outline-container-orgebc6282" class="outline-5">
+<h5 id="orgebc6282">Wall: Write Ahead Logs</h5>
+<div class="outline-text-5" id="text-orgebc6282">
+</div>
+<div id="outline-container-org8013284" class="outline-6">
+<h6 id="org8013284">what it is good for</h6>
+</div>
+</div>
+<div id="outline-container-org797c7f9" class="outline-5">
+<h5 id="org797c7f9">eventual consistency</h5>
+</div>
+<div id="outline-container-org70e620b" class="outline-5">
+<h5 id="org70e620b">Multi master replication</h5>
+</div>
+<div id="outline-container-org48ad161" class="outline-5">
+<h5 id="org48ad161">OLAP vs OLTP</h5>
+</div>
+<div id="outline-container-org9300e7c" class="outline-5">
+<h5 id="org9300e7c">slowly moving dimensions</h5>
+<div class="outline-text-5" id="text-org9300e7c">
+</div>
+<div id="outline-container-org0133853" class="outline-6">
+<h6 id="org0133853">What is it?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org0133853">
 <ul class="org-ul">
 <li>Type 0 - The passive method</li>
 <li>Type 1 - Overwriting the old value</li>
@@ -348,26 +1043,29 @@ for the JavaScript code in this tag.
 <li>Type 6 - Combine approaches of types 1,2,3 (1+2+3=6)</li>
 </ul>
 </div>
-</li>
-<li><a id="orge62aeec"></a>Type 0 - The passive method.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orge62aeec">
+</div>
+<div id="outline-container-org0283dfe" class="outline-6">
+<h6 id="org0283dfe">Type 0 - The passive method.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org0283dfe">
 <ul class="org-ul">
 <li>In this method no special action is performed upon dimensional changes.</li>
 <li>Some dimension data can remain the same as it was first time inserted, others may be overwritten.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgb2d961e"></a>Type 1 - Overwriting the old value.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orgb2d961e">
+</div>
+<div id="outline-container-org6b4e19e" class="outline-6">
+<h6 id="org6b4e19e">Type 1 - Overwriting the old value.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org6b4e19e">
 <ul class="org-ul">
 <li>In this method no history of dimension changes is kept in the database.</li>
 <li>The old dimension value is simply overwritten be the new one.</li>
 <li>This type is easy to maintain and is often use for data which changes are caused by processing corrections (e.g. removal special characters, correcting spelling errors).</li>
 </ul>
 </div>
-</li>
-<li><a id="orga84e734"></a>Type 2 - Creating a new additional record.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orga84e734">
+</div>
+<div id="outline-container-org26b9f46" class="outline-6">
+<h6 id="org26b9f46">Type 2 - Creating a new additional record.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org26b9f46">
 <ul class="org-ul">
 <li>In this methodology all history of dimension changes is kept in the database.</li>
 <li>You capture attribute change by adding a new row with a new surrogate key to the dimension table.</li>
@@ -375,26 +1073,29 @@ for the JavaScript code in this tag.
 <li>Also 'effective date' and 'current indicator' columns are used in this method. There could be only one record with current indicator set to 'Y'. For 'effective date' columns, i.e. start<sub>date</sub> and end<sub>date</sub>, the end<sub>date</sub> for current record usually is set to value 9999-12-31. Introducing changes to the dimensional model in type 2 could be very expensive database operation so it is not recommended to use it in dimensions where a new attribute could be added in the future.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgcb85c0c"></a>Type 3 - Adding a new column.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orgcb85c0c">
+</div>
+<div id="outline-container-org8249230" class="outline-6">
+<h6 id="org8249230">Type 3 - Adding a new column.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org8249230">
 <ul class="org-ul">
 <li>In this type usually only the current and previous value of dimension is kept in the database.</li>
 <li>The new value is loaded into 'current/new' column and the old one into 'old/previous' column.</li>
 <li>Generally speaking the history is limited to the number of column created for storing historical data. This is the least commonly needed technique.</li>
 </ul>
 </div>
-</li>
-<li><a id="org37fc301"></a>Type 4 - Using historical table.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-org37fc301">
+</div>
+<div id="outline-container-orgdf950cb" class="outline-6">
+<h6 id="orgdf950cb">Type 4 - Using historical table.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-orgdf950cb">
 <ul class="org-ul">
 <li>In this method a separate historical table is used to track all dimension's attribute historical changes for each of the dimension.</li>
 <li>The 'main' dimension table keeps only the current data e.g. customer and customer<sub>history</sub> tables.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgbf94266"></a>Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orgbf94266">
+</div>
+<div id="outline-container-orgf5a0e88" class="outline-6">
+<h6 id="orgf5a0e88">Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-orgf5a0e88">
 <ul class="org-ul">
 <li>In this type we have in dimension table such additional columns as:</li>
 
@@ -407,30 +1108,39 @@ for the JavaScript code in this tag.
 <li>In this method to capture attribute change we add a new record as in type 2. The current<sub>type</sub> information is overwritten with the new one as in type 1. We store the history in a historical<sub>column</sub> as in type 3.</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="orgb0ef040"></a>Backup strategy<br />
-<ul class="org-ul">
-<li><a id="org7803ffa"></a>full vs incremental backup<br /></li>
-<li><a id="org884849e"></a>snapshots<br /></li>
-<li><a id="org99a8118"></a>on-line replica<br /></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a id="org047ca15"></a>SQL<br />
-<ul class="org-ul">
-<li><a id="orgb1a7098"></a>partitionning<br />
-<div class="outline-text-5" id="text-orgb1a7098">
+</div>
+</div>
+<div id="outline-container-org6cd0930" class="outline-5">
+<h5 id="org6cd0930">Backup strategy</h5>
+<div class="outline-text-5" id="text-org6cd0930">
+</div>
+<div id="outline-container-org78147d5" class="outline-6">
+<h6 id="org78147d5">full vs incremental backup</h6>
+</div>
+<div id="outline-container-org24a5a01" class="outline-6">
+<h6 id="org24a5a01">snapshots</h6>
+</div>
+<div id="outline-container-orga9d52e1" class="outline-6">
+<h6 id="orga9d52e1">on-line replica</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org514c910" class="outline-4">
+<h4 id="org514c910"><span class="section-number-4">1.2.2</span> SQL</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div>
+<div id="outline-container-orgc482825" class="outline-5">
+<h5 id="orgc482825">partitionning</h5>
+<div class="outline-text-5" id="text-orgc482825">
 <ul class="org-ul">
 <li>co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální</li>
 <li>proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -&gt; vice partiton</li>
 </ul>
 </div>
-</li>
-<li><a id="orgaa08107"></a>inner vs outher join<br />
-<div class="outline-text-5" id="text-orgaa08107">
+</div>
+<div id="outline-container-org6931f65" class="outline-5">
+<h5 id="org6931f65">inner vs outher join</h5>
+<div class="outline-text-5" id="text-org6931f65">
 <ul class="org-ul">
 <li>typy spojení DB tabulek,
 <ul class="org-ul">
@@ -440,83 +1150,104 @@ for the JavaScript code in this tag.
 <li>záleží na typu outer joinu - Full/left/right</li>
 </ul>
 </div>
-</li>
-<li><a id="org7f904ad"></a>DB Index<br />
-<div class="outline-text-5" id="text-org7f904ad">
+</div>
+<div id="outline-container-org90527cc" class="outline-5">
+<h5 id="org90527cc">DB Index</h5>
+<div class="outline-text-5" id="text-org90527cc">
 <ul class="org-ul">
 <li>Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
 k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity</li>
 </ul>
 </div>
-</li>
-<li><a id="org72ccba7"></a>Constraint<br />
-<div class="outline-text-5" id="text-org72ccba7">
+</div>
+<div id="outline-container-org5de4843" class="outline-5">
+<h5 id="org5de4843">Constraint</h5>
+<div class="outline-text-5" id="text-org5de4843">
 <ul class="org-ul">
 <li>Omezení hodnoty vkládané do atribut, foreign key constraint  hodnota musí existovat v referenční tabulce, primary key constaint  unikátní hodnota v tabulce</li>
 </ul>
 </div>
-</li>
-<li><a id="org822a49e"></a>Agregace (group by)<br /></li>
-<li><a id="org96b81dd"></a>Co jsou window funkce?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org96b81dd">
+</div>
+<div id="outline-container-orgeee5ed5" class="outline-5">
+<h5 id="orgeee5ed5">Agregace (group by)</h5>
+</div>
+<div id="outline-container-orgd8745a3" class="outline-5">
+<h5 id="orgd8745a3">Co jsou window funkce?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgd8745a3">
 <ul class="org-ul">
 <li>kalkulace/agregace nad množinou dat, přičemž každý prvek množiny může mít výsledek agregace jiný ….</li>
 <li>Např funkce lead/lag/rank/row<sub>number</sub>/first/last/</li>
 </ul>
 </div>
-</li>
-<li><a id="org11aa524"></a>what is a defference between CTE and temp table?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org11aa524">
+</div>
+<div id="outline-container-org468438c" class="outline-5">
+<h5 id="org468438c">what is a defference between CTE and temp table?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org468438c">
 <ul class="org-ul">
 <li>A CTE is just that &#x2013; Common Table Expression, that is, only a syntax construct. The result set described by a CTE may never be materialized in the specified form.</li>
 <li>A temporary table, on the other hand, is a real database object that is initialized with the structure described by its DDL statement and possibly populated by actual rows.</li>
 </ul>
 </div>
-</li>
-<li><a id="org1ff663b"></a>CTE (with)<br />
-<div class="outline-text-5" id="text-org1ff663b">
+</div>
+<div id="outline-container-org117e130" class="outline-5">
+<h5 id="org117e130">CTE (with)</h5>
+<div class="outline-text-5" id="text-org117e130">
 <ul class="org-ul">
 <li>syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu,</li>
 <li>lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )</li>
 </ul>
 </div>
-</li>
-<li><a id="org6a790f6"></a>DML/DDL<br />
-<div class="outline-text-5" id="text-org6a790f6">
+</div>
+<div id="outline-container-orgdfbf342" class="outline-5">
+<h5 id="orgdfbf342">DML/DDL</h5>
+<div class="outline-text-5" id="text-orgdfbf342">
 <ul class="org-ul">
 <li>manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
+</div>
+</div>
 
-<li><a id="org6c8cb02"></a>Distributed consensus:<br />
-<ul class="org-ul">
-<li><a id="orgfa54c21"></a>Paxos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgdd14120"></a>Raft&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgaf797bd"></a>Zab&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-</ul>
-</li>
-<li><a id="orgce54ae9"></a>Transactions<br />
-<ul class="org-ul">
-<li><a id="orgc88668f"></a>transaction problems that are prevented by isolation:<br />
-<ul class="org-ul">
-<li><a id="org6dadc64"></a>What are they and what they mean?<br />
-<div class="outline-text-6" id="text-org6dadc64">
+<div id="outline-container-org7df7b70" class="outline-4">
+<h4 id="org7df7b70"><span class="section-number-4">1.2.3</span> Distributed consensus:</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div>
+<div id="outline-container-orgf4c6b36" class="outline-5">
+<h5 id="orgf4c6b36">Paxos&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h5>
+</div>
+<div id="outline-container-org414cf52" class="outline-5">
+<h5 id="org414cf52">Raft&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h5>
+</div>
+<div id="outline-container-orgdf82f12" class="outline-5">
+<h5 id="orgdf82f12">Zab&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h5>
+</div>
+</div>
+<div id="outline-container-org5d1e04d" class="outline-4">
+<h4 id="org5d1e04d"><span class="section-number-4">1.2.4</span> Transactions</h4>
+<div class="outline-text-4" id="text-1-2-4">
+</div>
+<div id="outline-container-org3f991c8" class="outline-5">
+<h5 id="org3f991c8">transaction problems that are prevented by isolation:</h5>
+<div class="outline-text-5" id="text-org3f991c8">
+</div>
+<div id="outline-container-orgd6ac69e" class="outline-6">
+<h6 id="orgd6ac69e">What are they and what they mean?</h6>
+<div class="outline-text-6" id="text-orgd6ac69e">
 <ul class="org-ul">
 <li>Dirty reads</li>
 <li>non-repeatable reads</li>
 <li>phantom reads</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org9d4945e"></a>JDBC transaction isolation levels<br />
-<ul class="org-ul">
-<li><a id="org4aff3f0"></a>what are they and what they prevent from?<br />
-<div class="outline-text-6" id="text-org4aff3f0">
+</div>
+</div>
+<div id="outline-container-org3cfcf49" class="outline-5">
+<h5 id="org3cfcf49">JDBC transaction isolation levels</h5>
+<div class="outline-text-5" id="text-org3cfcf49">
+</div>
+<div id="outline-container-orgc9b0158" class="outline-6">
+<h6 id="orgc9b0158">what are they and what they prevent from?</h6>
+<div class="outline-text-6" id="text-orgc9b0158">
 <ul class="org-ul">
 <li>TRANSACTION<sub>READ</sub><sub>UNCOMMITTED</sub>
 <ul class="org-ul">
@@ -536,13 +1267,15 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 </ul></li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org060978d"></a>ANSI/ISO levels -<br />
-<ul class="org-ul">
-<li><a id="org39263dc"></a>what they are<br />
-<div class="outline-text-6" id="text-org39263dc">
+</div>
+</div>
+<div id="outline-container-orge95f3eb" class="outline-5">
+<h5 id="orge95f3eb">ANSI/ISO levels -</h5>
+<div class="outline-text-5" id="text-orge95f3eb">
+</div>
+<div id="outline-container-org633a2c1" class="outline-6">
+<h6 id="org633a2c1">what they are</h6>
+<div class="outline-text-6" id="text-org633a2c1">
 <ul class="org-ul">
 <li>serializable</li>
 <li>repeatable read</li>
@@ -550,9 +1283,10 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 <li>read uncommitted</li>
 </ul>
 </div>
-</li>
-<li><a id="org9eb4b9b"></a>define some<br />
-<div class="outline-text-6" id="text-org9eb4b9b">
+</div>
+<div id="outline-container-orgaada832" class="outline-6">
+<h6 id="orgaada832">define some</h6>
+<div class="outline-text-6" id="text-orgaada832">
 <ul class="org-ul">
 <li>The Serializable isolation level guarantees that concurrent transactions run as they would if you would run sequentially one by one in order.</li>
 <li>One step weaker is the Read Repeatable isolation level that allows Phantom Reads to happen in the transaction. Contrary to transactions running in the Serializable mode, the set of rows that is returned by two consecutive select queries in a transaction can differ. This can happen if another transaction adds or removes rows from the table we are querying.</li>
@@ -560,11 +1294,11 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 <li>The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org8d255ed"></a>ORACLE:<br />
-<div class="outline-text-5" id="text-org8d255ed">
+</div>
+</div>
+<div id="outline-container-org6fbfb65" class="outline-5">
+<h5 id="org6fbfb65">ORACLE:</h5>
+<div class="outline-text-5" id="text-org6fbfb65">
 <ul class="org-ul">
 <li>READ COMMITTED (the default)</li>
 <li>SERIALIZABLE.
@@ -573,37 +1307,51 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 </ul></li>
 </ul>
 </div>
-</li>
-<li><a id="org7038a32"></a>PostgreSQL<br />
-<ul class="org-ul">
-<li><a id="org72aa471"></a>Explain about Multi version concurrency control?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="question">question</span></span><br />
-<div class="outline-text-6" id="text-org72aa471">
+</div>
+<div id="outline-container-org5bc2667" class="outline-5">
+<h5 id="org5bc2667">PostgreSQL</h5>
+<div class="outline-text-5" id="text-org5bc2667">
+</div>
+<div id="outline-container-orgf44df04" class="outline-6">
+<h6 id="orgf44df04">Explain about Multi version concurrency control?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="question">question</span></span></h6>
+<div class="outline-text-6" id="text-orgf44df04">
 <ul class="org-ul">
 <li>Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.</li>
 <li>This removes the time lag for the user to log into his database.</li>
 <li>This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a id="org52c94c0"></a>Tools &amp; services<br />
-<ul class="org-ul">
-<li><a id="org64e75f8"></a>Big Table<br /></li>
-<li><a id="org50f1e85"></a>Big Query<br /></li>
-<li><a id="orgb5edca0"></a>Elastic Search<br />
-<ul class="org-ul">
-<li><a id="org13f4223"></a>Bloom Filter<br /></li>
-</ul>
-</li>
-<li><a id="org06ff90b"></a>MongoDB<br /></li>
-<li><a id="orgadebaa3"></a>Apache Drill<br /></li>
-</ul>
-</li>
+</div>
+</div>
+</div>
+<div id="outline-container-org1df0097" class="outline-4">
+<h4 id="org1df0097"><span class="section-number-4">1.2.5</span> Tools &amp; services</h4>
+<div class="outline-text-4" id="text-1-2-5">
+</div>
+<div id="outline-container-org9cd29ab" class="outline-5">
+<h5 id="org9cd29ab">Big Table</h5>
+</div>
+<div id="outline-container-orgb0db170" class="outline-5">
+<h5 id="orgb0db170">Big Query</h5>
+</div>
+<div id="outline-container-org779b5ef" class="outline-5">
+<h5 id="org779b5ef">Elastic Search</h5>
+<div class="outline-text-5" id="text-org779b5ef">
+</div>
+<div id="outline-container-org292dc71" class="outline-6">
+<h6 id="org292dc71">Bloom Filter</h6>
+</div>
+</div>
+<div id="outline-container-org5c39ce5" class="outline-5">
+<h5 id="org5c39ce5">MongoDB</h5>
+</div>
+<div id="outline-container-orgea9ed86" class="outline-5">
+<h5 id="orgea9ed86">Apache Drill</h5>
+</div>
+</div>
 
-<li><a id="org31e6f29"></a>Datawarehouse?<br />
+<div id="outline-container-org7238bd0" class="outline-4">
+<h4 id="org7238bd0"><span class="section-number-4">1.2.6</span> Datawarehouse?</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
 <li>úložiště dat,</li>
@@ -611,22 +1359,25 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 <li>pro účely analýzy dat … podpora business procesů organizace</li>
 </ul>
 </div>
-</li>
-<li><a id="org5803322"></a>Star schema  structure<br />
+</div>
+<div id="outline-container-org5967b69" class="outline-4">
+<h4 id="org5967b69"><span class="section-number-4">1.2.7</span> Star schema  structure</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <ul class="org-ul">
 <li>tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay</li>
 </ul>
 </div>
-</li>
-<li><a id="org1a960d6"></a>Snowflake schema  structure<br />
+</div>
+<div id="outline-container-orgb995521" class="outline-4">
+<h4 id="orgb995521"><span class="section-number-4">1.2.8</span> Snowflake schema  structure</h4>
 <div class="outline-text-4" id="text-1-2-8">
 <ul class="org-ul">
 <li>faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF</li>
 </ul>
 </div>
-</li>
-<li><a id="org8cd9e02"></a>WAL  / transactional log?<br />
+</div>
+<div id="outline-container-org8259a8d" class="outline-4">
+<h4 id="org8259a8d"><span class="section-number-4">1.2.9</span> WAL  / transactional log?</h4>
 <div class="outline-text-4" id="text-1-2-9">
 <ul class="org-ul">
 <li>log kde je historie všech provedených DB operací nad danou instancí/databází.</li>
@@ -635,15 +1386,21 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 <li>u postgre se dá použít například i k replikaci databáze</li>
 </ul>
 </div>
-</li>
-</ol>
-</li>
+</div>
+</div>
 
-<li><a id="orgf203e7c"></a>Messaging&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="org52c9f84"></a>queue<br /></li>
-<li><a id="orgeb4456e"></a>topics<br /></li>
-<li><a id="org5bd07ab"></a>message delivery mode:<br />
+<div id="outline-container-orgc278f9e" class="outline-3">
+<h3 id="orgc278f9e"><span class="section-number-3">1.3</span> Messaging&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org21b171d" class="outline-4">
+<h4 id="org21b171d"><span class="section-number-4">1.3.1</span> queue</h4>
+</div>
+<div id="outline-container-org5c1da86" class="outline-4">
+<h4 id="org5c1da86"><span class="section-number-4">1.3.2</span> topics</h4>
+</div>
+<div id="outline-container-org53a54a5" class="outline-4">
+<h4 id="org53a54a5"><span class="section-number-4">1.3.3</span> message delivery mode:</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <ul class="org-ul">
 <li>at least once</li>
@@ -651,15 +1408,19 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 <li>exactly once</li>
 </ul>
 </div>
-</li>
-</ol>
-</li>
-<li><a id="org974d914"></a>HTTP Family&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="org5445a83"></a>HTTP<br />
-<ul class="org-ul">
-<li><a id="orgc908b2b"></a>What is the use of Accept and Content-Type Headers in HTTP Request?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgc908b2b">
+</div>
+</div>
+<div id="outline-container-org2d580a2" class="outline-3">
+<h3 id="org2d580a2"><span class="section-number-3">1.4</span> HTTP Family&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org7ec5c81" class="outline-4">
+<h4 id="org7ec5c81"><span class="section-number-4">1.4.1</span> HTTP</h4>
+<div class="outline-text-4" id="text-1-4-1">
+</div>
+<div id="outline-container-org1e24724" class="outline-5">
+<h5 id="org1e24724">What is the use of Accept and Content-Type Headers in HTTP Request?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org1e24724">
 <ul class="org-ul">
 <li>Accept headers:
 <ul class="org-ul">
@@ -671,9 +1432,10 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 </ul></li>
 </ul>
 </div>
-</li>
-<li><a id="orgcb6a2ee"></a>What is Server-Sent Events  (SSE)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgcb6a2ee">
+</div>
+<div id="outline-container-org7b85a0a" class="outline-5">
+<h5 id="org7b85a0a">What is Server-Sent Events  (SSE)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org7b85a0a">
 <ul class="org-ul">
 <li>is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.</li>
 <li>They are commonly used to send message updates or continuous data streams to a browser client
@@ -685,13 +1447,15 @@ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/
 </ul></li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org593152e"></a>REST<br />
-<ul class="org-ul">
-<li><a id="orgc1ad06e"></a>What are the HTTP methods supported by REST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgc1ad06e">
+</div>
+</div>
+<div id="outline-container-orgb9a000a" class="outline-4">
+<h4 id="orgb9a000a"><span class="section-number-4">1.4.2</span> REST</h4>
+<div class="outline-text-4" id="text-1-4-2">
+</div>
+<div id="outline-container-org902f631" class="outline-5">
+<h5 id="org902f631">What are the HTTP methods supported by REST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org902f631">
 <p>
 HTTP methods supported by REST are:
 </p>
@@ -737,10 +1501,11 @@ HTTP methods supported by REST are:
 </tbody>
 </table>
 </div>
-</li>
+</div>
 
-<li><a id="orgced7e91"></a>What is the purpose of HTTP Status Code?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgced7e91">
+<div id="outline-container-orga03c221" class="outline-5">
+<h5 id="orga03c221">What is the purpose of HTTP Status Code?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orga03c221">
 <p>
 HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
 </p>
@@ -809,9 +1574,10 @@ Consider following status codes:
 </tbody>
 </table>
 </div>
-</li>
-<li><a id="orgb971b29"></a>What is statelessness in RESTful Webservices?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgb971b29">
+</div>
+<div id="outline-container-org721f483" class="outline-5">
+<h5 id="org721f483">What is statelessness in RESTful Webservices?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org721f483">
 <ul class="org-ul">
 <li>As per REST architecture, a RESTful web service should not keep a client state on server.</li>
 <li>This restriction is called statelessness.</li>
@@ -819,9 +1585,10 @@ Consider following status codes:
 <li>For example, session maintained by server is identified by session identifier passed by the client.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgd749a54"></a>what is the difference between PUT and POST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgd749a54">
+</div>
+<div id="outline-container-orge6d6ab5" class="outline-5">
+<h5 id="orge6d6ab5">what is the difference between PUT and POST?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orge6d6ab5">
 <ul class="org-ul">
 <li>PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one</li>
 <li>POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource</li>
@@ -829,99 +1596,174 @@ Consider following status codes:
 <li>However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-
-<li><a id="orgf5cbc6c"></a>micro-service-architecture<br /></li>
-<li><a id="orgccde381"></a>Enterprise Architecture Integration Patterns<br />
-<ol class="org-ol">
-<li><a id="orgec74602"></a>orchestration<br /></li>
-<li><a id="org36f61a7"></a>choreography<br /></li>
-</ol>
-</li>
-<li><a id="org11b2d6c"></a>Event Sourcing<br /></li>
-<li><a id="orgfe96366"></a>CQRS<br /></li>
-<li><a id="orgd116f1e"></a>CRUD<br /></li>
-<li><a id="orgb5925af"></a>Pragmatic Design principes<br />
-<ol class="org-ol">
-<li><a id="org6c094a9"></a>DRY&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org0773719"></a>KISS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org69341ee"></a>YAGNI&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgf17cabd"></a>open-close principal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orge222719"></a>High cohesion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgb399cc6"></a>Low coupling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="org93f2802"></a>What is temporal coupling?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
 </div>
-<div id="outline-container-orge7293e0" class="outline-2">
-<h2 id="orge7293e0"><span class="section-number-2">2</span> Project Process Documentation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+</div>
+</div>
+
+<div id="outline-container-org26de5ba" class="outline-3">
+<h3 id="org26de5ba"><span class="section-number-3">1.5</span> micro-service-architecture</h3>
+</div>
+<div id="outline-container-org8bf6dc4" class="outline-3">
+<h3 id="org8bf6dc4"><span class="section-number-3">1.6</span> Enterprise Architecture Integration Patterns</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org577fba3" class="outline-4">
+<h4 id="org577fba3"><span class="section-number-4">1.6.1</span> orchestration</h4>
+</div>
+<div id="outline-container-org1713672" class="outline-4">
+<h4 id="org1713672"><span class="section-number-4">1.6.2</span> choreography</h4>
+</div>
+</div>
+<div id="outline-container-orgbe2f3f6" class="outline-3">
+<h3 id="orgbe2f3f6"><span class="section-number-3">1.7</span> Event Sourcing</h3>
+</div>
+<div id="outline-container-org882cf00" class="outline-3">
+<h3 id="org882cf00"><span class="section-number-3">1.8</span> CQRS</h3>
+</div>
+<div id="outline-container-org7bea6e4" class="outline-3">
+<h3 id="org7bea6e4"><span class="section-number-3">1.9</span> CRUD</h3>
+</div>
+<div id="outline-container-orga3b27b5" class="outline-3">
+<h3 id="orga3b27b5"><span class="section-number-3">1.10</span> Pragmatic Design principes</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+<div id="outline-container-org96ad8ba" class="outline-4">
+<h4 id="org96ad8ba"><span class="section-number-4">1.10.1</span> DRY&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgcb781da" class="outline-4">
+<h4 id="orgcb781da"><span class="section-number-4">1.10.2</span> KISS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgf3e231f" class="outline-4">
+<h4 id="orgf3e231f"><span class="section-number-4">1.10.3</span> YAGNI&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgb4f438a" class="outline-4">
+<h4 id="orgb4f438a"><span class="section-number-4">1.10.4</span> open-close principal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org9787eee" class="outline-4">
+<h4 id="org9787eee"><span class="section-number-4">1.10.5</span> High cohesion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgbe11139" class="outline-4">
+<h4 id="orgbe11139"><span class="section-number-4">1.10.6</span> Low coupling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-1-10-6">
+</div>
+<div id="outline-container-orgf49a55b" class="outline-5">
+<h5 id="orgf49a55b">What is temporal coupling?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgef541fa" class="outline-2">
+<h2 id="orgef541fa"><span class="section-number-2">2</span> Project Process Documentation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<ol class="org-ol">
-<li><a id="org3b68066"></a>Scrum&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgf518fa1"></a>Kanban&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgc2fc3ab"></a>XP&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org15c0c57"></a>Lean&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org6544ccc"></a>Jira&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgd279eb6"></a>Confluence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orge1b4776"></a>MOSCOW&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org0d809c2"></a>DoD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org53ad026"></a>DoR&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgf412d85"></a>Uml&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgbf95e2f"></a>C4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgaadd229"></a>Org42&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-</ol>
+<div id="outline-container-org06f8d27" class="outline-3">
+<h3 id="org06f8d27"><span class="section-number-3">2.1</span> Scrum&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
 </div>
-<div id="outline-container-org058f238" class="outline-2">
-<h2 id="org058f238"><span class="section-number-2">3</span> Cloud&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+<div id="outline-container-orgc138582" class="outline-3">
+<h3 id="orgc138582"><span class="section-number-3">2.2</span> Kanban&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org6bed011" class="outline-3">
+<h3 id="org6bed011"><span class="section-number-3">2.3</span> XP&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org2783e4a" class="outline-3">
+<h3 id="org2783e4a"><span class="section-number-3">2.4</span> Lean&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orgab299b5" class="outline-3">
+<h3 id="orgab299b5"><span class="section-number-3">2.5</span> Jira&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orgd12b9d2" class="outline-3">
+<h3 id="orgd12b9d2"><span class="section-number-3">2.6</span> Confluence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org1f8516d" class="outline-3">
+<h3 id="org1f8516d"><span class="section-number-3">2.7</span> MOSCOW&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orgc4d730b" class="outline-3">
+<h3 id="orgc4d730b"><span class="section-number-3">2.8</span> DoD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org78ade86" class="outline-3">
+<h3 id="org78ade86"><span class="section-number-3">2.9</span> DoR&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org21100e9" class="outline-3">
+<h3 id="org21100e9"><span class="section-number-3">2.10</span> Uml&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org4a1d739" class="outline-3">
+<h3 id="org4a1d739"><span class="section-number-3">2.11</span> C4&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-org72e6d10" class="outline-3">
+<h3 id="org72e6d10"><span class="section-number-3">2.12</span> Org42&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+</div>
+<div id="outline-container-orga71ca15" class="outline-2">
+<h2 id="orga71ca15"><span class="section-number-2">3</span> Cloud&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<ol class="org-ol">
-<li><a id="orgde28f05"></a>Cloud native architecture<br /></li>
-<li><a id="org745fe6d"></a>IaaS<br /></li>
-<li><a id="org7e7a20e"></a>PaaS<br /></li>
-<li><a id="org49a6f60"></a>SaaS<br /></li>
-<li><a id="org19c5c4c"></a>FINOPS<br />
-<ol class="org-ol">
-<li><a id="org8877244"></a>data at rest cost<br /></li>
-<li><a id="org58a31ce"></a>transfer cost<br /></li>
-<li><a id="org7dfb952"></a>cpu cost<br /></li>
-</ol>
-</li>
-<li><a id="orgd33c12c"></a>DEVSECOPS<br /></li>
-<li><a id="org591fc93"></a>storage:<br />
-<ol class="org-ol">
-<li><a id="org8c51062"></a>S3<br /></li>
-<li><a id="orge8b99af"></a>GCS bucket<br />
-<ul class="org-ul">
-<li><a id="orgd09b4ff"></a>api<br /></li>
-<li><a id="orgb5610c5"></a>what it is good for<br /></li>
-</ul>
-</li>
-<li><a id="orgda96f6c"></a>MinIO Object Storage<br /></li>
-</ol>
-</li>
-</ol>
+<div id="outline-container-orgbf89b38" class="outline-3">
+<h3 id="orgbf89b38"><span class="section-number-3">3.1</span> Cloud native architecture</h3>
 </div>
-<div id="outline-container-org8792ed4" class="outline-2">
-<h2 id="org8792ed4"><span class="section-number-2">4</span> DEVOPS / SRE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+<div id="outline-container-orgdb63f6f" class="outline-3">
+<h3 id="orgdb63f6f"><span class="section-number-3">3.2</span> IaaS</h3>
+</div>
+<div id="outline-container-org7f4761e" class="outline-3">
+<h3 id="org7f4761e"><span class="section-number-3">3.3</span> PaaS</h3>
+</div>
+<div id="outline-container-orge5f9b3a" class="outline-3">
+<h3 id="orge5f9b3a"><span class="section-number-3">3.4</span> SaaS</h3>
+</div>
+<div id="outline-container-orga6551eb" class="outline-3">
+<h3 id="orga6551eb"><span class="section-number-3">3.5</span> FINOPS</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org79c5e7d" class="outline-4">
+<h4 id="org79c5e7d"><span class="section-number-4">3.5.1</span> data at rest cost</h4>
+</div>
+<div id="outline-container-orgd9c3bd3" class="outline-4">
+<h4 id="orgd9c3bd3"><span class="section-number-4">3.5.2</span> transfer cost</h4>
+</div>
+<div id="outline-container-org78e9c87" class="outline-4">
+<h4 id="org78e9c87"><span class="section-number-4">3.5.3</span> cpu cost</h4>
+</div>
+</div>
+<div id="outline-container-orga47bf56" class="outline-3">
+<h3 id="orga47bf56"><span class="section-number-3">3.6</span> DEVSECOPS</h3>
+</div>
+<div id="outline-container-org3ecd97b" class="outline-3">
+<h3 id="org3ecd97b"><span class="section-number-3">3.7</span> storage:</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-org340bd9b" class="outline-4">
+<h4 id="org340bd9b"><span class="section-number-4">3.7.1</span> S3</h4>
+</div>
+<div id="outline-container-orge973f2c" class="outline-4">
+<h4 id="orge973f2c"><span class="section-number-4">3.7.2</span> GCS bucket</h4>
+<div class="outline-text-4" id="text-3-7-2">
+</div>
+<div id="outline-container-orgf59772d" class="outline-5">
+<h5 id="orgf59772d">api</h5>
+</div>
+<div id="outline-container-org2ec7a5d" class="outline-5">
+<h5 id="org2ec7a5d">what it is good for</h5>
+</div>
+</div>
+<div id="outline-container-org5e50f9e" class="outline-4">
+<h4 id="org5e50f9e"><span class="section-number-4">3.7.3</span> MinIO Object Storage</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc13b7c1" class="outline-2">
+<h2 id="orgc13b7c1"><span class="section-number-2">4</span> DEVOPS / SRE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<ol class="org-ol">
-<li><a id="org5b18a04"></a>Tools<br />
-<ol class="org-ol">
-<li><a id="org3a3e9e0"></a>Git&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="orgd87fd18"></a>What is the use of Staging area or Indexing in Git?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgd87fd18">
+<div id="outline-container-orgde3834d" class="outline-3">
+<h3 id="orgde3834d"><span class="section-number-3">4.1</span> Tools</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orgd134aa6" class="outline-4">
+<h4 id="orgd134aa6"><span class="section-number-4">4.1.1</span> Git&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-4-1-1">
+</div>
+<div id="outline-container-org926e46c" class="outline-5">
+<h5 id="org926e46c">What is the use of Staging area or Indexing in Git?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org926e46c">
 <p>
 From Git’s perspective, there are three areas where the file changes can be kept i.e.:
 </p>
@@ -954,112 +1796,253 @@ From Git’s perspective, there are three areas where the file changes can be ke
 <li>You can use the git status command to see what’s in the index.</li>
 </ul>
 </div>
-</li>
-<li><a id="org65be785"></a><span class="todo TODO">TODO</span> pull-request<br /></li>
-<li><a id="orgb4d7e88"></a><span class="todo TODO">TODO</span> cherry pick<br /></li>
-<li><a id="org29aee9c"></a><span class="todo TODO">TODO</span> flow<br /></li>
-<li><a id="org93b39da"></a><span class="todo TODO">TODO</span> git push<br /></li>
-<li><a id="org49de7e0"></a><span class="todo TODO">TODO</span> rebase vs merge - semantical and syntactical diff<br /></li>
-<li><a id="orgc9291cd"></a><span class="todo TODO">TODO</span> stash<br /></li>
-</ul>
-</li>
-<li><a id="org2070593"></a>Docker&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="org0b6747a"></a><span class="todo TODO">TODO</span> dockerhub :-)<br /></li>
-<li><a id="org62b09ce"></a><span class="todo TODO">TODO</span> docker file<br /></li>
-<li><a id="org7125881"></a><span class="todo TODO">TODO</span> docker image<br /></li>
-<li><a id="org1c2ba5f"></a><span class="todo TODO">TODO</span> docker compose<br /></li>
-<li><a id="org622b074"></a><span class="todo TODO">TODO</span> docker swarm<br /></li>
-<li><a id="orgec479a7"></a><span class="todo TODO">TODO</span> linux namespaces<br /></li>
-<li><a id="org1867805"></a><span class="todo TODO">TODO</span> cgroups<br /></li>
-<li><a id="orge2c064f"></a><span class="todo TODO">TODO</span> OCI<br /></li>
-<li><a id="org43386cb"></a><span class="todo TODO">TODO</span> volumes<br /></li>
-<li><a id="orgda08004"></a><span class="todo TODO">TODO</span> networks<br /></li>
-<li><a id="org9c4b6b0"></a><span class="todo TODO">TODO</span> BuildKit<br /></li>
-</ul>
-</li>
+</div>
+<div id="outline-container-org805d86b" class="outline-5">
+<h5 id="org805d86b"><span class="todo TODO">TODO</span> pull-request</h5>
+</div>
+<div id="outline-container-orgf6351bd" class="outline-5">
+<h5 id="orgf6351bd"><span class="todo TODO">TODO</span> cherry pick</h5>
+</div>
+<div id="outline-container-org7abc248" class="outline-5">
+<h5 id="org7abc248"><span class="todo TODO">TODO</span> flow</h5>
+</div>
+<div id="outline-container-orgb7af66c" class="outline-5">
+<h5 id="orgb7af66c"><span class="todo TODO">TODO</span> git push</h5>
+</div>
+<div id="outline-container-orged0d37b" class="outline-5">
+<h5 id="orged0d37b"><span class="todo TODO">TODO</span> rebase vs merge - semantical and syntactical diff</h5>
+</div>
+<div id="outline-container-orgc259980" class="outline-5">
+<h5 id="orgc259980"><span class="todo TODO">TODO</span> stash</h5>
+</div>
+</div>
+<div id="outline-container-org875911f" class="outline-4">
+<h4 id="org875911f"><span class="section-number-4">4.1.2</span> Docker&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-4-1-2">
+</div>
+<div id="outline-container-orge0385dc" class="outline-5">
+<h5 id="orge0385dc"><span class="todo TODO">TODO</span> dockerhub :-)</h5>
+</div>
+<div id="outline-container-org5d79e11" class="outline-5">
+<h5 id="org5d79e11"><span class="todo TODO">TODO</span> docker file</h5>
+</div>
+<div id="outline-container-orgb1eb015" class="outline-5">
+<h5 id="orgb1eb015"><span class="todo TODO">TODO</span> docker image</h5>
+</div>
+<div id="outline-container-org6ad3d4e" class="outline-5">
+<h5 id="org6ad3d4e"><span class="todo TODO">TODO</span> docker compose</h5>
+</div>
+<div id="outline-container-org74f0dc0" class="outline-5">
+<h5 id="org74f0dc0"><span class="todo TODO">TODO</span> docker swarm</h5>
+</div>
+<div id="outline-container-orgd3ec1ec" class="outline-5">
+<h5 id="orgd3ec1ec"><span class="todo TODO">TODO</span> linux namespaces</h5>
+</div>
+<div id="outline-container-orgdb89bf1" class="outline-5">
+<h5 id="orgdb89bf1"><span class="todo TODO">TODO</span> cgroups</h5>
+</div>
+<div id="outline-container-orgb6b59a9" class="outline-5">
+<h5 id="orgb6b59a9"><span class="todo TODO">TODO</span> OCI</h5>
+</div>
+<div id="outline-container-org6c24699" class="outline-5">
+<h5 id="org6c24699"><span class="todo TODO">TODO</span> volumes</h5>
+</div>
+<div id="outline-container-org81a0d35" class="outline-5">
+<h5 id="org81a0d35"><span class="todo TODO">TODO</span> networks</h5>
+</div>
+<div id="outline-container-org924a713" class="outline-5">
+<h5 id="org924a713"><span class="todo TODO">TODO</span> BuildKit</h5>
+</div>
+</div>
 
-<li><a id="orgfa8ba07"></a>K8S / Kubernetes:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="orgdd22b22"></a>helm<br /></li>
-<li><a id="org0734a5d"></a>chart<br /></li>
-<li><a id="orgc897293"></a>template<br /></li>
-<li><a id="orge47c597"></a>cluster<br /></li>
-<li><a id="orgf268c32"></a>pod<br /></li>
-<li><a id="org0a6ba69"></a>node<br /></li>
-<li><a id="org9464d3d"></a>service mesh<br /></li>
-<li><a id="orgb5d8f90"></a>ingress controller<br /></li>
-<li><a id="orgd4f01b0"></a>ingress and exgress?<br /></li>
-<li><a id="org0920940"></a>etcd<br /></li>
-<li><a id="orga0a5d1d"></a>secret<br /></li>
-<li><a id="org3c69df5"></a>operator<br /></li>
-<li><a id="orga9f5136"></a>CRD / Custom Resources<br />
-<div class="outline-text-5" id="text-orga9f5136">
+<div id="outline-container-orgc930a3d" class="outline-4">
+<h4 id="orgc930a3d"><span class="section-number-4">4.1.3</span> K8S / Kubernetes:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-4-1-3">
+</div>
+<div id="outline-container-orgbeaa9b6" class="outline-5">
+<h5 id="orgbeaa9b6">helm</h5>
+</div>
+<div id="outline-container-org8ac175b" class="outline-5">
+<h5 id="org8ac175b">chart</h5>
+</div>
+<div id="outline-container-orgab6e6a5" class="outline-5">
+<h5 id="orgab6e6a5">template</h5>
+</div>
+<div id="outline-container-org5562594" class="outline-5">
+<h5 id="org5562594">cluster</h5>
+</div>
+<div id="outline-container-org7123917" class="outline-5">
+<h5 id="org7123917">pod</h5>
+</div>
+<div id="outline-container-org929cb30" class="outline-5">
+<h5 id="org929cb30">node</h5>
+</div>
+<div id="outline-container-orgc171e6e" class="outline-5">
+<h5 id="orgc171e6e">service mesh</h5>
+</div>
+<div id="outline-container-org2b79e3a" class="outline-5">
+<h5 id="org2b79e3a">ingress controller</h5>
+</div>
+<div id="outline-container-org82d1e32" class="outline-5">
+<h5 id="org82d1e32">ingress and exgress?</h5>
+</div>
+<div id="outline-container-orge6853c6" class="outline-5">
+<h5 id="orge6853c6">etcd</h5>
+</div>
+<div id="outline-container-org5aa4ff1" class="outline-5">
+<h5 id="org5aa4ff1">secret</h5>
+</div>
+<div id="outline-container-orga6f9be7" class="outline-5">
+<h5 id="orga6f9be7">operator</h5>
+</div>
+<div id="outline-container-org8710818" class="outline-5">
+<h5 id="org8710818">CRD / Custom Resources</h5>
+<div class="outline-text-5" id="text-org8710818">
 <ul class="org-ul">
 <li>A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.</li>
 <li>A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.</li>
 <li>Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgb208e00"></a>liveness/readines probes<br /></li>
-<li><a id="orgcb5c731"></a>kubectl<br /></li>
-<li><a id="org76d5462"></a>CNCF<br /></li>
-</ul>
-</li>
+</div>
+<div id="outline-container-org105bb7b" class="outline-5">
+<h5 id="org105bb7b">liveness/readines probes</h5>
+</div>
+<div id="outline-container-org2302334" class="outline-5">
+<h5 id="org2302334">kubectl</h5>
+</div>
+<div id="outline-container-org357cc63" class="outline-5">
+<h5 id="org357cc63">CNCF</h5>
+</div>
+</div>
 
-<li><a id="orga14ea4e"></a>Terraform&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="org16778f6"></a>resource<br /></li>
-<li><a id="orgedfaaa9"></a>module<br /></li>
-<li><a id="org019cb54"></a>state<br /></li>
-<li><a id="orgd0ae957"></a>backend<br /></li>
-</ul>
-</li>
-<li><a id="org096106f"></a>Chef&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org965239f"></a>Puppet&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgdcbb196"></a>Ansible&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgb8e1959"></a>Cloud Formation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orga2f3ce4"></a>Hashicorp consul&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org6d981ca"></a>Hashicorp vault&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org693d016"></a>zookeeper&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgad4455a"></a>kibana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgb7983c8"></a>graphana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="orgf087352"></a>ELK&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org3bb9159"></a>DynaTrace&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org8f12a73"></a>Piwik&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-</ol>
-</li>
-<li><a id="orgd9b7394"></a>Linux<br />
-<ol class="org-ol">
-<li><a id="org9244286"></a>ssh how to create trust between computers<br /></li>
-<li><a id="org963b112"></a>awk / sed / grep / bash / tail / head<br /></li>
-<li><a id="orgae82b4b"></a>rsync<br /></li>
-<li><a id="org849fad8"></a>mount<br /></li>
-<li><a id="orgd0af311"></a>ls / ps / htop<br /></li>
-<li><a id="org84ccb78"></a>bash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="org9006567"></a>co je to here doc?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-</ul>
-</li>
-<li><a id="orgd705c34"></a>co je to regexp<br /></li>
-<li><a id="orgc6b1c6c"></a>list open ports<br /></li>
-<li><a id="orgc52c64c"></a>iptables<br /></li>
-<li><a id="orgce415eb"></a>BPF<br /></li>
-<li><a id="orge7a7a1a"></a>list open files<br /></li>
-<li><a id="org8fa174a"></a>stdin stdout stderr<br /></li>
-<li><a id="org67f504a"></a>NFS<br /></li>
-<li><a id="orgc237d63"></a>file types:<br />
-<ul class="org-ul">
-<li><a id="org61c062d"></a>block device<br /></li>
-<li><a id="orga738928"></a>character device<br /></li>
-<li><a id="org6c12f93"></a>named pipe<br /></li>
-<li><a id="orge403f43"></a>symlink<br /></li>
-</ul>
-</li>
-<li><a id="orged63a94"></a>/etc/nsswitch.conf<br /></li>
-<li><a id="orgd17ccab"></a>/etc/resolv.conf<br /></li>
-<li><a id="org3a59cb9"></a>ip<br />
+<div id="outline-container-org07eb3ed" class="outline-4">
+<h4 id="org07eb3ed"><span class="section-number-4">4.1.4</span> Terraform&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-4-1-4">
+</div>
+<div id="outline-container-org3a05641" class="outline-5">
+<h5 id="org3a05641">resource</h5>
+</div>
+<div id="outline-container-orgb0471f5" class="outline-5">
+<h5 id="orgb0471f5">module</h5>
+</div>
+<div id="outline-container-orge7cc1b2" class="outline-5">
+<h5 id="orge7cc1b2">state</h5>
+</div>
+<div id="outline-container-org8960ccf" class="outline-5">
+<h5 id="org8960ccf">backend</h5>
+</div>
+</div>
+<div id="outline-container-org62a5804" class="outline-4">
+<h4 id="org62a5804"><span class="section-number-4">4.1.5</span> Chef&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org6273c26" class="outline-4">
+<h4 id="org6273c26"><span class="section-number-4">4.1.6</span> Puppet&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org2502f7c" class="outline-4">
+<h4 id="org2502f7c"><span class="section-number-4">4.1.7</span> Ansible&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org1fc7273" class="outline-4">
+<h4 id="org1fc7273"><span class="section-number-4">4.1.8</span> Cloud Formation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgeb49509" class="outline-4">
+<h4 id="orgeb49509"><span class="section-number-4">4.1.9</span> Hashicorp consul&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org7ca36ec" class="outline-4">
+<h4 id="org7ca36ec"><span class="section-number-4">4.1.10</span> Hashicorp vault&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org77d57df" class="outline-4">
+<h4 id="org77d57df"><span class="section-number-4">4.1.11</span> zookeeper&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org37b4279" class="outline-4">
+<h4 id="org37b4279"><span class="section-number-4">4.1.12</span> kibana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-org35ecfa2" class="outline-4">
+<h4 id="org35ecfa2"><span class="section-number-4">4.1.13</span> graphana&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgf2d39ee" class="outline-4">
+<h4 id="orgf2d39ee"><span class="section-number-4">4.1.14</span> ELK&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orga48f8e8" class="outline-4">
+<h4 id="orga48f8e8"><span class="section-number-4">4.1.15</span> DynaTrace&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+<div id="outline-container-orgc3214d6" class="outline-4">
+<h4 id="orgc3214d6"><span class="section-number-4">4.1.16</span> Piwik&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+</div>
+</div>
+<div id="outline-container-org07f72c7" class="outline-3">
+<h3 id="org07f72c7"><span class="section-number-3">4.2</span> Linux</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgbcf37e2" class="outline-4">
+<h4 id="orgbcf37e2"><span class="section-number-4">4.2.1</span> ssh how to create trust between computers</h4>
+</div>
+<div id="outline-container-org765c9c6" class="outline-4">
+<h4 id="org765c9c6"><span class="section-number-4">4.2.2</span> awk / sed / grep / bash / tail / head</h4>
+</div>
+<div id="outline-container-orgbc68bb2" class="outline-4">
+<h4 id="orgbc68bb2"><span class="section-number-4">4.2.3</span> rsync</h4>
+</div>
+<div id="outline-container-orgbb9ccd3" class="outline-4">
+<h4 id="orgbb9ccd3"><span class="section-number-4">4.2.4</span> mount</h4>
+</div>
+<div id="outline-container-org77302f0" class="outline-4">
+<h4 id="org77302f0"><span class="section-number-4">4.2.5</span> ls / ps / htop</h4>
+</div>
+<div id="outline-container-org4d0c01b" class="outline-4">
+<h4 id="org4d0c01b"><span class="section-number-4">4.2.6</span> bash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-4-2-6">
+</div>
+<div id="outline-container-orgcb79c90" class="outline-5">
+<h5 id="orgcb79c90">co je to here doc?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+</div>
+<div id="outline-container-orgcfe120c" class="outline-4">
+<h4 id="orgcfe120c"><span class="section-number-4">4.2.7</span> co je to regexp</h4>
+</div>
+<div id="outline-container-org1c57b9d" class="outline-4">
+<h4 id="org1c57b9d"><span class="section-number-4">4.2.8</span> list open ports</h4>
+</div>
+<div id="outline-container-orge4af138" class="outline-4">
+<h4 id="orge4af138"><span class="section-number-4">4.2.9</span> iptables</h4>
+</div>
+<div id="outline-container-org84b9de5" class="outline-4">
+<h4 id="org84b9de5"><span class="section-number-4">4.2.10</span> BPF</h4>
+</div>
+<div id="outline-container-org1c32670" class="outline-4">
+<h4 id="org1c32670"><span class="section-number-4">4.2.11</span> list open files</h4>
+</div>
+<div id="outline-container-org1765a33" class="outline-4">
+<h4 id="org1765a33"><span class="section-number-4">4.2.12</span> stdin stdout stderr</h4>
+</div>
+<div id="outline-container-org10eb33a" class="outline-4">
+<h4 id="org10eb33a"><span class="section-number-4">4.2.13</span> NFS</h4>
+</div>
+<div id="outline-container-orge68aad6" class="outline-4">
+<h4 id="orge68aad6"><span class="section-number-4">4.2.14</span> file types:</h4>
+<div class="outline-text-4" id="text-4-2-14">
+</div>
+<div id="outline-container-orgb52a654" class="outline-5">
+<h5 id="orgb52a654">block device</h5>
+</div>
+<div id="outline-container-org68f5146" class="outline-5">
+<h5 id="org68f5146">character device</h5>
+</div>
+<div id="outline-container-org452876e" class="outline-5">
+<h5 id="org452876e">named pipe</h5>
+</div>
+<div id="outline-container-orgdf36daf" class="outline-5">
+<h5 id="orgdf36daf">/symlink</h5>
+</div>
+</div>
+<div id="outline-container-org647abac" class="outline-4">
+<h4 id="org647abac"><span class="section-number-4">4.2.15</span> etc/nsswitch./conf</h4>
+</div>
+<div id="outline-container-org237b361" class="outline-4">
+<h4 id="org237b361"><span class="section-number-4">4.2.16</span> etc/resolv.conf</h4>
+</div>
+<div id="outline-container-org1722c02" class="outline-4">
+<h4 id="org1722c02"><span class="section-number-4">4.2.17</span> ip</h4>
 <div class="outline-text-4" id="text-4-2-17">
 <div class="org-src-container">
 <pre class="src src-bash">ip addr sh
@@ -1067,39 +2050,58 @@ ip route sh
 </pre>
 </div>
 </div>
-</li>
-</ol>
-</li>
-<li><a id="orgaa94853"></a>Observability<br />
-<ol class="org-ol">
-<li><a id="org264b490"></a>3 pillars<br />
-<ul class="org-ul">
-<li><a id="org32f7850"></a>logs<br /></li>
-<li><a id="org4b46ca5"></a>metrics<br /></li>
-<li><a id="orgff5f72a"></a>traces<br /></li>
-</ul>
-</li>
-<li><a id="orgc2437e5"></a>Tail Latency<br /></li>
-</ol>
-</li>
-</ol>
 </div>
-<div id="outline-container-org7cf8f4a" class="outline-2">
-<h2 id="org7cf8f4a"><span class="section-number-2">5</span> Web Front End&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+</div>
+<div id="outline-container-orgeda677c" class="outline-3">
+<h3 id="orgeda677c"><span class="section-number-3">4.3</span> Observability</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-orgf64d690" class="outline-4">
+<h4 id="orgf64d690"><span class="section-number-4">4.3.1</span> 3 pillars</h4>
+<div class="outline-text-4" id="text-4-3-1">
+</div>
+<div id="outline-container-org22e6322" class="outline-5">
+<h5 id="org22e6322">logs</h5>
+</div>
+<div id="outline-container-org2f34aad" class="outline-5">
+<h5 id="org2f34aad">metrics</h5>
+</div>
+<div id="outline-container-org2843874" class="outline-5">
+<h5 id="org2843874">traces</h5>
+</div>
+</div>
+<div id="outline-container-org7c9ac8d" class="outline-4">
+<h4 id="org7c9ac8d"><span class="section-number-4">4.3.2</span> Tail Latency</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org965d7a4" class="outline-2">
+<h2 id="org965d7a4"><span class="section-number-2">5</span> Web Front End&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<ol class="org-ol">
-<li><a id="orgcc0fc84"></a>React<br />
-<ol class="org-ol">
-<li><a id="org57f4da7"></a>React<br /></li>
-<li><a id="orgcb50758"></a>React Native<br /></li>
-<li><a id="orgde9dd94"></a>react-hooks<br /></li>
-</ol>
-</li>
-<li><a id="orgfd16d47"></a>HTML<br />
-<ol class="org-ol">
-<li><a id="org8177ad1"></a>Chrome Development Tools<br /></li>
-<li><a id="org727dfcc"></a>HTML5 Layout<br />
+<div id="outline-container-orgdc8d2f3" class="outline-3">
+<h3 id="orgdc8d2f3"><span class="section-number-3">5.1</span> React</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org963576b" class="outline-4">
+<h4 id="org963576b"><span class="section-number-4">5.1.1</span> React</h4>
+</div>
+<div id="outline-container-org3ee4823" class="outline-4">
+<h4 id="org3ee4823"><span class="section-number-4">5.1.2</span> React Native</h4>
+</div>
+<div id="outline-container-org184281e" class="outline-4">
+<h4 id="org184281e"><span class="section-number-4">5.1.3</span> react-hooks</h4>
+</div>
+</div>
+<div id="outline-container-org2f0d693" class="outline-3">
+<h3 id="org2f0d693"><span class="section-number-3">5.2</span> HTML</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-org30f5d45" class="outline-4">
+<h4 id="org30f5d45"><span class="section-number-4">5.2.1</span> Chrome Development Tools</h4>
+</div>
+<div id="outline-container-org227c927" class="outline-4">
+<h4 id="org227c927"><span class="section-number-4">5.2.2</span> HTML5 Layout</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #006699;">header</span>&gt; It is used to define a header for a document or a section.
@@ -1111,8 +2113,9 @@ ip route sh
 </pre>
 </div>
 </div>
-</li>
-<li><a id="org1e5f482"></a>What is iframe good for?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
+</div>
+<div id="outline-container-orgd2f9bd7" class="outline-4">
+<h4 id="orgd2f9bd7"><span class="section-number-4">5.2.3</span> What is iframe good for?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
 <div class="outline-text-4" id="text-5-2-3">
 <p>
 An iframe is used to display a web page within a web page.
@@ -1137,25 +2140,34 @@ Target to a link:
 </pre>
 </div>
 </div>
-</li>
-</ol>
-</li>
-<li><a id="org4153767"></a>CSS<br />
-<ol class="org-ol">
-<li><a id="org0f9baae"></a>Less<br /></li>
-<li><a id="orgdb958dd"></a>Sass<br /></li>
-</ol>
-</li>
-<li><a id="orgd1d33f0"></a>CORS<br />
+</div>
+</div>
+<div id="outline-container-org33aafec" class="outline-3">
+<h3 id="org33aafec"><span class="section-number-3">5.3</span> CSS</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-org1bc6f50" class="outline-4">
+<h4 id="org1bc6f50"><span class="section-number-4">5.3.1</span> Less</h4>
+</div>
+<div id="outline-container-orgb06564b" class="outline-4">
+<h4 id="orgb06564b"><span class="section-number-4">5.3.2</span> Sass</h4>
+</div>
+</div>
+<div id="outline-container-orgb80be62" class="outline-3">
+<h3 id="orgb80be62"><span class="section-number-3">5.4</span> CORS</h3>
 <div class="outline-text-3" id="text-5-4">
 <pre class="example">
 learning: https://www.codecademy.com/articles/what-is-cors
 </pre>
 </div>
-<ol class="org-ol">
-<li><a id="orgd64fb50"></a>why is CORS necessary?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgc27b493"></a>How Does CORS Manage Requests From External Resources?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org7665d38"></a>What http headers were added by CORS?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
+<div id="outline-container-orgc115bee" class="outline-4">
+<h4 id="orgc115bee"><span class="section-number-4">5.4.1</span> why is CORS necessary?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+</div>
+<div id="outline-container-org3c7a0d6" class="outline-4">
+<h4 id="org3c7a0d6"><span class="section-number-4">5.4.2</span> How Does CORS Manage Requests From External Resources?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+</div>
+<div id="outline-container-org3006424" class="outline-4">
+<h4 id="org3006424"><span class="section-number-4">5.4.3</span> What http headers were added by CORS?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
 <div class="outline-text-4" id="text-5-4-3">
 <div class="org-src-container">
 <pre class="src src-html">Access-Control-Allow-Origin
@@ -1170,67 +2182,112 @@ Origin
 </pre>
 </div>
 </div>
-</li>
-</ol>
-</li>
-<li><a id="orgb56220c"></a>The Elm Architecture (TEA)<br /></li>
-</ol>
 </div>
-<div id="outline-container-org1c384ff" class="outline-2">
-<h2 id="org1c384ff"><span class="section-number-2">6</span> IT+CS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+</div>
+<div id="outline-container-orgdbfc767" class="outline-3">
+<h3 id="orgdbfc767"><span class="section-number-3">5.5</span> The Elm Architecture (TEA)</h3>
+</div>
+</div>
+<div id="outline-container-orgc28d2b8" class="outline-2">
+<h2 id="orgc28d2b8"><span class="section-number-2">6</span> IT+CS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<ol class="org-ol">
-<li><a id="org03030d6"></a>bit / byte / endian / float<br />
-<ol class="org-ol">
-<li><a id="org975afa9"></a>XOR, OR, AND, Shift (logical vs aritmetic)<br /></li>
-<li><a id="org9e41f0d"></a>mantisa exponent jednickovy a dvojkovy doplnek<br /></li>
-</ol>
-</li>
-<li><a id="org1b9137c"></a>TCP/IP<br />
-<ol class="org-ol">
-<li><a id="orgb2efb5d"></a>IP address / netmask<br /></li>
-<li><a id="org56ad9cf"></a>CIDR<br /></li>
-</ol>
-</li>
-<li><a id="orgbf43ed7"></a>Unicode<br />
-<ol class="org-ol">
-<li><a id="org61e67e4"></a>What is unicode<br /></li>
-<li><a id="org167788e"></a>utf-8<br /></li>
-<li><a id="orgd040f24"></a>ASCII<br /></li>
-<li><a id="org3e4260b"></a>EBCDIC<br /></li>
-</ol>
-</li>
-<li><a id="orgdbf1a7e"></a>XML JSON YAML &#x2026;<br />
-<ol class="org-ol">
-<li><a id="org3f8cce1"></a>yaml<br /></li>
-<li><a id="org1163b7e"></a>json<br /></li>
-<li><a id="org0a1aa11"></a>xml<br /></li>
-</ol>
-</li>
-<li><a id="org8d15ccf"></a>Code complexity O notation<br /></li>
-<li><a id="orgd544e10"></a>Amortized complexity<br /></li>
-</ol>
+<div id="outline-container-org0458b38" class="outline-3">
+<h3 id="org0458b38"><span class="section-number-3">6.1</span> bit / byte / endian / float</h3>
+<div class="outline-text-3" id="text-6-1">
 </div>
-<div id="outline-container-org9723d01" class="outline-2">
-<h2 id="org9723d01"><span class="section-number-2">7</span> Security:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+<div id="outline-container-org23097da" class="outline-4">
+<h4 id="org23097da"><span class="section-number-4">6.1.1</span> XOR, OR, AND, Shift (logical vs aritmetic)</h4>
+</div>
+<div id="outline-container-org65b0a9d" class="outline-4">
+<h4 id="org65b0a9d"><span class="section-number-4">6.1.2</span> mantisa exponent jednickovy a dvojkovy doplnek</h4>
+</div>
+</div>
+<div id="outline-container-orgc52339c" class="outline-3">
+<h3 id="orgc52339c"><span class="section-number-3">6.2</span> TCP/IP</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org66a99af" class="outline-4">
+<h4 id="org66a99af"><span class="section-number-4">6.2.1</span> IP address / netmask</h4>
+</div>
+<div id="outline-container-org223f222" class="outline-4">
+<h4 id="org223f222"><span class="section-number-4">6.2.2</span> CIDR</h4>
+</div>
+</div>
+<div id="outline-container-orgce155af" class="outline-3">
+<h3 id="orgce155af"><span class="section-number-3">6.3</span> Unicode</h3>
+<div class="outline-text-3" id="text-6-3">
+</div>
+<div id="outline-container-org8b4e9d5" class="outline-4">
+<h4 id="org8b4e9d5"><span class="section-number-4">6.3.1</span> What is unicode</h4>
+</div>
+<div id="outline-container-orgad9d8a6" class="outline-4">
+<h4 id="orgad9d8a6"><span class="section-number-4">6.3.2</span> utf-8</h4>
+</div>
+<div id="outline-container-org2ccf056" class="outline-4">
+<h4 id="org2ccf056"><span class="section-number-4">6.3.3</span> ASCII</h4>
+</div>
+<div id="outline-container-org33c552e" class="outline-4">
+<h4 id="org33c552e"><span class="section-number-4">6.3.4</span> EBCDIC</h4>
+</div>
+</div>
+<div id="outline-container-org7012f9e" class="outline-3">
+<h3 id="org7012f9e"><span class="section-number-3">6.4</span> XML JSON YAML &#x2026;</h3>
+<div class="outline-text-3" id="text-6-4">
+</div>
+<div id="outline-container-org7e1f03b" class="outline-4">
+<h4 id="org7e1f03b"><span class="section-number-4">6.4.1</span> yaml</h4>
+</div>
+<div id="outline-container-org8e8fc99" class="outline-4">
+<h4 id="org8e8fc99"><span class="section-number-4">6.4.2</span> json</h4>
+</div>
+<div id="outline-container-org76c1a23" class="outline-4">
+<h4 id="org76c1a23"><span class="section-number-4">6.4.3</span> xml</h4>
+</div>
+</div>
+<div id="outline-container-org4729edb" class="outline-3">
+<h3 id="org4729edb"><span class="section-number-3">6.5</span> Code complexity O notation</h3>
+</div>
+<div id="outline-container-org093ad42" class="outline-3">
+<h3 id="org093ad42"><span class="section-number-3">6.6</span> Amortized complexity</h3>
+</div>
+</div>
+<div id="outline-container-org155e55c" class="outline-2">
+<h2 id="org155e55c"><span class="section-number-2">7</span> Security&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<ol class="org-ol">
-<li><a id="org8c2869f"></a>Oauth2/OIDC<br />
-<ol class="org-ol">
-<li><a id="org628e48f"></a>grant (flow) types:<br />
-<ul class="org-ul">
-<li><a id="org13c252b"></a>Authorization Code Flow<br /></li>
-<li><a id="org43a4f70"></a>Client Credentials Flow<br /></li>
-<li><a id="org5a265a5"></a>Device Code<br /></li>
-<li><a id="org23223f3"></a>Refresh Token<br /></li>
-<li><a id="orgd8c9e8b"></a>PKCE<br /></li>
-<li><a id="orgd592698"></a>(Implicit Flow)<br /></li>
-<li><a id="org4446d16"></a>(Password Grant)<br /></li>
-</ul>
-</li>
-<li><a id="org136db2b"></a>Scope<br />
+<div id="outline-container-org3e84306" class="outline-3">
+<h3 id="org3e84306"><span class="section-number-3">7.1</span> Oauth2/OIDC</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-org0b3734b" class="outline-4">
+<h4 id="org0b3734b"><span class="section-number-4">7.1.1</span> grant (flow) types:</h4>
+<div class="outline-text-4" id="text-7-1-1">
+</div>
+<div id="outline-container-org86bd3b3" class="outline-5">
+<h5 id="org86bd3b3">Authorization Code Flow</h5>
+</div>
+<div id="outline-container-org237a4d5" class="outline-5">
+<h5 id="org237a4d5">Client Credentials Flow</h5>
+</div>
+<div id="outline-container-org69c0b88" class="outline-5">
+<h5 id="org69c0b88">Device Code</h5>
+</div>
+<div id="outline-container-orgebaaca5" class="outline-5">
+<h5 id="orgebaaca5">Refresh Token</h5>
+</div>
+<div id="outline-container-orgfdfb94a" class="outline-5">
+<h5 id="orgfdfb94a">PKCE</h5>
+</div>
+<div id="outline-container-orgd673054" class="outline-5">
+<h5 id="orgd673054">(Implicit Flow)</h5>
+</div>
+<div id="outline-container-orga265a1f" class="outline-5">
+<h5 id="orga265a1f">(Password Grant)</h5>
+</div>
+</div>
+<div id="outline-container-org20276dd" class="outline-4">
+<h4 id="org20276dd"><span class="section-number-4">7.1.2</span> Scope</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <p>
 A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. 
@@ -1240,64 +2297,233 @@ When an app requests permission to access a resource through an authorization se
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 </p>
 </div>
-</li>
-</ol>
-</li>
-<li><a id="org5c6a549"></a>LDAP<br />
-<ol class="org-ol">
-<li><a id="orga4d6242"></a>object class<br />
+</div>
+</div>
+<div id="outline-container-org3f74272" class="outline-3">
+<h3 id="org3f74272"><span class="section-number-3">7.2</span> JWT</h3>
+<div class="outline-text-3" id="text-7-2">
+<pre class="example">
+study: https://tools.ietf.org/html/rfc7519
+</pre>
+</div>
+<div id="outline-container-org1768cb4" class="outline-4">
+<h4 id="org1768cb4"><span class="section-number-4">7.2.1</span> What a re the registered claim names?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+</div>
+<div id="outline-container-org5ddaf0b" class="outline-4">
+<h4 id="org5ddaf0b"><span class="section-number-4">7.2.2</span> What is "iss" (Issuer) Claim?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+<div class="outline-text-4" id="text-7-2-2">
 <ul class="org-ul">
-<li><a id="orge72e471"></a>inetOrgPerson<br /></li>
+<li>The "iss" (issuer) claim identifies the principal that issued the JWT.</li>
+<li>The processing of this claim is generally application specific.</li>
+<li>The "iss" value is a case-sensitive string containing a StringOrURI value.</li>
+<li>Use of this claim is OPTIONAL.</li>
 </ul>
-</li>
-<li><a id="orgd4e5076"></a>OID<br /></li>
-<li><a id="orgc7cdf25"></a>CN, DN, SN,<br /></li>
-</ol>
-</li>
-<li><a id="org16db3fe"></a>OWASP top 10 2017<br />
-<ol class="org-ol">
-<li><a id="org7169de7"></a>A1:2017-Injection<br /></li>
-<li><a id="orgc18e865"></a>A2:2017-Broken Authentication<br /></li>
-<li><a id="org8f15446"></a>A3:2017-Sensitive Data Exposure<br /></li>
-<li><a id="org3e82b5f"></a>A4:2017-XML External Entities (XXE)<br /></li>
-<li><a id="org922729f"></a>A5:2017-Broken Access Control<br /></li>
-<li><a id="orgdf4c6ea"></a>A6:2017-Security Misconfiguration<br /></li>
-<li><a id="org27f3ecc"></a>A7:2017-Cross-Site Scripting (XSS)<br /></li>
-<li><a id="org7f431d3"></a>A8:2017-Insecure Deserialization<br /></li>
-<li><a id="org960af94"></a>A9:2017-Using Components with Known Vulnerabilities<br /></li>
-<li><a id="orgd2aa851"></a>A10:2017-Insufficient Logging &amp; Monitoring<br /></li>
-</ol>
-</li>
-<li><a id="org0e2a31e"></a>Ciphers<br />
-<ol class="org-ol">
-<li><a id="org39edd34"></a>Block Ciphers<br />
+</div>
+</div>
+<div id="outline-container-org8b44a35" class="outline-4">
+<h4 id="org8b44a35"><span class="section-number-4">7.2.3</span> What is "sub" (Subject) Claim</h4>
+<div class="outline-text-4" id="text-7-2-3">
 <ul class="org-ul">
-<li><a id="orgb4e099a"></a>ECB, CBC, OFB, CFB, CTR  - what they are<br />
-<div class="outline-text-5" id="text-orgb4e099a">
+<li>The "sub" (subject) claim identifies the principal that is the subject of the JWT.</li>
+<li>The claims in a JWT are normally statements about the subject.</li>
+<li>The subject value MUST either be scoped to be locally unique in the context of the issuer or be globally unique.</li>
+<li>The processing of this claim is generally application specific.</li>
+<li>The "sub" value is a case-sensitive string containing a StringOrURI value.  Use of this claim is OPTIONAL.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbeb6962" class="outline-4">
+<h4 id="orgbeb6962"><span class="section-number-4">7.2.4</span> 4.1.3.  "aud" (Audience) Claim</h4>
+<div class="outline-text-4" id="text-7-2-4">
+<p>
+The "aud" (audience) claim identifies the recipients that the JWT is
+intended for.  Each principal intended to process the JWT MUST
+identify itself with a value in the audience claim.  If the principal
+processing the claim does not identify itself with a value in the
+"aud" claim when this claim is present, then the JWT MUST be
+rejected.  In the general case, the "aud" value is an array of case-
+sensitive strings, each containing a StringOrURI value.  In the
+special case when the JWT has one audience, the "aud" value MAY be a
+single case-sensitive string containing a StringOrURI value.  The
+interpretation of audience values is generally application specific.
+Use of this claim is OPTIONAL.
+</p>
+</div>
+</div>
+<div id="outline-container-org564fc2f" class="outline-4">
+<h4 id="org564fc2f"><span class="section-number-4">7.2.5</span> 4.1.4.  "exp" (Expiration Time) Claim</h4>
+<div class="outline-text-4" id="text-7-2-5">
+<p>
+The "exp" (expiration time) claim identifies the expiration time on
+or after which the JWT MUST NOT be accepted for processing.  The
+processing of the "exp" claim requires that the current date/time
+MUST be before the expiration date/time listed in the "exp" claim.
+</p>
+
+
+
+<p>
+Jones, et al.                Standards Track                    [Page 9]
+</p>
+
+<p>
+RFC 7519                  JSON Web Token (JWT)                  May 2015
+</p>
+
+
+<p>
+Implementers MAY provide for some small leeway, usually no more than
+a few minutes, to account for clock skew.  Its value MUST be a number
+containing a NumericDate value.  Use of this claim is OPTIONAL.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb3a3b8e" class="outline-4">
+<h4 id="orgb3a3b8e"><span class="section-number-4">7.2.6</span> 4.1.5.  "nbf" (Not Before) Claim</h4>
+<div class="outline-text-4" id="text-7-2-6">
+<p>
+The "nbf" (not before) claim identifies the time before which the JWT
+MUST NOT be accepted for processing.  The processing of the "nbf"
+claim requires that the current date/time MUST be after or equal to
+the not-before date/time listed in the "nbf" claim.  Implementers MAY
+provide for some small leeway, usually no more than a few minutes, to
+account for clock skew.  Its value MUST be a number containing a
+NumericDate value.  Use of this claim is OPTIONAL.
+</p>
+</div>
+</div>
+<div id="outline-container-org3f33594" class="outline-4">
+<h4 id="org3f33594"><span class="section-number-4">7.2.7</span> 4.1.6.  "iat" (Issued At) Claim</h4>
+<div class="outline-text-4" id="text-7-2-7">
+<p>
+The "iat" (issued at) claim identifies the time at which the JWT was
+issued.  This claim can be used to determine the age of the JWT.  Its
+value MUST be a number containing a NumericDate value.  Use of this
+claim is OPTIONAL.
+</p>
+</div>
+</div>
+<div id="outline-container-org38e98ea" class="outline-4">
+<h4 id="org38e98ea"><span class="section-number-4">7.2.8</span> 4.1.7.  "jti" (JWT ID) Claim</h4>
+<div class="outline-text-4" id="text-7-2-8">
+<p>
+The "jti" (JWT ID) claim provides a unique identifier for the JWT.
+The identifier value MUST be assigned in a manner that ensures that
+there is a negligible probability that the same value will be
+accidentally assigned to a different data object; if the application
+uses multiple issuers, collisions MUST be prevented among values
+produced by different issuers as well.  The "jti" claim can be used
+to prevent the JWT from being replayed.  The "jti" value is a case-
+sensitive string.  Use of this claim is OPTIONAL.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0a79923" class="outline-3">
+<h3 id="org0a79923"><span class="section-number-3">7.3</span> LDAP</h3>
+<div class="outline-text-3" id="text-7-3">
+</div>
+<div id="outline-container-org1fe28b3" class="outline-4">
+<h4 id="org1fe28b3"><span class="section-number-4">7.3.1</span> object class</h4>
+<div class="outline-text-4" id="text-7-3-1">
+</div>
+<div id="outline-container-orgef68b5a" class="outline-5">
+<h5 id="orgef68b5a">inetOrgPerson</h5>
+</div>
+</div>
+<div id="outline-container-org69a0009" class="outline-4">
+<h4 id="org69a0009"><span class="section-number-4">7.3.2</span> OID</h4>
+</div>
+<div id="outline-container-org640689f" class="outline-4">
+<h4 id="org640689f"><span class="section-number-4">7.3.3</span> CN, DN, SN,</h4>
+</div>
+</div>
+<div id="outline-container-org838a2c9" class="outline-3">
+<h3 id="org838a2c9"><span class="section-number-3">7.4</span> OWASP top 10 2017</h3>
+<div class="outline-text-3" id="text-7-4">
+</div>
+<div id="outline-container-org744f38b" class="outline-4">
+<h4 id="org744f38b"><span class="section-number-4">7.4.1</span> A1:2017-Injection</h4>
+</div>
+<div id="outline-container-org29c51f8" class="outline-4">
+<h4 id="org29c51f8"><span class="section-number-4">7.4.2</span> A2:2017-Broken Authentication</h4>
+</div>
+<div id="outline-container-org302150b" class="outline-4">
+<h4 id="org302150b"><span class="section-number-4">7.4.3</span> A3:2017-Sensitive Data Exposure</h4>
+</div>
+<div id="outline-container-orgca985d4" class="outline-4">
+<h4 id="orgca985d4"><span class="section-number-4">7.4.4</span> A4:2017-XML External Entities (XXE)</h4>
+</div>
+<div id="outline-container-orga942437" class="outline-4">
+<h4 id="orga942437"><span class="section-number-4">7.4.5</span> A5:2017-Broken Access Control</h4>
+</div>
+<div id="outline-container-org42d7c20" class="outline-4">
+<h4 id="org42d7c20"><span class="section-number-4">7.4.6</span> A6:2017-Security Misconfiguration</h4>
+</div>
+<div id="outline-container-org7a381b7" class="outline-4">
+<h4 id="org7a381b7"><span class="section-number-4">7.4.7</span> A7:2017-Cross-Site Scripting (XSS)</h4>
+</div>
+<div id="outline-container-org49c99db" class="outline-4">
+<h4 id="org49c99db"><span class="section-number-4">7.4.8</span> A8:2017-Insecure Deserialization</h4>
+</div>
+<div id="outline-container-org8eeac96" class="outline-4">
+<h4 id="org8eeac96"><span class="section-number-4">7.4.9</span> A9:2017-Using Components with Known Vulnerabilities</h4>
+</div>
+<div id="outline-container-org6c075e5" class="outline-4">
+<h4 id="org6c075e5"><span class="section-number-4">7.4.10</span> A10:2017-Insufficient Logging &amp; Monitoring</h4>
+</div>
+</div>
+<div id="outline-container-org4a8e72a" class="outline-3">
+<h3 id="org4a8e72a"><span class="section-number-3">7.5</span> Ciphers</h3>
+<div class="outline-text-3" id="text-7-5">
+</div>
+<div id="outline-container-org2a588aa" class="outline-4">
+<h4 id="org2a588aa"><span class="section-number-4">7.5.1</span> Block Ciphers</h4>
+<div class="outline-text-4" id="text-7-5-1">
+</div>
+<div id="outline-container-org53d4b24" class="outline-5">
+<h5 id="org53d4b24">ECB, CBC, OFB, CFB, CTR  - what they are</h5>
+<div class="outline-text-5" id="text-org53d4b24">
 <pre class="example">
 study: https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
 </pre>
 </div>
-</li>
-<li><a id="org22c46b6"></a>AES<br /></li>
-<li><a id="orgb1b9b15"></a>DES<br /></li>
-</ul>
-</li>
-<li><a id="org1966bc9"></a>Hash<br />
-<ul class="org-ul">
-<li><a id="org4c44c3a"></a>base64<br /></li>
-</ul>
-</li>
-<li><a id="org2d6746a"></a>symetricka sifra<br /></li>
-<li><a id="org0ec9623"></a>asymetricka sifra<br /></li>
-</ol>
-</li>
-<li><a id="org186cf1d"></a>bastillion.io<br /></li>
-<li><a id="orgaa1118a"></a>PKI<br /></li>
-<li><a id="org85f4bf1"></a>X509<br />
-<ol class="org-ol">
-<li><a id="org60dd7a0"></a>Why does GoDaddy have four different certificate chain, G2, G3, G4?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-4" id="text-7-7-1">
+</div>
+<div id="outline-container-orga4ab584" class="outline-5">
+<h5 id="orga4ab584">AES</h5>
+</div>
+<div id="outline-container-orgdde65ae" class="outline-5">
+<h5 id="orgdde65ae">DES</h5>
+</div>
+</div>
+<div id="outline-container-org379136d" class="outline-4">
+<h4 id="org379136d"><span class="section-number-4">7.5.2</span> Hash</h4>
+<div class="outline-text-4" id="text-7-5-2">
+</div>
+<div id="outline-container-org8d8fce5" class="outline-6">
+<h6 id="org8d8fce5">base64</h6>
+</div>
+</div>
+<div id="outline-container-org016e123" class="outline-4">
+<h4 id="org016e123"><span class="section-number-4">7.5.3</span> symetricka sifra</h4>
+</div>
+<div id="outline-container-orgbfd441f" class="outline-4">
+<h4 id="orgbfd441f"><span class="section-number-4">7.5.4</span> asymetricka sifra</h4>
+</div>
+</div>
+<div id="outline-container-org02e179c" class="outline-3">
+<h3 id="org02e179c"><span class="section-number-3">7.6</span> bastillion.io</h3>
+</div>
+<div id="outline-container-orgb99e83c" class="outline-3">
+<h3 id="orgb99e83c"><span class="section-number-3">7.7</span> PKI</h3>
+</div>
+<div id="outline-container-orge0c09c4" class="outline-3">
+<h3 id="orge0c09c4"><span class="section-number-3">7.8</span> X509</h3>
+<div class="outline-text-3" id="text-7-8">
+</div>
+<div id="outline-container-org548b269" class="outline-4">
+<h4 id="org548b269"><span class="section-number-4">7.8.1</span> Why does GoDaddy have four different certificate chain, G2, G3, G4?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+<div class="outline-text-4" id="text-7-8-1">
 <ul class="org-ul">
 <li>"G" stands for Root certificates generation.</li>
 <li>Basically, it identifies the generation (version) of a Root certificate that signs the Chain of trust.</li>
@@ -1305,103 +2531,168 @@ study: https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-
 <li>This is good because obsolete certificates can be better identified.</li>
 </ul>
 </div>
-</li>
-</ol>
-</li>
-</ol>
 </div>
-<div id="outline-container-org4485b1e" class="outline-2">
-<h2 id="org4485b1e"><span class="section-number-2">8</span> Languages &amp; programming:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+</div>
+</div>
+<div id="outline-container-org86fd644" class="outline-2">
+<h2 id="org86fd644"><span class="section-number-2">8</span> Languages &amp; programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<ol class="org-ol">
-<li><a id="orgeb3bb77"></a>Functional Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="orgf4c4106"></a>Lambda Calculus&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ul class="org-ul">
-<li><a id="org4860e46"></a>α-conversion<br />
-<div class="outline-text-5" id="text-org4860e46">
+<div id="outline-container-org786e45e" class="outline-3">
+<h3 id="org786e45e"><span class="section-number-3">8.1</span> Functional Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-orgb3d9e81" class="outline-4">
+<h4 id="orgb3d9e81"><span class="section-number-4">8.1.1</span> Lambda Calculus&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h4>
+<div class="outline-text-4" id="text-8-1-1">
+</div>
+<div id="outline-container-orgf4d7442" class="outline-5">
+<h5 id="orgf4d7442">α-conversion</h5>
+<div class="outline-text-5" id="text-orgf4d7442">
 <ul class="org-ul">
 <li>changing bound variables</li>
 </ul>
 </div>
-</li>
-<li><a id="orgc1835ef"></a>β-reduction<br />
-<div class="outline-text-5" id="text-orgc1835ef">
+</div>
+<div id="outline-container-org16e25b7" class="outline-5">
+<h5 id="org16e25b7">β-reduction</h5>
+<div class="outline-text-5" id="text-org16e25b7">
 <ul class="org-ul">
 <li>applying functions to their arguments;</li>
 </ul>
 </div>
-</li>
-<li><a id="org3b361ea"></a>η-reduction<br />
-<div class="outline-text-5" id="text-org3b361ea">
+</div>
+<div id="outline-container-org0ba8bf5" class="outline-5">
+<h5 id="org0ba8bf5">η-reduction</h5>
+<div class="outline-text-5" id="text-org0ba8bf5">
 <ul class="org-ul">
 <li>which captures a notion of extensionality.</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org00765e5"></a>Patterns<br />
-<ul class="org-ul">
-<li><a id="org435b3a4"></a>Monoid<br /></li>
-<li><a id="org82b53c6"></a>Functor<br /></li>
-<li><a id="org0942682"></a>Applicative<br /></li>
-<li><a id="org193c134"></a>Monad<br /></li>
-<li><a id="orgf187daf"></a>Kleisli Functor<br /></li>
-<li><a id="org822a972"></a>Optics<br />
-<ul class="org-ul">
-<li><a id="orge80381c"></a>Lenses<br /></li>
-<li><a id="org9030b4d"></a>Prisms<br /></li>
-</ul>
-</li>
-<li><a id="org949a182"></a>Recursion Schemes<br />
-<ul class="org-ul">
-<li><a id="org9ce9b8a"></a>catamorphisms<br /></li>
-<li><a id="org973fa33"></a>anamorphisms<br /></li>
-<li><a id="orgb0aee8f"></a>hylomorphisms<br /></li>
-<li><a id="org405a23b"></a>paramorphisms<br /></li>
+</div>
+</div>
+<div id="outline-container-org8fef60a" class="outline-4">
+<h4 id="org8fef60a"><span class="section-number-4">8.1.2</span> Patterns</h4>
+<div class="outline-text-4" id="text-8-1-2">
+</div>
+<div id="outline-container-orgd71ee59" class="outline-5">
+<h5 id="orgd71ee59">Monoid</h5>
+</div>
+<div id="outline-container-orgf8ab762" class="outline-5">
+<h5 id="orgf8ab762">Functor</h5>
+</div>
+<div id="outline-container-orgf0806f6" class="outline-5">
+<h5 id="orgf0806f6">Applicative</h5>
+</div>
+<div id="outline-container-orgc2d138a" class="outline-5">
+<h5 id="orgc2d138a">Monad</h5>
+</div>
+<div id="outline-container-orgc1af581" class="outline-5">
+<h5 id="orgc1af581">Kleisli Functor</h5>
+</div>
+<div id="outline-container-org3a4739c" class="outline-5">
+<h5 id="org3a4739c">Optics</h5>
+<div class="outline-text-5" id="text-org3a4739c">
+</div>
+<div id="outline-container-orgd4d4ee9" class="outline-6">
+<h6 id="orgd4d4ee9">Lenses</h6>
+</div>
+<div id="outline-container-org13be2be" class="outline-6">
+<h6 id="org13be2be">Prisms</h6>
+</div>
+</div>
+<div id="outline-container-org2f2f1f8" class="outline-5">
+<h5 id="org2f2f1f8">Recursion Schemes</h5>
+<div class="outline-text-5" id="text-org2f2f1f8">
+</div>
+<div id="outline-container-orgfce6975" class="outline-6">
+<h6 id="orgfce6975">catamorphisms</h6>
+</div>
+<div id="outline-container-orgdcf1865" class="outline-6">
+<h6 id="orgdcf1865">anamorphisms</h6>
+</div>
+<div id="outline-container-org1635153" class="outline-6">
+<h6 id="org1635153">hylomorphisms</h6>
+</div>
+<div id="outline-container-org0a627c0" class="outline-6">
+<h6 id="org0a627c0">paramorphisms</h6>
+</div>
 
-<li><a id="orgf92a56e"></a>Persistent data structure - Chris Okasaki<br /></li>
-</ul>
-</li>
-<li><a id="org2108042"></a>Immutability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><a id="orgb3cf29a"></a>Object Oriented Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="org26a669e"></a>Polymorphism<br /></li>
-<li><a id="org19fee69"></a>Gof Design Patterns<br />
-<ul class="org-ul">
-<li><a id="org746ad5a"></a>Abstract Factory<br /></li>
-<li><a id="org8756c32"></a>Singleton<br /></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><a id="orgc92bd10"></a>ReasonML&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org62e0a6a"></a>Java Script&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="orgf1cdf18"></a>co je to iife<br /></li>
-<li><a id="orgd5737bc"></a>inheritance model of JS<br /></li>
-<li><a id="org643bd74"></a>hoisting<br /></li>
-<li><a id="org244920a"></a>event loop<br /></li>
-<li><a id="org644fa43"></a>promisses<br /></li>
-<li><a id="org230adfc"></a>observables<br /></li>
-<li><a id="orge0ae9ad"></a>RxJS<br /></li>
-<li><a id="orga71fccc"></a>JS modular system<br /></li>
-</ol>
-</li>
-<li><a id="org8bfaf8c"></a>Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="org95fc8d2"></a>Basic Java<br />
-<ul class="org-ul">
-<li><a id="org6080c28"></a>hashCode()<br />
-<ul class="org-ul">
-<li><a id="orga674d90"></a>is this code wrong? yes / no / why&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orga674d90">
+<div id="outline-container-org269844c" class="outline-6">
+<h6 id="org269844c">Persistent data structure - Chris Okasaki</h6>
+</div>
+</div>
+<div id="outline-container-org5dff212" class="outline-5">
+<h5 id="org5dff212">Immutability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d7cd53" class="outline-3">
+<h3 id="org9d7cd53"><span class="section-number-3">8.2</span> Object Oriented Programming&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-8-2">
+</div>
+<div id="outline-container-orga5ed241" class="outline-4">
+<h4 id="orga5ed241"><span class="section-number-4">8.2.1</span> Polymorphism</h4>
+</div>
+<div id="outline-container-orgabc1ddd" class="outline-4">
+<h4 id="orgabc1ddd"><span class="section-number-4">8.2.2</span> Gof Design Patterns</h4>
+<div class="outline-text-4" id="text-8-2-2">
+</div>
+<div id="outline-container-org310fb18" class="outline-5">
+<h5 id="org310fb18">Abstract Factory</h5>
+</div>
+<div id="outline-container-org5e00970" class="outline-5">
+<h5 id="org5e00970">Singleton</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f4f8f9" class="outline-3">
+<h3 id="org5f4f8f9"><span class="section-number-3">8.3</span> ReasonML&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orga873ff5" class="outline-3">
+<h3 id="orga873ff5"><span class="section-number-3">8.4</span> Java Script&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-8-4">
+</div>
+<div id="outline-container-org50e609c" class="outline-4">
+<h4 id="org50e609c"><span class="section-number-4">8.4.1</span> co je to iife</h4>
+</div>
+<div id="outline-container-org6e636d7" class="outline-4">
+<h4 id="org6e636d7"><span class="section-number-4">8.4.2</span> inheritance model of JS</h4>
+</div>
+<div id="outline-container-orgc55c1a5" class="outline-4">
+<h4 id="orgc55c1a5"><span class="section-number-4">8.4.3</span> hoisting</h4>
+</div>
+<div id="outline-container-orgc98be0b" class="outline-4">
+<h4 id="orgc98be0b"><span class="section-number-4">8.4.4</span> event loop</h4>
+</div>
+<div id="outline-container-org160601c" class="outline-4">
+<h4 id="org160601c"><span class="section-number-4">8.4.5</span> promisses</h4>
+</div>
+<div id="outline-container-orga55ab88" class="outline-4">
+<h4 id="orga55ab88"><span class="section-number-4">8.4.6</span> observables</h4>
+</div>
+<div id="outline-container-org86732a2" class="outline-4">
+<h4 id="org86732a2"><span class="section-number-4">8.4.7</span> RxJS</h4>
+</div>
+<div id="outline-container-orga18d80c" class="outline-4">
+<h4 id="orga18d80c"><span class="section-number-4">8.4.8</span> JS modular system</h4>
+</div>
+</div>
+<div id="outline-container-orgec4751f" class="outline-3">
+<h3 id="orgec4751f"><span class="section-number-3">8.5</span> Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-8-5">
+</div>
+<div id="outline-container-org652d874" class="outline-4">
+<h4 id="org652d874"><span class="section-number-4">8.5.1</span> Basic Java</h4>
+<div class="outline-text-4" id="text-8-5-1">
+</div>
+<div id="outline-container-orga1db659" class="outline-5">
+<h5 id="orga1db659">hashCode()</h5>
+<div class="outline-text-5" id="text-orga1db659">
+</div>
+<div id="outline-container-org160637c" class="outline-6">
+<h6 id="org160637c">is this code wrong? yes / no / why&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org160637c">
 <p>
 Imagine you replace all haskCode implementation by this - what will happen
 </p>
@@ -1414,34 +2705,47 @@ Imagine you replace all haskCode implementation by this - what will happen
 </pre>
 </div>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org638859e"></a>hashCode vs equals()&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="orgcddad86"></a>what is a contract?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org1d191ce"></a>Java Collections Framework:<br />
-<ul class="org-ul">
-<li><a id="orgca1ec47"></a>what is a difference between List vs Set vs Map&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org8ec2532"></a>what is the difference ArrayList vs LinkedList&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-</ul>
-</li>
-<li><a id="orgc86732c"></a>StringBuilder vs StringBuffer vs String<br /></li>
-<li><a id="org5b5e335"></a>Can we have static method in the interface?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org5b5e335">
+</div>
+</div>
+<div id="outline-container-orge178f57" class="outline-5">
+<h5 id="orge178f57">hashCode vs equals()&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+<div id="outline-container-orgf6daa0d" class="outline-5">
+<h5 id="orgf6daa0d">what is a contract?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+<div id="outline-container-orge7d4115" class="outline-5">
+<h5 id="orge7d4115">Java Collections Framework:</h5>
+<div class="outline-text-5" id="text-orge7d4115">
+</div>
+<div id="outline-container-org63023a2" class="outline-6">
+<h6 id="org63023a2">what is a difference between List vs Set vs Map&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+<div id="outline-container-org22f2523" class="outline-6">
+<h6 id="org22f2523">what is the difference ArrayList vs LinkedList&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+</div>
+</div>
+<div id="outline-container-org37f7725" class="outline-5">
+<h5 id="org37f7725">StringBuilder vs StringBuffer vs String</h5>
+</div>
+<div id="outline-container-org8bcd47b" class="outline-5">
+<h5 id="org8bcd47b">Can we have static method in the interface?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org8bcd47b">
 <ul class="org-ul">
 <li>Yes, we can have static method in the interface from Java 8.</li>
 </ul>
 </div>
-</li>
-<li><a id="orga6210e2"></a>You have a list of Custom objects? How can you sort them?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orga6210e2">
+</div>
+<div id="outline-container-org73ad93f" class="outline-5">
+<h5 id="org73ad93f">You have a list of Custom objects? How can you sort them?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org73ad93f">
 <p>
 You need to use Comparable or Comparator interface to sort list of custom objects.
 </p>
 </div>
-</li>
-<li><a id="org40342d1"></a>How to create thread safe Singleton in Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org40342d1">
+</div>
+<div id="outline-container-orge739b7a" class="outline-5">
+<h5 id="orge739b7a">How to create thread safe Singleton in Java&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orge739b7a">
 <ul class="org-ul">
 <li>use double checked locking</li>
 <li>use class loader</li>
@@ -1449,75 +2753,89 @@ You need to use Comparable or Comparator interface to sort list of custom object
 <li>Read more: <a href="https://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz6Y1Y1v8C1">https://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz6Y1Y1v8C1</a></li>
 </ul>
 </div>
-</li>
-<li><a id="org4ed2ae9"></a>Difference between List and Set in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org4ed2ae9">
+</div>
+<div id="outline-container-org3222c34" class="outline-5">
+<h5 id="org3222c34">Difference between List and Set in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org3222c34">
 <ul class="org-ul">
 <li>hint: List is ordered and allows duplicate. Set is unordered and doesn't allow duplicate elements.</li>
 </ul>
 </div>
-</li>
-<li><a id="orga950a27"></a>How do you prevent a class from being sub-classed in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orga950a27">
+</div>
+<div id="outline-container-orge842b8a" class="outline-5">
+<h5 id="orge842b8a">How do you prevent a class from being sub-classed in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orge842b8a">
 <ul class="org-ul">
 <li>just make its constructor private</li>
 </ul>
 </div>
-</li>
-<li><a id="org677af6b"></a>Difference between throw and throws keyword in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org677af6b">
+</div>
+<div id="outline-container-org200bcf9" class="outline-5">
+<h5 id="org200bcf9">Difference between throw and throws keyword in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org200bcf9">
 <ul class="org-ul">
 <li>throws declare what exception a method can throw in case of error but throw keyword actually throws an exception.</li>
 <li>See Java Fundamentals: Exception Handling to learn more about Exception handling in Java.</li>
 </ul>
 </div>
-</li>
-<li><a id="org9ab3b6e"></a>Difference between Iterator and Enumeration in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org9ab3b6e">
+</div>
+<div id="outline-container-orgb0e3dae" class="outline-5">
+<h5 id="orgb0e3dae">Difference between Iterator and Enumeration in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgb0e3dae">
 <ul class="org-ul">
 <li>Iterator also gives you the ability to remove an element while iterating while Enumeration doesn't allow that.</li>
 </ul>
 </div>
-</li>
-<li><a id="org0c5ef4f"></a>What is IdentityHashMap in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org0c5ef4f">
+</div>
+<div id="outline-container-orgd19fca0" class="outline-5">
+<h5 id="orgd19fca0">What is IdentityHashMap in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgd19fca0">
 <ul class="org-ul">
 <li>A Map, which uses  the == equality operator to check equality instead of the equals() method.</li>
 </ul>
 </div>
-</li>
-<li><a id="org470b4a1"></a>What is String pool in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org470b4a1">
+</div>
+<div id="outline-container-orgd49dc64" class="outline-5">
+<h5 id="orgd49dc64">What is String pool in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgd49dc64">
 <ul class="org-ul">
 <li>A pool of String literals. Remember it's moved to heap from perm gen space in JDK 7.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgea92af3"></a>Can a Serializable class contain a non-serializable field in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgea92af3">
+</div>
+<div id="outline-container-orgbd1fbd4" class="outline-5">
+<h5 id="orgbd1fbd4">Can a Serializable class contain a non-serializable field in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgbd1fbd4">
 <ul class="org-ul">
 <li>Yes, but you need to make it either static or transient.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgc4afeca"></a>Difference between this and super in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgc4afeca">
+</div>
+<div id="outline-container-org7603966" class="outline-5">
+<h5 id="org7603966">Difference between this and super in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org7603966">
 <ul class="org-ul">
 <li>this refers to the current instance while super refers to an instance of the superclass.</li>
 </ul>
 </div>
-</li>
-<li><a id="org99ccefc"></a>Difference between Comparator and Comparable in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org99ccefc">
+</div>
+<div id="outline-container-org8dfdf09" class="outline-5">
+<h5 id="org8dfdf09">Difference between Comparator and Comparable in Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org8dfdf09">
 <ul class="org-ul">
 <li>Comparator defines custom ordering while Comparable defines the natural order of objects, e.g. the alphabetic order for String. See The Complete Java MasterClass to learn more about sorting in Java.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgfd28eeb"></a>BigDecimal vs float&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org01e5a4a"></a>what is the difference betwen checked and unchecked exception?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org2584460"></a>Co všechno je špatně na tomto kusu kódu&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org2584460">
+</div>
+<div id="outline-container-org6315fbd" class="outline-5">
+<h5 id="org6315fbd">BigDecimal vs float&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+<div id="outline-container-orgcf46c26" class="outline-5">
+<h5 id="orgcf46c26">what is the difference betwen checked and unchecked exception?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+<div id="outline-container-org82ddf58" class="outline-5">
+<h5 id="org82ddf58">Co všechno je špatně na tomto kusu kódu&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org82ddf58">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #0000FF;">try</span> {
   <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">...</span>
@@ -1539,9 +2857,10 @@ You need to use Comparable or Comparator interface to sort list of custom object
 <li>A další věci, jako stupidní message "Oh no!", atd.</li>
 </ul>
 </div>
-</li>
-<li><a id="org6cf6aca"></a>Explain Java 7 ARM (Automatic Resource Managemet) Feature and multi-catch block?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org6cf6aca">
+</div>
+<div id="outline-container-org0b52a14" class="outline-5">
+<h5 id="org0b52a14">Explain Java 7 ARM (Automatic Resource Managemet) Feature and multi-catch block?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org0b52a14">
 <ul class="org-ul">
 <li>If you are catching a lot of exceptions in a single try block, you will notice that catch block code looks very ugly and mostly consists of redundant code to log the error,</li>
 <li>keeping this in mind Java 7 one of the feature was multi-catch block where we can catch multiple exceptions in a single catch block.</li>
@@ -1572,15 +2891,26 @@ You need to use Comparable or Comparator interface to sort list of custom object
 </pre>
 </div>
 </div>
-</li>
-<li><a id="org2d10119"></a>JPA<br /></li>
-<li><a id="orgac49c80"></a>Generics<br /></li>
-<li><a id="org7b19344"></a>Java 9 - project jigsaw<br /></li>
-<li><a id="org88c7593"></a>QueryDSL<br /></li>
-<li><a id="orge091fa9"></a>Maven<br />
-<ul class="org-ul">
-<li><a id="org099f24f"></a>Jaký je rozdíl mezi &lt;dependencies&gt; a &lt;dependencyManagement&gt;?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-org099f24f">
+</div>
+<div id="outline-container-org3629dc8" class="outline-5">
+<h5 id="org3629dc8">JPA</h5>
+</div>
+<div id="outline-container-org74c3573" class="outline-5">
+<h5 id="org74c3573">Generics</h5>
+</div>
+<div id="outline-container-org9632cb6" class="outline-5">
+<h5 id="org9632cb6">Java 9 - project jigsaw</h5>
+</div>
+<div id="outline-container-org79c289c" class="outline-5">
+<h5 id="org79c289c">QueryDSL</h5>
+</div>
+<div id="outline-container-org62ace75" class="outline-5">
+<h5 id="org62ace75">Maven</h5>
+<div class="outline-text-5" id="text-org62ace75">
+</div>
+<div id="outline-container-org72ddf68" class="outline-6">
+<h6 id="org72ddf68">Jaký je rozdíl mezi &lt;dependencies&gt; a &lt;dependencyManagement&gt;?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-org72ddf68">
 <ul class="org-ul">
 <li>dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.</li>
 <li>Používá se pro deklarování dependencí a jejich scopů a verzí a každý sub-modul si pak jen řekne, které z nich chce používat (a už nemusí deklarovat scope a verzi).</li>
@@ -1588,39 +2918,44 @@ You need to use Comparable or Comparator interface to sort list of custom object
 <li>Používá se to např. pro testovací balíky nebo nějaké velmi obecně použitelné commons balíky a jiné pomocné tooly jako Lombok.</li>
 </ul>
 </div>
-</li>
-<li><a id="orge78fa71"></a>K čemu se používá scope provided?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-6" id="text-orge78fa71">
+</div>
+<div id="outline-container-orge109583" class="outline-6">
+<h6 id="orge109583">K čemu se používá scope provided?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h6>
+<div class="outline-text-6" id="text-orge109583">
 <ul class="org-ul">
 <li>Jde o dependence, které chceme při kompilaci, ale nechceme na runtimu</li>
 <li>Většinou jde o dependence, které nám v JavaEE poskytne aplikační server</li>
 <li>Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="org9fdc2de"></a>Gradle<br /></li>
-</ul>
-</li>
-<li><a id="orgffc5ec7"></a>Spring &amp; Spring Boot<br />
+</div>
+</div>
+<div id="outline-container-org889fc62" class="outline-5">
+<h5 id="org889fc62">Gradle</h5>
+</div>
+</div>
+<div id="outline-container-orgc3a3297" class="outline-4">
+<h4 id="orgc3a3297"><span class="section-number-4">8.5.2</span> Spring &amp; Spring Boot</h4>
 <div class="outline-text-4" id="text-8-5-2">
 <pre class="example">
 lerning: https://www.baeldung.com/spring-interview-questions
 </pre>
 </div>
-<ul class="org-ul">
-<li><a id="orgc11aff8"></a>Jaký je rozdíl mezi JavaEE a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgc11aff8">
+<div id="outline-container-orgb86a4d0" class="outline-5">
+<h5 id="orgb86a4d0">Jaký je rozdíl mezi JavaEE a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgb86a4d0">
 <ul class="org-ul">
 <li>JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.</li>
 <li>Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.</li>
 </ul>
 </div>
-</li>
-<li><a id="org2279a68"></a>Difference between spring and spting boot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-<li><a id="org51787a5"></a>Co přinesl Spring Boot do Spring ekosystému?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org51787a5">
+</div>
+<div id="outline-container-orgff31e97" class="outline-5">
+<h5 id="orgff31e97">Difference between spring and spting boot&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+<div id="outline-container-orge02891f" class="outline-5">
+<h5 id="orge02891f">Co přinesl Spring Boot do Spring ekosystému?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orge02891f">
 <ul class="org-ul">
 <li>Strašně zjednodušený start aplikace.</li>
 <li>Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".</li>
@@ -1629,9 +2964,10 @@ lerning: https://www.baeldung.com/spring-interview-questions
 <li>Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.</li>
 </ul>
 </div>
-</li>
-<li><a id="org1c40bb5"></a>Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org1c40bb5">
+</div>
+<div id="outline-container-orga363e82" class="outline-5">
+<h5 id="orga363e82">Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orga363e82">
 <ul class="org-ul">
 <li>JavaEE to má implicitní a Spring explicitní</li>
 <li>V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu</li>
@@ -1639,9 +2975,10 @@ lerning: https://www.baeldung.com/spring-interview-questions
 <li>Zapínáme si je explicitně pomocí anotace.</li>
 </ul>
 </div>
-</li>
-<li><a id="orga3f1d31"></a>How Would You Enable Transactions in Spring and What Are Their Benefits?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orga3f1d31">
+</div>
+<div id="outline-container-orgef2527e" class="outline-5">
+<h5 id="orgef2527e">How Would You Enable Transactions in Spring and What Are Their Benefits?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgef2527e">
 <p>
 There are two distinct ways to configure Transactions:
 </p>
@@ -1661,17 +2998,19 @@ The benefits of using Spring Transactions, according to the official docs, are:
 <li>Integrate very well with Spring's various data access abstractions</li>
 </ul>
 </div>
-</li>
-<li><a id="org9ac015e"></a>What is the difference betweek JPA and Hibernate?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org9ac015e">
+</div>
+<div id="outline-container-orgf132cd3" class="outline-5">
+<h5 id="orgf132cd3">What is the difference betweek JPA and Hibernate?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgf132cd3">
 <ul class="org-ul">
 <li>JPA is a Data Access Abstraction used to reduce the amount of boilerplate code</li>
 <li>Hibernate is an implementation of Java Persistence API and offers benefits of loose coupling</li>
 </ul>
 </div>
-</li>
-<li><a id="orged9213e"></a>Can use jetty instead of tomcat in spring-boot-starter-web?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orged9213e">
+</div>
+<div id="outline-container-org25bd419" class="outline-5">
+<h5 id="org25bd419">Can use jetty instead of tomcat in spring-boot-starter-web?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org25bd419">
 <ul class="org-ul">
 <li>Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:</li>
 </ul>
@@ -1693,9 +3032,10 @@ The benefits of using Spring Transactions, according to the official docs, are:
 </pre>
 </div>
 </div>
-</li>
-<li><a id="org768aee9"></a>What Is Reactive Programming?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org768aee9">
+</div>
+<div id="outline-container-org9b2c795" class="outline-5">
+<h5 id="org9b2c795">What Is Reactive Programming?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org9b2c795">
 <ul class="org-ul">
 <li>Reactive programming is about:
 <ul class="org-ul">
@@ -1727,18 +3067,20 @@ However, reactive programming may be used as a means to implement reactive syste
 </ul></li>
 </ul>
 </div>
-</li>
-<li><a id="orgbfd47bd"></a>What Is Spring Webflux?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgbfd47bd">
+</div>
+<div id="outline-container-org7c98ff4" class="outline-5">
+<h5 id="org7c98ff4">What Is Spring Webflux?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org7c98ff4">
 <ul class="org-ul">
 <li>Spring WebFlux is Spring's reactive-stack web framework, and it's an alternative to Spring MVC.</li>
 
 <li>In order to achieve this reactive model and be highly scalable, the entire stack is non-blocking. Check out our tutorial on Spring 5 WebFlux for additional details.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgd7fa2d2"></a>What Are the Mono and Flux Types?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgd7fa2d2">
+</div>
+<div id="outline-container-org4d0ca66" class="outline-5">
+<h5 id="org4d0ca66">What Are the Mono and Flux Types?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org4d0ca66">
 <ul class="org-ul">
 <li>The WebFlux framework in Spring Framework 5 uses Reactor as its async foundation.</li>
 
@@ -1766,9 +3108,10 @@ Also, Flux implements <code>Publisher</code> and returns N elements:
 By definition, the two types represent streams, hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method. Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
 </p>
 </div>
-</li>
-<li><a id="orgdc3bd5e"></a>What Is the Use of Webclient and Webtestclient?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgdc3bd5e">
+</div>
+<div id="outline-container-org633831e" class="outline-5">
+<h5 id="org633831e">What Is the Use of Webclient and Webtestclient?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org633831e">
 <ul class="org-ul">
 <li><b>WebClient</b> is a component in the new Web Reactive framework that can act as a reactive client for performing non-blocking HTTP requests.
 <ul class="org-ul">
@@ -1782,9 +3125,10 @@ By definition, the two types represent streams, hence they're both lazy, which m
 </ul></li>
 </ul>
 </div>
-</li>
-<li><a id="org092b228"></a>What Are the Disadvantages of Using Reactive Streams?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org092b228">
+</div>
+<div id="outline-container-org6914a2e" class="outline-5">
+<h5 id="org6914a2e">What Are the Disadvantages of Using Reactive Streams?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org6914a2e">
 <p>
 The major disadvantages of using reactive streams are:
 </p>
@@ -1795,33 +3139,37 @@ The major disadvantages of using reactive streams are:
 <li>There's an extra learning curve when implementing</li>
 </ul>
 </div>
-</li>
-<li><a id="org1974812"></a>Is Spring 5 Compatible With Older Versions of Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org1974812">
+</div>
+<div id="outline-container-orgbe3b468" class="outline-5">
+<h5 id="orgbe3b468">Is Spring 5 Compatible With Older Versions of Java?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-orgbe3b468">
 <p>
 In order to take advantage of Java 8 features, the Spring codebase has been revamped. This means older versions of Java cannot be used. Hence, the framework requires a minimum of Java 8.
 </p>
 </div>
-</li>
-<li><a id="org1b78824"></a>Can We Use Both Web Mvc and Webflux in the Same Application?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org1b78824">
+</div>
+<div id="outline-container-org72aaedb" class="outline-5">
+<h5 id="org72aaedb">Can We Use Both Web Mvc and Webflux in the Same Application?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org72aaedb">
 <ul class="org-ul">
 <li>As of now, Spring Boot will only allow either Spring MVC or Spring WebFlux, as Spring Boot tries to auto-configure the context depending on the dependencies that exist in its classpath.</li>
 <li>Also, Spring MVC cannot run on Netty.</li>
 <li>Moreover, MVC is a blocking paradigm and WebFlux is a non-blocking style, therefore we shouldn't be mixing both together, as they serve different purposes.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgb91c1d8"></a>What Is the Role of the @Autowired Annotation?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgb91c1d8">
+</div>
+<div id="outline-container-org7e439b8" class="outline-5">
+<h5 id="org7e439b8">What Is the Role of the @Autowired Annotation?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org7e439b8">
 <ul class="org-ul">
 <li>The @Autowired annotation can be used with fields or methods for injecting a bean by type.</li>
 <li>This annotation allows Spring to resolve and inject collaborating beans into your bean.</li>
 </ul>
 </div>
-</li>
-<li><a id="orgfa5b4e4"></a>"Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?"&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-orgfa5b4e4">
+</div>
+<div id="outline-container-org5813bd1" class="outline-5">
+<h5 id="org5813bd1">"Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?"&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org5813bd1">
 <ul class="org-ul">
 <li>"Lépe se to testuje - máme větší kontrolu nad dependencemi a můžeme je mockovat dle libosti a velmi snadno.</li>
 <li>Současně tím v testech vynucujeme nějakou inicializaci těchto dependencí. Jinak by klidně mohly být null.</li>
@@ -1829,37 +3177,50 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 <li>Asi jediná nevýhoda: pokud bude dependencí hodně, začne to být trochu nepřehledné."</li>
 </ul>
 </div>
-</li>
-</ul>
-</li>
-<li><a id="orga40965a"></a>JavaEE / JacartaEE<br />
-<ul class="org-ul">
-<li><a id="org3136ed6"></a>access intent<br />
-<ul class="org-ul">
-<li><a id="org907b2e3"></a>optimistic vs pessimistic<br /></li>
-</ul>
-</li>
-<li><a id="org1e994d6"></a>Jaký je rozdíl mezi Java SE a JavaEE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br />
-<div class="outline-text-5" id="text-org1e994d6">
+</div>
+</div>
+<div id="outline-container-orgacfa9b2" class="outline-4">
+<h4 id="orgacfa9b2"><span class="section-number-4">8.5.3</span> JavaEE / JacartaEE</h4>
+<div class="outline-text-4" id="text-8-5-3">
+</div>
+<div id="outline-container-orgd3ce408" class="outline-5">
+<h5 id="orgd3ce408">access intent</h5>
+<div class="outline-text-5" id="text-orgd3ce408">
+</div>
+<div id="outline-container-org5841a71" class="outline-6">
+<h6 id="org5841a71">optimistic vs pessimistic</h6>
+</div>
+</div>
+<div id="outline-container-org4bf588e" class="outline-5">
+<h5 id="org4bf588e">Jaký je rozdíl mezi Java SE a JavaEE&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+<div class="outline-text-5" id="text-org4bf588e">
 <ul class="org-ul">
 <li>Java SE se používá hlavně pro nějaké procesy, které se nastartují, provedou nějakou činost a skončí</li>
 <li>JavaEE se používá hlavně pro aplikace, které jsou nasazené na nějakém trvale běžícím serveru a vystavují buď nějaké služby nebo přímo front end.</li>
 </ul>
 </div>
-</li>
-<li><a id="org9a4af24"></a>Co je to aplikační server a nějaký příklad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span><br /></li>
-</ul>
-</li>
-<li><a id="org94214a1"></a>Implemetations<br />
-<ul class="org-ul">
-<li><a id="orgf508e2d"></a>GraalVM<br /></li>
-<li><a id="orged259d0"></a>Quarcus<br /></li>
-<li><a id="org3672d7d"></a>AdoptOpenJDK<br /></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><a id="org967ad39"></a>NodeJS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
+</div>
+<div id="outline-container-org7c4f66a" class="outline-5">
+<h5 id="org7c4f66a">Co je to aplikační server a nějaký příklad&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h5>
+</div>
+</div>
+<div id="outline-container-orgb757270" class="outline-4">
+<h4 id="orgb757270"><span class="section-number-4">8.5.4</span> Implemetations</h4>
+<div class="outline-text-4" id="text-8-5-4">
+</div>
+<div id="outline-container-orgc32e4e5" class="outline-5">
+<h5 id="orgc32e4e5">GraalVM</h5>
+</div>
+<div id="outline-container-org855151e" class="outline-5">
+<h5 id="org855151e">Quarcus</h5>
+</div>
+<div id="outline-container-org0010257" class="outline-5">
+<h5 id="org0010257">AdoptOpenJDK</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orge51f296" class="outline-3">
+<h3 id="orge51f296"><span class="section-number-3">8.6</span> NodeJS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>npm</li>
@@ -1868,39 +3229,58 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 <li>popular libraries</li>
 </ul>
 </div>
-</li>
-
-<li><a id="org3471e77"></a>Language theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br />
-<ol class="org-ol">
-<li><a id="orgc64a55a"></a>Garbage Collector<br /></li>
-<li><a id="org915d161"></a>Type systems<br />
-<ul class="org-ul">
-<li><a id="org5e3480a"></a>strongly typed<br /></li>
-<li><a id="org596f560"></a>weakly typed<br /></li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
 </div>
-<div id="outline-container-org88ebf48" class="outline-2">
-<h2 id="org88ebf48"><span class="section-number-2">9</span> Quality and Testing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
+
+<div id="outline-container-org4db341e" class="outline-3">
+<h3 id="org4db341e"><span class="section-number-3">8.7</span> Language theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+<div class="outline-text-3" id="text-8-7">
+</div>
+<div id="outline-container-orgbd7e1a1" class="outline-4">
+<h4 id="orgbd7e1a1"><span class="section-number-4">8.7.1</span> Garbage Collector</h4>
+</div>
+<div id="outline-container-org78c3340" class="outline-4">
+<h4 id="org78c3340"><span class="section-number-4">8.7.2</span> Type systems</h4>
+<div class="outline-text-4" id="text-8-7-2">
+</div>
+<div id="outline-container-orgd98de54" class="outline-5">
+<h5 id="orgd98de54">strongly typed</h5>
+</div>
+<div id="outline-container-org6f22253" class="outline-5">
+<h5 id="org6f22253">weakly typed</h5>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8255162" class="outline-2">
+<h2 id="org8255162"><span class="section-number-2">9</span> Quality and Testing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DOMAIN">DOMAIN</span></span></h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<ol class="org-ol">
-<li><a id="org9c10bf3"></a>Blue green deployment<br /></li>
-<li><a id="org33edff9"></a>AB testing<br /></li>
-<li><a id="orge977095"></a>Code coverage<br /></li>
-<li><a id="org1b17564"></a>Cyclomatic complexity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org20359ac"></a>Code quality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span><br /></li>
-<li><a id="org6adee4f"></a>Antifragile architecture<br /></li>
-<li><a id="org2c9c70d"></a>Unit testing<br /></li>
-</ol>
+<div id="outline-container-org58a30a0" class="outline-3">
+<h3 id="org58a30a0"><span class="section-number-3">9.1</span> Blue green deployment</h3>
+</div>
+<div id="outline-container-org000a6a2" class="outline-3">
+<h3 id="org000a6a2"><span class="section-number-3">9.2</span> AB testing</h3>
+</div>
+<div id="outline-container-org265eeae" class="outline-3">
+<h3 id="org265eeae"><span class="section-number-3">9.3</span> Code coverage</h3>
+</div>
+<div id="outline-container-org45c8bcc" class="outline-3">
+<h3 id="org45c8bcc"><span class="section-number-3">9.4</span> Cyclomatic complexity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orgefd72ce" class="outline-3">
+<h3 id="orgefd72ce"><span class="section-number-3">9.5</span> Code quality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOPIC">TOPIC</span></span></h3>
+</div>
+<div id="outline-container-orgbc20eee" class="outline-3">
+<h3 id="orgbc20eee"><span class="section-number-3">9.6</span> Antifragile architecture</h3>
+</div>
+<div id="outline-container-org9b97996" class="outline-3">
+<h3 id="org9b97996"><span class="section-number-3">9.7</span> Unit testing</h3>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Richard Bouska</p>
-<p class="date">Created: 2020-09-17 Thu 16:59</p>
+<p class="date">Created: 2020-09-17 Thu 21:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
