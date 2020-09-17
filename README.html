@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-09-09 St 22:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Richard Bouška" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge564228">1. Architecture</a>
+<ul>
+<li><a href="#org1c78f78">1.1. DDD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a>
+<ul>
+<li><a href="#org26dbc99">1.1.1. bounded context&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#org16c0662">1.1.2. ubiquotous language&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#orgb06c79c">1.1.3. Entity and Value Object&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org9526d2e">1.2. Messaging</a>
+<ul>
+<li><a href="#orgfbe75e6">1.2.1. queue</a></li>
+<li><a href="#org749703d">1.2.2. topics</a></li>
+<li><a href="#org8d41c3b">1.2.3. message delivery mode:</a></li>
+</ul>
+</li>
+<li><a href="#org2dd9ff9">1.3. micro-service-architecture</a></li>
+<li><a href="#org5174f36">1.4. Enterprise Architecture Integration Patterns</a>
+<ul>
+<li><a href="#orgdbc0af5">1.4.1. orchestration</a></li>
+<li><a href="#orgb6b431f">1.4.2. choreography</a></li>
+</ul>
+</li>
+<li><a href="#orge35f73f">1.5. Event Sourcing</a></li>
+<li><a href="#org5591f56">1.6. CQRS</a></li>
+</ul>
+</li>
+<li><a href="#org04b4779">2. Design principles</a>
+<ul>
+<li><a href="#org3cdbc69">2.1. DRY&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#orgabde1c7">2.2. KISS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#org3e4351a">2.3. YAGNI&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#org50bb9b6">2.4. open-close principal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#org96e6518">2.5. High cohesion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#orgd4a63d3">2.6. Low coupling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org9d4df2e">3. Project Flow</a>
+<ul>
+<li><a href="#org05105e2">3.1. Jira</a></li>
+<li><a href="#org8e873d0">3.2. Confluence</a></li>
+<li><a href="#orge028086">3.3. MOSCOW</a></li>
+<li><a href="#org774863d">3.4. DoD</a></li>
+<li><a href="#orgfa882fe">3.5. DoR</a></li>
+</ul>
+</li>
+<li><a href="#org5b085f0">4. Linux</a>
+<ul>
+<li><a href="#org836992a">4.1. ssh how to create trust between computers</a></li>
+<li><a href="#org23e53aa">4.2. awk / sed / grep / bash / tail / head</a></li>
+<li><a href="#org1274ac2">4.3. ls / ps / htop</a></li>
+<li><a href="#org38cc747">4.4. bash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a>
+<ul>
+<li><a href="#orgeea8e53">4.4.1. co je to here doc?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgcf24edd">4.5. co je to regexp</a></li>
+<li><a href="#org3556b96">4.6. list open ports</a></li>
+<li><a href="#org925b9cd">4.7. iptables</a></li>
+<li><a href="#org71aec0e">4.8. BPF</a></li>
+<li><a href="#org0beba58">4.9. list open files</a></li>
+<li><a href="#org1ae5b51">4.10. stdin stdout stderr</a></li>
+<li><a href="#orgeb75f91">4.11. NFS</a></li>
+<li><a href="#org9e265cc">4.12. file types:</a>
+<ul>
+<li><a href="#orgc865dad">4.12.1. block device</a></li>
+<li><a href="#orgc9476c4">4.12.2. character device</a></li>
+<li><a href="#org5f59cd5">4.12.3. named pipe</a></li>
+<li><a href="#orgd9fff4c">4.12.4. symlink</a></li>
+</ul>
+</li>
+<li><a href="#orgbe08fa8">4.13. /etc/nsswitch.conf</a></li>
+<li><a href="#org28d847a">4.14. /etc/resolv.conf</a></li>
+<li><a href="#org0b9b195">4.15. ip</a></li>
+</ul>
+</li>
+<li><a href="#org129d260">5. Data</a>
+<ul>
+<li><a href="#orgd30904f">5.1. SQL</a>
+<ul>
+<li><a href="#org0aad652">5.1.1. inner vs outher join</a></li>
+<li><a href="#org3994f7d">5.1.2. partitionning</a></li>
+</ul>
+</li>
+<li><a href="#org6aac981">5.2. ACID</a></li>
+<li><a href="#orgcbc796f">5.3. Wall</a></li>
+<li><a href="#org58f166f">5.4. Distributed consensus: Paxos Raft Zab</a></li>
+<li><a href="#org69c10ae">5.5. CAP theorem</a></li>
+<li><a href="#org80668a9">5.6. Beyond CAP database systems</a></li>
+<li><a href="#org2612ef3">5.7. BASE</a></li>
+<li><a href="#orgcf1586f">5.8. transaction isolation levels</a></li>
+<li><a href="#orgbf17e27">5.9. eventual consistency</a></li>
+<li><a href="#orgd064d82">5.10. big table</a></li>
+<li><a href="#orgbb45efa">5.11. big query</a></li>
+<li><a href="#orga3aaf64">5.12. OLAP vs OLTP</a></li>
+<li><a href="#orgbabb7f0">5.13. slowly moving dimensions</a></li>
+<li><a href="#orga4d9612">5.14. Elastic Search</a>
+<ul>
+<li><a href="#orgd2c530c">5.14.1. Bloom Filter</a></li>
+</ul>
+</li>
+<li><a href="#org133bd66">5.15. MongoDB</a></li>
+<li><a href="#org115bfc8">5.16. Apache Drill .. a jeho kamaradi</a></li>
+<li><a href="#org4065cd4">5.17. Multi master replication</a></li>
+<li><a href="#orgab20b2f">5.18. ORM</a></li>
+<li><a href="#org5ce9b03">5.19. JPA</a></li>
+<li><a href="#org28207ff">5.20. QueryDSL</a></li>
+<li><a href="#org31605f1">5.21. Backup strategy</a></li>
+</ul>
+</li>
+<li><a href="#orgb259605">6. Cloud</a>
+<ul>
+<li><a href="#org1dfa55b">6.1. Cloud native architecture</a></li>
+<li><a href="#org3167b4e">6.2. IAAS</a></li>
+<li><a href="#org52ba312">6.3. FINOPS</a></li>
+<li><a href="#org659903c">6.4. DEVSECOPS</a></li>
+<li><a href="#org992e4e5">6.5. storage:</a>
+<ul>
+<li><a href="#org2c71430">6.5.1. S3</a></li>
+<li><a href="#orgdd82bda">6.5.2. GCS</a></li>
+<li><a href="#orgd197934">6.5.3. min.io</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1b2cd47">7. DEVOPS / SRE</a>
+<ul>
+<li><a href="#org47998b7">7.1. Tools</a>
+<ul>
+<li><a href="#orgbc17ef6">7.1.1. Git</a></li>
+<li><a href="#org7b7874e">7.1.2. Docker</a></li>
+<li><a href="#org26f8151">7.1.3. K8S:</a></li>
+<li><a href="#orgcd36089">7.1.4. Chef</a></li>
+<li><a href="#orgfdabaff">7.1.5. Puppet</a></li>
+<li><a href="#org515f12d">7.1.6. Ansible</a></li>
+<li><a href="#org8dc15aa">7.1.7. Terraform</a></li>
+<li><a href="#orgf5184fd">7.1.8. Cloud Formation</a></li>
+<li><a href="#org2ff6822">7.1.9. hashicorp consul</a></li>
+<li><a href="#orga44eeec">7.1.10. hashicorp vault</a></li>
+<li><a href="#org5f127d3">7.1.11. zookeeper</a></li>
+<li><a href="#org04cc23b">7.1.12. kibana</a></li>
+<li><a href="#orgae58404">7.1.13. graphana</a></li>
+<li><a href="#org46448eb">7.1.14. ELK</a></li>
+</ul>
+</li>
+<li><a href="#orgf7e6dc1">7.2. Observability</a>
+<ul>
+<li><a href="#org8423759">7.2.1. 3 pillars</a></li>
+<li><a href="#org8143292">7.2.2. Tail Latency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgeabe7cd">8. Front End</a>
+<ul>
+<li><a href="#org33b36dd">8.1. Java Script</a>
+<ul>
+<li><a href="#org55a068b">8.1.1. co je to iife</a></li>
+<li><a href="#org97ed863">8.1.2. inheritance model of JS</a></li>
+<li><a href="#orgeb23da7">8.1.3. hoisting</a></li>
+<li><a href="#org4cc7efc">8.1.4. event loop</a></li>
+<li><a href="#org42d3356">8.1.5. promisses</a></li>
+<li><a href="#org8e6b683">8.1.6. observables</a></li>
+<li><a href="#org4a3eb5f">8.1.7. RxJS</a></li>
+<li><a href="#orgbbb2b06">8.1.8. JS modular system</a></li>
+</ul>
+</li>
+<li><a href="#org22d7c35">8.2. CORS</a></li>
+<li><a href="#orgddd9a6e">8.3. React</a>
+<ul>
+<li><a href="#orgba6352e">8.3.1. react-hooks a jak se to pouziva?</a></li>
+<li><a href="#orgeea5bd2">8.3.2. jaky je rozdil mezi React a React native</a></li>
+</ul>
+</li>
+<li><a href="#orgf3780ed">8.4. The Elm Architecture (TEA)</a></li>
+</ul>
+</li>
+<li><a href="#org58db749">9. Information Technology</a>
+<ul>
+<li><a href="#orgb009cd8">9.1. bit / byte / endian / float</a>
+<ul>
+<li><a href="#org83d2d0a">9.1.1. XOR, OR, AND, BitShift</a></li>
+</ul>
+</li>
+<li><a href="#org107818c">9.2. co je to CIDR co je to netmast</a></li>
+<li><a href="#orgccacdf7">9.3. co je to unicode, utf-8, ASCII, EBCDIC</a></li>
+</ul>
+</li>
+<li><a href="#orgf126008">10. Java</a>
+<ul>
+<li><a href="#orge257e68">10.1. Java EE</a>
+<ul>
+<li><a href="#orga69360c">10.1.1. access intent</a></li>
+</ul>
+</li>
+<li><a href="#orgb2c3c8f">10.2. Java 9 - project jigsaw</a></li>
+<li><a href="#org9e8dc53">10.3. Loom</a></li>
+<li><a href="#orge7c6698">10.4. Diamond operator</a></li>
+<li><a href="#orgd05609d">10.5. generics</a></li>
+<li><a href="#orga220deb">10.6. Co je to Local-Variable Type inference</a></li>
+<li><a href="#orgd3ce987">10.7. Jaky je rozdil mezi hashCode a equals(), co je to contrakt</a></li>
+<li><a href="#orge06a513">10.8. JCF:</a>
+<ul>
+<li><a href="#org56291fb">10.8.1. List, Set</a></li>
+<li><a href="#org396c164">10.8.2. ArrayList vs LinkedList</a></li>
+<li><a href="#org53ef6ff">10.8.3. StringBuilder vs String Buffer vs String</a></li>
+<li><a href="#org6a2ae01">10.8.4. BigDecimal vs float</a></li>
+</ul>
+</li>
+<li><a href="#org2a26022">10.9. <span class="todo TODO">TODO</span> Spring</a></li>
+<li><a href="#orgf4a0aa0">10.10. Java exception handling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org473c4fb">11. BASICS:</a>
+<ul>
+<li><a href="#orgff219ad">11.1. co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho</a></li>
+</ul>
+</li>
+<li><a href="#org0a59922">12. Functional Proramming</a>
+<ul>
+<li><a href="#org07b80f0">12.1. Lambda Calculus</a>
+<ul>
+<li><a href="#orge44b174">12.1.1. α-conversion</a></li>
+<li><a href="#org3932fbd">12.1.2. β-reduction</a></li>
+<li><a href="#org3abe71b">12.1.3. η-reduction</a></li>
+</ul>
+</li>
+<li><a href="#org1b2c0ee">12.2. Monoid</a></li>
+<li><a href="#org5db1bf0">12.3. Functor</a></li>
+<li><a href="#orgc55b118">12.4. Applicative</a></li>
+<li><a href="#org02f943a">12.5. Monad</a></li>
+<li><a href="#org4ad7991">12.6. Kleisli Functor</a></li>
+<li><a href="#org26dd445">12.7. Optics</a>
+<ul>
+<li><a href="#orgedf4640">12.7.1. Lenses</a></li>
+<li><a href="#org17fbca1">12.7.2. Prisms</a></li>
+</ul>
+</li>
+<li><a href="#orgf0da5a8">12.8. recursion schemes</a>
+<ul>
+<li><a href="#org08652e7">12.8.1. catamorphisms</a></li>
+<li><a href="#org982f3e4">12.8.2. anamorphisms</a></li>
+<li><a href="#orge1c6a3c">12.8.3. hylomorphisms</a></li>
+<li><a href="#org21e4968">12.8.4. paramorphisms</a></li>
+</ul>
+</li>
+<li><a href="#orgc436e7b">12.9. Persistent data structure - Chris Okasaki</a></li>
+<li><a href="#org2ed5b76">12.10. Immutability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orga588361">13. LANG:</a>
+<ul>
+<li><a href="#org05a0634">13.1. co je to Garbage Collector</a></li>
+<li><a href="#org4f5279c">13.2. strongly typed languages vs weakly typed</a></li>
+</ul>
+</li>
+<li><a href="#orgf27b1dc">14. Security:</a>
+<ul>
+<li><a href="#orgb7b25c9">14.1. LDAP</a>
+<ul>
+<li><a href="#org7e652d8">14.1.1. object class</a></li>
+<li><a href="#org96cdb17">14.1.2. iod</a></li>
+<li><a href="#org2d61ecc">14.1.3. CN, DN, SN,</a></li>
+</ul>
+</li>
+<li><a href="#org7b3af95">14.2. owasp top10</a></li>
+<li><a href="#org32a5e46">14.3. Bock Ciphers</a>
+<ul>
+<li><a href="#orge85f22c">14.3.1. ECB, CBC, OFB, CFB, CTR  - what they are</a></li>
+<li><a href="#orgca59c88">14.3.2. AES</a></li>
+<li><a href="#org85b6818">14.3.3. DES</a></li>
+</ul>
+</li>
+<li><a href="#org3a6254f">14.4. Hash</a>
+<ul>
+<li><a href="#org2d46251">14.4.1. base64</a></li>
+</ul>
+</li>
+<li><a href="#orgfc23c47">14.5. co je to symetricka a asymetricka sifra</a></li>
+<li><a href="#org5d2e286">14.6. bastillion.io</a></li>
+<li><a href="#orgc0ee205">14.7. PKI</a></li>
+<li><a href="#orgb06a190">14.8. X509</a></li>
+<li><a href="#org38c4c94">14.9. Oauth2/OIDC</a>
+<ul>
+<li><a href="#org38609f8">14.9.1. grant types:</a></li>
+<li><a href="#orgf49acb5">14.9.2. Scope</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge7fdb92">15. Quality</a>
+<ul>
+<li><a href="#orgaccdb11">15.1. Blue green deployment</a></li>
+<li><a href="#org29a0179">15.2. Code coverage</a></li>
+<li><a href="#org6f6826c">15.3. Cyclomatic complexity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#orga498d2b">15.4. Code quality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></a></li>
+<li><a href="#org17d1494">15.5. Antifragile architecture</a></li>
+<li><a href="#org503b06f">15.6. Unit testing</a></li>
+</ul>
+</li>
+<li><a href="#orgce3c61b">16. Object Oriented Programming</a>
+<ul>
+<li><a href="#org8bf29d9">16.1. Gof Design Patterns</a>
+<ul>
+<li><a href="#org91988c8">16.1.1. Abstract Factory</a></li>
+<li><a href="#org17d1129">16.1.2. Singleton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbef32ac">17. <span class="todo TODO">TODO</span> unsorted</a>
+<ul>
+<li><a href="#orgf36901a">17.1. Code complexity O notation</a></li>
+<li><a href="#org4d7e47f">17.2. Amortized complexity</a></li>
+<li><a href="#org7ca9494">17.3. Maven</a></li>
+<li><a href="#org24b76ac">17.4. Gradle</a></li>
+<li><a href="#org1287bbb">17.5. ReasonML</a></li>
+<li><a href="#org7b2b576">17.6. Less</a></li>
+<li><a href="#orgf32ed07">17.7. Sass</a></li>
+<li><a href="#org807788d">17.8. Uml</a></li>
+<li><a href="#org68e72f7">17.9. C4</a></li>
+<li><a href="#org52a58e4">17.10. Org42</a></li>
+<li><a href="#org5e4639d">17.11. Jaký je rozdíl mezi Java a JavaEE</a></li>
+<li><a href="#org649448d">17.12. Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika&#x2026;</a></li>
+<li><a href="#org52905ad">17.13. Co je to aplikační server a nějaký příklad</a></li>
+<li><a href="#orgd902c5e">17.14. Co jsou to transakce</a></li>
+<li><a href="#orga50a5b8">17.15. Znáš Spring?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge564228" class="outline-2">
+<h2 id="orge564228"><span class="section-number-2">1</span> Architecture</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org1c78f78" class="outline-3">
+<h3 id="org1c78f78"><span class="section-number-3">1.1</span> DDD&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org26dbc99" class="outline-4">
+<h4 id="org26dbc99"><span class="section-number-4">1.1.1</span> bounded context&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h4>
+</div>
+<div id="outline-container-org16c0662" class="outline-4">
+<h4 id="org16c0662"><span class="section-number-4">1.1.2</span> ubiquotous language&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h4>
+</div>
+<div id="outline-container-orgb06c79c" class="outline-4">
+<h4 id="orgb06c79c"><span class="section-number-4">1.1.3</span> Entity and Value Object&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h4>
+</div>
+</div>
+<div id="outline-container-org9526d2e" class="outline-3">
+<h3 id="org9526d2e"><span class="section-number-3">1.2</span> Messaging</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgfbe75e6" class="outline-4">
+<h4 id="orgfbe75e6"><span class="section-number-4">1.2.1</span> queue</h4>
+</div>
+<div id="outline-container-org749703d" class="outline-4">
+<h4 id="org749703d"><span class="section-number-4">1.2.2</span> topics</h4>
+</div>
+<div id="outline-container-org8d41c3b" class="outline-4">
+<h4 id="org8d41c3b"><span class="section-number-4">1.2.3</span> message delivery mode:</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>at least once at most once exactly once</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2dd9ff9" class="outline-3">
+<h3 id="org2dd9ff9"><span class="section-number-3">1.3</span> micro-service-architecture</h3>
+</div>
+<div id="outline-container-org5174f36" class="outline-3">
+<h3 id="org5174f36"><span class="section-number-3">1.4</span> Enterprise Architecture Integration Patterns</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgdbc0af5" class="outline-4">
+<h4 id="orgdbc0af5"><span class="section-number-4">1.4.1</span> orchestration</h4>
+</div>
+<div id="outline-container-orgb6b431f" class="outline-4">
+<h4 id="orgb6b431f"><span class="section-number-4">1.4.2</span> choreography</h4>
+</div>
+</div>
+<div id="outline-container-orge35f73f" class="outline-3">
+<h3 id="orge35f73f"><span class="section-number-3">1.5</span> Event Sourcing</h3>
+</div>
+<div id="outline-container-org5591f56" class="outline-3">
+<h3 id="org5591f56"><span class="section-number-3">1.6</span> CQRS</h3>
+</div>
+</div>
+<div id="outline-container-org04b4779" class="outline-2">
+<h2 id="org04b4779"><span class="section-number-2">2</span> Design principles</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org3cdbc69" class="outline-3">
+<h3 id="org3cdbc69"><span class="section-number-3">2.1</span> DRY&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-orgabde1c7" class="outline-3">
+<h3 id="orgabde1c7"><span class="section-number-3">2.2</span> KISS&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-org3e4351a" class="outline-3">
+<h3 id="org3e4351a"><span class="section-number-3">2.3</span> YAGNI&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-org50bb9b6" class="outline-3">
+<h3 id="org50bb9b6"><span class="section-number-3">2.4</span> open-close principal&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-org96e6518" class="outline-3">
+<h3 id="org96e6518"><span class="section-number-3">2.5</span> High cohesion&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-orgd4a63d3" class="outline-3">
+<h3 id="orgd4a63d3"><span class="section-number-3">2.6</span> Low coupling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+</div>
+<div id="outline-container-org9d4df2e" class="outline-2">
+<h2 id="org9d4df2e"><span class="section-number-2">3</span> Project Flow</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org05105e2" class="outline-3">
+<h3 id="org05105e2"><span class="section-number-3">3.1</span> Jira</h3>
+</div>
+<div id="outline-container-org8e873d0" class="outline-3">
+<h3 id="org8e873d0"><span class="section-number-3">3.2</span> Confluence</h3>
+</div>
+<div id="outline-container-orge028086" class="outline-3">
+<h3 id="orge028086"><span class="section-number-3">3.3</span> MOSCOW</h3>
+</div>
+<div id="outline-container-org774863d" class="outline-3">
+<h3 id="org774863d"><span class="section-number-3">3.4</span> DoD</h3>
+</div>
+<div id="outline-container-orgfa882fe" class="outline-3">
+<h3 id="orgfa882fe"><span class="section-number-3">3.5</span> DoR</h3>
+</div>
+</div>
+
+<div id="outline-container-org5b085f0" class="outline-2">
+<h2 id="org5b085f0"><span class="section-number-2">4</span> Linux</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org836992a" class="outline-3">
+<h3 id="org836992a"><span class="section-number-3">4.1</span> ssh how to create trust between computers</h3>
+</div>
+<div id="outline-container-org23e53aa" class="outline-3">
+<h3 id="org23e53aa"><span class="section-number-3">4.2</span> awk / sed / grep / bash / tail / head</h3>
+</div>
+<div id="outline-container-org1274ac2" class="outline-3">
+<h3 id="org1274ac2"><span class="section-number-3">4.3</span> ls / ps / htop</h3>
+</div>
+<div id="outline-container-org38cc747" class="outline-3">
+<h3 id="org38cc747"><span class="section-number-3">4.4</span> bash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+<div class="outline-text-3" id="text-4-4">
+</div>
+<div id="outline-container-orgeea8e53" class="outline-4">
+<h4 id="orgeea8e53"><span class="section-number-4">4.4.1</span> co je to here doc?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUESTION">QUESTION</span></span></h4>
+</div>
+</div>
+<div id="outline-container-orgcf24edd" class="outline-3">
+<h3 id="orgcf24edd"><span class="section-number-3">4.5</span> co je to regexp</h3>
+</div>
+<div id="outline-container-org3556b96" class="outline-3">
+<h3 id="org3556b96"><span class="section-number-3">4.6</span> list open ports</h3>
+</div>
+<div id="outline-container-org925b9cd" class="outline-3">
+<h3 id="org925b9cd"><span class="section-number-3">4.7</span> iptables</h3>
+</div>
+<div id="outline-container-org71aec0e" class="outline-3">
+<h3 id="org71aec0e"><span class="section-number-3">4.8</span> BPF</h3>
+</div>
+<div id="outline-container-org0beba58" class="outline-3">
+<h3 id="org0beba58"><span class="section-number-3">4.9</span> list open files</h3>
+</div>
+<div id="outline-container-org1ae5b51" class="outline-3">
+<h3 id="org1ae5b51"><span class="section-number-3">4.10</span> stdin stdout stderr</h3>
+</div>
+<div id="outline-container-orgeb75f91" class="outline-3">
+<h3 id="orgeb75f91"><span class="section-number-3">4.11</span> NFS</h3>
+</div>
+<div id="outline-container-org9e265cc" class="outline-3">
+<h3 id="org9e265cc"><span class="section-number-3">4.12</span> file types:</h3>
+<div class="outline-text-3" id="text-4-12">
+</div>
+<div id="outline-container-orgc865dad" class="outline-4">
+<h4 id="orgc865dad"><span class="section-number-4">4.12.1</span> block device</h4>
+</div>
+<div id="outline-container-orgc9476c4" class="outline-4">
+<h4 id="orgc9476c4"><span class="section-number-4">4.12.2</span> character device</h4>
+</div>
+<div id="outline-container-org5f59cd5" class="outline-4">
+<h4 id="org5f59cd5"><span class="section-number-4">4.12.3</span> named pipe</h4>
+</div>
+<div id="outline-container-orgd9fff4c" class="outline-4">
+<h4 id="orgd9fff4c"><span class="section-number-4">4.12.4</span> symlink</h4>
+</div>
+</div>
+<div id="outline-container-orgbe08fa8" class="outline-3">
+<h3 id="orgbe08fa8"><span class="section-number-3">4.13</span> /etc/nsswitch.conf</h3>
+</div>
+<div id="outline-container-org28d847a" class="outline-3">
+<h3 id="org28d847a"><span class="section-number-3">4.14</span> /etc/resolv.conf</h3>
+</div>
+<div id="outline-container-org0b9b195" class="outline-3">
+<h3 id="org0b9b195"><span class="section-number-3">4.15</span> ip</h3>
+<div class="outline-text-3" id="text-4-15">
+<div class="org-src-container">
+<pre class="src src-bash">ip addr sh
+ip route sh
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org129d260" class="outline-2">
+<h2 id="org129d260"><span class="section-number-2">5</span> Data</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd30904f" class="outline-3">
+<h3 id="orgd30904f"><span class="section-number-3">5.1</span> SQL</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org0aad652" class="outline-4">
+<h4 id="org0aad652"><span class="section-number-4">5.1.1</span> inner vs outher join</h4>
+</div>
+<div id="outline-container-org3994f7d" class="outline-4">
+<h4 id="org3994f7d"><span class="section-number-4">5.1.2</span> partitionning</h4>
+</div>
+</div>
+<div id="outline-container-org6aac981" class="outline-3">
+<h3 id="org6aac981"><span class="section-number-3">5.2</span> ACID</h3>
+</div>
+<div id="outline-container-orgcbc796f" class="outline-3">
+<h3 id="orgcbc796f"><span class="section-number-3">5.3</span> Wall</h3>
+</div>
+<div id="outline-container-org58f166f" class="outline-3">
+<h3 id="org58f166f"><span class="section-number-3">5.4</span> Distributed consensus: Paxos Raft Zab</h3>
+</div>
+<div id="outline-container-org69c10ae" class="outline-3">
+<h3 id="org69c10ae"><span class="section-number-3">5.5</span> CAP theorem</h3>
+</div>
+<div id="outline-container-org80668a9" class="outline-3">
+<h3 id="org80668a9"><span class="section-number-3">5.6</span> Beyond CAP database systems</h3>
+</div>
+<div id="outline-container-org2612ef3" class="outline-3">
+<h3 id="org2612ef3"><span class="section-number-3">5.7</span> BASE</h3>
+</div>
+<div id="outline-container-orgcf1586f" class="outline-3">
+<h3 id="orgcf1586f"><span class="section-number-3">5.8</span> transaction isolation levels</h3>
+</div>
+<div id="outline-container-orgbf17e27" class="outline-3">
+<h3 id="orgbf17e27"><span class="section-number-3">5.9</span> eventual consistency</h3>
+</div>
+<div id="outline-container-orgd064d82" class="outline-3">
+<h3 id="orgd064d82"><span class="section-number-3">5.10</span> big table</h3>
+</div>
+<div id="outline-container-orgbb45efa" class="outline-3">
+<h3 id="orgbb45efa"><span class="section-number-3">5.11</span> big query</h3>
+</div>
+<div id="outline-container-orga3aaf64" class="outline-3">
+<h3 id="orga3aaf64"><span class="section-number-3">5.12</span> OLAP vs OLTP</h3>
+</div>
+<div id="outline-container-orgbabb7f0" class="outline-3">
+<h3 id="orgbabb7f0"><span class="section-number-3">5.13</span> slowly moving dimensions</h3>
+</div>
+<div id="outline-container-orga4d9612" class="outline-3">
+<h3 id="orga4d9612"><span class="section-number-3">5.14</span> Elastic Search</h3>
+<div class="outline-text-3" id="text-5-14">
+</div>
+<div id="outline-container-orgd2c530c" class="outline-4">
+<h4 id="orgd2c530c"><span class="section-number-4">5.14.1</span> Bloom Filter</h4>
+</div>
+</div>
+<div id="outline-container-org133bd66" class="outline-3">
+<h3 id="org133bd66"><span class="section-number-3">5.15</span> MongoDB</h3>
+</div>
+<div id="outline-container-org115bfc8" class="outline-3">
+<h3 id="org115bfc8"><span class="section-number-3">5.16</span> Apache Drill .. a jeho kamaradi</h3>
+</div>
+<div id="outline-container-org4065cd4" class="outline-3">
+<h3 id="org4065cd4"><span class="section-number-3">5.17</span> Multi master replication</h3>
+</div>
+<div id="outline-container-orgab20b2f" class="outline-3">
+<h3 id="orgab20b2f"><span class="section-number-3">5.18</span> ORM</h3>
+</div>
+<div id="outline-container-org5ce9b03" class="outline-3">
+<h3 id="org5ce9b03"><span class="section-number-3">5.19</span> JPA</h3>
+</div>
+<div id="outline-container-org28207ff" class="outline-3">
+<h3 id="org28207ff"><span class="section-number-3">5.20</span> QueryDSL</h3>
+</div>
+<div id="outline-container-org31605f1" class="outline-3">
+<h3 id="org31605f1"><span class="section-number-3">5.21</span> Backup strategy</h3>
+</div>
+</div>
+<div id="outline-container-orgb259605" class="outline-2">
+<h2 id="orgb259605"><span class="section-number-2">6</span> Cloud</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org1dfa55b" class="outline-3">
+<h3 id="org1dfa55b"><span class="section-number-3">6.1</span> Cloud native architecture</h3>
+</div>
+<div id="outline-container-org3167b4e" class="outline-3">
+<h3 id="org3167b4e"><span class="section-number-3">6.2</span> IAAS</h3>
+</div>
+<div id="outline-container-org52ba312" class="outline-3">
+<h3 id="org52ba312"><span class="section-number-3">6.3</span> FINOPS</h3>
+</div>
+<div id="outline-container-org659903c" class="outline-3">
+<h3 id="org659903c"><span class="section-number-3">6.4</span> DEVSECOPS</h3>
+</div>
+<div id="outline-container-org992e4e5" class="outline-3">
+<h3 id="org992e4e5"><span class="section-number-3">6.5</span> storage:</h3>
+<div class="outline-text-3" id="text-6-5">
+</div>
+<div id="outline-container-org2c71430" class="outline-4">
+<h4 id="org2c71430"><span class="section-number-4">6.5.1</span> S3</h4>
+</div>
+<div id="outline-container-orgdd82bda" class="outline-4">
+<h4 id="orgdd82bda"><span class="section-number-4">6.5.2</span> GCS</h4>
+</div>
+<div id="outline-container-orgd197934" class="outline-4">
+<h4 id="orgd197934"><span class="section-number-4">6.5.3</span> min.io</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org1b2cd47" class="outline-2">
+<h2 id="org1b2cd47"><span class="section-number-2">7</span> DEVOPS / SRE</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org47998b7" class="outline-3">
+<h3 id="org47998b7"><span class="section-number-3">7.1</span> Tools</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-orgbc17ef6" class="outline-4">
+<h4 id="orgbc17ef6"><span class="section-number-4">7.1.1</span> Git</h4>
+<div class="outline-text-4" id="text-7-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org983e9bf"></a>pull-request<br /></li>
+<li><a id="org575e682"></a>cherry pick<br /></li>
+<li><a id="orgaaa064c"></a>flow<br /></li>
+<li><a id="org4166811"></a>git push<br /></li>
+<li><a id="org383a031"></a>rebase vs merge - semantical and syntactical diff<br /></li>
+<li><a id="org2c3167b"></a>stash<br /></li>
+</ol>
+</div>
+<div id="outline-container-org7b7874e" class="outline-4">
+<h4 id="org7b7874e"><span class="section-number-4">7.1.2</span> Docker</h4>
+<div class="outline-text-4" id="text-7-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org1c522d6"></a>docker file<br /></li>
+<li><a id="org4700569"></a>docker compose<br /></li>
+<li><a id="org133eb50"></a>docker swarm<br /></li>
+</ol>
+</div>
+<div id="outline-container-org26f8151" class="outline-4">
+<h4 id="org26f8151"><span class="section-number-4">7.1.3</span> K8S:</h4>
+<div class="outline-text-4" id="text-7-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="org3dcf1d3"></a>pod<br /></li>
+<li><a id="org9853ccd"></a>node<br /></li>
+<li><a id="org0196820"></a>service mesh<br /></li>
+<li><a id="orgeddbec4"></a>ingress and exgress?<br /></li>
+<li><a id="orgaf54aca"></a>etcd<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgcd36089" class="outline-4">
+<h4 id="orgcd36089"><span class="section-number-4">7.1.4</span> Chef</h4>
+</div>
+<div id="outline-container-orgfdabaff" class="outline-4">
+<h4 id="orgfdabaff"><span class="section-number-4">7.1.5</span> Puppet</h4>
+</div>
+<div id="outline-container-org515f12d" class="outline-4">
+<h4 id="org515f12d"><span class="section-number-4">7.1.6</span> Ansible</h4>
+</div>
+<div id="outline-container-org8dc15aa" class="outline-4">
+<h4 id="org8dc15aa"><span class="section-number-4">7.1.7</span> Terraform</h4>
+</div>
+<div id="outline-container-orgf5184fd" class="outline-4">
+<h4 id="orgf5184fd"><span class="section-number-4">7.1.8</span> Cloud Formation</h4>
+</div>
+<div id="outline-container-org2ff6822" class="outline-4">
+<h4 id="org2ff6822"><span class="section-number-4">7.1.9</span> hashicorp consul</h4>
+</div>
+<div id="outline-container-orga44eeec" class="outline-4">
+<h4 id="orga44eeec"><span class="section-number-4">7.1.10</span> hashicorp vault</h4>
+</div>
+<div id="outline-container-org5f127d3" class="outline-4">
+<h4 id="org5f127d3"><span class="section-number-4">7.1.11</span> zookeeper</h4>
+</div>
+<div id="outline-container-org04cc23b" class="outline-4">
+<h4 id="org04cc23b"><span class="section-number-4">7.1.12</span> kibana</h4>
+</div>
+<div id="outline-container-orgae58404" class="outline-4">
+<h4 id="orgae58404"><span class="section-number-4">7.1.13</span> graphana</h4>
+</div>
+<div id="outline-container-org46448eb" class="outline-4">
+<h4 id="org46448eb"><span class="section-number-4">7.1.14</span> ELK</h4>
+</div>
+</div>
+<div id="outline-container-orgf7e6dc1" class="outline-3">
+<h3 id="orgf7e6dc1"><span class="section-number-3">7.2</span> Observability</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org8423759" class="outline-4">
+<h4 id="org8423759"><span class="section-number-4">7.2.1</span> 3 pillars</h4>
+<div class="outline-text-4" id="text-7-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org6b100ed"></a>logs<br /></li>
+<li><a id="org7df7619"></a>metrics<br /></li>
+<li><a id="org7c13ec2"></a>traces<br /></li>
+</ol>
+</div>
+<div id="outline-container-org8143292" class="outline-4">
+<h4 id="org8143292"><span class="section-number-4">7.2.2</span> Tail Latency</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeabe7cd" class="outline-2">
+<h2 id="orgeabe7cd"><span class="section-number-2">8</span> Front End</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org33b36dd" class="outline-3">
+<h3 id="org33b36dd"><span class="section-number-3">8.1</span> Java Script</h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-org55a068b" class="outline-4">
+<h4 id="org55a068b"><span class="section-number-4">8.1.1</span> co je to iife</h4>
+</div>
+<div id="outline-container-org97ed863" class="outline-4">
+<h4 id="org97ed863"><span class="section-number-4">8.1.2</span> inheritance model of JS</h4>
+</div>
+<div id="outline-container-orgeb23da7" class="outline-4">
+<h4 id="orgeb23da7"><span class="section-number-4">8.1.3</span> hoisting</h4>
+</div>
+<div id="outline-container-org4cc7efc" class="outline-4">
+<h4 id="org4cc7efc"><span class="section-number-4">8.1.4</span> event loop</h4>
+</div>
+<div id="outline-container-org42d3356" class="outline-4">
+<h4 id="org42d3356"><span class="section-number-4">8.1.5</span> promisses</h4>
+</div>
+<div id="outline-container-org8e6b683" class="outline-4">
+<h4 id="org8e6b683"><span class="section-number-4">8.1.6</span> observables</h4>
+</div>
+<div id="outline-container-org4a3eb5f" class="outline-4">
+<h4 id="org4a3eb5f"><span class="section-number-4">8.1.7</span> RxJS</h4>
+</div>
+<div id="outline-container-orgbbb2b06" class="outline-4">
+<h4 id="orgbbb2b06"><span class="section-number-4">8.1.8</span> JS modular system</h4>
+</div>
+</div>
+<div id="outline-container-org22d7c35" class="outline-3">
+<h3 id="org22d7c35"><span class="section-number-3">8.2</span> CORS</h3>
+</div>
+<div id="outline-container-orgddd9a6e" class="outline-3">
+<h3 id="orgddd9a6e"><span class="section-number-3">8.3</span> React</h3>
+<div class="outline-text-3" id="text-8-3">
+</div>
+<div id="outline-container-orgba6352e" class="outline-4">
+<h4 id="orgba6352e"><span class="section-number-4">8.3.1</span> react-hooks a jak se to pouziva?</h4>
+</div>
+<div id="outline-container-orgeea5bd2" class="outline-4">
+<h4 id="orgeea5bd2"><span class="section-number-4">8.3.2</span> jaky je rozdil mezi React a React native</h4>
+</div>
+</div>
+<div id="outline-container-orgf3780ed" class="outline-3">
+<h3 id="orgf3780ed"><span class="section-number-3">8.4</span> The Elm Architecture (TEA)</h3>
+</div>
+</div>
+<div id="outline-container-org58db749" class="outline-2">
+<h2 id="org58db749"><span class="section-number-2">9</span> Information Technology</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgb009cd8" class="outline-3">
+<h3 id="orgb009cd8"><span class="section-number-3">9.1</span> bit / byte / endian / float</h3>
+<div class="outline-text-3" id="text-9-1">
+</div>
+<div id="outline-container-org83d2d0a" class="outline-4">
+<h4 id="org83d2d0a"><span class="section-number-4">9.1.1</span> XOR, OR, AND, BitShift</h4>
+</div>
+</div>
+<div id="outline-container-org107818c" class="outline-3">
+<h3 id="org107818c"><span class="section-number-3">9.2</span> co je to CIDR co je to netmast</h3>
+</div>
+<div id="outline-container-orgccacdf7" class="outline-3">
+<h3 id="orgccacdf7"><span class="section-number-3">9.3</span> co je to unicode, utf-8, ASCII, EBCDIC</h3>
+</div>
+</div>
+<div id="outline-container-orgf126008" class="outline-2">
+<h2 id="orgf126008"><span class="section-number-2">10</span> Java</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-orge257e68" class="outline-3">
+<h3 id="orge257e68"><span class="section-number-3">10.1</span> Java EE</h3>
+<div class="outline-text-3" id="text-10-1">
+</div>
+<div id="outline-container-orga69360c" class="outline-4">
+<h4 id="orga69360c"><span class="section-number-4">10.1.1</span> access intent</h4>
+<div class="outline-text-4" id="text-10-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org6f93ba7"></a>optimistic vs pessimistic<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgb2c3c8f" class="outline-3">
+<h3 id="orgb2c3c8f"><span class="section-number-3">10.2</span> Java 9 - project jigsaw</h3>
+</div>
+<div id="outline-container-org9e8dc53" class="outline-3">
+<h3 id="org9e8dc53"><span class="section-number-3">10.3</span> Loom</h3>
+</div>
+<div id="outline-container-orge7c6698" class="outline-3">
+<h3 id="orge7c6698"><span class="section-number-3">10.4</span> Diamond operator</h3>
+</div>
+<div id="outline-container-orgd05609d" class="outline-3">
+<h3 id="orgd05609d"><span class="section-number-3">10.5</span> generics</h3>
+</div>
+<div id="outline-container-orga220deb" class="outline-3">
+<h3 id="orga220deb"><span class="section-number-3">10.6</span> Co je to Local-Variable Type inference</h3>
+</div>
+<div id="outline-container-orgd3ce987" class="outline-3">
+<h3 id="orgd3ce987"><span class="section-number-3">10.7</span> Jaky je rozdil mezi hashCode a equals(), co je to contrakt</h3>
+</div>
+<div id="outline-container-orge06a513" class="outline-3">
+<h3 id="orge06a513"><span class="section-number-3">10.8</span> JCF:</h3>
+<div class="outline-text-3" id="text-10-8">
+</div>
+<div id="outline-container-org56291fb" class="outline-4">
+<h4 id="org56291fb"><span class="section-number-4">10.8.1</span> List, Set</h4>
+</div>
+<div id="outline-container-org396c164" class="outline-4">
+<h4 id="org396c164"><span class="section-number-4">10.8.2</span> ArrayList vs LinkedList</h4>
+</div>
+<div id="outline-container-org53ef6ff" class="outline-4">
+<h4 id="org53ef6ff"><span class="section-number-4">10.8.3</span> StringBuilder vs String Buffer vs String</h4>
+</div>
+<div id="outline-container-org6a2ae01" class="outline-4">
+<h4 id="org6a2ae01"><span class="section-number-4">10.8.4</span> BigDecimal vs float</h4>
+</div>
+</div>
+
+<div id="outline-container-org2a26022" class="outline-3">
+<h3 id="org2a26022"><span class="section-number-3">10.9</span> <span class="todo TODO">TODO</span> Spring</h3>
+<div class="outline-text-3" id="text-10-9">
+<p>
+Jako jeho CV je docela impresivní, tak bych asi akorát ověřil, jestli nepřehání. Osobně by mě - čistě z pohledu BE - zajímalo, jestli FAKT zná ten Spring a pokud jo, tak jestli taky zná JavuEE a ideálně i stařičký věcí jako EJB2. To bych teda nebral jako nezbytnou podmínku, spíš jako bonus. Takže za mě hlavně:
+Jaký je rozdíl mezi JavaEE a Springem?
+JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí. Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+Co přinesl Spring Boot do Spring ekosystému?
+Strašně zjednodušený start aplikace. Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default". Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem. V každém případě je to one liner. Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+No a pak všetečný otázky na JavaEE a EJB2 a tak. To už znáš sám líp než já. :wink:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4a0aa0" class="outline-3">
+<h3 id="orgf4a0aa0"><span class="section-number-3">10.10</span> Java exception handling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+</div>
+
+<div id="outline-container-org473c4fb" class="outline-2">
+<h2 id="org473c4fb"><span class="section-number-2">11</span> BASICS:</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-orgff219ad" class="outline-3">
+<h3 id="orgff219ad"><span class="section-number-3">11.1</span> co je to yaml json xml jaky je mezi nimi rozdil - zamerte se na vyhody ledniho</h3>
+</div>
+</div>
+<div id="outline-container-org0a59922" class="outline-2">
+<h2 id="org0a59922"><span class="section-number-2">12</span> Functional Proramming</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org07b80f0" class="outline-3">
+<h3 id="org07b80f0"><span class="section-number-3">12.1</span> Lambda Calculus</h3>
+<div class="outline-text-3" id="text-12-1">
+</div>
+<div id="outline-container-orge44b174" class="outline-4">
+<h4 id="orge44b174"><span class="section-number-4">12.1.1</span> α-conversion</h4>
+<div class="outline-text-4" id="text-12-1-1">
+<ul class="org-ul">
+<li>changing bound variables</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3932fbd" class="outline-4">
+<h4 id="org3932fbd"><span class="section-number-4">12.1.2</span> β-reduction</h4>
+<div class="outline-text-4" id="text-12-1-2">
+<ul class="org-ul">
+<li>applying functions to their arguments;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3abe71b" class="outline-4">
+<h4 id="org3abe71b"><span class="section-number-4">12.1.3</span> η-reduction</h4>
+<div class="outline-text-4" id="text-12-1-3">
+<ul class="org-ul">
+<li>which captures a notion of extensionality.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1b2c0ee" class="outline-3">
+<h3 id="org1b2c0ee"><span class="section-number-3">12.2</span> Monoid</h3>
+</div>
+<div id="outline-container-org5db1bf0" class="outline-3">
+<h3 id="org5db1bf0"><span class="section-number-3">12.3</span> Functor</h3>
+</div>
+<div id="outline-container-orgc55b118" class="outline-3">
+<h3 id="orgc55b118"><span class="section-number-3">12.4</span> Applicative</h3>
+</div>
+<div id="outline-container-org02f943a" class="outline-3">
+<h3 id="org02f943a"><span class="section-number-3">12.5</span> Monad</h3>
+</div>
+<div id="outline-container-org4ad7991" class="outline-3">
+<h3 id="org4ad7991"><span class="section-number-3">12.6</span> Kleisli Functor</h3>
+</div>
+<div id="outline-container-org26dd445" class="outline-3">
+<h3 id="org26dd445"><span class="section-number-3">12.7</span> Optics</h3>
+<div class="outline-text-3" id="text-12-7">
+</div>
+<div id="outline-container-orgedf4640" class="outline-4">
+<h4 id="orgedf4640"><span class="section-number-4">12.7.1</span> Lenses</h4>
+</div>
+<div id="outline-container-org17fbca1" class="outline-4">
+<h4 id="org17fbca1"><span class="section-number-4">12.7.2</span> Prisms</h4>
+</div>
+</div>
+<div id="outline-container-orgf0da5a8" class="outline-3">
+<h3 id="orgf0da5a8"><span class="section-number-3">12.8</span> recursion schemes</h3>
+<div class="outline-text-3" id="text-12-8">
+</div>
+<div id="outline-container-org08652e7" class="outline-4">
+<h4 id="org08652e7"><span class="section-number-4">12.8.1</span> catamorphisms</h4>
+</div>
+<div id="outline-container-org982f3e4" class="outline-4">
+<h4 id="org982f3e4"><span class="section-number-4">12.8.2</span> anamorphisms</h4>
+</div>
+<div id="outline-container-orge1c6a3c" class="outline-4">
+<h4 id="orge1c6a3c"><span class="section-number-4">12.8.3</span> hylomorphisms</h4>
+</div>
+<div id="outline-container-org21e4968" class="outline-4">
+<h4 id="org21e4968"><span class="section-number-4">12.8.4</span> paramorphisms</h4>
+</div>
+</div>
+
+<div id="outline-container-orgc436e7b" class="outline-3">
+<h3 id="orgc436e7b"><span class="section-number-3">12.9</span> Persistent data structure - Chris Okasaki</h3>
+</div>
+<div id="outline-container-org2ed5b76" class="outline-3">
+<h3 id="org2ed5b76"><span class="section-number-3">12.10</span> Immutability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+</div>
+
+<div id="outline-container-orga588361" class="outline-2">
+<h2 id="orga588361"><span class="section-number-2">13</span> LANG:</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-org05a0634" class="outline-3">
+<h3 id="org05a0634"><span class="section-number-3">13.1</span> co je to Garbage Collector</h3>
+</div>
+<div id="outline-container-org4f5279c" class="outline-3">
+<h3 id="org4f5279c"><span class="section-number-3">13.2</span> strongly typed languages vs weakly typed</h3>
+</div>
+</div>
+<div id="outline-container-orgf27b1dc" class="outline-2">
+<h2 id="orgf27b1dc"><span class="section-number-2">14</span> Security:</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-orgb7b25c9" class="outline-3">
+<h3 id="orgb7b25c9"><span class="section-number-3">14.1</span> LDAP</h3>
+<div class="outline-text-3" id="text-14-1">
+</div>
+<div id="outline-container-org7e652d8" class="outline-4">
+<h4 id="org7e652d8"><span class="section-number-4">14.1.1</span> object class</h4>
+<div class="outline-text-4" id="text-14-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgeb672e6"></a>inetOrgPerson<br /></li>
+</ol>
+</div>
+<div id="outline-container-org96cdb17" class="outline-4">
+<h4 id="org96cdb17"><span class="section-number-4">14.1.2</span> iod</h4>
+</div>
+<div id="outline-container-org2d61ecc" class="outline-4">
+<h4 id="org2d61ecc"><span class="section-number-4">14.1.3</span> CN, DN, SN,</h4>
+</div>
+</div>
+<div id="outline-container-org7b3af95" class="outline-3">
+<h3 id="org7b3af95"><span class="section-number-3">14.2</span> owasp top10</h3>
+</div>
+<div id="outline-container-org32a5e46" class="outline-3">
+<h3 id="org32a5e46"><span class="section-number-3">14.3</span> Bock Ciphers</h3>
+<div class="outline-text-3" id="text-14-3">
+</div>
+<div id="outline-container-orge85f22c" class="outline-4">
+<h4 id="orge85f22c"><span class="section-number-4">14.3.1</span> ECB, CBC, OFB, CFB, CTR  - what they are</h4>
+<div class="outline-text-4" id="text-14-3-1">
+<pre class="example">
+study: https://www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm/
+</pre>
+</div>
+</div>
+<div id="outline-container-orgca59c88" class="outline-4">
+<h4 id="orgca59c88"><span class="section-number-4">14.3.2</span> AES</h4>
+</div>
+<div id="outline-container-org85b6818" class="outline-4">
+<h4 id="org85b6818"><span class="section-number-4">14.3.3</span> DES</h4>
+</div>
+</div>
+<div id="outline-container-org3a6254f" class="outline-3">
+<h3 id="org3a6254f"><span class="section-number-3">14.4</span> Hash</h3>
+<div class="outline-text-3" id="text-14-4">
+</div>
+<div id="outline-container-org2d46251" class="outline-4">
+<h4 id="org2d46251"><span class="section-number-4">14.4.1</span> base64</h4>
+</div>
+</div>
+<div id="outline-container-orgfc23c47" class="outline-3">
+<h3 id="orgfc23c47"><span class="section-number-3">14.5</span> co je to symetricka a asymetricka sifra</h3>
+</div>
+<div id="outline-container-org5d2e286" class="outline-3">
+<h3 id="org5d2e286"><span class="section-number-3">14.6</span> bastillion.io</h3>
+</div>
+<div id="outline-container-orgc0ee205" class="outline-3">
+<h3 id="orgc0ee205"><span class="section-number-3">14.7</span> PKI</h3>
+</div>
+<div id="outline-container-orgb06a190" class="outline-3">
+<h3 id="orgb06a190"><span class="section-number-3">14.8</span> X509</h3>
+</div>
+<div id="outline-container-org38c4c94" class="outline-3">
+<h3 id="org38c4c94"><span class="section-number-3">14.9</span> Oauth2/OIDC</h3>
+<div class="outline-text-3" id="text-14-9">
+</div>
+<div id="outline-container-org38609f8" class="outline-4">
+<h4 id="org38609f8"><span class="section-number-4">14.9.1</span> grant types:</h4>
+<div class="outline-text-4" id="text-14-9-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgba8444c"></a>Authorization Code<br /></li>
+<li><a id="orgfbd4101"></a>Client Credentials<br /></li>
+<li><a id="org37056a3"></a>Device Code<br /></li>
+<li><a id="orgcfdaa77"></a>Refresh Token<br /></li>
+<li><a id="orga89242e"></a>PKCE<br /></li>
+<li><a id="org90f0edb"></a>(Implicit Flow)<br /></li>
+<li><a id="orga901f5e"></a>(Password Grant)<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgf49acb5" class="outline-4">
+<h4 id="orgf49acb5"><span class="section-number-4">14.9.2</span> Scope</h4>
+<div class="outline-text-4" id="text-14-9-2">
+<p>
+A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. 
+Often, applications will want to make use of the information that has already been created in an online resource.
+To do so, the application must ask for authorization to access this information on a user’s behalf. 
+When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
+and the authorization server uses the Scope parameter to respond with the access that was actually granted.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge7fdb92" class="outline-2">
+<h2 id="orge7fdb92"><span class="section-number-2">15</span> Quality</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orgaccdb11" class="outline-3">
+<h3 id="orgaccdb11"><span class="section-number-3">15.1</span> Blue green deployment</h3>
+</div>
+<div id="outline-container-org29a0179" class="outline-3">
+<h3 id="org29a0179"><span class="section-number-3">15.2</span> Code coverage</h3>
+</div>
+<div id="outline-container-org6f6826c" class="outline-3">
+<h3 id="org6f6826c"><span class="section-number-3">15.3</span> Cyclomatic complexity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-orga498d2b" class="outline-3">
+<h3 id="orga498d2b"><span class="section-number-3">15.4</span> Code quality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="SUBJECT">SUBJECT</span></span></h3>
+</div>
+<div id="outline-container-org17d1494" class="outline-3">
+<h3 id="org17d1494"><span class="section-number-3">15.5</span> Antifragile architecture</h3>
+</div>
+<div id="outline-container-org503b06f" class="outline-3">
+<h3 id="org503b06f"><span class="section-number-3">15.6</span> Unit testing</h3>
+</div>
+</div>
+
+<div id="outline-container-orgce3c61b" class="outline-2">
+<h2 id="orgce3c61b"><span class="section-number-2">16</span> Object Oriented Programming</h2>
+<div class="outline-text-2" id="text-16">
+</div>
+<div id="outline-container-org8bf29d9" class="outline-3">
+<h3 id="org8bf29d9"><span class="section-number-3">16.1</span> Gof Design Patterns</h3>
+<div class="outline-text-3" id="text-16-1">
+</div>
+<div id="outline-container-org91988c8" class="outline-4">
+<h4 id="org91988c8"><span class="section-number-4">16.1.1</span> Abstract Factory</h4>
+</div>
+<div id="outline-container-org17d1129" class="outline-4">
+<h4 id="org17d1129"><span class="section-number-4">16.1.2</span> Singleton</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbef32ac" class="outline-2">
+<h2 id="orgbef32ac"><span class="section-number-2">17</span> <span class="todo TODO">TODO</span> unsorted</h2>
+<div class="outline-text-2" id="text-17">
+</div>
+<div id="outline-container-orgf36901a" class="outline-3">
+<h3 id="orgf36901a"><span class="section-number-3">17.1</span> Code complexity O notation</h3>
+</div>
+<div id="outline-container-org4d7e47f" class="outline-3">
+<h3 id="org4d7e47f"><span class="section-number-3">17.2</span> Amortized complexity</h3>
+</div>
+<div id="outline-container-org7ca9494" class="outline-3">
+<h3 id="org7ca9494"><span class="section-number-3">17.3</span> Maven</h3>
+</div>
+<div id="outline-container-org24b76ac" class="outline-3">
+<h3 id="org24b76ac"><span class="section-number-3">17.4</span> Gradle</h3>
+</div>
+<div id="outline-container-org1287bbb" class="outline-3">
+<h3 id="org1287bbb"><span class="section-number-3">17.5</span> ReasonML</h3>
+</div>
+<div id="outline-container-org7b2b576" class="outline-3">
+<h3 id="org7b2b576"><span class="section-number-3">17.6</span> Less</h3>
+</div>
+<div id="outline-container-orgf32ed07" class="outline-3">
+<h3 id="orgf32ed07"><span class="section-number-3">17.7</span> Sass</h3>
+</div>
+<div id="outline-container-org807788d" class="outline-3">
+<h3 id="org807788d"><span class="section-number-3">17.8</span> Uml</h3>
+</div>
+<div id="outline-container-org68e72f7" class="outline-3">
+<h3 id="org68e72f7"><span class="section-number-3">17.9</span> C4</h3>
+</div>
+<div id="outline-container-org52a58e4" class="outline-3">
+<h3 id="org52a58e4"><span class="section-number-3">17.10</span> Org42</h3>
+</div>
+<div id="outline-container-org5e4639d" class="outline-3">
+<h3 id="org5e4639d"><span class="section-number-3">17.11</span> Jaký je rozdíl mezi Java a JavaEE</h3>
+</div>
+<div id="outline-container-org649448d" class="outline-3">
+<h3 id="org649448d"><span class="section-number-3">17.12</span> Pár zvídavých otázek na Javu: equals, hashCode, List vs Set vs Map, klasika&#x2026;</h3>
+</div>
+<div id="outline-container-org52905ad" class="outline-3">
+<h3 id="org52905ad"><span class="section-number-3">17.13</span> Co je to aplikační server a nějaký příklad</h3>
+</div>
+<div id="outline-container-orgd902c5e" class="outline-3">
+<h3 id="orgd902c5e"><span class="section-number-3">17.14</span> Co jsou to transakce</h3>
+</div>
+<div id="outline-container-orga50a5b8" class="outline-3">
+<h3 id="orga50a5b8"><span class="section-number-3">17.15</span> Znáš Spring?</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Richard Bouška</p>
+<p class="date">Created: 2020-09-09 St 22:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
