@@ -7,14 +7,19 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:1 num:3 toc:t ^:t
+#+OPTIONS: H:1 num:3 toc:t ^:t tex:nil
+#+EXPORT_FILE_NAME: fullstack.html
+
+#+BEGIN_SRC emacs-lisp :exports none :results none
+(org-html-export-to-html nil t nil nil)
+ #+END_SRC
 
 * Architecture & Design                                              :DOMAIN:
 ** DDD                                                             :TOPIC:
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
-** Data architecture and tools
+** Data architecture and tools                                       :TOPIC:
 *** background
 **** ACID
 ***** What does ACID ti mean?                                  :QUESTION:
@@ -32,7 +37,7 @@
 - Eventual consistency
 :END:
 **** ORM
-***** what is it                                               :QUESTION:
+***** what ORM (object-relational-mapping ) means              :QUESTION:
 ***** object relation impedance mismatch                       :QUESTION:
 ***** bottom up                                                :QUESTION:
 ***** tom down                                                 :QUESTION:
@@ -46,23 +51,45 @@
 **** OLAP vs OLTP
 **** slowly moving dimensions
 ***** What is it?                                              :QUESTION:
--  Type 0 - The passive method
+:ANSWER:
+- Type 0 - The passive method
 - Type 1 - Overwriting the old value
 - Type 2 - Creating a new additional record
 - Type 3 - Adding a new column
 - Type 4 - Using historical table
 - Type 6 - Combine approaches of types 1,2,3 (1+2+3=6)
+:END:
 ***** Type 0 - The passive method.                             :QUESTION:
-- In this method no special action is performed upon dimensional changes. Some dimension data can remain the same as it was first time inserted, others may be overwritten.
+:ANSWER:
+- In this method no special action is performed upon dimensional changes.
+- Some dimension data can remain the same as it was first time inserted, others may be overwritten.
+:END:
 ***** Type 1 - Overwriting the old value.                      :QUESTION:
-- In this method no history of dimension changes is kept in the database. The old dimension value is simply overwritten be the new one. This type is easy to maintain and is often use for data which changes are caused by processing corrections(e.g. removal special characters, correcting spelling errors).
+:ANSWER:
+- In this method no history of dimension changes is kept in the database.
+- The old dimension value is simply overwritten be the new one.
+- This type is easy to maintain and is often use for data which changes are caused by processing corrections (e.g. removal special characters, correcting spelling errors).
+:END:
 ***** Type 2 - Creating a new additional record.               :QUESTION:
-- In this methodology all history of dimension changes is kept in the database. You capture attribute change by adding a new row with a new surrogate key to the dimension table. Both the prior and new rows contain as attributes the natural key(or other durable identifier). Also 'effective date' and 'current indicator' columns are used in this method. There could be only one record with current indicator set to 'Y'. For 'effective date' columns, i.e. start_date and end_date, the end_date for current record usually is set to value 9999-12-31. Introducing changes to the dimensional model in type 2 could be very expensive database operation so it is not recommended to use it in dimensions where a new attribute could be added in the future.
+:ANSWER:
+- In this methodology all history of dimension changes is kept in the database.
+- You capture attribute change by adding a new row with a new surrogate key to the dimension table.
+- Both the prior and new rows contain as attributes the natural key(or other durable identifier).
+- Also 'effective date' and 'current indicator' columns are used in this method. There could be only one record with current indicator set to 'Y'. For 'effective date' columns, i.e. start_date and end_date, the end_date for current record usually is set to value 9999-12-31. Introducing changes to the dimensional model in type 2 could be very expensive database operation so it is not recommended to use it in dimensions where a new attribute could be added in the future.
+:END:
 ***** Type 3 - Adding a new column.                            :QUESTION:
-- In this type usually only the current and previous value of dimension is kept in the database. The new value is loaded into 'current/new' column and the old one into 'old/previous' column. Generally speaking the history is limited to the number of column created for storing historical data. This is the least commonly needed technique.
+:ANSWER:
+- In this type usually only the current and previous value of dimension is kept in the database.
+- The new value is loaded into 'current/new' column and the old one into 'old/previous' column.
+- Generally speaking the history is limited to the number of column created for storing historical data. This is the least commonly needed technique.
+:END:
 ***** Type 4 - Using historical table.                         :QUESTION:
-- In this method a separate historical table is used to track all dimension's attribute historical changes for each of the dimension. The 'main' dimension table keeps only the current data e.g. customer and customer_history tables.
+:ANSWER:
+- In this method a separate historical table is used to track all dimension's attribute historical changes for each of the dimension.
+- The 'main' dimension table keeps only the current data e.g. customer and customer_history tables.
+:END:
 ***** Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).    :QUESTION:
+:ANSWER:
 - In this type we have in dimension table such additional columns as:
 
 - current_type - for keeping current value of the attribute. All history records for given item of attribute have the same current value.
@@ -72,14 +99,44 @@
 - current_flag - for keeping information about the most recent record.
 
 - In this method to capture attribute change we add a new record as in type 2. The current_type information is overwritten with the new one as in type 1. We store the history in a historical_column as in type 3.
+:END:
 **** Backup strategy
+***** full vs incremental backup
+***** snapshots
+***** on-line replica
 *** SQL
-**** inner vs outher join
 **** partitionning
+- co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální
+- proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -> vice partiton
+**** inner vs outher join  
+- typy spojení DB tabulek,
+  - inner:  výsledek musí obsahovat průnik obou tabulek,
+  - outer:  výsledek obsahuje data z jedné či druhé, případně z obou tabulek pokud klíč existuje v obou tabulkách …
+- záleží na typu outer joinu - Full/left/right
+**** DB Index 
+- Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
+ k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity
+**** Constraint
+- Omezení hodnoty vkládané do atribut, foreign key constraint  hodnota musí existovat v referenční tabulce, primary key constaint  unikátní hodnota v tabulce
+**** Agregace (group by)
+**** Co jsou window funkce?                                     :QUESTION:
+- kalkulace/agregace nad množinou dat, přičemž každý prvek množiny může mít výsledek agregace jiný ….
+- Např funkce lead/lag/rank/row_number/first/last/
+**** what is a defference between CTE and temp table?           :QUESTION:
+:ANSWER:
+- A CTE is just that -- Common Table Expression, that is, only a syntax construct. The result set described by a CTE may never be materialized in the specified form.
+- A temporary table, on the other hand, is a real database object that is initialized with the structure described by its DDL statement and possibly populated by actual rows.
+:END:
+**** CTE (with)  
+- syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu,
+- lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )
+**** DML/DDL
+- manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
+
 *** Distributed consensus: 
-**** Paxos 
-**** Raft 
-**** Zab
+**** Paxos                                                         :TOPIC:
+**** Raft                                                          :TOPIC:
+**** Zab                                                           :TOPIC:
 *** Transactions
 **** transaction problems that are prevented by isolation:
 ***** What are they and what they mean?
@@ -128,46 +185,36 @@
 - This removes the time lag for the user to log into his database.
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
-*** Tools
+*** Tools & services
 **** Big Table
 **** Big Query
 **** Elastic Search
 ***** Bloom Filter
 **** MongoDB
 **** Apache Drill
-*** 5.1.1 inner vs outher join  typy spojení DB tabulek, inner  výsledek musí obsahovat průnik obou tabulek, outer  výsledek obsahuje data z jedné či druhé, případně z obou tabulek pokud klíč existuje v obou tabulkách …  záleží na typu outer joinu - Full/left/right
-5.1.2 partitionning 
-- co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální
-- proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -> vice partiton
-*** DB Index 
--	Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
- k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity
-*** Constraint
--	Omezení hodnoty vkládané do atribut, foreign key constraint  hodnota musí existovat v referenční tabulce, primary key constaint  unikátní hodnota v tabulce
-*** Agregace  group by
-*** Co jsou window funkce?  
-- kalkulace/agregace nad množinou dat, přičemž každý prvek množiny může mít výsledek agregace jiný …. Např funkce lead/lag/rank/row_number/first/last/
-*** CTE (with)  
-- syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu, lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )
-*** DML/DDL
-- manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
-*** Pojem datawarehouse?  
-- úložiště dat, organizovaných do určité struktury, pro účely analýzy dat … podpora business procesů organizace
-*** Star schema  DB schema 
+
+*** Datawarehouse?  
+- úložiště dat,
+- organizovaných do určité struktury,
+- pro účely analýzy dat … podpora business procesů organizace
+*** Star schema  structure
 - tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay
-*** Snowflake  DB schema 
+*** Snowflake schema  structure
 - faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF
+*** WAL  / transactional log?  
+- log kde je historie všech provedených DB operací nad danou instancí/databází.
+- Z logu se zapisují záznamy do datových souborů.
+- Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
+- u postgre se dá použít například i k replikaci databáze
 
-WAL  možná bych dal obecně transakční log?  log kde je historie všech provedených DB operací nad danou instancí/databází. Z logu se zapisují záznamy do datových souborů. Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery); u postgre se dá použít například i k replikaci databáze
-
-** Messaging
+** Messaging                                                         :TOPIC:
 *** queue
 *** topics
 *** message delivery mode: 
 - at least once
 - at most once
 - exactly once
-** HTTP Family
+** HTTP Family                                                       :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
 :ANSWER:
@@ -272,7 +319,7 @@ Consider following status codes:
 *** MinIO Object Storage
 * DEVOPS / SRE                                                       :DOMAIN:
 ** Tools
-*** Git
+*** Git                                                             :TOPIC:
 **** What is the use of Staging area or Indexing in Git?        :QUESTION:
 :ANSWER:
 From Git’s perspective, there are three areas where the file changes can be kept i.e.:
@@ -307,7 +354,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO git push
 **** TODO rebase vs merge - semantical and syntactical diff
 **** TODO stash
-*** Docker
+*** Docker                                                          :TOPIC:
 **** TODO dockerhub :-)
 **** TODO docker file
 **** TODO docker image
@@ -320,7 +367,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO networks
 **** TODO BuildKit
 
-*** K8S / Kubernetes: 
+*** K8S / Kubernetes:                                               :TOPIC:
 **** helm
 **** chart
 **** template
@@ -343,23 +390,23 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** kubectl
 **** CNCF
 
-*** Terraform
+*** Terraform                                                       :TOPIC:
 **** resource
 **** module
 **** state
 **** backend
-*** Chef
-*** Puppet
-*** Ansible
-*** Cloud Formation
-*** Hashicorp consul
-*** Hashicorp vault
-*** zookeeper
-*** kibana
-*** graphana
-*** ELK
-*** DynaTrace
-*** Piwik
+*** Chef                                                            :TOPIC:
+*** Puppet                                                          :TOPIC:
+*** Ansible                                                         :TOPIC:
+*** Cloud Formation                                                 :TOPIC:
+*** Hashicorp consul                                                :TOPIC:
+*** Hashicorp vault                                                 :TOPIC:
+*** zookeeper                                                       :TOPIC:
+*** kibana                                                          :TOPIC:
+*** graphana                                                        :TOPIC:
+*** ELK                                                             :TOPIC:
+*** DynaTrace                                                       :TOPIC:
+*** Piwik                                                           :TOPIC:
 ** Linux
 *** ssh how to create trust between computers
 *** awk / sed / grep / bash / tail / head
