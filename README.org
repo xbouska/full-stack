@@ -426,8 +426,8 @@ From Git’s perspective, there are three areas where the file changes can be ke
 *** file types: 
 **** block device
 **** character device
-**** named pipe
-/**** symlink
+**** /named pipe
+**** symlink
 *** etc/nsswitch./conf
 *** etc/resolv.conf
 *** ip
@@ -540,14 +540,14 @@ and the authorization server uses the Scope parameter to respond with the access
 :study:    https://tools.ietf.org/html/rfc7519
 :END:
 *** What are the registered claim names?                        :QUESTION:
-*** What is "iss" (Issuer) Claim?                                :QUESTION:
+*** What is registered claim name "iss" (Issuer) Claim?          :QUESTION:
 :ANSWER:
 - The "iss" (issuer) claim identifies the principal that issued the JWT.
 - The processing of this claim is generally application specific.
 - The "iss" value is a case-sensitive string containing a StringOrURI value.
 - Use of this claim is OPTIONAL.
 :END:
-*** What is "sub" (Subject) Claim                                :QUESTION:
+*** What is registered claim name "sub" (Subject) Claim          :QUESTION:
 :ANSWER:
 - The "sub" (subject) claim identifies the principal that is the subject of the JWT.
 - The claims in a JWT are normally statements about the subject.
@@ -556,7 +556,7 @@ and the authorization server uses the Scope parameter to respond with the access
 - The "sub" value is a case-sensitive string containing a StringOrURI value.
 - Use of this claim is OPTIONAL.
 :END:
-*** What is "aud" (Audience) Claim                               :QUESTION:
+*** What is registered claim name "aud" (Audience) Claim         :QUESTION:
 :ANSWER:
 - The "aud" (audience) claim identifies the recipients that the JWT is intended for.
 - Each principal intended to process the JWT MUST identify itself with a value in the audience claim.
@@ -566,30 +566,43 @@ and the authorization server uses the Scope parameter to respond with the access
 - The interpretation of audience values is generally application specific.
 - Use of this claim is OPTIONAL.
 :END:
-*** What is "exp" (Expiration Time) Claim                        :QUESTION:
+*** What is registered claim name "exp" (Expiration Time) Claim  :QUESTION:
+:ANSWER:
 - The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.
 - The processing of the "exp" claim requires that the current date/time MUST be before the expiration date/time listed in the "exp" claim.
 - Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
 - Its value MUST be a number containing a NumericDate value.
 - Use of this claim is OPTIONAL. 
-*** What is "nbf" (Not Before) Claim                             :QUESTION:
+:END:
+*** What is registered claim name "nbf" (Not Before) Claim       :QUESTION:
+:ANSWER:
 - The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.
 - The processing of the "nbf" claim requires that the current date/time MUST be after or equal to the not-before date/time listed in the "nbf" claim.
 - Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
 - Its value MUST be a number containing a NumericDate value.
 - Use of this claim is OPTIONAL.
-*** What is "iat" (Issued At) Claim                              :QUESTION:
+*** What is registered claim name "iat" (Issued At) Claim        :QUESTION:
 - The "iat" (issued at) claim identifies the time at which the JWT was issued.
 - This claim can be used to determine the age of the JWT.
 - Its value MUST be a number containing a NumericDate value.
 - Use of this claim is OPTIONAL.
-*** What is "jti" (JWT ID) Claim                                 :QUESTION:
+:END:
+*** What is registered claim name "jti" (JWT ID) Claim           :QUESTION:
+:ANSWER:
 - The "jti" (JWT ID) claim provides a unique identifier for the JWT.
 - The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object;
 - if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well.
 - The "jti" claim can be used to prevent the JWT from being replayed.
 - The "jti" value is a case-sensitive string.
 - Use of this claim is OPTIONAL.
+:END:
+*** What are Public Claim Names                                  :QUESTION:
+:ANSWER:
+- Claim Names can be defined at will by those using JWTs.
+- However, in order to prevent collisions, any new Claim Name should either be registered in the IANA "JSON Web Token Claims" registry established by Section 10.1 or be a Public Name:
+  - a value that contains a Collision-Resistant Name.
+- In each case, the definer of the name or value needs to take reasonable precautions to make sure they are in control of the part of the namespace they use to define the Claim Name.
+:END:
 ** LDAP
 *** object class
 **** inetOrgPerson
