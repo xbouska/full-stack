@@ -523,7 +523,7 @@ Target to a link:
 *** Sass
 ** CORS
 :PROPERTIES:
-:learning: https://www.codecademy.com/articles/what-is-cors
+:study: https://www.codecademy.com/articles/what-is-cors
 :END:
 *** why is CORS necessary?                                       :QUESTION:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
