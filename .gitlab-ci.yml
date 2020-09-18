@@ -1,6 +1,15 @@
+.tags_common: &tags_common
+  tags:
+    - aws
+    - build
+    - docker
+    - v2
+
+
 image: alpine:latest
 
 pages:
+  <<: *tags_common
   stage: deploy
   script:
   - echo 'Nothing to do...'
@@ -9,3 +18,4 @@ pages:
     - public
   only:
   - master
+

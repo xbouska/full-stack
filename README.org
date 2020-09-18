@@ -7,7 +7,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:7 num:4 toc:t ^:t tex:nilh
+#+OPTIONS: H:7 num:4 toc:t ^:nil
 #+EXPORT_FILE_NAME: public/fullstack.html
 
 #+BEGIN_SRC emacs-lisp :exports none :results verbatim
@@ -369,6 +369,49 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO BuildKit
 
 *** K8S / Kubernetes:                                               :TOPIC:
+**** What are network policies?                                 :QUESTION:
+:PROPERTIES:
+:study: https://github.com/ahmetb/kubernetes-network-policy-recipes
+:study: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
+:END:
+:ANSWER:
+- firewall on the  pod level
+:END:
+**** what are labels?
+:ANSWER:
+- key value pairs that can be assigned to majority of Kubernetes objects
+:END:
+**** What are network policies rules?                           :QUESTION:
+:ANSWER:
+1) traffic is allowed unless there is a network policy that blocks it
+2) rules apply as soon as pod is selected and it is deny by default unless stated differently
+3) you then only write rules that allow (whitelist)
+4) rules are aditive "ored" i.e. or is applied and single allow rule is enough to open the flow
+5) network policies are scoped to a namespace they are deployed to
+6) ports in rules are ports on pods not ports of services
+:END:
+**** what are podSelectors?                                     :QUESTION:
+:PROPERTIES:
+:lerning:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
+:END:
+:ANSWER:
+matchLabels: 
+:END:
+**** what is namespaceSelector?                                 :QUESTION:
+:ANSWER:
+:END:
+**** what is empty selector:                                    :QUESTION:
+:ANSWER:
+example: matchLabels:{}
+:END:
+**** what ipBlock and hwhat are they good for?
+**** what is a network policy plugin and how you enable that?
+:answer:
+- Calico,  for example
+- iptables vs overlay network (calico is iptables based)
+:end:
+**** network policy API
+**** whats is kube-dns
 **** helm
 **** chart
 **** template
@@ -480,7 +523,7 @@ Target to a link:
 *** Sass
 ** CORS
 :PROPERTIES:
-:learning: https://www.codecademy.com/articles/what-is-cors
+:study: https://www.codecademy.com/articles/what-is-cors
 :END:
 *** why is CORS necessary?                                       :QUESTION:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
@@ -518,7 +561,18 @@ Origin
 ** Code complexity O notation
 ** Amortized complexity
 * Security                                                          :DOMAIN:
-** Oauth2/OIDC
+** SPIFFE                                                            :TOPIC:
+*** what is spiffe
+:PROPERTIES:
+:lerning:  https://spiffe.io/docs/latest/spiffe/overview/
+:END:
+:ANSWER:
+- SPIFFE, the Secure Production Identity Framework for Everyone, is a set of open-source standards for securely identifying software systems in dynamic and heterogeneous environments. Systems that adopt SPIFFE can easily and reliably mutually authenticate wherever they are running.
+- Distributed design patterns and practices such as micro-services, container orchestrators, and cloud computing have led to production environments that are increasingly dynamic and heterogeneous. Conventional security practices (such as network policies that only allow traffic between particular IP addresses) struggle to scale under this complexity. A first-class identity framework for workloads in an organization becomes necessary.
+- Further, modern developers are expected to understand and play a role in how applications are deployed and managed in production environments. Operations teams require deeper visibility into the applications they are managing. As we move to a more evolved security stance, we must offer better tools to both teams so they can play an active role in building secure, distributed applications.
+- SPIFFE is a set of open-source specifications for a framework capable of bootstrapping and issuing identity to services across heterogeneous environments and organizational boundaries. The heart of these specifications is the one that defines short lived cryptographic identity documents – called SVIDs via a simple API. Workloads can then use these identity documents when authenticating to other workloads, for example by establishing a TLS connection or by signing and verifying a JWT token.
+:END:
+** Oauth2/OIDC                                                       :TOPIC:
 *** grant (flow) types:
 **** Authorization Code Flow
 **** Client Credentials Flow
