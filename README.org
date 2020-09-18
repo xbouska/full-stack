@@ -215,6 +215,14 @@ basic of architecture
 - at least once
 - at most once
 - exactly once
+*** tools
+**** Solace Pub/Sub Plus
+**** Google PubSub
+**** 
+*** protocols
+**** amqp(s)
+**** mqtt(s)
+**** http(s)
 ** HTTP Family                                                       :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
