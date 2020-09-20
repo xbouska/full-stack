@@ -15,6 +15,27 @@
  #+END_SRC
 
 all we need to know
+* Sorware Engineering                                                :DOMAIN:
+** bit / byte / endian / float
+*** XOR, OR, AND, Shift (logical vs aritmetic)
+*** mantisa exponent jednickovy a dvojkovy doplnek
+** TCP/IP
+*** IP address / netmask
+*** CIDR
+** I18N
+*** iso-639
+*** bcp-47 / rfc-5646
+** Unicode
+*** What is unicode
+*** utf-8
+*** ASCII
+*** EBCDIC
+** XML JSON YAML ...
+*** yaml
+*** json
+*** xml
+** Code complexity O notation
+** Amortized complexity
 * Architecture & Design                                              :DOMAIN:
 basic of architecture 
 ** DDD                                                             :TOPIC:
@@ -231,8 +252,8 @@ basic of architecture
   - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
     - through which a client requests a particular URL in order to receive an event stream.
 :END:
-*** REST
-**** What are the HTTP methods supported by REST?               :QUESTION:
+** REST
+*** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
 HTTP methods supported by REST are:
 
@@ -244,7 +265,7 @@ HTTP methods supported by REST are:
 | HEAD    | About the request URL it returns meta information                                                                                                         |
 :END:
 
-**** What is the purpose of HTTP Status Code?                   :QUESTION:
+*** What is the purpose of HTTP Status Code?                     :QUESTION:
 :ANSWER:
 HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
 
@@ -258,20 +279,47 @@ Consider following status codes:
 | 409 | CONFLICT              | states conflict situation while executing the method for example, adding duplicate entry.                                                          |
 | 500 | INTERNAL SERVER ERROR | states that server has thrown some exception while executing the method.                                                                           |
 :END:
-**** What is statelessness in RESTful Webservices?              :QUESTION:
+*** What is statelessness in RESTful Webservices?                :QUESTION:
 :ANSWER:
 - As per REST architecture, a RESTful web service should not keep a client state on server.
 - This restriction is called statelessness.
 - It is responsibility of the client to pass its context to server and then server can store this context to process client's further request.
 - For example, session maintained by server is identified by session identifier passed by the client.
 :END:
-**** what is the difference between PUT and POST?               :QUESTION:
+*** what is the difference between PUT and POST?                 :QUESTION:
 
 :ANSWER:
 - PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
 - POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource
 - PUT is idempotent meaning, invoking it any number of times will not have an impact on resources.
 - However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
+:END:
+
+** TODO OpenApiSpec / Open API 3.0 / Swagger 
+:PROPERTIES:
+:learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
+:END:
+*** What Is OpenAPI?
+:ANSWER:
+- OpenAPI Specification (formerly known as Swagger Specification) is an open-source format for describing and documenting APIs. The Specification was originally developed in 2010 by Reverb Technologies (formerly Wordnik) as a way to keep the API design and documentation in sync. It has since become a de-facto standard for designing and describing RESTful APIs, and is used by millions of developers and organizations for developing their APIs, be it internal or client facing.
+
+- The latest version of OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write.
+
+- A simple OpenAPI 3.0 specification looks like this:
+#+begin_src yaml
+  openapi: 3.0.0
+  info:
+    version: 1.0.0
+    title: Sample API
+    description: A sample API to illustrate OpenAPI concepts
+  paths:
+    /list:
+      get:
+        description: Returns a list of stuff              
+        responses:
+          '200':
+            description: Successful response
+#+end_src
 :END:
 
 ** micro-service-architecture
@@ -320,6 +368,127 @@ Consider following status codes:
 *** MinIO Object Storage
 * DEVOPS / SRE                                                       :DOMAIN:
 ** Tools
+*** DNS
+:PROPERTIES:
+:learning: https://www.freshersemploy.com/dns-interview-questions-answers/
+:END:
+**** What is DNS?
+- Domain Name Systems(DNS) maps domain names with Internet Protocol(IP) address, thus helping computer for translating human-readable(domain name) to machine-readable language(IP address).
+**** What is Nameserver?
+- It is used for storing the information for the domain name to IP and IP to the domain name. In other words, the name server is used for storing records of the domain names, Name servers help for convert domain name to IP address.
+**** What is DNS Spoofing?
+- DNS Spoofing occurs when a hacker is redirecting website traffic maliciously to spread the malware or to compromise the user's data through forged DNS record.
+
+- When a user visits a website(like freshersemploy.com) in a browser, it needs to be resolved from human-readable to machine-readable(i.e. IP addresses) using DNS resolver. To decrease the time and resolve faster, DNS resolvers cache the data and store for a specific time(until it expires). An attacker can inject forged DNS entry, thus causing DNS Cache Poisoning and instead of freshersemploy.com, the attacker will redirect it to the wrong domain or fake website.
+**** How can we prevent DNS Spoofing?
+
+DNS Spoofing or DNS Cache Poisoning can be avoided by following guidelines:
+
+- From a users point of view, it is almost impossible for users to detect whether the DNS records are compromised, but users should be alerted when accessing the sites like banking, payment website where credit card details are used by checking the domain name in the browser and does it have a valid SSL certificate.
+- Domain owner and DNS provider cannot avoid DNS Spoofing but surely can take protective measures to avoid the compromise of DNS records.
+  - Using Domain Name System Security Extensions(DNSSEC) which helps in determining the DNS records authenticity by signing each request with certified signature and this is recommended by ICANN. Still this in process of implementation.
+**** What is Round Robin DNS? What is the purpose of it?
+
+Round Robin DNS is a technique for load distribution, load balancing, fault-tolerance service such as mail server, FTP server etc. which enables
+distribution of load evenly among multiple servers using various DNS A addresses.
+
+Suppose a domain abc.com is configured with Round robin DNS which has 3 potential IP mapping to the same domain(i.e. freshersemploy.com) as follows:
+
+- freshersemploy.com -- 104.28.26.01
+- freshersemploy.com -- 104.28.26.02
+- freshersemploy.com -- 104.28.26.03
+
+Then the first request will go to 104.28.26.01, the second request will go to 104.28.26.02 and the third request will go to 104.28.26.03, thus DNS
+queries are responded by returning IP addresses in a rotation.
+**** What is primary and secondary name server?
+- Primary name server reads the data from the domain zone, it has DNS records of domain names and it replicates the data with the secondary name server.
+- A secondary name server is the back up of primary name server which is used for high reliability, in case the primary name server is having an issue or not reachable.
+**** What is DNS resolver?
+- DNS resolvers are being used by ISP (Internet service provider) for the user request to resolve the domain name. If a user request for google.com, DNS resolver needs to contact TLD(Top Level Domain) i.e. .com, for translation of domain name to IP address and it caches the data if the user again queries for the same domain, thus reducing the loads on the server and response time.
+**** What is the difference between URL and Domain?
+- URL stands for Uniform Resource Locator. URL specifies the full address of a webpage. It consists of three components: protocol(like HTTP, mailto, ftp), domain name(like freshersemploy.com) and file name(eg. homepage.html)
+- e.g.:
+  - [[https://www.freshersemploy.com/]]
+  - [[https://www.freshersemploy.com/html-interview-questions-answers/]]
+  - [[mailto:admin@freshersemploy.com]]
+
+- A domain is the name of a website with the top-level domain(like .com, .org etc.). A domain is a part of URL.
+- e.g.:
+  - [[https://www.freshersemploy.com/]]
+  - [[mailto:admin@freshersemploy.com][admin@freshersemploy.com]]
+
+**** What is DNS server?
+- DNS servers resolve IP address to respective hostnames and it maintains directory or database to store the information.
+- When we try to access the website (like /*freshersemploy.com)*/, DNS servers help to translate to machine-readable language i.e. IP address (like /*104.28.27.67*/).
+**** What are the different types of records in DNS?
+- Some of commonly used of DNS records are A, CNAME, NS, MX, PTR, SOA etc.
+**** Explain SOA record?
+- Start of Authority(SOA) records stores essential information(like refresh rate, expiry, TTL etc) in domain name system(DNS) in a zone file.
+
+; name TTL class rr Nameserver email-address freshersemploy.com. 12000 IN SOA ns.nameserver.com. root.ns.nameserver.com. ( 2098163206 ; Serial number
+12000 ; Refresh rate in seconds 3600 ; Update Retry in seconds 5788864; Expiry in seconds 100 ; minimum in seconds )
+
+#+begin_src dns
+; name TTL class rr Nameserver email-address   
+freshersemploy.com. 12000 IN SOA               
+ns.nameserver.com. root.ns.nameserver.com.     
+(                                              
+    2098163206 ; Serial number                     
+    12000 ; Refresh rate in seconds                
+    3600 ; Update Retry in seconds                 
+    5788864; Expiry in seconds                     
+    100 ; minimum in seconds )
+#+end_src
+                                                      
+
+- *Serial Number:* It has the serial number, which gets increments whenever there is a change in the DNS records.
+- *Refresh interval:* It gets refresh at the specific interval and if there any changes in the records, data is replicated.
+- *Retry:* If the propagation gets failed, it will retry after specific time which is defined in the zone file.
+- *Expire:* It is set to have an expiry date, as specified in the zone file. Also used for secondary server how long it should be active in case the primary DNS server is down.
+- *TTL:* It has the default time-to-live(TTL),
+
+A zone file should have only one SOA record and it must be at the top of it.
+
+**** What is the use of PTR in DNS?
+
+PTR(Pointer) records are used for mapping IP addresses which are associated with hostname name. It is also called has reverse DNS lookup as it
+resolves IP address to domain or hostname. There must be A record for every PTR record. PTR is mainly used for the mail server.
+
+**** Explain CNAME record?
+- CNAME record stands for Canonical Name record. It used as the alias for domain or the Canonical name(another name) for a domain.
+- For example, suppose someone incorrectly types(or misspelled the website name) like fresher*s*employ.com as fresheremploy.com(we should also own this domain), then using CNAME record, we can redirect to fresher*s*employ.com
+- It is a type of resource record in DNS which is specified in the zone file. CNAME records should always point to another domain and never directly points to IP address.
+
+**** Explain Dynamic DNS
+- Dynamic DNS helps for automatically updating the name servers whenever there is a change in the IP address in the Domain Name System(DNS).
+
+**** What is Resource Record?
+- Resource Record(RR) defines the elements or attributes of a domain name in DNS zone file like Address(A) record, Mail Exchange(MX) record etc. which helps in name resolutions.
+- Some of the most common Resource Records are:
+
+- A -- IPv4 Address record
+- AAAA -- IPv6 Address record
+- CNAME -- Canonical Name
+- MX -- Mail Exchange
+- PTR -- Pointer
+- SOA -- Start of Authority
+- NS -- Name Server
+
+**** What is DNS Zone?
+- A DNS zone file contains the mapping between a domain name, IP address, recourse records etc. in text representative format. Also, DNS zone refers to the administrative responsibility in the DNS.
+
+**** Define TTL
+- Time-to-live caches the DNS records for a specific period of time(when TTL expires, it has to query new record). It helps in queries the records faster, eventually reducing the load on the DNS server.
+
+**** Explain MX record?
+- Mail Exchange(MX) record is a type of resource record which is used for email sending and delivery. It must be specified in the DNS zone files mails for the domain.
+
+**** What is Forward Lookup
+- Forward Lookup is used to find the IP address through the domain name.
+
+**** What is Reverse Lookup
+- Reverse Lookup is used for finding the domain name through it IP.
+
 *** Git                                                             :TOPIC:
 **** What is the use of Staging area or Indexing in Git?        :QUESTION:
 :ANSWER:
@@ -355,6 +524,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO git push
 **** TODO rebase vs merge - semantical and syntactical diff
 **** TODO stash
+*** Artifactory
 *** Docker                                                          :TOPIC:
 **** TODO dockerhub :-)
 **** TODO docker file
@@ -452,6 +622,11 @@ example: matchLabels:{}
 *** DynaTrace                                                       :TOPIC:
 *** Piwik                                                           :TOPIC:
 ** Linux
+*** cron
+*** runlevel / init / inittab 
+*** systemd
+*** snap
+*** apt
 *** ssh how to create trust between computers
 *** awk / sed / grep / bash / tail / head
 *** rsync
@@ -542,24 +717,6 @@ Origin
 #+end_src
 :END:
 ** The Elm Architecture (TEA)
-* IT+CS                                                              :DOMAIN:
-** bit / byte / endian / float
-*** XOR, OR, AND, Shift (logical vs aritmetic)
-*** mantisa exponent jednickovy a dvojkovy doplnek
-** TCP/IP
-*** IP address / netmask
-*** CIDR
-** Unicode
-*** What is unicode
-*** utf-8
-*** ASCII
-*** EBCDIC
-** XML JSON YAML ...
-*** yaml
-*** json
-*** xml
-** Code complexity O notation
-** Amortized complexity
 * Security                                                          :DOMAIN:
 ** SPIFFE                                                            :TOPIC:
 *** what is spiffe
