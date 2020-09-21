@@ -42,12 +42,17 @@ all we need to know
 *** json
 *** xml
 ** declarative vs imperative
-** TCP/IP
-*** IP address / netmask
-*** CIDR
 ** [#B] Code complexity 
 *** Code complexity (big O)
 *** Amortized complexity
+** Stable vs unstable sorting
+
+** TCP/IP
+*** IP address / netmask
+*** CIDR
+** basic data sructures
+*** tree
+*** list
 * Architecture & Design                                              :DOMAIN:
 basic of architecture 
 ** DDD                                                             :TOPIC:
