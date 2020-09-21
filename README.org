@@ -388,6 +388,13 @@ Consider following status codes:
 **** what it is good for
 *** MinIO Object Storage
 * DEVOPS / SRE                                                       :DOMAIN:
+** Culture
+:PROPERTIES:
+:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
+:END:
+*** The Three Ways
+*** ACCELERATE
+*** CALMS
 ** Tools
 *** DNS
 :PROPERTIES:
