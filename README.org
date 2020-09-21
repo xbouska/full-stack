@@ -15,6 +15,7 @@
  #+END_SRC
 
 all we need to know
+
 * Software Engineering                                               :DOMAIN:
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
@@ -31,15 +32,20 @@ all we need to know
 *** utf-8
 *** ASCII
 *** EBCDIC
-** XML JSON YAML ...
+** Formats
 *** yaml
 :PROPERTIES:
 :learning: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
 :END:
 *** json
 *** xml
-** Code complexity O notation
-** Amortized complexity
+** declarative vs imperative
+** TCP/IP
+*** IP address / netmask
+*** CIDR
+** [#B] Code complexity 
+*** Code complexity (big O)
+*** Amortized complexity
 * Architecture & Design                                              :DOMAIN:
 basic of architecture 
 ** DDD                                                             :TOPIC:
@@ -240,6 +246,14 @@ basic of architecture
 - at least once
 - at most once
 - exactly once
+*** tools
+**** Solace Pub/Sub Plus
+**** Google PubSub
+**** 
+*** protocols
+**** amqp(s)
+**** mqtt(s)
+**** http(s)
 ** HTTP Family                                                       :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
@@ -356,6 +370,7 @@ Consider following status codes:
 ** Org42                                                             :TOPIC:
 * Cloud                                                              :DOMAIN:
 ** Cloud native architecture
+** TODO Open Policy Agent
 ** IaaS
 ** PaaS
 ** SaaS
@@ -364,6 +379,16 @@ Consider following status codes:
 *** transfer cost
 *** cpu cost
 ** DEVSECOPS
+** GCP services:
+*** bigquery
+*** composer
+*** dataflow
+*** firestore
+*** automl
+*** dataproc
+*** secretmanager
+*** pubsub
+
 ** storage:
 *** S3
 *** GCS bucket
@@ -371,6 +396,13 @@ Consider following status codes:
 **** what it is good for
 *** MinIO Object Storage
 * DEVOPS / SRE                                                       :DOMAIN:
+** Culture
+:PROPERTIES:
+:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
+:END:
+*** The Three Ways
+*** ACCELERATE
+*** CALMS
 ** Tools
 *** DNS
 :PROPERTIES:
@@ -493,6 +525,9 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 **** What is Reverse Lookup
 - Reverse Lookup is used for finding the domain name through it IP.
 
+
+**** TODO What is  DKIM
+
 *** Git                                                             :TOPIC:
 **** What is the use of Staging area or Indexing in Git?        :QUESTION:
 :ANSWER:
@@ -543,6 +578,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO BuildKit
 
 *** K8S / Kubernetes:                                               :TOPIC:
+**** What is a service                                          :QUESTION:
 **** What are network policies?                                 :QUESTION:
 :PROPERTIES:
 :study: https://github.com/ahmetb/kubernetes-network-policy-recipes
