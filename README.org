@@ -19,7 +19,9 @@ all we need to know
 * Software Engineering                                               :DOMAIN:
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
-*** TODO mantisa exponent jednickovy a dvojkovy doplnek
+*** one`s complement
+*** two`s complements
+*** ieee754 explain float: mantisa,exponent
 *** Endian
 ** TCP/IP
 *** IP address / netmask
@@ -557,6 +559,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 - When you do a commit, its actually what’s in the index that gets committed, and not what’s in the working directory.
 - You can use the git status command to see what’s in the index.
 :END:
+**** TODO squash? Waht it is? whan to use it awht it is good for? 
 **** TODO pull-request
 **** TODO cherry pick
 **** TODO flow
