@@ -701,6 +701,16 @@ example: matchLabels:{}
 ip addr sh
 ip route sh
 #+end_src
+*** nmap
+*** nc
+*** socat
+*** chmod
+*** dd
+*** tar
+*** apt-get apt
+*** wget
+*** curl
+*** find
 ** Observability
 *** 3 pillars
 **** logs
