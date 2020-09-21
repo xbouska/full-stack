@@ -370,6 +370,16 @@ Consider following status codes:
 *** transfer cost
 *** cpu cost
 ** DEVSECOPS
+** GCP services:
+*** bigquery
+*** composer
+*** dataflow
+*** firestore
+*** automl
+*** dataproc
+*** secretmanager
+*** pubsub
+
 ** storage:
 *** S3
 *** GCS bucket
