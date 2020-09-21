@@ -549,6 +549,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO BuildKit
 
 *** K8S / Kubernetes:                                               :TOPIC:
+**** What is a service                                          :QUESTION:
 **** What are network policies?                                 :QUESTION:
 :PROPERTIES:
 :study: https://github.com/ahmetb/kubernetes-network-policy-recipes
