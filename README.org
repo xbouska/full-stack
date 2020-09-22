@@ -1239,6 +1239,8 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** GraalVM
 **** Quarcus
 **** AdoptOpenJDK
+*** JDBC
+*** JMS
 ** NodeJS                                                            :TOPIC:
 - npm
 - yarn
