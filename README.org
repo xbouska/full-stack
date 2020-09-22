@@ -45,14 +45,16 @@ all we need to know
 ** [#B] Code complexity 
 *** Code complexity (big O)
 *** Amortized complexity
-** Stable vs unstable sorting
-
 ** TCP/IP
 *** IP address / netmask
 *** CIDR
-** basic data sructures
+** basic data structures
 *** tree
 *** list
+*** hash
+** basic algorithms
+*** Stable vs unstable sorting
+
 * Architecture & Design                                              :DOMAIN:
 basic of architecture 
 ** DDD                                                             :TOPIC:
@@ -253,14 +255,15 @@ basic of architecture
 - at least once
 - at most once
 - exactly once
-*** tools
+tools
 **** Solace Pub/Sub Plus
+*****  
 **** Google PubSub
 **** 
 *** protocols
-**** amqp(s)
-**** mqtt(s)
-**** http(s)
+**** TODO amqp(s)
+**** TODO mqtt(s)
+**** TODO http(s)
 ** HTTP Family                                                       :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
@@ -277,6 +280,7 @@ basic of architecture
   - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
     - through which a client requests a particular URL in order to receive an event stream.
 :END:
+**** TODO What are WebSockets                                   :QUESTION:
 ** REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
@@ -722,6 +726,9 @@ ip route sh
 *** React 
 *** React Native
 *** react-hooks
+** PWA
+*** app-shell model 
+
 ** HTML
 *** Chrome Development Tools
 *** HTML5 Layout 
@@ -1260,3 +1267,5 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** Code quality                                                    :TOPIC:
 ** Antifragile architecture
 ** Unit testing
+* Code of Conduct                                                    :DOMAIN:
+** responsibility
