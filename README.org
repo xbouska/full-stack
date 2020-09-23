@@ -61,6 +61,132 @@ basic of architecture
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
+** Messaging                                                         :TOPIC:
+*** queue
+*** topics
+*** message delivery mode: 
+- at least once
+- at most once
+- exactly once
+*** tools
+**** TODO Solace Pub/Sub Plus
+**** TODO Google PubSub
+**** TODO AWS SNS
+**** TODO AWS SES
+**** TODO AWS SQS
+**** TODO AWS Kinesis
+**** TODO RabbbitMQ
+**** TODO Kafka
+
+*** protocols
+**** TODO amqp(s)
+**** TODO mqtt(s)
+**** TODO http(s)
+** HTTP Family                                                       :TOPIC:
+*** HTTP
+**** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
+:ANSWER:
+- Accept headers:
+  - tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as application/xml then XML response will be sent. For Accept header application/json, server will send the JSON response.
+- Content-Type header:
+  - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+:END:
+**** What is Server-Sent Events  (SSE)                          :QUESTION:
+:ANSWER:
+- is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
+- They are commonly used to send message updates or continuous data streams to a browser client
+  - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
+    - through which a client requests a particular URL in order to receive an event stream.
+:END:
+**** TODO What are WebSockets                                   :QUESTION:
+** REST
+*** What are the HTTP methods supported by REST?                 :QUESTION:
+:ANSWER:
+HTTP methods supported by REST are:
+
+| GET     | It requests a resource at the request URL. It should not contain a request body as it will be discarded. Maybe it can be cached locally or on the server. |
+| POST    | It submits information to the service for processing; it should typically return the modified or new resource                                             |
+| PUT     | At the request URL it update the resource                                                                                                                 |
+| DELETE  | At the request URL it removes the resource                                                                                                                |
+| OPTIONS | It indicates which techniques are supported                                                                                                               |
+| HEAD    | About the request URL it returns meta information                                                                                                         |
+:END:
+
+*** What is the purpose of HTTP Status Code?                     :QUESTION:
+:ANSWER:
+HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
+
+Consider following status codes:
+| 200 | OK                    | shows success.                                                                                                                                     |
+| 201 | CREATED               | when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.                      |
+| 304 | NOT MODIFIED          | used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc. |
+| 400 | BAD REQUEST           | states that invalid input is provided e.g. validation error, missing data.                                                                         |
+| 401 | FORBIDDEN             | states that user is not having access to method being used for example, delete access without admin rights.                                        |
+| 404 | NOT FOUND             | states that method is not available.                                                                                                               |
+| 409 | CONFLICT              | states conflict situation while executing the method for example, adding duplicate entry.                                                          |
+| 500 | INTERNAL SERVER ERROR | states that server has thrown some exception while executing the method.                                                                           |
+:END:
+*** What is statelessness in RESTful Webservices?                :QUESTION:
+:ANSWER:
+- As per REST architecture, a RESTful web service should not keep a client state on server.
+- This restriction is called statelessness.
+- It is responsibility of the client to pass its context to server and then server can store this context to process client's further request.
+- For example, session maintained by server is identified by session identifier passed by the client.
+:END:
+*** what is the difference between PUT and POST?                 :QUESTION:
+
+:ANSWER:
+- PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
+- POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource
+- PUT is idempotent meaning, invoking it any number of times will not have an impact on resources.
+- However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
+:END:
+
+** TODO OpenApiSpec / Open API 3.0 / Swagger 
+:PROPERTIES:
+:learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
+:END:
+*** What Is OpenAPI?
+:ANSWER:
+- OpenAPI Specification (formerly known as Swagger Specification) is an open-source format for describing and documenting APIs. The Specification was originally developed in 2010 by Reverb Technologies (formerly Wordnik) as a way to keep the API design and documentation in sync. It has since become a de-facto standard for designing and describing RESTful APIs, and is used by millions of developers and organizations for developing their APIs, be it internal or client facing.
+
+- The latest version of OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write.
+
+- A simple OpenAPI 3.0 specification looks like this:
+#+begin_src yaml
+  openapi: 3.0.0
+  info:
+    version: 1.0.0
+    title: Sample API
+    description: A sample API to illustrate OpenAPI concepts
+  paths:
+    /list:
+      get:
+        description: Returns a list of stuff              
+        responses:
+          '200':
+            description: Successful response
+#+end_src
+:END:
+
+** micro-service-architecture
+** Enterprise Architecture Integration Patterns
+*** orchestration
+*** choreography
+** Event Sourcing
+** CQRS
+** CRUD
+** Pragmatic Design principes
+*** DRY                                                           :TOPIC:
+*** KISS                                                          :TOPIC:
+*** YAGNI                                                         :TOPIC:
+*** open-close principal                                          :TOPIC:
+*** High cohesion                                                 :TOPIC:
+*** Low coupling                                                  :TOPIC:
+**** What is temporal coupling?                                 :QUESTION:
+
+
+* Data 
 ** Data architecture and tools                                       :TOPIC:
 *** background                                                      :TOPIC:
 **** What does ACID ti mean?                                    :QUESTION:
@@ -213,27 +339,6 @@ basic of architecture
 - Even weaker is the Read Commited isolation level. Two consecutive select statements in a transaction can return different data. Contrary to the Read Repeatable level, this level allows not only the set of rows to change, but also the data that those rows contain. This can happen if another transaction modifies the rows.
 - The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
 :END:
-**** ORACLE:
-:ANSWER:
-- READ COMMITTED (the default)
-- SERIALIZABLE.
-  - that what Oracle call SERIALIZABLE is actually snapshot isolation.
-:END:
-**** PostgreSQL
-***** Explain about Multi version concurrency control?         :question:
-:ANSWER:
-- Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.
-- This removes the time lag for the user to log into his database.
-- This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
-:END:
-*** Tools & services
-**** Big Table
-**** Big Query
-**** Elastic Search
-***** Bloom Filter
-**** MongoDB
-**** Apache Drill
-
 *** Datawarehouse?  
 - úložiště dat,
 - organizovaných do určité struktury,
@@ -247,125 +352,33 @@ basic of architecture
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
-
-** Messaging                                                         :TOPIC:
-*** queue
-*** topics
-*** message delivery mode: 
-- at least once
-- at most once
-- exactly once
-tools
-**** Solace Pub/Sub Plus
-*****  
-**** Google PubSub
-**** 
-*** protocols
-**** TODO amqp(s)
-**** TODO mqtt(s)
-**** TODO http(s)
-** HTTP Family                                                       :TOPIC:
-*** HTTP
-**** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
+*** Tools
+**** PostgreSQL
+***** Explain about Multi version concurrency control?         :question:
 :ANSWER:
-- Accept headers:
-  - tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as application/xml then XML response will be sent. For Accept header application/json, server will send the JSON response.
-- Content-Type header:
-  - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+- Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.
+- This removes the time lag for the user to log into his database.
+- This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
-**** What is Server-Sent Events  (SSE)                          :QUESTION:
+**** ORACLE:
 :ANSWER:
-- is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
-- They are commonly used to send message updates or continuous data streams to a browser client
-  - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
-    - through which a client requests a particular URL in order to receive an event stream.
+- READ COMMITTED (the default)
+- SERIALIZABLE.
+  - that what Oracle call SERIALIZABLE is actually snapshot isolation.
 :END:
-**** TODO What are WebSockets                                   :QUESTION:
-** REST
-*** What are the HTTP methods supported by REST?                 :QUESTION:
-:ANSWER:
-HTTP methods supported by REST are:
-
-| GET     | It requests a resource at the request URL. It should not contain a request body as it will be discarded. Maybe it can be cached locally or on the server. |
-| POST    | It submits information to the service for processing; it should typically return the modified or new resource                                             |
-| PUT     | At the request URL it update the resource                                                                                                                 |
-| DELETE  | At the request URL it removes the resource                                                                                                                |
-| OPTIONS | It indicates which techniques are supported                                                                                                               |
-| HEAD    | About the request URL it returns meta information                                                                                                         |
-:END:
-
-*** What is the purpose of HTTP Status Code?                     :QUESTION:
-:ANSWER:
-HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
-
-Consider following status codes:
-| 200 | OK                    | shows success.                                                                                                                                     |
-| 201 | CREATED               | when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.                      |
-| 304 | NOT MODIFIED          | used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc. |
-| 400 | BAD REQUEST           | states that invalid input is provided e.g. validation error, missing data.                                                                         |
-| 401 | FORBIDDEN             | states that user is not having access to method being used for example, delete access without admin rights.                                        |
-| 404 | NOT FOUND             | states that method is not available.                                                                                                               |
-| 409 | CONFLICT              | states conflict situation while executing the method for example, adding duplicate entry.                                                          |
-| 500 | INTERNAL SERVER ERROR | states that server has thrown some exception while executing the method.                                                                           |
-:END:
-*** What is statelessness in RESTful Webservices?                :QUESTION:
-:ANSWER:
-- As per REST architecture, a RESTful web service should not keep a client state on server.
-- This restriction is called statelessness.
-- It is responsibility of the client to pass its context to server and then server can store this context to process client's further request.
-- For example, session maintained by server is identified by session identifier passed by the client.
-:END:
-*** what is the difference between PUT and POST?                 :QUESTION:
-
-:ANSWER:
-- PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
-- POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource
-- PUT is idempotent meaning, invoking it any number of times will not have an impact on resources.
-- However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
-:END:
-
-** TODO OpenApiSpec / Open API 3.0 / Swagger 
-:PROPERTIES:
-:learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
-:END:
-*** What Is OpenAPI?
-:ANSWER:
-- OpenAPI Specification (formerly known as Swagger Specification) is an open-source format for describing and documenting APIs. The Specification was originally developed in 2010 by Reverb Technologies (formerly Wordnik) as a way to keep the API design and documentation in sync. It has since become a de-facto standard for designing and describing RESTful APIs, and is used by millions of developers and organizations for developing their APIs, be it internal or client facing.
-
-- The latest version of OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write.
-
-- A simple OpenAPI 3.0 specification looks like this:
-#+begin_src yaml
-  openapi: 3.0.0
-  info:
-    version: 1.0.0
-    title: Sample API
-    description: A sample API to illustrate OpenAPI concepts
-  paths:
-    /list:
-      get:
-        description: Returns a list of stuff              
-        responses:
-          '200':
-            description: Successful response
-#+end_src
-:END:
-
-** micro-service-architecture
-** Enterprise Architecture Integration Patterns
-*** orchestration
-*** choreography
-** Event Sourcing
-** CQRS
-** CRUD
-** Pragmatic Design principes
-*** DRY                                                           :TOPIC:
-*** KISS                                                          :TOPIC:
-*** YAGNI                                                         :TOPIC:
-*** open-close principal                                          :TOPIC:
-*** High cohesion                                                 :TOPIC:
-*** Low coupling                                                  :TOPIC:
-**** What is temporal coupling?                                 :QUESTION:
+**** Big Table
+**** Big Query
+**** Elastic Search
+***** Bloom Filter
+**** MongoDB
+**** Apache Drill
+**** Apache Cassandra
+- *Open Source:* Modern software development organizations have overwhelmingly moved to adopt open source technologies, starting with the Linux operating system and progressing into infrastructure for managing data. Open source technologies are attractive because of their affordability and extensibility, as well as the flexibility to avoid vendor lock-in. Organizations adopting open source report higher speed of innovation and faster adoption.
+- *Flexible, Familiar Interface:* The Cassandra Query Language (CQL) is similar to SQL, meaning most developers should have a fairly easy time becoming familiar with it. (Here’s an introduction to CQL if you need some help).
+- *High Performance:* The majority of traditional databases feature a primary / secondary architecture. In these configurations, a single primary replica performs read and write operations, while secondary replicas are only able to perform read operations. Downsides to this architecture include increased latency, as well as higher costs and lower availability at scale. In Cassandra, no single node is in charge of replicating data across a cluster. Instead, every node is capable of performing all read and write operations. This improves performance and adds resiliency to the database.
+- *Active Everywhere / Zero-Downtime:* Since every Cassandra node is capable of performing read and write operations, data is quickly replicated across hybrid cloud environments and geographies. In the event a node fails, users are automatically routed to the nearest healthy node. They won’t even notice that a node has been knocked offline because applications behave as designed even in the event of failure. As a result, applications are always available and data is always accessible and never lost. What’s more, Cassandra’s built-in repair services fix problems immediately after they occur—without any manual intervention. Productivity doesn’t even need to take a hit should nodes fail.
+- *Scalability:* In traditional environments, scaling applications is a time-consuming and costly process typically accomplished by scaling vertically with more expensive machines. Cassandra enables you to scale horizontally by simply adding more nodes to the cluster. If, for example, four nodes can handle 200,000 transactions/second, eight nodes will be able to handle 400,000 transactions/second. (source)
+- *Seamless Replication:* Today’s leading enterprises are increasingly moving to multi-data center, hybrid cloud and even multi-cloud deployments to take advantage of the strengths of various deployments without getting locked into any single provider’s ecosystem. Getting the most out of multi-cloud environments, however, starts with having an underlying cloud database that offers: scalability, security, performance, and availability. For these reasons, it should come as no surprise that the cloud database market is expected to grow nearly 65% each year and reach $68.9 billion by 2022.
 * Project Process Documentation                                      :DOMAIN:
 ** Scrum                                                             :TOPIC:
 ** Kanban                                                            :TOPIC:
@@ -772,6 +785,7 @@ ip route sh
 *** React 
 *** React Native
 *** react-hooks
+** Angular
 ** PWA
 *** app-shell model 
 
@@ -995,8 +1009,9 @@ and the authorization server uses the Scope parameter to respond with the access
 **** Abstract Factory 
 **** Singleton
 ** ReasonML                                                          :TOPIC:
-** Java Script                                                       :TOPIC:
-*** co je to iife
+** JavaScript                                                       :TOPIC:
+*** what is IIFE?                                                :QUESTION:
+- An Immediately Invoked Function Expression is a good way at protecting the scope of your function and the variables within it.
 *** inheritance model of JS
 *** hoisting
 *** event loop
@@ -1004,6 +1019,8 @@ and the authorization server uses the Scope parameter to respond with the access
 *** observables
 *** RxJS
 *** JS modular system
+** TypeScript                                                        :TOPIC:
+** Babel
 ** Java                                                              :TOPIC:
 *** Basic Java
 **** hashCode()
