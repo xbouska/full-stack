@@ -1,7 +1,7 @@
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
 #+BEGIN_COMMENT
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 #+END_COMMENT
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
 #+BEGIN_COMMENT
 #+OPTIONS: html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
@@ -449,7 +449,17 @@ Some of the key principles of the Third Way are:
 - *Injecting resilience patterns into daily work.* Some examples might include rehearsing failures, and working toward improving key metrics for deployment.
 - *Leaders enforcing a learning culture.* Organization-wide learning is unlikely to take hold and become pervasive unless it is sanctioned and exemplified by its leaders. So being intentional about communicating the value of learning and problem-solving is crucial to building that culture.
 *** ACCELERATE
-*** CALMS
+*** CALMS (Culture, Automation, Lean, Measurement, Sharing)
+:PROPERTIES:
+:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-calms
+:END:
+Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALMS framework is used as a means of assessing whether an organization is ready to adopt DevOps processes, or how an organization is progressing in their DevOps transformation. It is based on the following five pillars:
+
+- *Culture.* Before silos can be torn down, there needs to be a culture of shared responsibility, or at least a group of people devoted to establishing that culture in a grassroots type of way, with management approval and support.
+- *Automation.* Similar to the technical practices centered around continuous delivery mentioned above, teams undertaking a DevOps transformation should be devoted to automating as many manual tasks as possible, especially with respect to continuous integration and test automation.
+- *Lean.* Development teams are making use of lean principles to eliminate waste and optimize the value stream, such as minimizing WIP, making work visible, and reducing hand-off complexity and wait times.
+- *Measurement.* The organization is devoted to collecting data on their processes, deployments, etc., in order to understand their current capabilities and where improvements could be achieved.
+- *Sharing.* A culture of openness and sharing within and between teams (and enabled with the proper tools) keeps everyone working toward the same goals and eases friction with hand-offs when issues arise.
 ** Tools
 *** DNS
 :PROPERTIES:
@@ -629,8 +639,8 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** What is a service                                          :QUESTION:
 **** What are network policies?                                 :QUESTION:
 :PROPERTIES:
-:study: https://github.com/ahmetb/kubernetes-network-policy-recipes
-:study: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
+:learning: https://github.com/ahmetb/kubernetes-network-policy-recipes
+:learning: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
 :END:
 :ANSWER:
 - firewall on the  pod level
@@ -799,7 +809,7 @@ Target to a link:
 *** Sass
 ** CORS
 :PROPERTIES:
-:study: https://www.codecademy.com/articles/what-is-cors
+:learning: https://www.codecademy.com/articles/what-is-cors
 :END:
 *** why is CORS necessary?                                       :QUESTION:
 *** How Does CORS Manage Requests From External Resources?       :QUESTION:
@@ -849,7 +859,7 @@ and the authorization server uses the Scope parameter to respond with the access
 :end:
 ** JWT
 :PROPERTIES:
-:study:    https://tools.ietf.org/html/rfc7519
+:learning:    https://tools.ietf.org/html/rfc7519
 :END:
 *** What are the registered claim names?                        :QUESTION:
 *** What is registered claim name "iss" (Issuer) Claim?          :QUESTION:
@@ -935,7 +945,7 @@ and the authorization server uses the Scope parameter to respond with the access
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
-:study:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
+:learning:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
 :END:
 **** AES
 **** DES
