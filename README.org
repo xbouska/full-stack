@@ -957,6 +957,27 @@ and the authorization server uses the Scope parameter to respond with the access
   - a value that contains a Collision-Resistant Name.
 - In each case, the definer of the name or value needs to take reasonable precautions to make sure they are in control of the part of the namespace they use to define the Claim Name.
 :END:
+** WIP JWKS
+:PROPERTIES:
+:lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
+:END:
+:LOGBOOK:
+- State "WIP"        from "TODO"       [2020-09-24 Thu 10:09]
+- State "TODO"       from              [2020-09-24 Thu 10:09]
+:END:
+JSON Web Key Sets
+
+The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
+
+When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: RS256 and HS256. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
+
+Auth0 uses the JSON Web Key (JWK) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high-level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions from the specification:
+
+Item 	Description
+JSON Web Key (JWK) 	A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
+JSON Web Key Set (JWKS) 	A JSON object that represents a set of JWKs. The JSON object MUST have a keys member, which is an array of JWKs.
+
+Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DOMAIN/.well-known/jwks.json. This endpoint will contain the JWK used to sign all Auth0-issued JWTs for this tenant.
 ** LDAP
 *** object class
 **** inetOrgPerson
