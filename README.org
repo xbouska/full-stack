@@ -1,7 +1,8 @@
 #+BEGIN_COMMENT
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-#+END_COMMENT
+
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
+#+END_COMMENT
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 #+BEGIN_COMMENT
 #+OPTIONS: html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
@@ -24,6 +25,10 @@
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTER
 * Software Engineering                                               :DOMAIN:
+:PROPERTIES:
+:ID:       46a7a72e-7f73-4bb7-b66f-b2f15b130540
+:CUSTOM_ID: 123
+:END:
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** one`s complement
@@ -192,8 +197,6 @@ Consider following status codes:
 *** High cohesion                                                 :TOPIC:
 *** Low coupling                                                  :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
-
-
 * Data 
 ** Data architecture and tools                                       :TOPIC:
 *** background                                                      :TOPIC:
