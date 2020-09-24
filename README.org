@@ -1399,11 +1399,13 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
  
 ** TODO Python
 
-** TODO NodeJS                                                       :TOPIC:
-- npm
-- yarn
-- nvm
-- popular libraries
+** TODO JS on a backend
+*** TODO NodeJS                                                     :TOPIC:
+** TODO JS environment
+***  npm
+*** yarn
+*** nvm
+*** popular libraries
 
 ** Language theory                                                   :TOPIC:
 *** Garbage Collector
