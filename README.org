@@ -9,6 +9,9 @@
 #+OPTIONS: d:t  prop:t tags:t |:t
 #+OPTIONS: H:7 num:4 toc:t ^:nil
 #+EXPORT_FILE_NAME: public/fullstack.html
+#+STARTUP: logdrawer content entitiespretty
+#+TODO:  TODO(!) WIP(!) | COMPETE(!) OBSOLETE(!)
+
 
 #+BEGIN_SRC emacs-lisp :exports none :results verbatim
 (org-html-export-to-html nil t nil nil)
@@ -133,7 +136,7 @@ Consider following status codes:
 - It is responsibility of the client to pass its context to server and then server can store this context to process client's further request.
 - For example, session maintained by server is identified by session identifier passed by the client.
 :END:
-*** what is the difference between PUT and POST?                 :QUESTION:
+*** What is the difference between PUT and POST?                 :QUESTION:
 
 :ANSWER:
 - PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
@@ -141,7 +144,7 @@ Consider following status codes:
 - PUT is idempotent meaning, invoking it any number of times will not have an impact on resources.
 - However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
 :END:
-
+*** TODO HATEOAS
 ** TODO OpenApiSpec / Open API 3.0 / Swagger 
 :PROPERTIES:
 :learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
@@ -871,7 +874,16 @@ To do so, the application must ask for authorization to access this information 
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
-*** OCR value
+*** What is acr_values
+:PROPERTIES:
+:lerning:  https://ldapwiki.com/wiki/Acr_values
+:END:
+:ANSWER:
+- Acr_values is an OPTIONAL parameter that is a Space-separated string that specifies the Authentication Context Class Values within the Authentication Request that the Authorization Server is being requested to use for processing requests from this Client, with the values appearing in order of preference.
+- Acr_values was originally specified within the JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants (RFC 7523)
+
+- The Authentication Context Class Reference values actually utilized by the Authorization Server is returned within the Identity Token in the acr parameter.
+:END:
 ** JWT
 :PROPERTIES:
 :learning:    https://tools.ietf.org/html/rfc7519
@@ -977,6 +989,10 @@ and the authorization server uses the Scope parameter to respond with the access
 - Basically, it identifies the generation (version) of a Root certificate that signs the Chain of trust.
 - When CA needs to get a new chain (for example, because of upgrade from SHA-1 to SHA-256), they just increment the generation number.
 - This is good because obsolete certificates can be better identified.
+:END:
+** TODO Illumio Security
+:LOGBOOK:
+- State "TODO"       from              [2020-09-24 Thu 08:05]
 :END:
 * Languages & programming                                           :DOMAIN:
 ** Functional Programming                                           :TOPIC:
