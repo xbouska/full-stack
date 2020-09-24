@@ -8,9 +8,9 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:7 num:4 toc:t ^:nil
+#+OPTIONS: H:7 num:4 toc:t ^:nil p:nil
 #+EXPORT_FILE_NAME: public/fullstack.html
-#+STARTUP: logdrawer content entitiespretty
+#+STARTUP:  overview entitiespretty
 #+TODO:  TODO(!) WIP(!) | COMPETE(!) OBSOLETE(!)
 #+CREATOR: org-mode
 #+LANGUAGE: en
@@ -409,10 +409,6 @@ Consider following status codes:
 ** IaaS
 ** PaaS
 ** SaaS
-** FINOPS
-*** data at rest cost
-*** transfer cost
-*** cpu cost
 ** DEVSECOPS
 ** GCP services:
 *** bigquery
@@ -424,6 +420,10 @@ Consider following status codes:
 *** secretmanager
 *** pubsub
 
+** FINOPS
+*** data at rest cost
+*** transfer cost
+*** cpu cost
 ** storage:
 *** S3
 *** GCS bucket
@@ -646,6 +646,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO rebase vs merge - semantical and syntactical diff
 **** TODO stash
 *** Artifactory
+*** Nexus ... sunset
 *** Docker                                                          :TOPIC:
 **** TODO dockerhub :-)
 **** TODO docker file
@@ -658,6 +659,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** TODO volumes
 **** TODO networks
 **** TODO BuildKit
+**** TODO DTR - docker trusted registry
 
 *** K8S / Kubernetes:                                               :TOPIC:
 **** What is a service                                          :QUESTION:
@@ -964,10 +966,6 @@ and the authorization server uses the Scope parameter to respond with the access
 :PROPERTIES:
 :lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
 :END:
-:LOGBOOK:
-- State "WIP"        from "TODO"       [2020-09-24 Thu 10:09]
-- State "TODO"       from              [2020-09-24 Thu 10:09]
-:END:
 JSON Web Key Sets
 
 The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
@@ -1020,9 +1018,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - This is good because obsolete certificates can be better identified.
 :END:
 ** TODO Illumio Security
-:LOGBOOK:
-- State "TODO"       from              [2020-09-24 Thu 08:05]
-:END:
+
 * Languages & programming                                           :DOMAIN:
 ** Functional Programming                                           :TOPIC:
 *** Lambda Calculus                                                 :TOPIC:
@@ -1357,6 +1353,9 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** AdoptOpenJDK
 *** JDBC
 *** JMS
+**** 
+** TODO Python
+
 ** NodeJS                                                            :TOPIC:
 - npm
 - yarn
@@ -1368,6 +1367,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** Type systems
 **** strongly typed
 **** weakly typed
+
 * Quality and Testing                                                :DOMAIN:
 ** Blue green deployment
 ** AB testing
@@ -1377,4 +1377,23 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** Antifragile architecture
 ** Unit testing
 * Code of Conduct                                                    :DOMAIN:
+The moral aspect
 ** responsibility
+* WIP Information Sources
+- where to learn, what to read and follow
+** InfoQ
+** Coding Blocks
+** SE-Radio
+* WIP Big Names
+- whom to follow
+** TODO Bartosz MILEWSKI
+** TODO Venkat Subramaniam
+** TODO Trisha GEE
+** TODO Kevlin HENNEY
+** TODO Brian GOETZ
+** TODO Troy HUNT
+** TODO Scott MEYERS
+** TODO Erik Meijer
+** TODO Edward Kmett
+** TODO Chris Allen
+
