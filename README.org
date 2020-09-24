@@ -857,6 +857,7 @@ To do so, the application must ask for authorization to access this information 
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
+*** OCR value
 ** JWT
 :PROPERTIES:
 :learning:    https://tools.ietf.org/html/rfc7519
