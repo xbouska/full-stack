@@ -1,5 +1,4 @@
 #+BEGIN_COMMENT
-
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
 #+END_COMMENT
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
@@ -8,10 +7,10 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:t tags:t |:t
-#+OPTIONS: H:7 num:4 toc:t ^:nil p:nil
+#+OPTIONS: H:7 num:4 toc:t ^:nil p:nil html-style:nil pri:t
 #+EXPORT_FILE_NAME: public/fullstack.html
 #+STARTUP:  overview entitiespretty
-#+TODO:  TODO(!) WIP(!) | COMPETE(!) OBSOLETE(!)
+#+TODO:  TODO WIP | COMPETE OBSOLETE
 #+CREATOR: org-mode
 #+LANGUAGE: en
 #+TITLE: full-stack
@@ -24,10 +23,9 @@
 #+BEGIN_CENTER
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTER
-* Software Engineering                                               :DOMAIN:
+* WIP Software Engineering                                           :DOMAIN:
 :PROPERTIES:
-:ID:       46a7a72e-7f73-4bb7-b66f-b2f15b130540
-:CUSTOM_ID: 123
+:CUSTOM_ID: SOFTWARE_ENGINEERING
 :END:
 ** bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
@@ -67,13 +65,16 @@
 ** basic algorithms
 *** Stable vs unstable sorting
 
-* Architecture & Design                                              :DOMAIN:
+* WIP Architecture                                                   :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: ARCHITECTURE
+:END:
 basic of architecture 
-** DDD                                                             :TOPIC:
+** WIP DDD                                                           :TOPIC:
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
-** Messaging                                                         :TOPIC:
+** WIP Messaging                                                     :TOPIC:
 *** queue
 *** topics
 *** message delivery mode: 
@@ -94,7 +95,7 @@ basic of architecture
 **** TODO amqp(s)
 **** TODO mqtt(s)
 **** TODO http(s)
-** HTTP Family                                                       :TOPIC:
+** WIP HTTP Family                                                   :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
 :ANSWER:
@@ -103,15 +104,15 @@ basic of architecture
 - Content-Type header:
   - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
 :END:
-**** What is Server-Sent Events  (SSE)                          :QUESTION:
+**** WIP What is Server-Sent Events  (SSE)                      :QUESTION:
 :ANSWER:
 - is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
 - They are commonly used to send message updates or continuous data streams to a browser client
   - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
     - through which a client requests a particular URL in order to receive an event stream.
 :END:
-**** TODO What are WebSockets                                   :QUESTION:
-** REST
+**** WIP What are WebSockets                                    :QUESTION:
+** WIP REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
 HTTP methods supported by REST are:
@@ -154,7 +155,10 @@ Consider following status codes:
 - However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
 :END:
 *** TODO HATEOAS
-** TODO OpenApiSpec / Open API 3.0 / Swagger 
+** WIP GraphQL
+** WIP 12 Factor Apps
+** WIP 3Factor Apps
+** WIP OpenApiSpec / Open API 3.0 / Swagger 
 :PROPERTIES:
 :learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
 :END:
@@ -181,14 +185,14 @@ Consider following status codes:
 #+end_src
 :END:
 
-** micro-service-architecture
-** Enterprise Architecture Integration Patterns
+** WIP micro-service-architecture
+** WIP Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
-** Event Sourcing
-** CQRS
-** CRUD
-** Pragmatic Design principes
+** WIP Event Sourcing
+** WIP CQRS
+** WIP CRUD
+** WIP Pragmatic Design principes
 *** DRY                                                           :TOPIC:
 *** KISS                                                          :TOPIC:
 *** YAGNI                                                         :TOPIC:
@@ -197,38 +201,46 @@ Consider following status codes:
 *** High cohesion                                                 :TOPIC:
 *** Low coupling                                                  :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
-* Data 
-** Data architecture and tools                                       :TOPIC:
-*** background                                                      :TOPIC:
-**** What does ACID ti mean?                                    :QUESTION:
+* WIP Data                                                           :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: DATA
+:END:
+** WIP background                                                    :TOPIC:
+*** What does ACID ti mean?                                      :QUESTION:
 :ANSWER:
 - atomicity
 - consistency
 - isolation
 - durability
 :END:
-**** BASE
-***** what does it mean?                                       :QUESTION:
+*** BASE
+**** what does it mean?                                         :QUESTION:
 :ANSWER:
 - Basic Availability
 - Soft-state
 - Eventual consistency
 :END:
-**** ORM
-***** what ORM (object-relational-mapping ) means              :QUESTION:
-***** object relation impedance mismatch                       :QUESTION:
-***** bottom up                                                :QUESTION:
-***** tom down                                                 :QUESTION:
-***** meet in the middle                                       :QUESTION:
-**** CAP theorem
-***** Beyond CAP database systems
-**** Wall: Write Ahead Logs
-***** what it is good for
-**** eventual consistency
-**** Multi master replication
-**** OLAP vs OLTP
-**** slowly moving dimensions
-***** What is it?                                              :QUESTION:
+*** ORM
+**** what ORM (object-relational-mapping ) means                :QUESTION:
+**** What is object relation impedance mismatch                 :QUESTION:
+:PROPERTIES:
+:learning: https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch
+:END:
+:ANSWER:
+- The object-relational impedance mismatch is a set of conceptual and technical difficulties that are often encountered when a relational database management system (RDBMS) is being served by an application program (or multiple application programs) written in an object-oriented programming language or style, particularly because objects or class definitions must be mapped to database tables defined by a relational schema.
+:END:
+**** bottom up                                                  :QUESTION:
+**** tom down                                                   :QUESTION:
+**** meet in the middle                                         :QUESTION:
+*** CAP theorem
+**** Beyond CAP database systems
+*** Wall: Write Ahead Logs
+**** what it is good for
+*** eventual consistency
+*** Multi master replication
+*** OLAP vs OLTP
+*** slowly moving dimensions
+**** What is it?                                                :QUESTION:
 :ANSWER:
 - Type 0 - The passive method
 - Type 1 - Overwriting the old value
@@ -237,36 +249,36 @@ Consider following status codes:
 - Type 4 - Using historical table
 - Type 6 - Combine approaches of types 1,2,3 (1+2+3=6)
 :END:
-***** Type 0 - The passive method.                             :QUESTION:
+**** Type 0 - The passive method.                               :QUESTION:
 :ANSWER:
 - In this method no special action is performed upon dimensional changes.
 - Some dimension data can remain the same as it was first time inserted, others may be overwritten.
 :END:
-***** Type 1 - Overwriting the old value.                      :QUESTION:
+**** Type 1 - Overwriting the old value.                        :QUESTION:
 :ANSWER:
 - In this method no history of dimension changes is kept in the database.
 - The old dimension value is simply overwritten be the new one.
 - This type is easy to maintain and is often use for data which changes are caused by processing corrections (e.g. removal special characters, correcting spelling errors).
 :END:
-***** Type 2 - Creating a new additional record.               :QUESTION:
+**** Type 2 - Creating a new additional record.                 :QUESTION:
 :ANSWER:
 - In this methodology all history of dimension changes is kept in the database.
 - You capture attribute change by adding a new row with a new surrogate key to the dimension table.
 - Both the prior and new rows contain as attributes the natural key(or other durable identifier).
 - Also 'effective date' and 'current indicator' columns are used in this method. There could be only one record with current indicator set to 'Y'. For 'effective date' columns, i.e. start_date and end_date, the end_date for current record usually is set to value 9999-12-31. Introducing changes to the dimensional model in type 2 could be very expensive database operation so it is not recommended to use it in dimensions where a new attribute could be added in the future.
 :END:
-***** Type 3 - Adding a new column.                            :QUESTION:
+**** Type 3 - Adding a new column.                              :QUESTION:
 :ANSWER:
 - In this type usually only the current and previous value of dimension is kept in the database.
 - The new value is loaded into 'current/new' column and the old one into 'old/previous' column.
 - Generally speaking the history is limited to the number of column created for storing historical data. This is the least commonly needed technique.
 :END:
-***** Type 4 - Using historical table.                         :QUESTION:
+**** Type 4 - Using historical table.                           :QUESTION:
 :ANSWER:
 - In this method a separate historical table is used to track all dimension's attribute historical changes for each of the dimension.
 - The 'main' dimension table keeps only the current data e.g. customer and customer_history tables.
 :END:
-***** Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).    :QUESTION:
+**** Type 6 - Combine approaches of types 1,2,3 (1+2+3=6).      :QUESTION:
 :ANSWER:
 - In this type we have in dimension table such additional columns as:
 
@@ -278,53 +290,65 @@ Consider following status codes:
 
 - In this method to capture attribute change we add a new record as in type 2. The current_type information is overwritten with the new one as in type 1. We store the history in a historical_column as in type 3.
 :END:
-**** Backup strategy
-***** full vs incremental backup
-***** snapshots
-***** on-line replica
-*** SQL
-**** partitionning
+*** Backup strategy
+**** full vs incremental backup
+**** snapshots
+**** on-line replica
+** WIP SQL
+*** partitionning
 - co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální
 - proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -> vice partiton
-**** inner vs outher join  
+*** inner vs outher join  
 - typy spojení DB tabulek,
   - inner:  výsledek musí obsahovat průnik obou tabulek,
   - outer:  výsledek obsahuje data z jedné či druhé, případně z obou tabulek pokud klíč existuje v obou tabulkách …
 - záleží na typu outer joinu - Full/left/right
-**** DB Index 
+*** DB Index 
 - Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
  k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity
-**** Constraint
+*** Constraint
 - Omezení hodnoty vkládané do atribut, foreign key constraint  hodnota musí existovat v referenční tabulce, primary key constaint  unikátní hodnota v tabulce
-**** Agregace (group by)
-**** Co jsou window funkce?                                     :QUESTION:
+*** Agregace (group by)
+*** Co jsou window funkce?                                       :QUESTION:
 - kalkulace/agregace nad množinou dat, přičemž každý prvek množiny může mít výsledek agregace jiný ….
 - Např funkce lead/lag/rank/row_number/first/last/
-**** what is a defference between CTE and temp table?           :QUESTION:
+*** what is a defference between CTE and temp table?             :QUESTION:
 :ANSWER:
 - A CTE is just that -- Common Table Expression, that is, only a syntax construct. The result set described by a CTE may never be materialized in the specified form.
 - A temporary table, on the other hand, is a real database object that is initialized with the structure described by its DDL statement and possibly populated by actual rows.
 :END:
-**** CTE (with)  
+*** CTE (with)  
 - syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu,
 - lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )
-**** DML/DDL
+*** DML/DDL
 - manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
 
-*** Distributed consensus: 
-**** Paxos                                                         :TOPIC:
-**** Raft                                                          :TOPIC:
-**** Zab                                                           :TOPIC:
-*** Transactions
-**** transaction problems that are prevented by isolation:
-***** What are they and what they mean?
+** WIP Distributed consensus: 
+*** Paxos                                                           :TOPIC:
+:PROPERTIES:
+:learning: https://en.wikipedia.org/wiki/Paxos_(computer_science)
+:END:
+- Paxos is a family of protocols for solving consensus in a network of unreliable or fallible processors. Consensus is the process of agreeing on one result among a group of participants. This problem becomes difficult when the participants or their communications may experience failures.[1]
+
+- Consensus protocols are the basis for the state machine replication approach to distributed computing, as suggested by Leslie Lamport[2] and surveyed by Fred Schneider.[3] State machine replication is a technique for converting an algorithm into a fault-tolerant, distributed implementation. Ad-hoc techniques may leave important cases of failures unresolved. The principled approach proposed by Lamport et al. ensures all cases are handled safely.
+
+- The Paxos protocol was first submitted in 1989 and named after a fictional legislative consensus system used on the Paxos island in Greece, where Lamport wrote that the parliament had to function "even though legislators continually wandered in and out of the parliamentary Chamber".[4] It was later published as a journal article in 1998.[5]
+
+- The Paxos family of protocols includes a spectrum of trade-offs between the number of processors, number of message delays before learning the agreed value, the activity level of individual participants, number of messages sent, and types of failures. Although no deterministic fault-tolerant consensus protocol can guarantee progress in an asynchronous network (a result proved in a paper by Fischer, Lynch and Paterson[6]), Paxos guarantees safety (consistency), and the conditions that could prevent it from making progress are difficult to provoke.
+
+- Paxos is usually used where durability is required (for example, to replicate a file or a database), in which the amount of durable state could be large. The protocol attempts to make progress even during periods when some bounded number of replicas are unresponsive. There is also a mechanism to drop a permanently failed replica or to add a new replica.
+*** Raft                                                            :TOPIC:
+*** Zab                                                             :TOPIC:
+** WIP Transactions
+*** transaction problems that are prevented by isolation:
+**** What are they and what they mean?
 :ASWER:
 - Dirty reads
 - non-repeatable reads
 - phantom reads
 :END:
-**** JDBC transaction isolation levels
-***** what are they and what they prevent from?
+*** JDBC transaction isolation levels
+**** what are they and what they prevent from?
 :ANSWER:
 - TRANSACTION_READ_UNCOMMITTED
   - Dirty reads, non-repeatable reads and phantom reads can occur.
@@ -335,62 +359,66 @@ Consider following status codes:
 - TRANSACTION_SERIALIZABLE
   - Dirty reads, non-repeatable reads and phantom reads are prevented. 
 :END:
-**** ANSI/ISO levels - 
-***** what they are
+*** ANSI/ISO levels - 
+**** what they are
 :ANSWER:
 - serializable
 - repeatable read
 - read committed
 - read uncommitted
 :END:
-***** define some
+**** define some
 :ANSWER:
 - The Serializable isolation level guarantees that concurrent transactions run as they would if you would run sequentially one by one in order.
 - One step weaker is the Read Repeatable isolation level that allows Phantom Reads to happen in the transaction. Contrary to transactions running in the Serializable mode, the set of rows that is returned by two consecutive select queries in a transaction can differ. This can happen if another transaction adds or removes rows from the table we are querying.
 - Even weaker is the Read Commited isolation level. Two consecutive select statements in a transaction can return different data. Contrary to the Read Repeatable level, this level allows not only the set of rows to change, but also the data that those rows contain. This can happen if another transaction modifies the rows.
 - The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
 :END:
-*** Datawarehouse?  
+** WIP Datawarehouse?  
 - úložiště dat,
 - organizovaných do určité struktury,
 - pro účely analýzy dat … podpora business procesů organizace
-*** Star schema  structure
+** WIP Star schema  structure
 - tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay
-*** Snowflake schema  structure
+** WIP Snowflake schema  structure
 - faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF
-*** WAL  / transactional log?  
+** WIP WAL  / transactional log?  
 - log kde je historie všech provedených DB operací nad danou instancí/databází.
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
-*** Tools
-**** PostgreSQL
-***** Explain about Multi version concurrency control?         :question:
+** WIP Tools
+*** PostgreSQL
+**** What is the current version of PostgreSQL                  :QUESTION:
+**** Explain about Multi version concurrency control?           :QUESTION:
 :ANSWER:
 - Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.
 - This removes the time lag for the user to log into his database.
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
-**** ORACLE:
+*** ORACLE:
 :ANSWER:
 - READ COMMITTED (the default)
 - SERIALIZABLE.
   - that what Oracle call SERIALIZABLE is actually snapshot isolation.
 :END:
-**** Big Table
-**** Big Query
-**** Elastic Search
-***** Bloom Filter
-**** MongoDB
-**** Apache Drill
-**** Apache Cassandra
+*** Big Table
+*** Big Query
+*** Elastic Search
+**** Bloom Filter
+*** MongoDB
+*** Apache Drill
+*** Apache Cassandra
 - *Open Source:* Modern software development organizations have overwhelmingly moved to adopt open source technologies, starting with the Linux operating system and progressing into infrastructure for managing data. Open source technologies are attractive because of their affordability and extensibility, as well as the flexibility to avoid vendor lock-in. Organizations adopting open source report higher speed of innovation and faster adoption.
 - *Flexible, Familiar Interface:* The Cassandra Query Language (CQL) is similar to SQL, meaning most developers should have a fairly easy time becoming familiar with it. (Here’s an introduction to CQL if you need some help).
 - *High Performance:* The majority of traditional databases feature a primary / secondary architecture. In these configurations, a single primary replica performs read and write operations, while secondary replicas are only able to perform read operations. Downsides to this architecture include increased latency, as well as higher costs and lower availability at scale. In Cassandra, no single node is in charge of replicating data across a cluster. Instead, every node is capable of performing all read and write operations. This improves performance and adds resiliency to the database.
 - *Active Everywhere / Zero-Downtime:* Since every Cassandra node is capable of performing read and write operations, data is quickly replicated across hybrid cloud environments and geographies. In the event a node fails, users are automatically routed to the nearest healthy node. They won’t even notice that a node has been knocked offline because applications behave as designed even in the event of failure. As a result, applications are always available and data is always accessible and never lost. What’s more, Cassandra’s built-in repair services fix problems immediately after they occur—without any manual intervention. Productivity doesn’t even need to take a hit should nodes fail.
 - *Scalability:* In traditional environments, scaling applications is a time-consuming and costly process typically accomplished by scaling vertically with more expensive machines. Cassandra enables you to scale horizontally by simply adding more nodes to the cluster. If, for example, four nodes can handle 200,000 transactions/second, eight nodes will be able to handle 400,000 transactions/second. (source)
 - *Seamless Replication:* Today’s leading enterprises are increasingly moving to multi-data center, hybrid cloud and even multi-cloud deployments to take advantage of the strengths of various deployments without getting locked into any single provider’s ecosystem. Getting the most out of multi-cloud environments, however, starts with having an underlying cloud database that offers: scalability, security, performance, and availability. For these reasons, it should come as no surprise that the cloud database market is expected to grow nearly 65% each year and reach $68.9 billion by 2022.
-* Project Process Documentation                                      :DOMAIN:
+* WIP Methodology                                                    :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: METHODOLOGY
+:END:
 ** Scrum                                                             :TOPIC:
 ** Kanban                                                            :TOPIC:
 ** XP                                                                :TOPIC:
@@ -403,7 +431,10 @@ Consider following status codes:
 ** Uml                                                               :TOPIC:
 ** C4                                                                :TOPIC:
 ** Org42                                                             :TOPIC:
-* Cloud                                                              :DOMAIN:
+* WIP Cloud                                                          :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CLOUD
+:END:
 ** Cloud native architecture
 ** TODO Open Policy Agent
 ** IaaS
@@ -430,7 +461,10 @@ Consider following status codes:
 **** api
 **** what it is good for
 *** MinIO Object Storage
-* DEVOPS / SRE                                                       :DOMAIN:
+* WIP DEVOPS / SRE                                                   :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: DEVOPS
+:END:
 ** Culture
 :PROPERTIES:
 :lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
@@ -793,7 +827,10 @@ ip route sh
 **** metrics
 **** traces
 *** Tail Latency
-* Web Front End                                                      :DOMAIN:
+* WIP Web Front End                                                  :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: WEB
+:END:
 ** React
 *** React 
 *** React Native
@@ -855,7 +892,10 @@ Origin
 #+end_src
 :END:
 ** The Elm Architecture (TEA)
-* Security                                                          :DOMAIN:
+* WIP Security                                                       :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: SECURITY
+:END:
 ** SPIFFE                                                            :TOPIC:
 *** what is spiffe
 :PROPERTIES:
@@ -1019,7 +1059,10 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :END:
 ** TODO Illumio Security
 
-* Languages & programming                                           :DOMAIN:
+* WIP Languages & programming                                        :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: LANGUAGES
+:END:
 ** Functional Programming                                           :TOPIC:
 *** Lambda Calculus                                                 :TOPIC:
 **** α-conversion
@@ -1340,7 +1383,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 - Je to takový mnohem přirozenější a intuitivnější způsob inicializace v OOP světě.
 - Asi jediná nevýhoda: pokud bude dependencí hodně, začne to být trochu nepřehledné."
 :END:
-*** JavaEE / JacartaEE
+*** JavaEE / JakartaEE
 **** access intent
 ***** optimistic vs pessimistic
 **** Jaký je rozdíl mezi Java SE a JavaEE                       :QUESTION:
@@ -1353,10 +1396,10 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** AdoptOpenJDK
 *** JDBC
 *** JMS
-**** 
+ 
 ** TODO Python
 
-** NodeJS                                                            :TOPIC:
+** TODO NodeJS                                                       :TOPIC:
 - npm
 - yarn
 - nvm
@@ -1368,7 +1411,10 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** strongly typed
 **** weakly typed
 
-* Quality and Testing                                                :DOMAIN:
+* WIP Quality and Testing                                            :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: QUALITY
+:END:
 ** Blue green deployment
 ** AB testing
 ** Code coverage
@@ -1376,15 +1422,26 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** Code quality                                                    :TOPIC:
 ** Antifragile architecture
 ** Unit testing
-* Code of Conduct                                                    :DOMAIN:
+* WIP Code of Conduct                                                :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CODE_OF_CONDUCT
+:END:
 The moral aspect
-** responsibility
-* WIP Information Sources
+** SW developer responsibility
+- finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
+- 
+* WIP Information Sources                                            :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: INFORMATION_SOURCES
+:END:
 - where to learn, what to read and follow
 ** InfoQ
 ** Coding Blocks
 ** SE-Radio
-* WIP Big Names
+* WIP Big Names                                                      :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: BIG_NAMES
+:END:
 - whom to follow
 ** TODO Bartosz MILEWSKI
 ** TODO Venkat Subramaniam
