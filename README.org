@@ -209,6 +209,10 @@ Consider following status codes:
 *** Low coupling                                                  :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
 ** TODO Antifragile architecture
+** WIP Evolutionary database design
+:PROPERTIES:
+:lerning:  https://martinfowler.com/articles/evodb.html
+:END:
 
 * WIP Data                                                           :DOMAIN:
 :PROPERTIES:
@@ -416,6 +420,13 @@ Consider following status codes:
 *** Elastic Search
 **** Bloom Filter
 *** MongoDB
+*** Liquibase
+- open source
+- tracks DB chanegs
+- allows work with data as well as with the schema
+- *changeset*:
+  - XML, JSON, YAML, SQL
+- can use context and label for filteriing chich chnages slould be applied where
 *** Apache Drill
 *** Apache Cassandra
 - *Open Source:* Modern software development organizations have overwhelmingly moved to adopt open source technologies, starting with the Linux operating system and progressing into infrastructure for managing data. Open source technologies are attractive because of their affordability and extensibility, as well as the flexibility to avoid vendor lock-in. Organizations adopting open source report higher speed of innovation and faster adoption.
@@ -470,7 +481,7 @@ Consider following status codes:
 | ap-northeast-2 | Asia Pacific (Seoul)       | Not required  | Not available     |
 | ap-southeast-1 | Asia Pacific (Singapore)   | Not required  | Not available     |
 | ap-southeast-2 | Asia Pacific (Sydney)      | Not required  | Not available     |
-| ap-northeast-1 | Asia Pacific (Tokyo)       | Not required  | Not available     |xxg
+| ap-northeast-1 | Asia Pacific (Tokyo)       | Not required  | Not available     |
 | ca-central-1   | Canada (Central)           | Not required  | Not available     |   
 | eu-central-1   | Europe (Frankfurt)         | Not required  | Not available     |   
 | eu-west-1      | Europe (Ireland)           | Not required  | Not available     |   
@@ -1512,4 +1523,155 @@ The moral aspect
 ** TODO Erik Meijer
 ** TODO Edward Kmett
 ** TODO Chris Allen
+* TODO To integrate :NO_EXPORT:
+- gcloud
+- tiller
+- psql
+- gcp service account
+- https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
+- https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
+- http://site.icu-project.org/
+- https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
+- https://www.softwaretestinghelp.com/git-interview-questions/
+- https://iqsanswers.com/postgresql-interview-questions-answers/
+- https://min.io/product/overview
+- https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/#:~:text=The%20main%20difference%20between%20entities,while%20value%20objects%20don't.
+- https://ahmet.im/blog/knative-better-kubernetes-networking/
+- https://github.com/ahmetb/kubernetes-network-policy-recipes
+- https://ahmet.im/blog/kubecon-2017/
+- https://www.illumio.com/
+- https://micronaut.io/
+- https://docs.solace.com/SDKPerf/SDKPerf.htm
+- https://github.com/mjoellnier/micronaut-vs-quarkus
+- https://github.com/quarkusio/quarkus
+- https://java.libhunt.com/
+- https://architectelevator.com/book/
+- https://www.enterpriseintegrationpatterns.com/ramblings.html
+- https://www.simultrans.com/blog/what-are-.po-files
+- https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
+- https://docs.weblate.org/en/latest/admin/addons.html?highlight=.po#update-po-files-to-match-pot-msgmerge
+- http://www.chschneider.org/linux/server/openldap.shtml
+- https://medium.com/@raghu.icecraft/simple-working-with-ldapsearch-cf6a5986977
+- https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
+- https://adoptopenjdk.net/
+- https://quarkus.io/
+- https://github.com/vaquarkhan/vaquarkhan
+- https://java.libhunt.com/
+- https://hub.docker.com/r/jboss/keycloak/
+- https://docs.nats.io/
+- https://github.com/nkatre/Free-DevOps-Books-1
+- https://openid.net/2015/05/26/enhancing-oauth-security-for-mobile-applications-with-pkse/
+- https://en.wikipedia.org/wiki/Apache_Drill
+- https://cloud.google.com/files/BigQueryTechnicalWP.pdf
+- https://cloud.google.com/bigquery/streaming-data-into-bigquery
+- https://cilium.io/
+- https://medium.com/@ruxijitianu/database-version-control-liquibase-versus-flyway-9872d43ee5a4
+- https://insights.stackoverflow.com/survey/2020#developer-profile
+- https://ldapwiki.com/wiki/Acr_values
+- https://www.udemy.com/course/spring-interview-questions-and-answers/
+- https://www.edureka.co/blog/interview-questions/spring-boot-interview-questions/
+- https://en.wikipedia.org/wiki/Comparison_of_Java_virtual_machines
+- https://en.wikipedia.org/wiki/OpenJ9#Garbage_Collector
+- https://en.wikipedia.org/wiki/Azul_Systems
+- https://en.wikipedia.org/wiki/GraalVM
+- https://en.wikipedia.org/wiki/List_of_Java_virtual_machines
+- https://dzone.com/articles/choosing-the-right-gc
+- https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
+- https://en.wikipedia.org/wiki/IETF_language_tag#cite_note-8
+- https://stackoverflow.com/questions/43535693/private-ios-app#:~:text=It%20is%20intended%20for%20employees,Enterprise%20License%20at%20a%20time.
+- https://emacs.christianbaeuerlein.com/my-org-config.html
+- https://www.typescriptlang.org/docs/handbook/advanced-types.html
+- https://cloud.google.com/logging
+- https://kubernetes.io/docs/tutorials/#services
+- https://kubernetes.io/docs/concepts/services-networking/service/
+- https://examples.yourdictionary.com/examples-of-hindsight-bias.html
+- https://blog.sonatype.com/principle-based-devops-frameworks-calms
+- https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
+- https://guides.sonatype.com/foundations/devops/principle-based-devops-frameworks/
+- https://aws.amazon.com/getting-started/learning-path-hobbyist-developer/
+- https://blog.sonatype.com/2010/04/why-nexus-for-the-non-programmer/
+- https://en.wikipedia.org/wiki/Pomodoro_Technique
+- https://en.wikipedia.org/wiki/X.509
+- https://www.dmarcanalyzer.com/dkim/
+- https://www.dmarcanalyzer.com/dmarc/
+- https://www.dmarcanalyzer.com/spf/
+- https://www.npmjs.com/package/@dynatrace/react-native-plugin
+- https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
+- https://astrobiomike.github.io/unix/six-glorious-commands
+- https://linuxhint.com/20_awk_examples/
+- https://docs.ksqldb.io/en/latest/developer-guide/syntax-reference/
+- https://tapoueh.org/blog/2018/07/postgresql-listen-notify/
+- https://editor.swagger.io/
+- https://www.nbs-system.com/
+- https://crowdsec.net/
+- https://www.datawarehouse4u.info/SCD-Slowly-Changing-Dimensions.html
+- https://www.baeldung.com/spring-mvc-interview-questions
+- https://www.baeldung.com/spring-mvc-interview-questions
+- https://archive.fosdem.org/2018/schedule/event/closing_keynote/attachments/slides/2597/export/events/attachments/closing_keynote/slides/2597/FOSDEM_2018_Closing_Keynote.pdf
+- https://en.wikipedia.org/wiki/Cache_placement_policies
+- https://en.wikipedia.org/wiki/Cache_replacement_policies
+- https://docs.oracle.com/javaee/6/tutorial/doc/giwhl.html
+- https://weld.cdi-spec.org/
+- https://www.journaldev.com/2763/java-8-functional-interfaces
+- https://www.journaldev.com/592/java-try-with-resources
+- https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
+- https://brandur.org/oauth-scope
+- https://tools.ietf.org/html/rfc6749#section-3.3
+- https://www.oauth.com/oauth2-servers/scope/defining-scopes/
+- https://docs.apigee.com/api-platform/security/oauth/working-scopes
+- https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1https://oauth.net/2/scope/#:~:text=OAuth%20Scopes&text=Scope%20is%20a%20mechanism%20in,limited%20to%20the%20scopes%20granted.
+- https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
+- https://cloudinit.readthedocs.io/en/latest/topics/availability.html
+- https://en.wikipedia.org/wiki/ACID
+- http://shiroyasha.io/transaction-isolation-levels-in-postgresql.html
+- https://stackoverflow.com/questions/13647604/isolation-levels-in-oracle
+- https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html
+- https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation
+- https://www.codecademy.com/articles/what-is-cors
+- https://www.javatpoint.com/html-interview-questions
+- https://github.com/IdentityModel/oidc-client-js/blob/dev/jsrsasign/dist/jsrsasign.js
+- https://snyk.io/vuln/npm:jsrsasign@8.0.12
+- https://www.mongodb.com/cloud/atlas
+- https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
+- https://web.dev/samesite-cookies-explained/
+- https://cloud.google.com/stackdriver/pricing#pricing_examples_2
+- https://nativecloud.dev/cnn-2020-21/
+- https://k3d.io/
+- https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/
+- https://helm.sh/docs/topics/charts/#helm
+- https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes
+- https://aws.amazon.com/ec2/instance-types/
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+- https://martinfowler.com/articles/evodb.html
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+- https://github.com/IdentityModel/oidc-client-js
+- https://aws.amazon.com/cli/
+- https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+- https://www.baeldung.com/java-equals-hashcode-contracts
+- https://gethue.com/
+- https://en.wikipedia.org/wiki/Apache_Hadoop
+- https://spark.apache.org/
+- https://hive.apache.org/
+- https://hbase.apache.org/
+- 
+- https://hbase.apache.org/
+- https://hbase.apache.org/
+- https://hbase.apache.org/
+- https://hbase.apache.org/
+- https://hbase.apache.org/
+- https://hbase.apache.org/
+- 
+- 
+- 
+* 
+* 
+* 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
 
