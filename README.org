@@ -41,6 +41,11 @@
 *** bcp-47 / rfc-5646
 ** Unicode
 *** What is unicode
+:PROPERTIES:
+:lerning:  http://www.unicode.org/standard/WhatIsUnicode.html
+:END:
+- The Unicode Standard provides a unique number for every character, no matter what platform, device, application or language. It has been adopted by all modern software providers and now allows data to be transported through many different platforms, devices and applications without corruption. Support of Unicode forms the foundation for the representation of languages and symbols in all major operating systems, search engines, browsers, laptops, and smart phonesplus the Internet and World Wide Web (URLs, HTML, XML, CSS, JSON, etc.). Supporting Unicode is the best way to implement ISO/IEC 10646.
+- The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
 *** utf-8
 *** ASCII
 *** EBCDIC
@@ -130,6 +135,7 @@ HTTP methods supported by REST are:
 HTTP Status code are standard codes and refers to predefined status of task done at server. For example, HTTP Status 404 states that requested resource is not present on server.
 
 Consider following status codes:
+|-----+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------|
 | 200 | OK                    | shows success.                                                                                                                                     |
 | 201 | CREATED               | when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.                      |
 | 304 | NOT MODIFIED          | used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc. |
@@ -138,6 +144,7 @@ Consider following status codes:
 | 404 | NOT FOUND             | states that method is not available.                                                                                                               |
 | 409 | CONFLICT              | states conflict situation while executing the method for example, adding duplicate entry.                                                          |
 | 500 | INTERNAL SERVER ERROR | states that server has thrown some exception while executing the method.                                                                           |
+|-----+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------|
 :END:
 *** What is statelessness in RESTful Webservices?                :QUESTION:
 :ANSWER:
@@ -155,9 +162,9 @@ Consider following status codes:
 - However, POST is not idempotent, meaning if you invoke POST multiple times it keeps creating more resources
 :END:
 *** TODO HATEOAS
-** WIP GraphQL
-** WIP 12 Factor Apps
-** WIP 3Factor Apps
+** TODO GraphQL
+** TODO 12 Factor Apps
+** TODO 3Factor Apps
 ** WIP OpenApiSpec / Open API 3.0 / Swagger 
 :PROPERTIES:
 :learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
@@ -189,9 +196,9 @@ Consider following status codes:
 ** WIP Enterprise Architecture Integration Patterns
 *** orchestration
 *** choreography
-** WIP Event Sourcing
-** WIP CQRS
-** WIP CRUD
+** TODO Event Sourcing
+** TODO CQRS
+** TODO CRUD
 ** WIP Pragmatic Design principes
 *** DRY                                                           :TOPIC:
 *** KISS                                                          :TOPIC:
@@ -201,6 +208,8 @@ Consider following status codes:
 *** High cohesion                                                 :TOPIC:
 *** Low coupling                                                  :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
+** TODO Antifragile architecture
+
 * WIP Data                                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DATA
@@ -435,13 +444,53 @@ Consider following status codes:
 :PROPERTIES:
 :CUSTOM_ID: CLOUD
 :END:
-** Cloud native architecture
+** TODO Cloud native architecture
 ** TODO Open Policy Agent
-** IaaS
-** PaaS
-** SaaS
-** DEVSECOPS
-** GCP services:
+** TODO IaaS
+** TODO PaaS
+** TODO SaaS
+** WIP AWS                                                           :TOPIC:
+*** EC2 (Amazon Elastic Compute Cloud)
+**** AMI
+*** Regions
+- Each Amazon EC2 Region is designed to be isolated from the other Amazon EC2 Regions. This achieves the greatest possible fault tolerance and stability.
+- When you view your resources, you see only the resources that are tied to the Region that you specified. This is because Regions are isolated from each other, and we don't automatically replicate resources across Regions.
+- When you launch an instance, you must select an AMI that's in the same Region. If the AMI is in another Region, you can copy the AMI to the Region you're using. For more information, see Copying an AMI.
+
+| Code           | Name                       | Opt-in Status | Local Zone        |
+| us-east-2      | US East (Ohio)             | Not required  | Not available     |
+| us-east-1      | US East (N. Virginia)      | Not required  | Not available     |
+| us-west-1      | US West (N. California)    | Not required  | Not available     |
+| us-west-2      | US West (Oregon)           | Not required  | us-west-2-lax-1a  |
+| us-west-2      | US West (Oregon)           | Not required  | aus-west-2-lax-1b |
+| af-south-1     | Africa (Cape Town)         | Required      | Not available     |
+| ap-east-1      | Asia Pacific (Hong Kong)   | Required      | Not available     |
+| ap-south-1     | Asia Pacific (Mumbai)      | Not required  | Not available     |
+| ap-northeast-3 | Asia Pacific (Osaka-Local) | Not required  | Not available     |
+| ap-northeast-2 | Asia Pacific (Seoul)       | Not required  | Not available     |
+| ap-southeast-1 | Asia Pacific (Singapore)   | Not required  | Not available     |
+| ap-southeast-2 | Asia Pacific (Sydney)      | Not required  | Not available     |
+| ap-northeast-1 | Asia Pacific (Tokyo)       | Not required  | Not available     |xxg
+| ca-central-1   | Canada (Central)           | Not required  | Not available     |   
+| eu-central-1   | Europe (Frankfurt)         | Not required  | Not available     |   
+| eu-west-1      | Europe (Ireland)           | Not required  | Not available     |   
+| eu-west-2      | Europe (London)            | Not required  | Not available     |   
+| eu-south-1     | Europe (Milan)             | Required      | Not available     |   
+| eu-west-3      | Europe (Paris)             | Not required  | Not available     |   
+| eu-north-1     | Europe (Stockholm)         | Not required  | Not available     |   
+| me-south-1     | Middle East (Bahrain)      | Required      | Not available     |   
+| sa-east-1      | South America (São Paulo)  | Not required  | Not available     |  
+
+*** Availability Zones
+- Each Region has multiple, isolated locations known as Availability Zones. - When you launch an instance, you can select an Availability Zone or let us choose one for you. If you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests.
+*** ELB CLB ALB
+*** EFS
+*** Route53
+*** Beanstalk
+*** RDS
+*** AWS Wavelength
+- AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
+** GCP Services                                                      :TOPIC:
 *** bigquery
 *** composer
 *** dataflow
@@ -839,7 +888,7 @@ ip route sh
 ** PWA
 *** app-shell model 
 
-** HTML
+** HTML + CSS
 *** Chrome Development Tools
 *** HTML5 Layout 
 :ANSWER:
@@ -868,16 +917,23 @@ Target to a link:
 <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
 #+end_src
 :END:
-** CSS
+*** WIP Cookies
+:PROPERTIES:
+:lerning:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
+:END:
+*** WIP Cookies / SameSite
+:PROPERTIES:
+:lerning:  https://web.dev/samesite-cookies-explained/
+:END:
 *** Less
 *** Sass
-** CORS
+*** CORS
 :PROPERTIES:
 :learning: https://www.codecademy.com/articles/what-is-cors
 :END:
-*** why is CORS necessary?                                       :QUESTION:
-*** How Does CORS Manage Requests From External Resources?       :QUESTION:
-*** What http headers were added by CORS?                        :QUESTION:
+**** why is CORS necessary?                                     :QUESTION:
+**** How Does CORS Manage Requests From External Resources?     :QUESTION:
+**** What http headers were added by CORS?                      :QUESTION:
 :ANSWER:
 #+begin_src html
 Access-Control-Allow-Origin
@@ -1006,19 +1062,20 @@ and the authorization server uses the Scope parameter to respond with the access
 :PROPERTIES:
 :lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
 :END:
-JSON Web Key Sets
+- JSON Web Key Sets
 
-The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
+- The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
 
-When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: RS256 and HS256. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
+- When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: RS256 and HS256. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
 
-Auth0 uses the JSON Web Key (JWK) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high-level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions from the specification:
+- Auth0 uses the JSON Web Key (JWK) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high-level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions from the specification:
 
-Item 	Description
-JSON Web Key (JWK) 	A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
-JSON Web Key Set (JWKS) 	A JSON object that represents a set of JWKs. The JSON object MUST have a keys member, which is an array of JWKs.
+| Item                    | Description                                                                                                                        |
+| JSON Web Key (JWK)      | A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value. |
+| JSON Web Key Set (JWKS) | A JSON object that represents a set of JWKs. The JSON object MUST have a keys member, which is an array of JWKs.                   |
 
 Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DOMAIN/.well-known/jwks.json. This endpoint will contain the JWK used to sign all Auth0-issued JWTs for this tenant.
+
 ** LDAP
 *** object class
 **** inetOrgPerson
@@ -1058,6 +1115,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - This is good because obsolete certificates can be better identified.
 :END:
 ** TODO Illumio Security
+** TODO DEVSECOPS
 
 * WIP Languages & programming                                        :DOMAIN:
 :PROPERTIES:
@@ -1398,14 +1456,13 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** JMS
  
 ** TODO Python
-
 ** TODO JS on a backend
 *** TODO NodeJS                                                     :TOPIC:
 ** TODO JS environment
-***  npm
+*** npm
 *** yarn
 *** nvm
-*** popular libraries
+*** Name soem popular libraries?
 
 ** Language theory                                                   :TOPIC:
 *** Garbage Collector
@@ -1417,21 +1474,21 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :CUSTOM_ID: QUALITY
 :END:
-** Blue green deployment
-** AB testing
-** Code coverage
-** Cyclomatic complexity                                           :TOPIC:
-** Code quality                                                    :TOPIC:
-** Antifragile architecture
-** Unit testing
-* WIP Code of Conduct                                                :DOMAIN:
+** TODO Blue green deployment
+** TODO AB testing
+** TODO Code coverage
+** TODO Cyclomatic complexity                                        :TOPIC:
+** TODO Code quality                                                 :TOPIC:
+** TODO Unit testing
+* WIP Core Values                                                    :DOMAIN:
 :PROPERTIES:
-:CUSTOM_ID: CODE_OF_CONDUCT
+:CUSTOM_ID: CORE_VALUES
 :END:
 The moral aspect
-** SW developer responsibility
+** TODO Code of Conduct                                                :TOPIC:
+** WIP SW developer responsibility                                   :TOPIC:
 - finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
-- 
+  - 
 * WIP Information Sources                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
