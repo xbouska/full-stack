@@ -53,7 +53,7 @@
 ** Formats
 *** yaml
 :PROPERTIES:
-:learning: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
+:learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
 :END:
 *** json
 *** xml
@@ -168,7 +168,7 @@ Consider following status codes:
 ** TODO 3Factor Apps
 ** WIP OpenApiSpec / Open API 3.0 / Swagger 
 :PROPERTIES:
-:learning: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
+:learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
 :END:
 *** What Is OpenAPI?
 :ANSWER:
@@ -238,7 +238,7 @@ Consider following status codes:
 **** What ORM (object-relational-mapping ) means                :QUESTION:
 **** What is object relation impedance mismatch                 :QUESTION:
 :PROPERTIES:
-:learning: https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch
+:learning_1: https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch
 :END:
 :ANSWER:
 - The object-relational impedance mismatch is a set of conceptual and technical difficulties that are often encountered when a relational database management system (RDBMS) is being served by an application program (or multiple application programs) written in an object-oriented programming language or style.
@@ -249,7 +249,7 @@ Consider following status codes:
 **** meet in the middle                                         :QUESTION:
 *** CAP theorem
 :PROPERTIES:
-:learning: https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e
+:learning_1: https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e
 :END:
 :ANSWER:
 - CAP Theorem is a concept that a distributed database system can only have 2 of the 3: Consistency, Availability and Partition Tolerance.
@@ -257,7 +257,7 @@ Consider following status codes:
 :END:
 **** Beyond CAP database systems
 :PROPERTIES:
-:learning: http://www.grokkingsystemdesigns.com/beyond-cap-theorem/
+:learning_1: http://www.grokkingsystemdesigns.com/beyond-cap-theorem/
 :END:
 *** Wall: Write Ahead Logs
 **** what it is good for
@@ -356,7 +356,7 @@ Consider following status codes:
 ** WIP Distributed consensus: 
 *** Paxos                                                           :TOPIC:
 :PROPERTIES:
-:learning: https://en.wikipedia.org/wiki/Paxos_(computer_science)
+:learning_1: https://en.wikipedia.org/wiki/Paxos_(computer_science)
 :END:
 - Paxos is a family of protocols for solving consensus in a network of unreliable or fallible processors. Consensus is the process of agreeing on one result among a group of participants. This problem becomes difficult when the participants or their communications may experience failures.[1]
 
@@ -535,7 +535,7 @@ Consider following status codes:
 *** TODO iam
 *** WIP aim:service accounts
 :PROPERTIES:
-:learning: https://cloud.google.com/iam/docs/understanding-service-accounts
+:learning_1: https://cloud.google.com/iam/docs/understanding-service-accounts
 :END:
 - A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
 - Typically, service accounts are used in scenarios such as:
@@ -560,7 +560,7 @@ Consider following status codes:
 **** what it is good for
 *** WIP MinIO Object Storage
 :PROPERTIES:
-:learning: https://min.io/product/overview
+:learning_1: https://min.io/product/overview
 :END:
 * WIP DEVOPS / SRE                                                   :DOMAIN:
 :PROPERTIES:
@@ -622,7 +622,7 @@ Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALM
 ** Tools
 *** DNS
 :PROPERTIES:
-:learning: https://www.freshersemploy.com/dns-interview-questions-answers/
+:learning_1: https://www.freshersemploy.com/dns-interview-questions-answers/
 :END:
 **** What is DNS?
 - Domain Name Systems(DNS) maps domain names with Internet Protocol(IP) address, thus helping computer for translating human-readable(domain name) to machine-readable language(IP address).
@@ -800,8 +800,8 @@ From Git’s perspective, there are three areas where the file changes can be ke
 **** What is a service                                          :QUESTION:
 **** What are network policies?                                 :QUESTION:
 :PROPERTIES:
-:learning: https://github.com/ahmetb/kubernetes-network-policy-recipes
-:learning: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
+:learning_1: https://github.com/ahmetb/kubernetes-network-policy-recipes
+:learning_1: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
 :END:
 :ANSWER:
 - firewall on the  pod level
@@ -890,8 +890,8 @@ example: matchLabels:{}
 **** how to create trust between computers
 *** awk 
 :PROPERTIES:
-:learning: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
-:learning: https://linuxhint.com/20_awk_examples/
+:learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
+:learning_1: https://linuxhint.com/20_awk_examples/
 :END:
 *** sed 
 *** grep 
@@ -990,13 +990,27 @@ Target to a link:
 *** Sass
 *** CORS
 :PROPERTIES:
-:learning: https://www.codecademy.com/articles/what-is-cors
+:learning_1: https://www.codecademy.com/articles/what-is-cors
+:learning_2: https://dev.to/ahmedatefae/web-security-knowledge-you-must-understand-it-part-i-https-tls-ssl-cors-csp-298l
 :END:
-**** why is CORS necessary?                                     :QUESTION:
+**** what is CORS                                               :QUESTION:
+:ANSWER:
+- Cross-Origin Resource Sharing (CORS) is a mechanism that uses HTTP headers to specify:
+  - which outer origin have access to the local assets and
+  - how can access it
+  - that is mean we can make a white list for the allowed Cross-Origins that has access to our assets.
+:END:
+**** How CORS works?                                            :QUESTION:
+:ANSWER:
+- when the site makes a get request to get resource from the out server, the browser adds a header that contains the origin like the example Origin: http://www.example.com.
+- The server receives the preflight request and searches in its white-list for Access-Control-Allow-Origins about the giving origin and sends to the browser option call, then the browser will determine if the actual request is safe to send or not, example Access-Control-Allow-Origin: http://www.example.com or this header Access-Control-Allow-Origin: * will allow any request to take the resource.
+- if the server specifies the Methods it will compare the request method with its example Access-Control-Allow-Methods: PUT, DELETE.
+:END:
+**** Why is CORS necessary?                                     :QUESTION:
 **** How Does CORS Manage Requests From External Resources?     :QUESTION:
 **** What http headers were added by CORS?                      :QUESTION:
 :ANSWER:
-#+begin_src html
+#+begin_src
 Access-Control-Allow-Origin
 Access-Control-Allow-Credentials
 Access-Control-Allow-Headers
@@ -1008,6 +1022,24 @@ Access-Control-Request-Method
 Origin
 #+end_src
 :END:
+*** WIP Content Security Policy (CSP)
+:PROPERTIES:
+:learning_1: https://dev.to/ahmedatefae/web-security-knowledge-you-must-understand-it-part-i-https-tls-ssl-cors-csp-298l
+:END:
+- Content Security Policy is more security layer that helps in detect and mitigate different sort of militias attacks like (Cross-Site Scripting (XSS), data injection attacks, ClickJacking, ETC...).
+  - *Cross-Site Scripting (XSS)*: it a vulnerability that allows the hacker to inject a militias code in the base website and it is for making the client execute it to take sensitive data like cookies, session’s info and site-specific information, That happens because web app does not use enough validation or encoding, The user’s browser cannot detect the malicious script is untrustworthy.
+  - *data injection attacks*: is a malicious code injected in the network which fetched all the information from the database to the attacker and the number one type of it is the SQL injection.
+  - *Click Jacking*: or “*UI redress attack*” is when an attacker tricks a user into clicking on a button or link on another page that uses multiple transparent or opaque layers when he intended to click on the top-level.
+**** How CSP works?
+- it use Directives concept that’s every Directive have to specify where resources can load from, preventing browsers from loading data from any other locations.
+- Most used Directives are:
+  - default-src: the default policy for loading (JavaScript, images, CSS, AJAX requests, ETC...) example ~default-src ‘self’ cdn.example.com;~
+  - img-src: defines sources for images example ~img-src ‘self’ img.example.com;~
+  - style-src: defines sources for CSS files example ~style-src ‘self’ css.example.com;~
+  - script-src: defines sources for JavaScript files example ~script-src ‘self’ js.example.com;~
+  - connect-src: defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource, If it makes any connections to a host, that’s not allowed here, the browser will respond with a 400 error example ~connect-src ‘self’;~
+  - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
+
 ** The Elm Architecture (TEA)
 * WIP Security                                                       :DOMAIN:
 :PROPERTIES:
@@ -1053,7 +1085,7 @@ and the authorization server uses the Scope parameter to respond with the access
 :END:
 ** JWT
 :PROPERTIES:
-:learning:    https://tools.ietf.org/html/rfc7519
+:learning_1:    https://tools.ietf.org/html/rfc7519
 :END:
 *** What are the registered claim names?                        :QUESTION:
 *** What is registered claim name "iss" (Issuer) Claim?          :QUESTION:
@@ -1142,7 +1174,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** CN, DN, SN,
 ** OWASP top 10 2017
 :PROPERTIES:
-:learning: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+:learning_1: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
 :END:
 *** A1:2017-Injection
 *** A2:2017-Broken Authentication
@@ -1158,7 +1190,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
-:learning:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
+:learning_1:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
 :END:
 **** RSA
 **** AES
@@ -1169,7 +1201,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** asymetricka sifra
 *** HMAC
 :PROPERTIES:
-:learning: https://en.wikipedia.org/wiki/HMAC
+:learning_1: https://en.wikipedia.org/wiki/HMAC
 :END:
 :ANSWER:
 - In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. 
@@ -1178,7 +1210,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 
 *** RS256 vs HS256: What's the difference?
 :PROPERTIES:
-:learning: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+:learning_1: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
 :END:
 :ANSWER:
 - Both choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
