@@ -425,6 +425,7 @@ Consider following status codes:
 - This removes the time lag for the user to log into his database.
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
+**** TODO psql
 *** ORACLE:
 :ANSWER:
 - READ COMMITTED (the default)
@@ -1580,16 +1581,22 @@ The moral aspect
 :CUSTOM_ID: BIG_NAMES
 :END:
 - whom to follow
-** TODO Bartosz MILEWSKI
+** TODO Bartosz Milewski
 ** TODO Venkat Subramaniam
-** TODO Trisha GEE
-** TODO Kevlin HENNEY
-** TODO Brian GOETZ
+** TODO Trisha Gee
+** TODO Kevlin Henney
+** TODO Brian Goetz
 ** TODO Troy HUNT
-** TODO Scott MEYERS
+** TODO Scott Meyers
 ** TODO Erik Meijer
 ** TODO Edward Kmett
 ** TODO Chris Allen
+** TODO Martin Fowller
+** TODO Martin Kleppmann 
+:PROPERTIES:
+:book:     https://dataintensive.net/
+:END:
+- Book: Designing data intensive applications
 * TODO To integrate :NO_EXPORT:
 - gcloud
 - tiller
