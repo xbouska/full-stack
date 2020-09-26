@@ -219,14 +219,14 @@ Consider following status codes:
 :CUSTOM_ID: DATA
 :END:
 ** WIP background                                                    :TOPIC:
-*** What does ACID ti mean?                                      :QUESTION:
+*** What does ACID mean?                                      :QUESTION:
 :ANSWER:
 - atomicity
 - consistency
 - isolation
 - durability
 :END:
-*** BASE
+*** WIP BASE
 **** what does it mean?                                         :QUESTION:
 :ANSWER:
 - Basic Availability
@@ -234,25 +234,41 @@ Consider following status codes:
 - Eventual consistency
 :END:
 *** ORM
-**** what ORM (object-relational-mapping ) means                :QUESTION:
+**** What ORM (object-relational-mapping ) means                :QUESTION:
 **** What is object relation impedance mismatch                 :QUESTION:
 :PROPERTIES:
 :learning: https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch
 :END:
 :ANSWER:
-- The object-relational impedance mismatch is a set of conceptual and technical difficulties that are often encountered when a relational database management system (RDBMS) is being served by an application program (or multiple application programs) written in an object-oriented programming language or style, particularly because objects or class definitions must be mapped to database tables defined by a relational schema.
+- The object-relational impedance mismatch is a set of conceptual and technical difficulties that are often encountered when a relational database management system (RDBMS) is being served by an application program (or multiple application programs) written in an object-oriented programming language or style.
+- particularly because objects or class definitions must be mapped to database tables defined by a relational schema.
 :END:
 **** bottom up                                                  :QUESTION:
 **** tom down                                                   :QUESTION:
 **** meet in the middle                                         :QUESTION:
 *** CAP theorem
+:PROPERTIES:
+:learning: https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e
+:END:
+:ANSWER:
+- CAP Theorem is a concept that a distributed database system can only have 2 of the 3: Consistency, Availability and Partition Tolerance.
+- CAP Theorem is very important in the Big Data world, especially when we need to make trade off's between the three, based on our unique use case.
+:END:
 **** Beyond CAP database systems
+:PROPERTIES:
+:learning: http://www.grokkingsystemdesigns.com/beyond-cap-theorem/
+:END:
 *** Wall: Write Ahead Logs
 **** what it is good for
 *** eventual consistency
 *** Multi master replication
-*** OLAP vs OLTP
-*** slowly moving dimensions
+*** OLAP
+#+BEGIN_NOTE
+- OnLine Transactional Processing
+#+END_NOTE
+*** OLTP
+- OnLine Analytical Processing
+*** Slowly Moving Dimensions
 **** What is it?                                                :QUESTION:
 :ANSWER:
 - Type 0 - The passive method
@@ -502,25 +518,40 @@ Consider following status codes:
 *** AWS Wavelength
 - AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
 ** GCP Services                                                      :TOPIC:
-*** bigquery
-*** composer
-*** dataflow
-*** firestore
-*** automl
-*** dataproc
-*** secretmanager
-*** pubsub
-
-** FINOPS
+*** TODO bigquery
+*** TODO composer
+*** TODO dataflow
+*** TODO firestore
+*** TODO automl
+*** TODO dataproc
+*** TODO secretmanager
+*** TODO pubsub
+*** TODO iam
+*** WIP aim:service accounts
+:PROPERTIES:
+:learning: https://cloud.google.com/iam/docs/understanding-service-accounts
+:END:
+- A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
+- Typically, service accounts are used in scenarios such as:
+  - Running workloads on virtual machines (VMs).
+  - Running workloads on on-premises workstations or data centers that call Google APIs.
+  - Running workloads which are not tied to the lifecycle of a human user.
+- Your application assumes the identity of the service account to call Google APIs, so that the users aren't directly involved.
+** FINOPS                                                            :TOPIC:
+*** GCP Cost Model
+*** AWS Cost Model
 *** data at rest cost
 *** transfer cost
-*** cpu cost
-** storage:
-*** S3
+*** CPU cost
+** Storage:
+*** AWS S3
 *** GCS bucket
 **** api
 **** what it is good for
-*** MinIO Object Storage
+*** WIP MinIO Object Storage
+:PROPERTIES:
+:learning: https://min.io/product/overview
+:END:
 * WIP DEVOPS / SRE                                                   :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
@@ -845,8 +876,17 @@ example: matchLabels:{}
 *** systemd
 *** snap
 *** apt
-*** ssh how to create trust between computers
-*** awk / sed / grep / bash / tail / head
+*** ssh 
+**** how to create trust between computers
+*** awk 
+:PROPERTIES:
+:learning: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
+:learning: https://linuxhint.com/20_awk_examples/
+:END:
+*** sed 
+*** grep 
+*** tail
+*** head
 *** rsync
 *** mount
 *** ls / ps / htop
@@ -862,7 +902,7 @@ example: matchLabels:{}
 *** file types: 
 **** block device
 **** character device
-**** /named pipe
+**** named pipe
 **** symlink
 *** etc/nsswitch./conf
 *** etc/resolv.conf
@@ -1073,13 +1113,11 @@ and the authorization server uses the Scope parameter to respond with the access
 :PROPERTIES:
 :lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
 :END:
-- JSON Web Key Sets
-
-- The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
-
-- When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: RS256 and HS256. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
-
-- Auth0 uses the JSON Web Key (JWK) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high-level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions from the specification:
+- JSON Web Key Sets:
+  - The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
+  - When creating applications and APIs in Auth0, two algorithms are supported for signing JWTs: RS256 and HS256.
+    - RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
+  - Auth0 uses the JSON Web Key (JWK) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high-level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions from the specification:
 
 | Item                    | Description                                                                                                                        |
 | JSON Web Key (JWK)      | A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value. |
@@ -1093,6 +1131,9 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** OID
 *** CN, DN, SN,
 ** OWASP top 10 2017
+:PROPERTIES:
+:learning: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+:END:
 *** A1:2017-Injection
 *** A2:2017-Broken Authentication
 *** A3:2017-Sensitive Data Exposure
@@ -1103,18 +1144,35 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** A8:2017-Insecure Deserialization
 *** A9:2017-Using Components with Known Vulnerabilities
 *** A10:2017-Insufficient Logging & Monitoring
-** Ciphers
+** Crypto
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
 :learning:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
 :END:
+**** RSA
 **** AES
 **** DES
 *** Hash
 ***** base64
 *** symetricka sifra
 *** asymetricka sifra
+*** RS256 vs HS256: What's the difference?
+:PROPERTIES:
+:learning: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+:END:
+:ANSWER:
+- Both choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
+  - *RS256 (RSA Signature with SHA-256)* is an asymmetric algorithm, and it uses a public/private key pair: the identity provider has a private (secret) key used to generate the signature, and the consumer of the JWT gets a public key to validate the signature. Since the public key, as opposed to the private key, doesn't need to be kept secured, most identity providers make it easily available for consumers to obtain and use (usually through a metadata URL).
+  - *HS256 (HMAC with SHA-256)*, on the other hand, involves a combination of a hashing function and one (secret) key that is shared between the two parties used to generate the hash that will serve as the signature. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised.
+- If you will be developing the application consuming the JWTs, you can safely use HS256, because you will have control on who uses the secret keys. If, on the other hand, you don't have control over the client, or you have no way of securing a secret key, RS256 will be a better fit, since the consumer only needs to know the public (shared) key.
+- Since the public key is usually made available from metadata endpoints, clients can be programmed to retrieve the public key automatically. If this is the case (as it is with the .Net Core libraries), you will have less work to do on configuration (the libraries will fetch the public key from the server). Symmetric keys, on the other hand, need to be exchanged out of band (ensuring a secure communication channel), and manually updated if there is a signing key rollover.
+- Auth0 provides metadata endpoints for the OIDC, SAML and WS-Fed protocols, where the public keys can be retrieved. You can see those endpoints under the "Advanced Settings" of a client.
+- The OIDC metadata endpoint, for example, takes the form of https://{account domain}/.well-known/openid-configuration.
+  - If you browse to that URL, you will see a JSON object with a reference to https://{account domain}/.well-known/jwks.json, which contains the public key (or keys) of the account.
+- If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
+:END:
+
 ** bastillion.io
 ** PKI
 ** X509
@@ -1287,11 +1345,11 @@ try {
       e.printStackTrace();
   }
 #+end_src
-**** JPA
-**** Generics
-**** Java 9 - project jigsaw
-**** QueryDSL
-**** Maven
+**** TODO JPA
+**** TODO Generics
+**** TODO Java 9 - project jigsaw
+**** TODO QueryDSL
+**** WIP Maven
 ***** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>? :QUESTION:
 :ANSWER:
 - dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
@@ -1305,7 +1363,7 @@ try {
 - Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
 - Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 :END:
-**** Gradle
+**** TODO Gradle
 *** Spring & Spring Boot
 :PROPERTIES:
 :lerning:  https://www.baeldung.com/spring-interview-questions
@@ -1527,15 +1585,14 @@ The moral aspect
 - gcloud
 - tiller
 - psql
-- gcp service account
+
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
 - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 - https://www.softwaretestinghelp.com/git-interview-questions/
 - https://iqsanswers.com/postgresql-interview-questions-answers/
-- https://min.io/product/overview
-- https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/#:~:text=The%20main%20difference%20between%20entities,while%20value%20objects%20don't.
+- https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
 - https://ahmet.im/blog/knative-better-kubernetes-networking/
 - https://github.com/ahmetb/kubernetes-network-policy-recipes
 - https://ahmet.im/blog/kubecon-2017/
@@ -1578,15 +1635,13 @@ The moral aspect
 - https://dzone.com/articles/choosing-the-right-gc
 - https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
 - https://en.wikipedia.org/wiki/IETF_language_tag#cite_note-8
-- https://stackoverflow.com/questions/43535693/private-ios-app#:~:text=It%20is%20intended%20for%20employees,Enterprise%20License%20at%20a%20time.
+- https://stackoverflow.com/questions/43535693/private-ios-app
 - https://emacs.christianbaeuerlein.com/my-org-config.html
 - https://www.typescriptlang.org/docs/handbook/advanced-types.html
 - https://cloud.google.com/logging
 - https://kubernetes.io/docs/tutorials/#services
 - https://kubernetes.io/docs/concepts/services-networking/service/
 - https://examples.yourdictionary.com/examples-of-hindsight-bias.html
-- https://blog.sonatype.com/principle-based-devops-frameworks-calms
-- https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 - https://guides.sonatype.com/foundations/devops/principle-based-devops-frameworks/
 - https://aws.amazon.com/getting-started/learning-path-hobbyist-developer/
 - https://blog.sonatype.com/2010/04/why-nexus-for-the-non-programmer/
@@ -1596,9 +1651,7 @@ The moral aspect
 - https://www.dmarcanalyzer.com/dmarc/
 - https://www.dmarcanalyzer.com/spf/
 - https://www.npmjs.com/package/@dynatrace/react-native-plugin
-- https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
 - https://astrobiomike.github.io/unix/six-glorious-commands
-- https://linuxhint.com/20_awk_examples/
 - https://docs.ksqldb.io/en/latest/developer-guide/syntax-reference/
 - https://tapoueh.org/blog/2018/07/postgresql-listen-notify/
 - https://editor.swagger.io/
@@ -1615,11 +1668,12 @@ The moral aspect
 - https://www.journaldev.com/2763/java-8-functional-interfaces
 - https://www.journaldev.com/592/java-try-with-resources
 - https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
-- https://brandur.org/oauth-scope
 - https://tools.ietf.org/html/rfc6749#section-3.3
 - https://www.oauth.com/oauth2-servers/scope/defining-scopes/
 - https://docs.apigee.com/api-platform/security/oauth/working-scopes
-- https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1https://oauth.net/2/scope/#:~:text=OAuth%20Scopes&text=Scope%20is%20a%20mechanism%20in,limited%20to%20the%20scopes%20granted.
+- https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1
+- https://brandur.org/oauth-scope
+- https://oauth.net/2/scope/
 - https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://cloudinit.readthedocs.io/en/latest/topics/availability.html
 - https://en.wikipedia.org/wiki/ACID
@@ -1642,33 +1696,16 @@ The moral aspect
 - https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes
 - https://aws.amazon.com/ec2/instance-types/
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
-- https://martinfowler.com/articles/evodb.html
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
-- https://github.com/IdentityModel/oidc-client-js
 - https://aws.amazon.com/cli/
-- https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+- https://martinfowler.com/articles/evodb.html
+- https://github.com/IdentityModel/oidc-client-js
 - https://www.baeldung.com/java-equals-hashcode-contracts
 - https://gethue.com/
 - https://en.wikipedia.org/wiki/Apache_Hadoop
 - https://spark.apache.org/
 - https://hive.apache.org/
 - https://hbase.apache.org/
-- 
-- https://hbase.apache.org/
-- https://hbase.apache.org/
-- https://hbase.apache.org/
-- https://hbase.apache.org/
-- https://hbase.apache.org/
-- https://hbase.apache.org/
-- 
-- 
-- 
-* 
-* 
-* 
-- 
-- 
-- 
 - 
 - 
 - 
