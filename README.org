@@ -982,7 +982,20 @@ Target to a link:
 :PROPERTIES:
 :lerning:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
 :END:
-*** WIP Cookies / SameSite
+**** types of cookies
+:ANSWER:
+- Two Types of Cookies
+- *Session cookies*
+  - do not contain an expiration date. Instead, they are stored only as long as the browser or tab is open. As soon as the browser is closed, they are permanently lost.
+  - This type of cookie might be used to store a banking user’s credentials while they are navigating within their bank’s website since their information would be forgotten as soon as the tab is closed.
+- *Persistent cookies*
+  - do have an expiration date.
+  - These cookies are stored on the user’s disk until the expiration date and then permanently deleted.
+  - They can be used for other activities such as recording a user’s habits while on a particular website in order to customize their experience every time they visit.
+:END:
+
+*** TODO Local Storage                                              :TOPIC:
+*** WIP Cookies / SameSite                                          :TOPIC:
 :PROPERTIES:
 :lerning:  https://web.dev/samesite-cookies-explained/
 :END:
