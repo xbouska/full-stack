@@ -1157,6 +1157,15 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 ***** base64
 *** symetricka sifra
 *** asymetricka sifra
+*** HMAC
+:PROPERTIES:
+:learning: https://en.wikipedia.org/wiki/HMAC
+:END:
+:ANSWER:
+- In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. 
+- As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message. 
+:END:
+
 *** RS256 vs HS256: What's the difference?
 :PROPERTIES:
 :learning: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
@@ -1589,10 +1598,10 @@ The moral aspect
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
-- https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 - https://www.softwaretestinghelp.com/git-interview-questions/
 - https://iqsanswers.com/postgresql-interview-questions-answers/
 - https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
+- https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 - https://ahmet.im/blog/knative-better-kubernetes-networking/
 - https://github.com/ahmetb/kubernetes-network-policy-recipes
 - https://ahmet.im/blog/kubecon-2017/
