@@ -169,6 +169,7 @@ Consider following status codes:
 ** WIP OpenApiSpec / Open API 3.0 / Swagger 
 :PROPERTIES:
 :learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
+:learning_2: https://editor.swagger.io/
 :END:
 *** What Is OpenAPI?
 :ANSWER:
@@ -221,6 +222,9 @@ Consider following status codes:
 :END:
 ** WIP background                                                    :TOPIC:
 *** What does ACID mean?                                      :QUESTION:
+:PROPERTIES:
+:learning_1: - https://en.wikipedia.org/wiki/ACID
+:END:
 :ANSWER:
 - atomicity
 - consistency
@@ -435,8 +439,16 @@ Consider following status codes:
 :END:
 *** Big Table
 *** Big Query
+:PROPERTIES:
+:learning_1: https://cloud.google.com/files/BigQueryTechnicalWP.pdf
+:learning_2: https://cloud.google.com/bigquery/streaming-data-into-bigquery
+:END:
 *** Elastic Search
 **** Bloom Filter
+*** Atlas MongoDB
+:PROPERTIES:
+:learning_1: https://www.mongodb.com/cloud/atlas
+:END:
 *** MongoDB
 *** Liquibase
 - open source
@@ -453,6 +465,63 @@ Consider following status codes:
 - *Active Everywhere / Zero-Downtime:* Since every Cassandra node is capable of performing read and write operations, data is quickly replicated across hybrid cloud environments and geographies. In the event a node fails, users are automatically routed to the nearest healthy node. They won’t even notice that a node has been knocked offline because applications behave as designed even in the event of failure. As a result, applications are always available and data is always accessible and never lost. What’s more, Cassandra’s built-in repair services fix problems immediately after they occur—without any manual intervention. Productivity doesn’t even need to take a hit should nodes fail.
 - *Scalability:* In traditional environments, scaling applications is a time-consuming and costly process typically accomplished by scaling vertically with more expensive machines. Cassandra enables you to scale horizontally by simply adding more nodes to the cluster. If, for example, four nodes can handle 200,000 transactions/second, eight nodes will be able to handle 400,000 transactions/second. (source)
 - *Seamless Replication:* Today’s leading enterprises are increasingly moving to multi-data center, hybrid cloud and even multi-cloud deployments to take advantage of the strengths of various deployments without getting locked into any single provider’s ecosystem. Getting the most out of multi-cloud environments, however, starts with having an underlying cloud database that offers: scalability, security, performance, and availability. For these reasons, it should come as no surprise that the cloud database market is expected to grow nearly 65% each year and reach $68.9 billion by 2022.
+*** WIP Apache Pig 
+- is a high-level platform for creating programs that run on Apache Hadoop.
+- The language for this platform is called Pig Latin.[1]
+- Pig can execute its Hadoop jobs in MapReduce, Apache Tez, or Apache Spark.[2]
+- Pig Latin abstracts the programming from the Java MapReduce idiom into a notation which makes MapReduce programming high level, similar to that of SQL for relational database management systems.
+- Pig Latin can be extended using user-defined functions (UDFs) which the user can write in Java, Python, JavaScript, Ruby or Groovy[3] and then call directly from the language.
+*** WIP Sparc
+:PROPERTIES:
+:learning_1: https://spark.apache.org/
+:END:
+- Apache Spark™ is a unified analytics engine for large-scale data processing.
+- Runs Everywhere:
+  - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
+  - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
+
+*** Hadoop
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Apache_Hadoop
+:END:
+*** hue
+:PROPERTIES:
+:learning_1: https://gethue.com/
+:END:
+*** Hive
+:PROPERTIES:
+:learning_1: https://hive.apache.org/
+:END:
+*** HBase
+:PROPERTIES:
+:learning_1: https://hbase.apache.org/
+:END:
+*** WIP Apache Parquet  
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Apache_Parquet
+:END:
+- free and open-source column-oriented data storage format of the Apache Hadoop ecosystem.
+- It is similar to the other columnar-storage file formats available in Hadoop namely RCFile and ORC.
+- It is compatible with most of the data processing frameworks in the Hadoop environment.
+- It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
+*** WIP Apache Avro
+:PROPERTIES:
+:learning_1: avro.apache.org
+:END:
+- Avro is a row-oriented remote procedure call and data serialization framework developed within Apache's Hadoop project.
+- It uses JSON for defining data types and protocols, and serializes data in a compact binary format.
+- Its primary use is in Apache Hadoop, where it can provide both a serialization format for persistent data, and a wire format for communication between Hadoop nodes, and from client programs to the Hadoop services.
+- Avro uses a schema to structure the data that is being encoded.
+- It has two different types of schema languages; one for human editing (Avro IDL) and another which is more machine-readable based on JSON.[3]
+- It is similar to Thrift and Protocol Buffers, but does not require running a code-generation program when a schema changes (unless desired for statically-typed languages).
+- 
+*** WIP Apache ORC (Optimized Row Columnar) 
+- is a free and open-source column-oriented data storage format of the Apache Hadoop ecosystem.
+- It is similar to the other columnar-storage file formats available in the Hadoop ecosystem such as RCFile and Parquet.
+- It is compatible with most of the data processing frameworks in the Hadoop environment.
+- In February 2013, the Optimized Row Columnar (ORC) file format was announced by Hortonworks in collaboration with Facebook.[3]
+- A month later, the Apache Parquet format was announced, developed by Cloudera and Twitter.[4] 
+
 * WIP Methodology                                                    :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: METHODOLOGY
@@ -1262,23 +1331,27 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - applying functions to their arguments;
 **** η-reduction
 - which captures a notion of extensionality.
+*** Immutability                                                    :TOPIC:
+**** Persistent data structure (Chris Okasaki)
+*** TODO Algebraic Data Types
 *** Patterns
-**** Monoid
-**** Functor
-**** Applicative
-**** Monad
-**** Kleisli Functor
-**** Optics
+**** TODO Monoid
+**** TODO Functor
+**** TODO Pro Functor
+**** TODO Applicative
+**** TODO Monad
+**** TODO Kleisli Operator
+**** TODO Free Monad
+**** TODO fix
+**** TODO Optics
 ***** Lenses
 ***** Prisms
-**** Recursion Schemes
-***** catamorphisms
-***** anamorphisms
-***** hylomorphisms
-***** paramorphisms
+*** TODO Recursion Schemes
+**** catamorphisms
+**** anamorphisms
+**** hylomorphisms
+**** paramorphisms
 
-***** Persistent data structure - Chris Okasaki
-**** Immutability                                                  :TOPIC:
 ** Object Oriented Programming                                      :TOPIC:
 *** Polymorphism
 *** Gof Design Patterns
@@ -1296,6 +1369,10 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** observables
 *** RxJS
 *** JS modular system
+*** The Mostly Adequate Guide to Functional Programming
+:PROPERTIES:
+:learning_1: https://github.com/MostlyAdequate/mostly-adequate-guide
+:END:
 ** TypeScript                                                        :TOPIC:
 ** Babel
 ** Java                                                              :TOPIC:
@@ -1636,65 +1713,55 @@ The moral aspect
 :CUSTOM_ID: BIG_NAMES
 :END:
 - whom to follow
-** TODO Bartosz Milewski
-** TODO Venkat Subramaniam
-** TODO Trisha Gee
-** TODO Kevlin Henney
-** TODO Brian Goetz
+** TODO Bartosz MILEWSKI
+** TODO Venkat SUBRAMANIAM
+** TODO Trisha GEE
+** TODO Kevlin HENNEY
+** TODO Brian GOETZ
 ** TODO Troy HUNT
-** TODO Scott Meyers
-** TODO Erik Meijer
-** TODO Edward Kmett
-** TODO Chris Allen
-** TODO Martin Fowller
-** TODO Martin Kleppmann 
+** TODO Scott MEYERS
+** TODO Erik MEIJER
+** TODO Edward KMETT
+** TODO Chris ALLEN
+** TODO Martin FOWLLER
+** TODO Martin KLEPPMANN 
 :PROPERTIES:
 :book:     https://dataintensive.net/
 :END:
 - Book: Designing data intensive applications
+** TODO Brian LONSDORF
+- https://twitter.com/drboolean
+- https://github.com/DrBoolean
+- https://egghead.io/instructors/brian-lonsdorf
 * TODO To integrate :no_export:
 
-- tiller
 
+** other
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
 - https://www.softwaretestinghelp.com/git-interview-questions/
 - https://iqsanswers.com/postgresql-interview-questions-answers/
 - https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
+- https://www.illumio.com/
+** kubernetes
+- tiller
 - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 - https://ahmet.im/blog/knative-better-kubernetes-networking/
 - https://github.com/ahmetb/kubernetes-network-policy-recipes
 - https://ahmet.im/blog/kubecon-2017/
-- https://www.illumio.com/
+- https://kubernetes.io/docs/tutorials/#services
+- https://kubernetes.io/docs/concepts/services-networking/service/
+** Java
 - https://micronaut.io/
-- https://docs.solace.com/SDKPerf/SDKPerf.htm
 - https://github.com/mjoellnier/micronaut-vs-quarkus
 - https://github.com/quarkusio/quarkus
 - https://java.libhunt.com/
+- https://docs.solace.com/SDKPerf/SDKPerf.htm
 - https://architectelevator.com/book/
 - https://www.enterpriseintegrationpatterns.com/ramblings.html
-- https://www.simultrans.com/blog/what-are-.po-files
-- https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
-- https://docs.weblate.org/en/latest/admin/addons.html?highlight=.po#update-po-files-to-match-pot-msgmerge
-- http://www.chschneider.org/linux/server/openldap.shtml
-- https://medium.com/@raghu.icecraft/simple-working-with-ldapsearch-cf6a5986977
-- https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
 - https://adoptopenjdk.net/
 - https://quarkus.io/
-- https://github.com/vaquarkhan/vaquarkhan
-- https://java.libhunt.com/
-- https://hub.docker.com/r/jboss/keycloak/
-- https://docs.nats.io/
-- https://github.com/nkatre/Free-DevOps-Books-1
-- https://openid.net/2015/05/26/enhancing-oauth-security-for-mobile-applications-with-pkse/
-- https://en.wikipedia.org/wiki/Apache_Drill
-- https://cloud.google.com/files/BigQueryTechnicalWP.pdf
-- https://cloud.google.com/bigquery/streaming-data-into-bigquery
-- https://cilium.io/
-- https://medium.com/@ruxijitianu/database-version-control-liquibase-versus-flyway-9872d43ee5a4
-- https://insights.stackoverflow.com/survey/2020#developer-profile
-- https://ldapwiki.com/wiki/Acr_values
 - https://www.udemy.com/course/spring-interview-questions-and-answers/
 - https://www.edureka.co/blog/interview-questions/spring-boot-interview-questions/
 - https://en.wikipedia.org/wiki/Comparison_of_Java_virtual_machines
@@ -1703,14 +1770,45 @@ The moral aspect
 - https://en.wikipedia.org/wiki/GraalVM
 - https://en.wikipedia.org/wiki/List_of_Java_virtual_machines
 - https://dzone.com/articles/choosing-the-right-gc
-- https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
+- https://docs.oracle.com/javaee/6/tutorial/doc/giwhl.html
+- https://weld.cdi-spec.org/
+- https://www.journaldev.com/2763/java-8-functional-interfaces
+- https://www.journaldev.com/592/java-try-with-resources
+- https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
+- https://www.baeldung.com/java-equals-hashcode-contracts
+- https://www.javatpoint.com/html-interview-questions
+** i18n
+- https://www.simultrans.com/blog/what-are-.po-files
+- https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
+- https://docs.weblate.org/en/latest/admin/addons.html
 - https://en.wikipedia.org/wiki/IETF_language_tag#cite_note-8
+** ldap
+- http://www.chschneider.org/linux/server/openldap.shtml
+- https://medium.com/@raghu.icecraft/simple-working-with-ldapsearch-cf6a5986977
+- https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
+** oidc
+- https://hub.docker.com/r/jboss/keycloak/
+- https://openid.net/2015/05/26/enhancing-oauth-security-for-mobile-applications-with-pkse/
+- https://github.com/vaquarkhan/vaquarkhan
+- https://docs.apigee.com/api-platform/security/oauth/working-scopes
+- https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1
+- https://brandur.org/oauth-scope
+- https://oauth.net/2/scope/
+- https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
+- https://github.com/IdentityModel/oidc-client-js
+** unsorted
+- https://docs.nats.io/
+- https://github.com/nkatre/Free-DevOps-Books-1
+- https://en.wikipedia.org/wiki/Apache_Drill
+- https://cilium.io/
+- https://medium.com/@ruxijitianu/database-version-control-liquibase-versus-flyway-9872d43ee5a4
+- https://insights.stackoverflow.com/survey/2020#developer-profile
+- https://ldapwiki.com/wiki/Acr_values
+- https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
 - https://stackoverflow.com/questions/43535693/private-ios-app
 - https://emacs.christianbaeuerlein.com/my-org-config.html
 - https://www.typescriptlang.org/docs/handbook/advanced-types.html
 - https://cloud.google.com/logging
-- https://kubernetes.io/docs/tutorials/#services
-- https://kubernetes.io/docs/concepts/services-networking/service/
 - https://examples.yourdictionary.com/examples-of-hindsight-bias.html
 - https://guides.sonatype.com/foundations/devops/principle-based-devops-frameworks/
 - https://aws.amazon.com/getting-started/learning-path-hobbyist-developer/
@@ -1724,7 +1822,6 @@ The moral aspect
 - https://astrobiomike.github.io/unix/six-glorious-commands
 - https://docs.ksqldb.io/en/latest/developer-guide/syntax-reference/
 - https://tapoueh.org/blog/2018/07/postgresql-listen-notify/
-- https://editor.swagger.io/
 - https://www.nbs-system.com/
 - https://crowdsec.net/
 - https://www.datawarehouse4u.info/SCD-Slowly-Changing-Dimensions.html
@@ -1733,29 +1830,16 @@ The moral aspect
 - https://archive.fosdem.org/2018/schedule/event/closing_keynote/attachments/slides/2597/export/events/attachments/closing_keynote/slides/2597/FOSDEM_2018_Closing_Keynote.pdf
 - https://en.wikipedia.org/wiki/Cache_placement_policies
 - https://en.wikipedia.org/wiki/Cache_replacement_policies
-- https://docs.oracle.com/javaee/6/tutorial/doc/giwhl.html
-- https://weld.cdi-spec.org/
-- https://www.journaldev.com/2763/java-8-functional-interfaces
-- https://www.journaldev.com/592/java-try-with-resources
-- https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
 - https://tools.ietf.org/html/rfc6749#section-3.3
 - https://www.oauth.com/oauth2-servers/scope/defining-scopes/
-- https://docs.apigee.com/api-platform/security/oauth/working-scopes
-- https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1
-- https://brandur.org/oauth-scope
-- https://oauth.net/2/scope/
-- https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://cloudinit.readthedocs.io/en/latest/topics/availability.html
-- https://en.wikipedia.org/wiki/ACID
 - http://shiroyasha.io/transaction-isolation-levels-in-postgresql.html
 - https://stackoverflow.com/questions/13647604/isolation-levels-in-oracle
 - https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html
 - https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation
 - https://www.codecademy.com/articles/what-is-cors
-- https://www.javatpoint.com/html-interview-questions
 - https://github.com/IdentityModel/oidc-client-js/blob/dev/jsrsasign/dist/jsrsasign.js
 - https://snyk.io/vuln/npm:jsrsasign@8.0.12
-- https://www.mongodb.com/cloud/atlas
 - https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
 - https://web.dev/samesite-cookies-explained/
 - https://cloud.google.com/stackdriver/pricing#pricing_examples_2
@@ -1769,16 +1853,8 @@ The moral aspect
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
 - https://aws.amazon.com/cli/
 - https://martinfowler.com/articles/evodb.html
-- https://github.com/IdentityModel/oidc-client-js
-- https://www.baeldung.com/java-equals-hashcode-contracts
-- https://gethue.com/
-- https://en.wikipedia.org/wiki/Apache_Hadoop
-- https://spark.apache.org/
-- https://hive.apache.org/
-- https://hbase.apache.org/
 - 
 - 
 - 
 - 
-
 
