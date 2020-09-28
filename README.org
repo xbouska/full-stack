@@ -1211,6 +1211,7 @@ and the authorization server uses the Scope parameter to respond with the access
 - Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
 - Its value MUST be a number containing a NumericDate value.
 - Use of this claim is OPTIONAL.
+:END:
 *** What is registered claim name "iat" (Issued At) Claim        :QUESTION:
 - The "iat" (issued at) claim identifies the time at which the JWT was issued.
 - This claim can be used to determine the age of the JWT.
@@ -1736,7 +1737,7 @@ The moral aspect
 ** Nassim Taleb
 
 * Books
-h
+
 ** Failure: Why Science Is so Successful
 By: Stuart Firestein
 
