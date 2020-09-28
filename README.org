@@ -1733,6 +1733,105 @@ The moral aspect
 - https://twitter.com/drboolean
 - https://github.com/DrBoolean
 - https://egghead.io/instructors/brian-lonsdorf
+** Nassim Taleb
+
+* Books
+h
+** Failure: Why Science Is so Successful
+By: Stuart Firestein
+
+- Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
+** The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations
+By: Gene Kim , Patrick Debois , John Willis , Jez Humble
+- Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
+
+** The Schopenhauer Cure: A Novel                                :no_export:
+By: Irvin D. Yalom
+- Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
+
+** Skin in the Game: Hidden Asymmetries in Daily Life
+By: Nassim Nicholas Taleb
+Series: Incerto
+- From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
+
+
+** Expert Political Judgment: How Good is it? How can We Know?
+By: Philip E. Tetlock
+- The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
+
+** The Signal and the Noise: Why So Many Predictions Fail - but Some Don't
+By: Nate Silver
+- Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
+
+
+** Superforecasting: The Art and Science of Prediction
+By: Philip Tetlock , Dan Gardner
+
+From one of the world's most highly regarded social scientists, a transformative book on the habits of mind that lead to the best predictions....
+
+
+** Behave: The Biology of Humans at Our Best and Worst
+By: Robert M. Sapolsky
+
+- More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
+
+
+
+** The Culture Code: The Secrets of Highly Successful Groups
+By: Daniel Coyle
+
+- In The Culture Code, Daniel Coyle goes inside some of the world's most successful organizations - including
+- Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
+
+
+** Unlearn: Let Go of Past Success to Achieve Extraordinary Results
+By: Barry O'Reilly
+
+- By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
+
+
+** Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers
+By: Andy Greenberg
+
+- From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it.... 
+
+
+** Antifragile: Things That Gain from Disorder
+By: Nassim Nicholas Taleb
+Series: Incerto
+
+From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
+
+** Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets
+By: Nassim Nicholas Taleb
+Series: Incerto
+
+This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
+
+** The Black Swan, Second Edition: The Impact of the Highly Improbable: 
+(With a new section: "On Robustness and Fragility": Incerto, Book 2)
+By: Nassim Nicholas Taleb
+
+- A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
+- it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
+
+
+** Thinking, Fast and Slow
+By: Daniel Kahneman
+The guru to the gurus at last shares his knowledge with the rest of us....
+
+
+** The Stuff of Thought: Language as a Window into Human Nature
+By: Steven Pinker
+In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
+
+
+
+** The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal
+By: Simon Conway Morris (Editor)
+
+- Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
+
 * TODO To integrate :no_export:
 
 
