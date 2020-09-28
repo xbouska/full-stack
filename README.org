@@ -24,17 +24,17 @@
 #+BEGIN_CENTER
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTER
-* WIP Software Engineering                                           :DOMAIN:
+* WIP Software Engineering [0/2]                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SOFTWARE_ENGINEERING
 :END:
-** bit / byte / endian / float
+** WIP bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** one`s complement
 *** two`s complements
 *** ieee754 explain float: mantisa,exponent
 *** Endian
-** TCP/IP
+** WIP TCP/IP
 *** IP address / netmask
 *** CIDR
 ** I18N
@@ -71,7 +71,7 @@
 ** basic algorithms
 *** Stable vs unstable sorting
 
-* WIP Architecture                                                   :DOMAIN:
+* WIP Architecture [0/16]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
 :END:
@@ -216,7 +216,7 @@ Consider following status codes:
 :lerning:  https://martinfowler.com/articles/evodb.html
 :END:
 
-* WIP Data                                                           :DOMAIN:
+* WIP Data [0/9]                                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DATA
 :END:
@@ -421,8 +421,16 @@ Consider following status codes:
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
-** WIP Tools
-*** PostgreSQL
+** Tools [/]
+*** Liquibase
+- open source
+- tracks DB chanegs
+- allows work with data as well as with the schema
+- *changeset*:
+  - XML, JSON, YAML, SQL
+- can use context and label for filteriing chich chnages slould be applied where
+** WIP DBMS [0/14]
+*** WIP PostgreSQL
 **** What is the current version of PostgreSQL                  :QUESTION:
 **** Explain about Multi version concurrency control?           :QUESTION:
 :ANSWER:
@@ -431,7 +439,7 @@ Consider following status codes:
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
 **** TODO psql
-*** ORACLE:
+*** TODO ORACLE:
 :ANSWER:
 - READ COMMITTED (the default)
 - SERIALIZABLE.
@@ -450,15 +458,9 @@ Consider following status codes:
 :learning_1: https://www.mongodb.com/cloud/atlas
 :END:
 *** MongoDB
-*** Liquibase
-- open source
-- tracks DB chanegs
-- allows work with data as well as with the schema
-- *changeset*:
-  - XML, JSON, YAML, SQL
-- can use context and label for filteriing chich chnages slould be applied where
-*** Apache Drill
-*** Apache Cassandra
+
+*** TODO Apache Drill
+*** TODO Apache Cassandra
 - *Open Source:* Modern software development organizations have overwhelmingly moved to adopt open source technologies, starting with the Linux operating system and progressing into infrastructure for managing data. Open source technologies are attractive because of their affordability and extensibility, as well as the flexibility to avoid vendor lock-in. Organizations adopting open source report higher speed of innovation and faster adoption.
 - *Flexible, Familiar Interface:* The Cassandra Query Language (CQL) is similar to SQL, meaning most developers should have a fairly easy time becoming familiar with it. (Here’s an introduction to CQL if you need some help).
 - *High Performance:* The majority of traditional databases feature a primary / secondary architecture. In these configurations, a single primary replica performs read and write operations, while secondary replicas are only able to perform read operations. Downsides to this architecture include increased latency, as well as higher costs and lower availability at scale. In Cassandra, no single node is in charge of replicating data across a cluster. Instead, every node is capable of performing all read and write operations. This improves performance and adds resiliency to the database.
@@ -480,19 +482,19 @@ Consider following status codes:
   - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
   - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
 
-*** Hadoop
+*** TODO Hadoop
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Apache_Hadoop
 :END:
-*** hue
+*** TODO hue
 :PROPERTIES:
 :learning_1: https://gethue.com/
 :END:
-*** Hive
+*** TODO Hive
 :PROPERTIES:
 :learning_1: https://hive.apache.org/
 :END:
-*** HBase
+*** TODO HBase
 :PROPERTIES:
 :learning_1: https://hbase.apache.org/
 :END:
@@ -520,25 +522,30 @@ Consider following status codes:
 - It is similar to the other columnar-storage file formats available in the Hadoop ecosystem such as RCFile and Parquet.
 - It is compatible with most of the data processing frameworks in the Hadoop environment.
 - In February 2013, the Optimized Row Columnar (ORC) file format was announced by Hortonworks in collaboration with Facebook.[3]
-- A month later, the Apache Parquet format was announced, developed by Cloudera and Twitter.[4] 
+- A month later, the Apache Parquet format was announced, developed by Cloudera and Twitter.[4]
+*** WIP Protocol Buffers (Protobuf) 
+- is a method of serializing structured data.
+- It is useful in developing programs to communicate with each other over a wire or for storing data.
+- The method involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data.
 
-* WIP Methodology                                                    :DOMAIN:
+* WIP Methodology [0/12]                                             :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: METHODOLOGY
 :END:
-** Scrum                                                             :TOPIC:
-** Kanban                                                            :TOPIC:
-** XP                                                                :TOPIC:
-** Lean                                                              :TOPIC:
-** Jira                                                              :TOPIC:
-** Confluence                                                        :TOPIC:
-** MOSCOW                                                            :TOPIC:
-** DoD                                                               :TOPIC:
-** DoR                                                               :TOPIC:
-** Uml                                                               :TOPIC:
-** C4                                                                :TOPIC:
-** Org42                                                             :TOPIC:
-* WIP Cloud                                                          :DOMAIN:
+
+** TODO Scrum                                                        :TOPIC:
+** TODO Kanban                                                       :TOPIC:
+** TODO XP                                                           :TOPIC:
+** TODO Lean                                                         :TOPIC:
+** TODO Jira                                                         :TOPIC:
+** TODO Confluence                                                   :TOPIC:
+** TODO MOSCOW                                                       :TOPIC:
+** TODO DoD                                                          :TOPIC:
+** TODO DoR                                                          :TOPIC:
+** TODO Uml                                                          :TOPIC:
+** TODO C4                                                           :TOPIC:
+** TODO Org42                                                        :TOPIC:
+* WIP Cloud  [0/7]                                                   :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CLOUD
 :END:
@@ -631,11 +638,11 @@ Consider following status codes:
 :PROPERTIES:
 :learning_1: https://min.io/product/overview
 :END:
-* WIP DEVOPS / SRE                                                   :DOMAIN:
+* WIP DEVOPS / SRE   [0/4]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
-** Culture
+** WIP Culture
 :PROPERTIES:
 :lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 :END:
@@ -688,7 +695,7 @@ Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALM
 - *Lean.* Development teams are making use of lean principles to eliminate waste and optimize the value stream, such as minimizing WIP, making work visible, and reducing hand-off complexity and wait times.
 - *Measurement.* The organization is devoted to collecting data on their processes, deployments, etc., in order to understand their current capabilities and where improvements could be achieved.
 - *Sharing.* A culture of openness and sharing within and between teams (and enabled with the proper tools) keeps everyone working toward the same goals and eases friction with hand-offs when issues arise.
-** Tools
+** TODO Tools
 *** DNS
 :PROPERTIES:
 :learning_1: https://www.freshersemploy.com/dns-interview-questions-answers/
@@ -949,7 +956,7 @@ example: matchLabels:{}
 *** ELK                                                             :TOPIC:
 *** DynaTrace                                                       :TOPIC:
 *** Piwik                                                           :TOPIC:
-** Linux
+** TODO Linux
 *** cron
 *** runlevel / init / inittab 
 *** systemd
@@ -1000,25 +1007,25 @@ ip route sh
 *** wget
 *** curl
 *** find
-** Observability
+** TODO Observability
 *** 3 pillars
 **** logs
 **** metrics
 **** traces
 *** Tail Latency
-* WIP Web Front End                                                  :DOMAIN:
+* WIP Web Front End [0/5]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: WEB
 :END:
-** React
+** WIP React
 *** React 
 *** React Native
 *** react-hooks
-** Angular
-** PWA
+** TODO Angular
+** WIP PWA
 *** app-shell model 
 
-** HTML + CSS
+** WIP HTML + CSS
 *** Chrome Development Tools
 *** HTML5 Layout 
 :ANSWER:
@@ -1122,8 +1129,8 @@ Origin
   - connect-src: defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource, If it makes any connections to a host, that’s not allowed here, the browser will respond with a 400 error example ~connect-src ‘self’;~
   - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
 
-** The Elm Architecture (TEA)
-* WIP Security                                                       :DOMAIN:
+** TODO The Elm Architecture (TEA)
+* WIP Security [0/3]                                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
@@ -1320,22 +1327,22 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 ** TODO Illumio Security
 ** TODO DEVSECOPS
 
-* WIP Languages & programming                                        :DOMAIN:
+* WIP Languages & programming [0/10]                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
 :END:
-** Functional Programming                                           :TOPIC:
-*** Lambda Calculus                                                 :TOPIC:
+** WIP Functional Programming  [0/5]                                 :TOPIC:
+*** WIP Lambda Calculus                                             :TOPIC:
 **** α-conversion
 - changing bound variables
 **** β-reduction
 - applying functions to their arguments;
 **** η-reduction
 - which captures a notion of extensionality.
-*** Immutability                                                    :TOPIC:
+*** TODO Immutability                                               :TOPIC:
 **** Persistent data structure (Chris Okasaki)
 *** TODO Algebraic Data Types
-*** Patterns
+*** WIP Patterns
 **** TODO Monoid
 **** TODO Functor
 **** TODO Pro Functor
@@ -1353,13 +1360,13 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 **** hylomorphisms
 **** paramorphisms
 
-** Object Oriented Programming                                      :TOPIC:
+** WIP Objecht Oriented Programming                                  :TOPIC:
 *** Polymorphism
 *** Gof Design Patterns
 **** Abstract Factory 
 **** Singleton
-** ReasonML                                                          :TOPIC:
-** JavaScript                                                       :TOPIC:
+** WIP ReasonML                                                      :TOPIC:
+** WIP JavaScript                                                    :TOPIC:
 *** what is IIFE?                                                :QUESTION:
 - An Immediately Invoked Function Expression is a good way at protecting the scope of your function and the variables within it.
 *** inheritance model of JS
@@ -1374,9 +1381,9 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :PROPERTIES:
 :learning_1: https://github.com/MostlyAdequate/mostly-adequate-guide
 :END:
-** TypeScript                                                        :TOPIC:
-** Babel
-** Java                                                              :TOPIC:
+** WIP TypeScript                                                    :TOPIC:
+** WIP Babel
+** WIP Java                                                          :TOPIC:
 *** Basic Java
 **** hashCode()
 ***** is this code wrong? yes / no / why                       :QUESTION:
@@ -1682,7 +1689,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** strongly typed
 **** weakly typed
 
-* WIP Quality and Testing                                            :DOMAIN:
+* WIP Quality and Testing   [0/6]                                    :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: QUALITY
 :END:
@@ -1692,7 +1699,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Cyclomatic complexity                                        :TOPIC:
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
-* WIP Core Values                                                    :DOMAIN:
+* WIP Core Values [0/2]                                              :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CORE_VALUES
 :END:
@@ -1701,19 +1708,100 @@ The moral aspect
 ** WIP SW developer responsibility                                   :TOPIC:
 - finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
   - 
-* WIP Information Sources                                            :DOMAIN:
+* WIP Information Sources [0/4]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
 :END:
 - where to learn, what to read and follow
-** InfoQ
-** Coding Blocks
-** SE-Radio
-* WIP Big Names                                                      :DOMAIN:
+** TODO InfoQ
+** TODO Coding Blocks
+** TODO SE-Radio
+** WIP Books
+*** Failure: Why Science Is so Successful
+By: Stuart Firestein
+
+- Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
+*** The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations
+By: Gene Kim , Patrick Debois , John Willis , Jez Humble
+- Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
+
+*** Skin in the Game: Hidden Asymmetries in Daily Life
+By: Nassim Nicholas Taleb
+Series: Incerto
+- From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
+
+*** Expert Political Judgment: How Good is it? How can We Know?
+By: Philip E. Tetlock
+- The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
+
+*** The Signal and the Noise: Why So Many Predictions Fail - but Some Don't
+By: Nate Silver
+- Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
+
+*** Superforecasting: The Art and Science of Prediction
+By: Philip Tetlock , Dan Gardner
+
+From one of the world's most highly regarded social scientists, a transformative book on the habits of mind that lead to the best predictions....
+
+*** Behave: The Biology of Humans at Our Best and Worst
+By: Robert M. Sapolsky
+
+- More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
+*** The Culture Code: The Secrets of Highly Successful Groups
+By: Daniel Coyle
+
+- In The Culture Code, Daniel Coyle goes inside some of the world's most successful organizations - including
+- Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
+
+*** Unlearn: Let Go of Past Success to Achieve Extraordinary Results
+By: Barry O'Reilly
+
+- By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
+
+*** Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers
+By: Andy Greenberg
+
+- From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it.... 
+
+*** Antifragile: Things That Gain from Disorder
+By: Nassim Nicholas Taleb
+Series: Incerto
+
+From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
+
+*** Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets
+By: Nassim Nicholas Taleb
+Series: Incerto
+
+This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
+
+*** The Black Swan, Second Edition: The Impact of the Highly Improbable: 
+(With a new section: "On Robustness and Fragility": Incerto, Book 2)
+By: Nassim Nicholas Taleb
+
+- A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
+- it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
+
+*** Thinking, Fast and Slow
+By: Daniel Kahneman
+The guru to the gurus at last shares his knowledge with the rest of us....
+
+*** The Stuff of Thought: Language as a Window into Human Nature
+By: Steven Pinker
+In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
+*** The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal
+By: Simon Conway Morris (Editor)
+
+- Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
+*** The Schopenhauer Cure: A Novel                              :no_export:
+By: Irvin D. Yalom
+- Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
+
+* WIP Big Names        [0/15]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
-- whom to follow
+- whom I  follow read watch
 ** TODO Bartosz MILEWSKI
 ** TODO Venkat SUBRAMANIAM
 ** TODO Trisha GEE
@@ -1734,109 +1822,11 @@ The moral aspect
 - https://twitter.com/drboolean
 - https://github.com/DrBoolean
 - https://egghead.io/instructors/brian-lonsdorf
-** Nassim Taleb
+** TODO Nassim Taleb
 
-* Books
-
-** Failure: Why Science Is so Successful
-By: Stuart Firestein
-
-- Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
-** The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations
-By: Gene Kim , Patrick Debois , John Willis , Jez Humble
-- Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
-
-** The Schopenhauer Cure: A Novel                                :no_export:
-By: Irvin D. Yalom
-- Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
-
-** Skin in the Game: Hidden Asymmetries in Daily Life
-By: Nassim Nicholas Taleb
-Series: Incerto
-- From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
-
-
-** Expert Political Judgment: How Good is it? How can We Know?
-By: Philip E. Tetlock
-- The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
-
-** The Signal and the Noise: Why So Many Predictions Fail - but Some Don't
-By: Nate Silver
-- Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
-
-
-** Superforecasting: The Art and Science of Prediction
-By: Philip Tetlock , Dan Gardner
-
-From one of the world's most highly regarded social scientists, a transformative book on the habits of mind that lead to the best predictions....
-
-
-** Behave: The Biology of Humans at Our Best and Worst
-By: Robert M. Sapolsky
-
-- More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
-
-
-
-** The Culture Code: The Secrets of Highly Successful Groups
-By: Daniel Coyle
-
-- In The Culture Code, Daniel Coyle goes inside some of the world's most successful organizations - including
-- Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
-
-
-** Unlearn: Let Go of Past Success to Achieve Extraordinary Results
-By: Barry O'Reilly
-
-- By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
-
-
-** Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers
-By: Andy Greenberg
-
-- From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it.... 
-
-
-** Antifragile: Things That Gain from Disorder
-By: Nassim Nicholas Taleb
-Series: Incerto
-
-From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
-
-** Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets
-By: Nassim Nicholas Taleb
-Series: Incerto
-
-This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
-
-** The Black Swan, Second Edition: The Impact of the Highly Improbable: 
-(With a new section: "On Robustness and Fragility": Incerto, Book 2)
-By: Nassim Nicholas Taleb
-
-- A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
-- it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
-
-
-** Thinking, Fast and Slow
-By: Daniel Kahneman
-The guru to the gurus at last shares his knowledge with the rest of us....
-
-
-** The Stuff of Thought: Language as a Window into Human Nature
-By: Steven Pinker
-In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
-
-
-
-** The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal
-By: Simon Conway Morris (Editor)
-
-- Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
-
+** TODO P. Mgr. et Mgr. Marek Orko Vácha, Ph.D
 * TODO To integrate :no_export:
-
-
-** other
+** bookmarks/other
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
@@ -1844,7 +1834,7 @@ By: Simon Conway Morris (Editor)
 - https://iqsanswers.com/postgresql-interview-questions-answers/
 - https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
 - https://www.illumio.com/
-** kubernetes
+** bookmarks/kubernetes
 - tiller
 - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 - https://ahmet.im/blog/knative-better-kubernetes-networking/
@@ -1852,7 +1842,7 @@ By: Simon Conway Morris (Editor)
 - https://ahmet.im/blog/kubecon-2017/
 - https://kubernetes.io/docs/tutorials/#services
 - https://kubernetes.io/docs/concepts/services-networking/service/
-** Java
+** bookmarks/Java
 - https://micronaut.io/
 - https://github.com/mjoellnier/micronaut-vs-quarkus
 - https://github.com/quarkusio/quarkus
@@ -1877,16 +1867,16 @@ By: Simon Conway Morris (Editor)
 - https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
 - https://www.baeldung.com/java-equals-hashcode-contracts
 - https://www.javatpoint.com/html-interview-questions
-** i18n
+** bookmarks/i18n
 - https://www.simultrans.com/blog/what-are-.po-files
 - https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
 - https://docs.weblate.org/en/latest/admin/addons.html
 - https://en.wikipedia.org/wiki/IETF_language_tag#cite_note-8
-** ldap
+** bookmarks/ldap
 - http://www.chschneider.org/linux/server/openldap.shtml
 - https://medium.com/@raghu.icecraft/simple-working-with-ldapsearch-cf6a5986977
 - https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
-** oidc
+** bookmarks/oidc
 - https://hub.docker.com/r/jboss/keycloak/
 - https://openid.net/2015/05/26/enhancing-oauth-security-for-mobile-applications-with-pkse/
 - https://github.com/vaquarkhan/vaquarkhan
@@ -1896,7 +1886,7 @@ By: Simon Conway Morris (Editor)
 - https://oauth.net/2/scope/
 - https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://github.com/IdentityModel/oidc-client-js
-** unsorted
+** bookmarks/unsorted
 - https://docs.nats.io/
 - https://github.com/nkatre/Free-DevOps-Books-1
 - https://en.wikipedia.org/wiki/Apache_Drill
@@ -1957,4 +1947,2588 @@ By: Simon Conway Morris (Editor)
 - 
 - 
 - 
+** From Orgzly
+*** Show HN: Poica – Algebraic data types and type introspection for pure C
+:PROPERTIES:
+:CREATED:  [2020-06-19 Fri 12:48]
+:END:
+
+Show HN: Poica – Algebraic data types and type introspection for pure C - https://github.com/Hirrolot/poica
+*** Maersk, Me and NotPetya
+:PROPERTIES:
+:CREATED:  [2020-06-22 Mon 06:45]
+:END:
+
+Maersk, Me and NotPetya - https://gvnshtn.com/maersk-me-notpetya/
+*** MIT 6.001 Structure and Interpretation (1986) [video]
+:PROPERTIES:
+:CREATED:  [2020-06-22 Mon 16:46]
+:END:
+
+MIT 6.001 Structure and Interpretation (1986) [video] - https://www.youtube.com/playlist?list=PLE18841CABEA24090
+*** Teach Yourself Computer Science
+:PROPERTIES:
+:CREATED:  [2020-06-22 Mon 16:53]
+:END:
+
+Teach Yourself Computer Science - https://teachyourselfcs.com
+** From Orgzly2
+*** Cracking the Lens: Targeting HTTP's Hidden Attack-Surface
+:PROPERTIES:
+:CREATED:  [2018-08-09 Thu 07:18]
+:RB_YOUTUBE: https://youtu.be/zP4b3pw94s0
+:lg-subject: Cracking the Lens: Targeting HTTP's Hidden Attack-Surface
+:END:
+
+**** my remarks
+
+ - investigates the reverse proxies 
+
+**** official description
+
+Modern websites are browsed through a lens of transparent systems built to enhance performance, extract analytics and supply numerous additional services. This almost invisible attack surface has been largely overlooked for years.
+
+In this presentation, I'll show how to use malformed requests and esoteric headers to coax these systems into revealing themselves and opening gateways into our victim's networks. I'll share how by combining these techniques with a little Bash I was able to thoroughly perforate DoD networks, trivially earn over $30k in vulnerability bounties, and accidentally exploit my own ISP.
+
+While deconstructing the damage, I'll also showcase several hidden systems it unveiled, including not only covert request interception by the UK's largest ISP, but a substantially more suspicious Columbian ISP, a confused Tor backend, and a system that enabled reflected XSS to be escalated into SSRF. You'll also learn strategies to unblinker blind SSRF using exploit chains and caching mechanisms.
+
+Finally, to further drag these systems out into the light, I'll release Collaborator Everywhere - an open source Burp Suite extension which augments your web traffic with a selection of the best techniques to harvest leads from cooperative websites.
+
+*** Adventures with the purely functional OS NixOS
+:PROPERTIES:
+:lg-source: YouTube
+:lg-categoty: NixOS
+:lg-subject: Adventures with the purely functional OS NixOS
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | YouTube |
+| lg-subject | NixOS   |
+
+
+https://youtu.be/4tuqI8V_cZw
+
+*** Refactoring Restify OAuth2
+:PROPERTIES:
+:lg-source: YouTube
+:lg-categoty: OAuth2
+:lg-subject: Refactoring Restify OAuth2
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | YouTube |
+| lg-subject | OAuth2  |
+
+https://youtu.be/aHrwUnsPom0
+
+*** The three paths of Scaling with Akka - Fran Perez
+:PROPERTIES:
+:lg-source: YouTube
+:lg-authors: Fran%20PEREZ
+:lg-categoty: Akka
+:lg-subject: The three paths of Scaling with Akka - Fran Perez
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Fran%20PEREZ |
+| lg-source  | YouTube      |
+| lg-subject | Akka         |
+
+https://youtu.be/iAYou32RrYs
+
+*** Opening keynote - Fun with categories - Bartosz Milewski
+:PROPERTIES:
+:lg-source: YouTube
+:lg-authors: Bartosz%20MILEWSKI
+:lg-categoty: Category Theory
+:lg-subject: Opening keynote - Fun with categories - Bartosz Milewski
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Bartosz%20MILEWSKI |
+| lg-source  | YouTube            |
+| lg-subject | Category Theory    |
+
+https://youtu.be/MXbJPe30ONQ
+
+*** LambdaCon 2015
+:PROPERTIES:
+:lg-source: YouTube
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source | YouTube |
+
+LambdaCon 2015: https://www.youtube.com/playlist?list=PLYQ3kvhWU-EC7UbWtzabORMAEIVsSA827
+
+*** Efficient Microservices w/ Binary Protocol - gRPC 101
+:PROPERTIES:
+:lg-source: YouTube
+:lg-keywords: Microservices
+:lg-categoty: gRPC
+:lg-subject: Efficient Microservices w/ Binary Protocol - gRPC 101
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-keywords | Microservices |
+| lg-source   | YouTube       |
+| lg-subject  | gRPC          |
+
+https://youtu.be/RqK-mwh3-aY
+
+*** Webinar: Overview and Core Values of Domain-Driven Design - Part 1/5
+:PROPERTIES:
+:lg-categoty: DDD
+:lg-authors: Michael%20PLÖD
+:lg-subject: Webinar: Overview and Core Values of Domain-Driven Design - Part 1/5
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Michael%20PLÖD |
+| lg-subject | DDD            |
+
+https://youtu.be/Z0zpSB85XGs
+
+*** Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5
+:PROPERTIES:
+:lg-categoty: DDD
+:lg-authors: Michael%20PLÖD
+:lg-source: YouTube
+:lg-yt-url: https://youtu.be/RHg53wMflCc
+:lg-url-1: https://github.com/mploed/ddd-with-spring﻿
+:lg-subject: Webinar: Interna00l Building Blocks: Aggregates, Entities, Value Objects Part 3/5
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Michael%20PLÖD               |
+| lg-source  | YouTube                      |
+| lg-subject | DDD                          |
+| lg-yt-url  | https://youtu.be/RHg53wMflCc |
+
+*** Category Theory II 8.1: F-Algebras, Lambek's lemma
+:PROPERTIES:
+:lg-source: YouTube
+:lg-authors: Bartosz%20MILEWSKI
+:lg-categoty: Category Theory
+:lg-subject: Category Theory II 8.1: F-Algebras, Lambek's lemma
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Bartosz%20MILEWSKI |
+| lg-source  | YouTube            |
+| lg-subject | Category Theory    |
+
+https://youtu.be/zkDVCQiveEo
+
+*** BOB 2017 - Martin Kühl: The hidden nature of data
+:PROPERTIES:
+:lg-authors: Martin%20KÜHL
+:lg-group: BOB 2017
+:lg-source: YouTube
+:lg-subject: BOB 2017 - Martin Kühl: The hidden nature of data
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Martin%20KÜHL |
+| lg-group   | BOB 2017      |
+| lg-source  | YouTube       |
+
+https://youtu.be/f7ODZVmXj-4
+
+*** Adventures with the purely functional OS NixOS
+:PROPERTIES:
+:lg-source: YouTube
+:lg-categoty: NixOS
+:lg-topic: NixOS
+:lg-subject: Adventures with the purely functional OS NixOS
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | YouTube |
+| lg-subject | NixOS   |
+| lg-topic   | NixOS   |
+
+https://youtu.be/4tuqI8V_cZw
+
+*** Scala Tutorial 18q - Arrays
+:PROPERTIES:
+:lg-source: YouTube
+:lg-categoty: Scala
+:lg-subject: Scala Tutorial 18q - Arrays
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | YouTube |
+| lg-subject | Scala   |
+
+https://youtu.be/Br7-ry5swIg
+
+*** Avoiding Microserv0ice Megadisasters - Jimmy Bogard
+:PROPERTIES:
+:lg-source: YouTube
+:lg-authors: Jimmy%20BOGARD
+:lg-categoty: Microservices
+:lg-topic: Disaster
+:lg-keywords: Conways%20Law Deadlock Disaster Single%20Source%20Of%20Truth DDD Bounded%20Context API%20Hell Eric%20Evans CAP Microservices
+:lg-group: NDC London 2017
+:lg-consumed: <2018-08-03 Fri>
+:lg-event-date: <2017-01-16 Mon>
+:lg-yt-url: https://youtu.be/gfh-VCTwMw8
+:lg-duration: 45:26
+:lg-subject: Avoiding Microserv0ice Megadisasters - Jimmy Bogard
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors    | Jimmy%20BOGARD                                                                                                               |
+| lg-consumed   | <2018-08-03 Pá>                                                                                                              |
+| lg-duration   | 45:26                                                                                                                        |
+| lg-event-date | <2017-01-16 Po>                                                                                                              |
+| lg-group      | NDC London 2017                                                                                                              |
+| lg-keywords   | Conways%20Law Deadlock Disaster Single%20Source%20Of%20Truth DDD Bounded%20Context API%20Hell Eric%20Evans CAP Microservices |
+| lg-source     | YouTube                                                                                                                      |
+| lg-subject    | Microservices                                                                                                                |
+| lg-topic      | Disaster                                                                                                                     |
+| lg-yt-url     | https://youtu.be/gfh-VCTwMw8                                                                                                 |
+
+
+- https://youtu.be/gfh-VCTwMw8
+- Jak nedělat microservices, založeno na mylných představách
+  - network is reliable
+  - latency is zero
+  - bandwidth is infinite
+  - network is secure
+  - topology does not change
+  - there is one administrator
+  - transport cost is zero
+  - network is homogeneous
+- CAP theorem
+- Single Source of Truth
+  - does not mean strictly data on one location in one database
+  - Eventuall consistency is the way to go
+
+*** NYLUG Presents: Charles Strahan -on- Introduction to NixOS
+:PROPERTIES:
+:lg-source: YouTube
+:lg-authors: Charles%20STRAHAN
+:lg-categoty: NixOS
+:lg-topic: NixOS
+:lg-subject: NYLUG Presents: Charles Strahan -on- Introduction to NixOS
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Charles%20STRAHAN |
+| lg-source  | YouTube           |
+| lg-subject | NixOS             |
+| lg-topic   | NixOS             |
+
+
+https://youtu.be/VivXSoovUFI
+
+*** An opinionated guide to Haskell
+:PROPERTIES:
+:lg-categoty: Haskell
+:lg-source: Blog
+:lg-url-1: https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/
+:lg-subject: An opinionated guide to Haskell
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | Blog    |
+| lg-subject | Haskell |
+
+
+An opinionated guide to Haskell - https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/
+
+*** bench: Command-line benchmark tool
+:PROPERTIES:
+:lg-categoty: Linux
+:lg-keywords: Linux
+:lg-subject: bench: Command-line benchmark tool
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-keywords | Linux |
+| lg-subject  | Linux |
+
+
+https://hackage.haskell.org/package/bench
+
+*** Literate DevOps
+:PROPERTIES:
+:CREATED:  [2018-03-10 Sat 22:12]
+:lg-categoty: Emacs
+:lg-keywords: org-mode
+:lg-subject: Literate DevOps
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-keywords | org-mode |
+| lg-subject  | Emacs    |
+
+
+http://howardism.org/Technical/Emacs/literate-devops.html
+
+*** Emacs Tutorial 18 - Mark multiple and a few other things!
+:PROPERTIES:
+:CREATED:  [2018-03-11 Sun 09:34]
+:lg-categoty: Emacs
+:lg-source: YouTube
+:lg-subject: Emacs Tutorial 18 - Mark multiple and a few other things!
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | YouTube |
+| lg-subject | Emacs   |
+
+
+https://youtu.be/oSzxZWB9Qkg
+
+*** 10 Tips for failing badly at Microservices by David Schmitz
+:PROPERTIES:
+:CREATED:  [2018-03-11 Sun 16:16]
+:lg-consumed: <2108-03-11 Sun>
+:lg-keywords: Microservices
+:lg-source: YouTube
+:lg-authors: David%20SCHMITZ
+:lg-subject: 10 Tips for failing badly at Microservices by David Schmitz
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors  | David%20SCHMITZ |
+| lg-consumed | <2108-03-11 Ne> |
+| lg-keywords | Microservices   |
+| lg-source   | YouTube         |
+
+
+https://youtu.be/X0tjziAQfNQ
+
+*** Stop Treading Water:  Learning to Learn by Edward Kmett
+:PROPERTIES:
+:CREATED:  [2018-03-17 Sat 09:11]
+:lg-categoty: Haskell
+:lg-source: YouTube
+:lg-authors: Edward%20KMETT
+:lg-subject: Stop Treading Water:  Learning to Learn by Edward Kmett
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors | Edward%20KMETT |
+| lg-source  | YouTube        |
+| lg-subject | Haskell        |
+
+
+https://youtu.be/j0XmixCsWjs
+
+*** Walkthrough for Systemd Portable Services
+:PROPERTIES:
+:CREATED:  [2018-07-06 Fri 06:33]
+:lg-categoty: Systemd
+:lg-source: Blog
+:lg-subject: Walkthrough for Systemd Portable Services
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-source  | Blog    |
+| lg-subject | Systemd |
+
+
+Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough-for-portable-services.html
+
+*** SE-Radio 238: Linda Rising on the Agile Brain
+:PROPERTIES:
+:CREATED:  [2018-08-05 Sun 10:18]
+:lg-event-date: <2015-11-09 Mon>
+:lg-consumed: <2018-08-04 Sat>
+:lg-keywords: Soft%20Skills
+:lg-source: SE-Radio
+:lg-quality: worth returning to it
+:lg-authors: Linda%20Rising
+:lg-subject: SE-Radio 238: Linda Rising on the Agile Brain
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors    | Linda%20Rising        |
+| lg-consumed   | <2018-08-04 So>       |
+| lg-event-date | <2015-11-09 Po>       |
+| lg-keywords   | Soft%20Skills         |
+| lg-quality    | worth returning to it |
+| lg-source     | SE-Radio              |
+
+**** My Remarks
+
+- you should provide feedback based on a efford not on the result
+- I need to listen once again
+
+**** Official Description
+
+SE-Radio Episode 238: Linda Rising on the Agile Brain
+
+11.09.15 by se-radio team
+
+Web player: http://podplayer.net/#/?id=7160439
+Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode-238-Linda-Rising-on-the-Agile-Brain.mp3
+
+- Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
+- They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
+- After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
+
+*** SE-Radio 241: Kyle Kingsbury on Consensus in Distributed Systems
+:PROPERTIES:
+:lg-authors: Kyle%20Kingsbury
+:lg-keywords: CAP CRDT Redis PostgreSQL RabbitMQ
+:lg-consumed: <2018-08-04 Sat>
+:lg-source: SE-Radio
+:lg-quality: worth returning to it
+:lg-url-1: http://www.se-radio.net/2015/11/se-radio-episode-241-kyle-kingsbury-on-consensus-in-distributed-systems/
+:lg-subject: SE-Radio 241: Kyle Kingsbury on Consensus in Distributed Systems
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors  | Kyle%20Kingsbury                   |
+| lg-consumed | <2018-08-04 So>                    |
+| lg-keywords | CAP CRDT Redis PostgreSQL RabbitMQ |
+| lg-quality  | worth returning to it              |
+| lg-source   | SE-Radio                           |
+
+**** Official description
+
+- Kyle Kingsbury, known as Aphyr on Twitter and for his blog by the same name, talks to Stefan Tilkov about consensus in distributed systems and about his experience in testing systems to see how they behave in case of failures.
+- In addition to discussing some of the theoretical foundations, such as the CAP theorem, isolation levels, and consensus protocols,
+- Kyle talks about some specific databases, including MongoDB, Riak, and Redis, and discusses how they maintain and achieve  or fail to achieve  a consistent state.
+- Finally, there’s some advice for practitioners on how to pick a solution and understand its properties.
+
+**** My Remarks
+
+- 
+
+*** SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
+:PROPERTIES:
+:CREATED:  [2018-08-08 Wed 22:54]
+:lg-subject: SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+
+
+
+
+SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
+
+17.07.18 by se-radio team
+
+Web player: http://podplayer.net/?id=52997029
+Episode: http://feedproxy.google.com/~r/se-radio/~5/ank_v4SW3xw/SE-Radio-Episode-330-Natalie-Silvanovich-on-Attack-Surface-Reduction.mp3
+
+Natalie Silvanovich from Google Project Zero talks with Kim Carter about what attack surface is in regards to software, how to identify risks and reduce the attack surface of the software you as a Software Engineer are creating. Natalie found over 100 0 day security defects in flash in her first year at Google, and […]
+
+*** Worst Computer Bugs in History: Therac-25 (2017)
+:PROPERTIES:
+:CREATED:  [2018-08-12 Sun 08:43]
+:lg-subject: Worst Computer Bugs in History: Therac-25 (2017)
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+
+Worst Computer Bugs in History: Therac-25 (2017) - https://blog.bugsnag.com/bug-day-race-condition-therac-25/
+
+*** 48 Dirty Little Secrets Cryptographers Don’t Want You To Know
+:PROPERTIES:
+:CREATED:  [2018-08-12 Sun 09:41]
+:lg-subject: 48 Dirty Little Secrets Cryptographers Don’t Want You To Know
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+
+https://youtu.be/iZa_XKpj9X4
+
+Eliptické křivky
+Chinese general algorithm
+
+*** Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
+:PROPERTIES:
+:CREATED:  [2018-08-12 Sun 09:42]
+:lg-yt-url: https://youtu.be/rVnXzW31pWQ
+:lg-subject: Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
+:END:
+
+#+call: lg-get-props-entry()
+
+
+
+https://youtu.be/rVnXzW31pWQ
+
+*** APPSEC Cali 2018 - What's New in TLS 1.3
+:PROPERTIES:
+:CREATED:  [2018-08-12 Sun 09:43]
+:lg-subject: APPSEC Cali 2018 - What's New in TLS 1.3
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+
+
+
+
+https://youtu.be/eTJjMGClri4
+
+*** APPSEC Cali 2018 - OWASP Top 10
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 07:54]
+:lg-subject: APPSEC Cali 2018 - OWASP Top 10
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+
+
+
+
+https://youtu.be/TXAztSpYpvE
+
+Owasp top 10 good insight. Speaks about controversy at the beginning but after it is nice
+
+*** What Doctors Can Teach Us on Continuous Learning - Johnny Graber
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 07:52]
+:lg-yt-url: https://youtu.be/SuZZV74wTkw
+:lg-source: YouTube
+:lg-subject: What Doctors Can Teach Us on Continuous Learning - Johnny Graber
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-yt-url | https://youtu.be/SuZZV74wTkw |
+
+
+
+ - Dream on learning playing guitar Vs learning playing guitar.
+ - use the training budget
+ - get enough sleep
+ - Swiss doctors have to spend 80 hours on training yearly.. how do they prove it
+
+*** Exploiting Network Printers
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 07:56]
+:lg-yt-url: https://youtu.be/DwKzSO4yA_s
+:lg-authors: Jens%20Müller
+:lg-group: black hat usa 2017
+:lg-categoty: Security
+:lg-keywords: Printers Postscript EPS IPP
+:lg-subject: Exploiting Network Printers
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors  | Jens%20Müller                |
+| lg-group    | black hat usa 2017           |
+| lg-keywords | Printers Postscript EPS IPP  |
+| lg-subject  | Security                     |
+| lg-yt-url   | https://youtu.be/DwKzSO4yA_s |
+
+- The idea of a paperless office has been dreamed of for more than three decades. 
+- However, nowadays printers are still one of the most essential devices for daily work and common Internet users.
+- Instead of removing them, printers evolved from simple devices into complex network computer systems, installed directly into company networks, and carrying considerable confidential data in their print jobs.
+- This makes them to an attractive attack target.
+
+**** my remarks
+
+- Nice. Esp usage of the Turing completeness of Postscript and eps. Image Magic ..
+
+*** Attacks Against GSMA's M2M Remote Provisioning
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 07:58]
+:lg-yt-url: https://youtu.be/rI9hvDDbdlE
+:lg-authors: Maxime%20Meyer
+:lg-group: black hat europe 2017
+:lg-keywords: eUICC
+:lg-categoty: eUICC
+:lg-url-1: https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning.pdf
+:lg-url-2: https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning-wp.pdf
+:lg-subject: Attacks Against GSMA's M2M Remote Provisioning
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors  | Maxime%20Meyer               |
+| lg-group    | black hat europe 2017        |
+| lg-keywords | eUICC                        |
+| lg-subject  | eUICC                        |
+| lg-yt-url   | https://youtu.be/rI9hvDDbdlE |
+
+GSMA is investigating, developing and standardizing an embedded SIM card with remote provisioning (that is, over-the-air installation of subscription data), called an eUICC,to improve the current mobile-phone subscription model.
+In this presentation, we will review remote-provisioning security mechanisms and show that these mechanisms are vulnerable to attacks that prevent network operators from providing service
+
+**** my remarks
+
+The way the SIM card is manufactured. Esp for the iot and the new way of limiting the transport of the chips there and back
+
+*** Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 08:00]
+:lg-yt-url: https://youtu.be/avFR_Af0KGk
+:lg-group: NDC Oslo 2017
+:lg-authors: Christian%20Wenz
+:lg-categoty: OWASP
+:lg-event-date: <2017-06-15 Čt>
+:lg-subject: Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
+:END:
+
+#+call: lg-get-props-entry()
+
+#+RESULTS:
+| lg-authors    | Christian%20Wenz             |
+| lg-event-date | <2017-06-15 Thu>             |
+| lg-group      | NDC Oslo 2017                |
+| lg-subject    | OWASP                        |
+| lg-yt-url     | https://youtu.be/avFR_Af0KGk |
+
+- Since 2003, the Open Web Application Security Project curates a list of the top ten security risks for web applications.
+- After several delays, the 2017 list has finally been released in spring.
+- Time to have a look at what's new, what has changed, and to get an up-to-date refresh on how to create secure web applications.
+
+**** my remarks
+
+- slow beginning describing the difficulties but after very nice overview of the OWASP
+
+*** Simon Brown on the Role of the Software Architect in a Continuous Delivery Environment
+:PROPERTIES:
+:CREATED:  [2018-08-19 Sun 21:50]
+:lg-subject: Simon Brown on the Role of the Software Architect in a Continuous Delivery Environment
+:END:
+
+Simon Brown on the Role of the Software Architect in a Continuous Delivery Environment
+
+23.09.17 by InfoQ
+
+Web player: http://podplayer.net/?id=41262898
+Episode: http://dts.podtrac.com/redirect.mp3/feeds.soundcloud.com/stream/343562772-infoq-channel-simon-brown-on-the-role-of-the-software-architecture-in-a-a-continuous-delivery-environment.mp3
+
+This week's podcast features Simon Brown well known for his work training software architects. Topics include the differences between a tech lead and an architect, how much documentation is enough and what that looks like in a continuous delivery environment.
+
+What you'll learn on this podcast:
+• As an industry we seem to have lost our knowledge of how to do architecture well in the context of modern agile software teams.
+• Architecture is about the expensive decisions; things that are costly to change later.
+• Ideally architects should code in the production code base. If you are not able to do this at least be involved in quality reviews and peer reviews in the production code so you can get feedback on your designs.
+• It is often said the the code is the only documentation you need but the code can’t tell you everything. You do need to document the things you can’t get from the code such as the architectural drivers, they key quality attributes and so on along with some high level diagrams and how you operate the system.
+• As you step into the role of architect go and find a mentor or a local meet-up. The major change is that you have to influence and lead people.
+
+This podcast is sponsored by AppDynamics. Software architects play a critical role in designing, executing, and migrating large infrastructures to the cloud. Download AppDynamic’s FREE eBook “10 Tips for Enterprise Cloud Migration” and launch your migration project with a proven plan. Download the eBook now at http://infoq.link/web_sndcld_appdynamics 
+
+
+Subscribe: www.youtube.com/infoq 
+Like InfoQ on Facebook: bit.ly/2jmlyG8
+Follow on Twitter: twitter.com/InfoQ
+Follow on LinkedIn: www.linkedin.com/company/infoq 
+Want to see extented shownotes? Check the landing page on InfoQ: http://bit.ly/2xvq7qM
+
+*** Experimental Creative Writing with the Vectorized Word by Allison Parrish
+:PROPERTIES:
+:CREATED:  [2018-08-15 Wed 08:01]
+:lg-subject: Experimental Creative Writing with the Vectorized Word by Allison Parrish
+:END:
+
+https://youtu.be/L3D0JEA1Jdc
+
+*** 20- Haskell course 28/Nov/2011 Hanning, Curry-Howard 1
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 06:13]
+:lg-authors: Philip%20Wadler
+:lg-subject: 20- Haskell course 28/Nov/2011 Hanning, Curry-Howard 1
+:END:
+
+https://youtu.be/uOsMt-vrWQ4
+Knowledge is like the interest
+MMCH prof. Wadler je opravdu skvely prednasejici. 
+Cely tento playlist stoji za to, ale to to 20 hodin prednasek o Haskellu tak to zvazte, protoze jakmile zacnete uz se nebudete moci odtrhnout. 
+https://www.youtube.com/playlist?list=PL395B50FC04752DA8
+
+*** Oliver Gould on Service Mesh for Microservices, LinkerD, and the Recently Released Conduit
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 14:14]
+:lg-authors: Oliver%20Gould
+:lg-subject: Oliver Gould on Service Mesh for Microservices, LinkerD, and the Recently Released Conduit
+:END:
+
+Oliver Gould on Service Mesh for Microservices, LinkerD, and the Recently Released Conduit
+
+09.02.18 by InfoQ
+
+Web player: http://podplayer.net/?id=46495465
+Episode: http://dts.podtrac.com/redirect.mp3/feeds.soundcloud.com/stream/396889389-infoq-channel-oliver-gould-omicroservices-service-meshes-linkerd.mp3
+
+This week on The InfoQ Podcast Wes Reisz talks with the CTO of Bouyant Oliver Gould. Bouyant is the maker the LinkerD Service Mesh and the recently released Conduit. In the podcast, Oliver defines a service mesh, clarifies the meaning of the data and control plane, discusses what a Service Mesh can offer a Microservice application owners, and, finally, discusses some of the considerations they took into account developing Conduit.
+
+Why listen to this podcast:
+
+- Service mesh is dedicated infrastructure that handles interservice communication.
+- There are two components to a service mesh: the data plane handles communication and the control plane is about policy and config.
+- LinkerD and Conduit are two open service meshes made by Bouyant. Conduit has a small memory footprint and provides a convention over configuration approach to service mesh deployment.
+- Adopting Rust (language used for implementing the data plane in Conduit) requires thinking of memory differently, and the best way to adopt Rust is to read other people’s code.
+
+More on this: Quick scan our curated show notes on InfoQ http://bit.ly/2skWF61 
+
+You can also subscribe to the InfoQ newsletter to receive weekly updates on the hottest topics from professional software development. bit.ly/24x3IVq
+
+Subscribe: www.youtube.com/infoq 
+Like InfoQ on Facebook: bit.ly/2jmlyG8
+Follow on Twitter: twitter.com/InfoQ
+Follow on LinkedIn: www.linkedin.com/company/infoq 
+Check the landing page on InfoQ: http://bit.ly/2skWF61
+
+*** Evolution of Emacs Lisp [pdf]
+:PROPERTIES:
+:CREATED:  [2018-10-21 Sun 18:03]
+:lg-subject: Evolution of Emacs Lisp [pdf]
+:END:
+
+Evolution of Emacs Lisp [pdf] - https://www.iro.umontreal.ca/~monnier/hopl-4-emacs-lisp.pdf
+
+*** Practical Cryptography for Developers
+:PROPERTIES:
+:CREATED:  [2018-11-24 Sat 08:07]
+:lg-subject: Practical Cryptography for Developers
+:END:
+
+Practical Cryptography for Developers - https://cryptobook.nakov.com/
+
+*** Designing Resilient Systems: Circuit Breakers or Retries?
+:PROPERTIES:
+:CREATED:  [2018-12-26 Wed 08:53]
+:lg-subject: Designing Resilient Systems: Circuit Breakers or Retries?
+:END:
+
+Designing Resilient Systems: Circuit Breakers or Retries? - https://engineering.grab.com/designing-resilient-systems-part-1
+
+*** GOTO 2018
+:PROPERTIES:
+:lg-subject: GOTO 2018
+:END:
+
+*** GOTO 2018 • Why I Was Wrong About TypeScript • TJ VanToll
+:PROPERTIES:
+:CREATED:  [2019-02-24 Sun 08:15]
+:END:
+
+https://youtu.be/AQOEZVG2WY0
+
+*** GOTO 2018 • Old Is the New New • Kevlin Henney
+:PROPERTIES:
+:author:   Kevlin Henney
+:CREATED:  [2019-02-24 Sun 20:41]
+:END:
+
+JjJustKiKihttps://youtu.be/AbgsfeGvg3E
+
+1968 rok novinek
+Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
+Not a new ideas. 
+Singleton single malt whiskey
+System has either zero or multiple singleton
+Rian Foote: Patterns are aggressive disregard of originality.
+Richard Gabriel: worse is better in 1990. Develop with minimal invention. Better to have underfeatute software that is rock solid
+Simplicity
+Completeness
+C2 wiki was 150 lines of perl code.
+Correctness: 
+Consistent
+1968 NATO science conference. Software development process is iterative
+1968 afips. Influential conference..
+- Improve usability by making the software Faster. 
+- The fastest io is no io
+- Command line tools can be 235x faster than your Hadoop cluster
+- 299792458 is in no configuration file.
+- can you fit your code in your cognitive limit
+- lion's commentary of Unix 6th edition 9500 lines is a complete os.
+ - there are Java classes bigger than that
+
+- Stonehenge as an enterprise software. Mono lithos one huge stone difficult to move
+UNIX philosophy. White one thing that does one thing and does it well.
+
+- 11 years of sun cycle reflect the SW industry cycle.
+- write programs to work together
+- ask Alfred aho. Tdd on 1970 th
+
+
+- ward Cunningham oopsla 92 technical dept
+
+
+- jack w reeves programming is a design activity
+- Alan Kay oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
+- William Cook lambda calculus was the first object-oriented language (1941) 1932
+
+Simon Peyton-jones (mr. Haskell) excel is the world's most popular functional language
+
+- coordinatio languages: separate computation and coordination
+ - Unix pipe 1964
+ - ken Thompson 1970 implementace pipe in Unix
+
+*** YOW! Conference 2018
+:PROPERTIES:
+:lg-subject: YOW! Conference 2018
+:END:
+
+*** Kevlin Henney - 1968
+:PROPERTIES:
+:CREATED:  [2019-02-26 Tue 20:34]
+:lg-authors: Kevlin%20Henney
+:lg-source: YouTube
+:lg-quality: worth returning to it
+:lg-tech-q: good
+:lg-yt-url: https://youtu.be/v-RkKohsF78
+:lg-serie: YOW! Conference 2018
+:lg-form:  conference-talk
+:END:
+
+https://youtu.be/v-RkKohsF78
+
+- Pražské jaro.
+- Jimmy Hendrix
+- Led Zeppelin
+- Facebook in 1969
+- NATO congerence in Garmish (1968)
+- Peter McBride: software craftsmanship
+- Apollo project Margaret Heafield Hamilton inventés the software engineering term
+- AFIPS conference proceedings vol. 33 1968
+  - PERT .. createss only a paper
+  - most deadly think in SW: you specify what you are going to do and then you do it an
+  - design process is an iterative one
+  - unit test, modularity 
+  - Patterns: aggressive disregard to originality
+- Christopher Alexander: notes on the synthesis of form 
+  - book published in 1964
+  - referenced in many later works in system / subsystem thinking
+- Melvin Conway: how committees invent
+  - Conway's law mandatory to mention on each conference
+  - returns every 10 years
+  - communication structures define system design
+- Adam Thornhill:
+  - your code as a crime scene (book)
+  - talks about Conway's law.. based on much more data than the original Conway definition
+
+- Stonehenge.. 
+  - as a legacy system.. 
+  - how did they do it.. 
+  - we don't know
+  - there is no documentation 
+  - Doug Mcllroy: this is the UNIX philosophy:
+    - write programs that do one thing and do it well
+    - write programs to work together
+    - isn't this microservice definition
+- Alan Perlis (first recipient of the Turing award)
+  - a software system can be best designed if the testing is interlaced with the design instead of being used after the design
+- bi-quinary coded decimal system
+  - first system used in early computers
+- ALGOL 68
+  - int, long, void, bool, char, short, union, struct
+  - born shell was inspired by algol
+  - { did not exist at that time keyboard
+  - actually try to write { on Scandinavian keyboard it is worse than. Emacs
+  - start to look like lisp..
+  - TDD in algol 68
+- TDD instituted in 70 th wit AWK
+- Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
+- simula 67 
+  - definition os class and instance
+- pragmatic bullshit
+  - we use pragmatic Agile
+  - pragmatic functional
+  - pragmatic structured programming
+
+
+
+
+
+
+
+
+
+
+- lisp....
+
+
+  
+
+
+
+  - 
+
+*** Gary McGraw - How to Avoid the Top Ten Software Security Flaws
+:PROPERTIES:
+:CREATED:  [2019-02-27 Wed 21:04]
+:lg-topic: Security
+:lg-authors: Gary%20McGraw
+:lg-serie: YOW! Conference 2018
+:END:
+
+https://youtu.be/TRJndqZIGMw
+http://www.slideshare.net/cisoplatform7/asd-t09howtoavoidthetoptensoftwaresecurityflaws
+
+- c++ suck From sec perspective
+- 
+
+- security defects
+ - There is a security flaw. Design problems
+  - 50 percent
+  - design
+ + Bugs
+   -; stack overflow
+
+ - what are flaws
+- IEEE CSD
+  - http://bit.ly/ieee-CSD-gem
+
+:TOPICS:
+ - Security defects
+- Implementation bugs
+- Architecture flaws
+- IEEE-CSD
+- BSIMM9
+- Unknown unknowns
+:END:
+
+:TRIVIA:
+Only 1/8 of companies have a process
+Males fun of unknown unknowns
+Microservice more dependencies - not a good thing in context of know your dependencies
+:END:
+
+:POINTS-TAKEN:
+Design flaws take 50% of security defects
+- Defines 10 common flaws:
+  1. earn or give but never assume,  Don't trust anybody
+     - YES:
+       - validate data from untrusted sources
+       - assume data are compromised
+     - NO:
+       - avoid authorization, access control, policy enforcement, and use of sensitive data in client code
+  2. use auth mechanism that can not be bypassed
+     - YES:
+       - prevent user from changing identity without re-authentication
+       - consider the strength of the authentication user has provided before taking a action
+       - use timeouts
+     - NO:
+       - do not stay past the big three
+         - something you are
+         - something you have
+         - something you know
+       - avoid shared resources like IP address and mac address
+       - avoid predicable tokens
+  3. authorize after you authenticate
+     - YES
+       - perform authorization as an explicit check
+       - re-use common infrastructure for conducting authorization checks
+     - NO
+       - authorization depends on a given set of privileges, and on the context of the request
+       - failing to revoke authorization can result in authenticated users excercising out-of-date authorizations
+  4. strictly separate data and control instructions, and newer process control instructions from untrusted sources
+     - YES
+       - utilize HW capabilities to enforce separation of code and data
+       - know and use appropriate compiler/linker security flags
+       - expose methods or endpoints that consume structured types
+     - NO
+       - co-mingling data and control instructions in a single entity is bad
+       - beware of injection prone APIs 
+         - XSS, SQL injection, shell injection
+       - watch out for eval
+  5. define an approach that ensures all data are explicitly validated
+     - YES
+       - ensure that comprehensive data validation actually takes place
+       - make security review of the validated scheme possible
+       - use a centralised validation mechanism and canonical data forms (avoid strings)
+     - NO
+       - watch out for assumptions about data
+       - avoid blacklisting, use whitelisting
+  6. use cryptography correctly
+     - YES:
+       - use standard algorithms and libraries
+       - centralize and re-use
+       - design for crypto ability
+       - get help from teal experts
+  7. identify sensitive data and how they should be handled
+     - YES:
+       - know where your sensitive data are
+       - classify your data into categories
+       - consider data controls
+         - file, memory, database protection
+       - plan for change over time
+  8. always consider the users
+     - YES:
+       - think about : deployment, configuration, use, update
+       - know that security is an emergent property of the system
+       - consider user culture, experience, biases
+       - make things secure by default
+     - NO:
+  9. understand how integrating external components changes your attack surface
+     - YES:
+       - test your components for security
+       - include extery components and dependencies in review
+       - isolate components
+       - keep an eye out for public security information about components
+  10. be flexible when considering future changes to objects and actors
+      - YES
+        - design for change
+        - consider security updates
+        - make use of code signing and code protection
+        - have a plan for "secret compromise" recovery
+      - NO
+        - watch out for fragile and/or brittle security
+        - be careful with code signing and system administration/operation
+        - keeping secrets is hard
+        - crypto breaks
+      - YES:
+      - NO
+:END:
+
+*** Cat Swetel - The Metrics You Should Use But Probably Don't
+:PROPERTIES:
+:CREATED:  [2019-03-04 Mon 20:41]
+:END:
+
+https://youtu.be/WEuHleDlpdc
+
+:TOPICS:
+Nelson rules
+Weibull distribution
+Littles's law
+Leading indicators
+Lagging indicators
+#NOESTIMATES
+Unlabeled axes
+:END:
+
+What is the quality?
+Measurement of how much teh quality you have
+
+Quality is a characteristic of a relationship with customers
+Delivery date prediction
+  - time in process 
+     - units of time per unit of work
+     - cycle time ... Maybe not a good name
+     -  weibull distribution not a standard distribution
+     -  is a better way to handle 
+  - automatically inform manager about the delay on other features that will get delayed
+   - better to discuss the impact with customer
+   - when it comes to non-profit random .... NELSON RULES!
+  - multi domain model curve
+ 
+
+4 aspects
+  - quality
+  - responsiveness
+  - productivity
+  - predictability
+
+
+Throughput
+  Units of work per unit of time
+
+
+Leading  indicators Vs lagging indicators
+
+Littles's law
+ - if your arrival rate is higher than departure rate everything in your system will take a more time.
+
+  
+:Takeouts:
+ - Don't use red and green as many man are colourblind
+ - Data ... Thing just are ...  no judgement - productivity is lost by people being scared
+ - Ron Jeffries: 
+   - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less. 
+   - If I am the inventor of story points I am extremely sorry.
+ - If you see multi modal curve it shows that you have multiple types of workload
+
+ Worth seeing again
+Conference call
+
+:End:
+
+*** Hila Peleg - Automatic Programming - How Far Can Machines Go
+:PROPERTIES:
+:CREATED:  [2019-03-06 Wed 19:23]
+:END:
+
+https://youtu.be/-EFTnauDZmY
+
+:TOPICS:
+technologycal-singulariry
+Programming-by-example
+Halting-problem
+REPL
+RESL
+:END:
+
+:TOOLS:
+Codota
+Nicify-javascript
+Flash-fill
+:END:
+
+
+:POINTS-TAKEN:
+Automatic programming is hard
+User intent is hard
+Machines are not goog in common sense
+Phone complete language models from phone typing assistant does a surprisingly good job in writing program
+Perfect specification is actually a code
+General program of"find me a program that...." Cannot be solved
+We need to make a realistic expectations
+
+
+
+:END:
+
+:TRIVIA:
+MS flash-fill started the field of programming by example
+Now excel warns from using the flash fill
+:END:
+
+*** YOW! Conference 2018 - Chris Richardson - Events and Commands
+:PROPERTIES:
+:CREATED:  [2019-03-07 Thu 20:16]
+:lg-subject: YOW! Conference 2018 - Chris Richardson - Events and Commands
+:END:
+
+https://youtu.be/fhZwzm-d9ys
+:TOPICS:
+- REST
+- gRPC
+- saga
+- CQRS
+- event-sourcing
+- replication-lag
+- transactional messaging
+- temporaril coupling
+- api-composition-pattern
+- transactional outbox pattern
+- transactional-log-tailing
+- wal
+:END:
+
+:REFERENCES:
+Microservices.io
+Eventuate.io
+Microservices.io/book (ctwyowconf18)
+:END:
+
+
+
+:TRIVIA:
+Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
+  - use chains of small transactions coordinated by asynchronous messages
+:END:
+
+
+:POINTS-TAKEN:
+- mainly
+  - microservices are more than REST
+  - microservices are more than events
+  - microservices != Event sourcing
+  - Apache Kafka != Event store
+- service definition (contains of following parts)
+  1. API
+     - operation (both sync or asynchronous)
+       - commands (CRUD)
+       - queries
+     - Events
+       - event publisher
+  2. has a dedicated database / table / schema
+     - might contain replica of data of another service
+  3. is a API client
+     - invokes operations
+  4. is event subscriber
+
+- service enable
+  - continuous delivery / deployment
+  - testability and deployability
+  - loosely coupled teams
+
+- no acid transactiona position the easy w  
+  - no distributed transactions!
+- sagas are ACD not Acid
+- asynchronous messaging manages the Saga completion owing at least one delivery while preserving order
+ 
+- Saga step = s transaction local to service
+- 2pc is not an option
+- sequencing Saga transactions
+  - after completion of transaction T(I) "something" must decide what step to execute next
+   - success: which T(I+1) ... Branching
+   - failure: C(i-1)
+- coordination
+   - choreography: *distributed* decision making
+      - simple.. for primitive cases. Higher connaissance cyclic dependencies ... Overloads domain objectsviin. I minimal 
+   - orchestration: *centralized* decision making
+       - orchestration objects implements state machine and invokes the participants
+
+- queries
+   - API compositions pattern
+      - to difficult to implement in many cases
+   - CQRS
+     - mouthful way of saying: maintain a replica of the data in a format that makes it easy to query (use elastic search on mongodb. 
+      - the view is maintained up to date by subscribing to the events emitted by the services that own the data ... Update the replica
+      - commands
+          - POST
+          - PUT
+          - DELETE
+      - Queries
+          - GET
+             - you can use even different types of databases per type of view
+   - replication lag (handling)
+      - has to be handled by the UI side
+- implementing transactional messaging
+   - publish to message broker first
+      - only in very simple cases
+   - use even sourcing
+      - event sourcing = event centric approach to business logic and persistence
+      - persist object as a sequence of events
+         - replay events to re-enter create in memory state
+         - sidenote: Apache Kafka != Event store
+      - Event sourcing guarantees: state change -> event is published
+   - traditional persistence + transactional outbox pattern
+      - transactional log tailing
+      - polling - but it introduces latency
+
+- 
+
+:END:
+
+*** Is It Time to Rewrite the Operating System in Rust?
+:PROPERTIES:
+:CREATED:  [2019-02-25 Mon 20:28]
+:lg-subject: Is It Time to Rewrite the Operating System in Rust?
+:END:
+
+https://youtu.be/HgtRAbE1nBM
+
+What is the operating system. Not that easy to define. But operating system isn't a operating system kernel. 
+
+History .. Burroughs B5000 MCP in 1961.  First os written in higher language. Way ahead of time.
+The
+MAC at MIT, CTSS (Second system syndrome). To be written in PL/I wrote os in non existent programming language. They didn't have a functional compiler. 
+
+- UNIX was implemented entirely in assembly. 
+- UNIX was a joke of Multics. UNIX was organic effort of 1968.
+- There was a B programming language. B was a interpreted language.
+- Some parts of B were rewritten in assembly for speed up.
+- C was implemented independent on Unix.
+- C didn't have structs they  were implemented later for Unix needs in 73
+- C has macros .. newer use preprocessor like rust has.
+
+- 1990 a great darkness came. All must be rewritten in c++ again the second system syndrome. All was more like HDD stress test.
+Sun spring. Apple's Copland, taligent's pink Java os.
+
+With Linux arrival Unix was resurrected.
+
+And there is a JavaScript lisp without the bracket.
+
+System programmers looking for something as performant as c but with power of modern languages.
+Google develop Go. But with many idiosyncrasies
+There is a problem: GC. Does not force programmers to think and thinking is important.
+
+Rust brought a new concept of ownership. Power of garbage collected languages with the performance of manual memory management
+Unlike C , rust is highly compostable 
+Rust is able to statically checking who owns what when. But rust does not permit your to have not initialed structs.
+Cimooce property means that when you know how to control your memory doesn't mean that the others agree with your way doing so.
+Double linked lists is a problem as two own our data.
+Implemented a double linked list with two hash maps and it overperformed the c implementation.
+Rust uses B-trees. 
+
+Algebraic types
+Hygienic macros with full AST
+Ffi allows full duplex integration with c
+
+
+Reenix a first-time is kernel in rust. As undergrad thesis in 2015 - handling allocation errors is problematic in rust. There is RFC 2116 but still
+
+Since 2016. An explosion of os written in Rust
+But written From scratch but Linux binary compatibility is a challenge. And all fighting second system syndrome.
+
+Maybe hybrid approach .. c kernel and rust drivers.
+
+Maybe operating system but not the kernel. User level software is actually harder to write.
+
+Maybe Rust based firmware...
+
+*** Tabs, spaces and salaries: a data science detective story - Evelina Gabasova
+:PROPERTIES:
+:lg-format: conference talk
+:CREATED:  [2019-02-27 Wed 20:49]
+:lg-subject: Tabs, spaces and salaries: a data science detective story - Evelina Gabasova
+:END:
+
+https://youtu.be/9MKBex5p2lc
+
+
+- Correlation Vs causation
+- programmers that uses spaces make more
+- snow Vs sub zero temperature
+- tangled in betsheet Vs consumption of cheese
+- Fourier actually died from tangled in  the betsheet
+
+- you should check (look for)
+  - sample size
+  - randomised study?
+  - results by a chance
+  - hidden cause
+
+- p-value problem
+  - p-value <0.05
+
+- how it is with the salary
+  - sample size looks ok
+  - by chance probably not as the sample size is ok
+  - 
+  
+
+- stork pairs vs children born
+  - actually the cause is the country size
+
+- do-calculus (but you need to know the domain and all variables)
+  - but
+
+- linear regression
+  - full model Vs
+  - reduced model
+  - check for redundant variables
+
+- people who contributed to open source have in avg higher salary
+- People who contribute to open source tend to prefer spaces over tabs
+
+- actually the VCS is the distinguisher it is the git usage that separates people 
+  - git higher
+  - TFS lower salary
+  - switch to git to get better salary - probably not
+
+- why is git so important.. 
+  - probably it says something about the company. 
+
+- GitHub.com/evelinag/tabs-spaces-talk 
+  - executable sources is R for the talk
+
+
+- can you trust the data
+  - us data
+  - there are two peakls
+    - India
+    - Poland
+    - Russia
+   
+She's From Czech Republic.
+  - there are two peaks in Germany Poland Russian federation
+  - but it looks likany people From Europe mixed yearly salary and monthly salary.
+  - and really 1/12 was the first peak
+  - missing data (not random) because of the questions
+    - people with with very high salary and very low salary typically don't report
+    - similar effect was with the survey about Trump Aš people feel ashamed admitting to vote for Trump
+
+Todo: lookup the political party parliament voting consistecy.. it was in Czech Republic.. interesting
+
+- beyond "correlation is not causation"
+
+
+
+
+
+
+
+ Russia
+
+*** CRDTs in Production
+:PROPERTIES:
+:CREATED:  [2019-02-28 Thu 20:36]
+:lg-subject: CRDTs in Production
+:END:
+
+https://youtu.be/f03FWiIfXoQ
+
+QCon SF 2018
+
+  Conference talk
+
+
+:Taken:
+CRDT are not only academy
+:End:
+
+:Topics:
+CRDT
+CV - causality vector
+CAP theory
+Conflict resolution
+:End:
+
+*** Alex Anthony - Easier code reviews with ESLint (Feb React London speaker)
+:PROPERTIES:
+:CREATED:  [2019-03-04 Mon 21:04]
+:lg-subject: Alex Anthony - Easier code reviews with ESLint (Feb React London speaker)
+:END:
+
+https://youtu.be/fIk7vW1BLGI
+
+
+Meetup talk
+
+*** Technical Leadership Through the Underground Railroad
+:PROPERTIES:
+:CREATED:  [2019-03-05 Tue 20:28]
+:lg-subject: Technical Leadership Through the Underground Railroad
+:END:
+
+https://youtu.be/kopTiMg5u9E
+
+Underground ralroad?
+ 
+History...
+It industry borrow a terminology from the sports?
+Self organized human run API. 
+John p Parker wealthiest man in Ohio.
+Lived a double live 
+Brought people From 
+Not interesting
+
+Hangout
+
+*** Re Imagine The Hiring Process
+:PROPERTIES:
+:CREATED:  [2019-03-05 Tue 20:33]
+:lg-subject: Re Imagine The Hiring Process
+:END:
+
+https://youtu.be/TbZ57raC1TE
+
+Elle Meredith
+Lachlan Hardy
+:TOPICS:
+HumanResources
+diversity
+Inclusion
+Culture
+Unconscious-bias
+Privilege
+Oppression
+Fluency-heuristic
+Collaborative-friction
+Diversity-dept
+Cultural-fit
+:END:
+:REFERENCES:
+Mark s. Luckie
+http://www.getluckie.net/
+https://hbr.org/product/an-everyone-culture-becoming-a-deliberately-developmental-organization/14259-HBK-ENG
+https://www.youtube.com/channel/UCuVsMYBwV0gJTsWRZ2Dj7iw/
+:END:
+:TRIVIA:
+There is more CEO called David than womens CEO
+:END:
+:POINTS-TAKEN:
+- Homogeneous teams feels more fluent - it is just a bias.
+- You must start diverse to keep a diverse team
+- Hiring is a part of the work (should be)
+- Language of the job postings:
+  - competitive terms are more appealing to man than to woman (hitting deadline, competitive work)
+    - Cooperating or teamwork in job posting: you get more women appliance
+- Whiteboard coding consider harmful
+- Organizations that call themselves meritocratic are actually more likely to discriminate
+- Have a supportive environment for diversity and beginners
+- psychological safety
+  - emotionally secure work environment where people bring their whole selves to work
+  - people trust each others
+  - don't blame people for mistakes
+- gradual iterative improvement
+  - process are improved to deliver long term benefits rather than focus on short term results
+  - change is expected as are mistakes
+  - learn fast learn often
+- good communication is vital
+  - discussions are better than assumptions
+  - clear expectations are defined then adjusted as necessary
+  - feedback is not just welcomed sought out
+  - diverse perspectives are actively engaged with
+- life is larger than work
+  - flexibility in when and where work is done
+  - engagement and support for employee and customer communities
+- shared values
+  - clearly stated goals and values that all staff share
+  - common sense requites commonality (not in contrast with diversity)
+  - efforts are targeted at meaningful goals
+- Hiring process
+  - diversify your inputs
+  - share what you have learned
+  - how is your marketing stacking up
+    - look at your company web page
+  - employee performance predictor
+    - unstructured interview 14%
+    - reference checks 7%
+    - years of experience 3%
+    - structured interview 26% 
+    - with sample test 29%
+:END:
+
+*** TODO to see:
+
+https://aws.amazon.com/managed-services/
+https://www.youtube.com/channel/UCPHcNDphBAvooQI5U4yC0mA
+
+*** Episode 56: Developer Hiring
+:PROPERTIES:
+:CREATED:  [2019-03-07 Thu 17:10]
+:lg-subject: Episode 56: Developer Hiring
+:END:
+
+Episode 56: Developer Hiring
+
+2/27/19 by Table XI
+
+Web player: http://podplayer.net/?id=64477200
+Episode: https://aphid.fireside.fm/d/1437767933/e2f17a1d-4992-4c1c-b414-0780dcd58bc3/06bea63d-6fc1-4a82-88e8-917b0521000b.mp3
+
+Developer Hiring TableXI is now offering training for developers and products teams! For more info, email workshops@tablexi.com or find us at http://tablexi.com.workshops Today on the show, we're talking about hiring with Jennifer Tu and Zee Spencer of Cohere, Thayer Prime of Team Prime, and software consultant Matt Patterson. We talk about the entire developer hiring process from how to advertise your company to potential candidates, through coding tests and interviews, and all the way to the final decision process. It's a great conversation with a lot of different perspectives and a lot of good advice. We’d like to hear from you. What do you look for when hiring developers? Let us know at http://techdoneright.io/56 or on Twitter at @tech_done_right Guests Jennifer Tu: Cofounder of Cohere. Zee Spencer: Cofounder of Cohere. Thayer Prime: Founder of Team Prime. Matt Patterson: Software Consultant. Notes 02:55 - Common Mistakes When Hiring Developers 05:17 - Effective Hiring Procedures and Interview Processes 10:31 - Getting Your Company’s Name Out There 15:30 - Recruitment, Onboarding, and Reviews 18:52 - Sending Take-Home Exercises and the Problems They Present; Pre-Hire Pairing 30:33 - Good and Bad Uses of Interview Time 33:11 - Developing Interview Question and Using Standardization to Remove Biases 35:34 - Making Yes/No Decisions Related Episodes Apprenticeship with Megan Tiu, Kara Carrell, and Alyssa Ramsey Diversity and Inclusion at Small Companies with Meara Charnetzki, Michael Donnelly, and Elena Valentine Live Panel: Hiring Developers in (and out of) Health Care Developer Bootcamps and Computing Education with Jeff Casimir and Mark Guzdial Special Guests: Jennifer Tu, Matt Patterson, Thayer Prime, and Zee Spencer.
+
+*** There is No Such Thing as a Microservice! - Chris Richardson January 2018
+:PROPERTIES:
+:lg-subject: There is No Such Thing as a Microservice! - Chris Richardson January 2018
+:END:
+
+*** Developing Microservices with Aggregates by Chris Richardson
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 06:40]
+:lg-subject: Developing Microservices with Aggregates by Chris Richardson
+:END:
+
+https://youtu.be/gR_EGN86fvg
+
+*** Evelina Gabasova - Exploring StackOverflow Data
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 06:47]
+:lg-subject: Evelina Gabasova - Exploring StackOverflow Data
+:END:
+
+https://youtu.be/K8CIBh22VzE
+
+*** https://www.youtube.com/watch?v=29M_VElHoFI
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 16:58]
+:END:
+
+*** Upskilling  Enterprise DevOps Skills Report Results!
+:PROPERTIES:
+:CREATED:  [2019-03-09 Sat 13:39]
+:lg-subject: Upskilling  Enterprise DevOps Skills Report Results!
+:END:
+
+https://youtu.be/5kbhyAQUqMA
+
+Eveline oehrlich
+Jayne grill
+
+Webinar
+
+
+:KEYWORDS:
+- DevOps
+- skills-benchmarking
+4th-tevolution
+Industry 4.0
+T-shaped-professional
+I-shaped-professional
+Knowledge
+Skill
+Ability
+:END:
+
+
+
+:REFERENCES:
+Electric cloud university
+DevOps institute (DOI)
+DevOpsinstitute.com
+:END:
+
+:POINTS-TAKEN:
+- Important ingredients to "do the DevOps"
+  - spirit of continuous improvement
+    - people
+    - process
+    - tools
+- as releasez become more frequent people can become overwhelmed
+- employment trends worldwide
+   - global workforce change
+   - skill stability
+   - Challenges
+      - top (51%) - insufficient understanding of disruptive changes
+- DevOps Jobs in 2019 are in hotest demand
+   - Glassdoor: in top 10 tech roles
+   - Robert Half: seventh most wanted professional
+   - 37% of. Companies are currently hiring DevOps
+   - DevOps engineer is the most popular title
+- DevOps require T-shaped professionals
+- DevOps skills
+     - functional know- how
+     - soft skills
+     - process skills
+     - technical skills
+
+- kwowledge Vs skill Vs ability
+   - knowledge
+      - definition
+         - practical and/or theoretical understanding of a topic
+      - obtained throughput
+         - learning training experience
+   - skill
+      - definition
+          - things that one learns through training and/or through experience
+      - obtained throughput
+        - practicing, learning
+   - ability
+      - definition
+         - level of being able to perform or deliver a task
+      - obtained throughput
+         - natural capability
+- current state of the DevOps
+   - 11% planning to adopt in the future
+   - 15% in a planning phase
+   - 43% project level adoption
+   - 19% enterprise level adoption
+   - 1% consciously avoiding DevOps
+   - 1% been there and failed
+- become the automator and not the automated
+- DevOps as an automator must have skills survey
+    - 57% automation skills
+    - 55% process skills and knowledge
+        - 46 + 49 software development life cycle
+        - 45 + 50 understand of process flow and analysis
+        - 45 + 47 experience with source control models and processes
+         - 41 + 50 agile (eg csm/cspo/csd or psm/pspo/psd)
+         - 40 + 48 experience with test driven deployment concepts and methods
+          - 39 + 52 system thinking
+          - 36 + 54 scrum basic or advanced
+          - 32 + 57 experience with performance tuning and monitoring
+          - 29 + 53 ITIL basic or advanced
+          - 16 + 51 program management experience and/or certification (pgm msp)
+          - 15 + 50 project management expérience and/or certification (e.g. PMP capm CSM prince2)
+
+    - 53% soft skills
+      - global survey
+         -  78 + 20 collaboration and cooperation
+         - problem solving
+         - interpersonal skills
+         - sharing and knowledge transfer
+         - flexibility and adaptability
+         - personal value commitment
+         - creativity
+         - empathy
+         - customer experience skills
+         - multi tasking
+         - leadership
+         - diplomacy
+         - business understanding
+         - carreer development
+         - visionary
+         - risk taking
+       - C-level management selected must have
+       - management selected must have
+       - Individual contributor selected must have
+
+    - 42% functional knowledge (ops  ad&d infra network storage)
+       - 52% + 44% it operations knowledge
+       - it infrastructure knowledge
+       - security practices
+       - applications development & design (SDLC)
+       - quality assurance knowledge
+       - testing knowledge
+       - enterprise and or business architecture knowledge
+       - network knowledge
+       - business continuity and or disaster recovery knowledge
+       - dB schemas and SQL knowledge
+       - governance risk and audits
+    - 28% specific automation tools
+    - 26% business skills
+    - 15% specific certification
+- DevOps topology
+   - 19% add-on responsibility of one or more members of IT (ad hoc and not formalized)
+   - 22% on project-by-project basis via DevOps service team
+   - 24% Via cross-functional team distributed among different IT teams and business units
+   - 11% via central IT team which services multiple AppDev teams
+    - 10% via dedicated central DevOps team which owns governance
+    - 3% other
+:END:
+
+Skončil jsem na 33:16 .. Budu pokračovat.
+
+*** Meeting resistance and moving forward — Linda Rising
+CLOSED: [2019-03-20 Wed 21:19]
+:PROPERTIES:
+:CREATED:  [2019-03-20 Wed 05:46]
+:lg-subject: Watch Meeting resistance and moving forward — Linda Rising
+:lg-authors: Linda%20Rising
+:END:
+
+https://vimeo.com/325143661
+
+:KEYWORDS:
+Cognitive-bias
+:END:
+
+:REFERENCES:
+- Daniel kahneman think fast and slow
+- Dan Ariely: predictably irrational
+:END:
+
+:POINTS-TAKEN:
+- how we have conversations with people we disagree
+   - we show how much more we know
+   - winning by killing the other people's does not work
+   - thank you for showing me how stupid I am... Hardly helps
+- we technical people believe that our smartness gives us an edge during discussion
+    - our opponents are missing facts
+    - we feel  we must supply them with missing data
+    - we can't understand why they are still resistant
+    - the problem must be them
+- behavioral economics
+    - we have to find a new way of
+      - influencing
+      - having discussion
+      - rational arguments have its place but as a mean of influencing others is severely fault
+    - read
+      - thinking fast and slow
+      - predictably irrational
+        - easier to digest with nice experiments
+    - we are not rational decision makers
+    - preposition that people are rational is false
+    - we are not convinced by
+       - rational argument 
+       - facts 
+       - Data 
+        - scientific arguments
+- biases (heuristics that our brains use to protect itself)
+    - confirmation bias
+        - early 60th
+        - Peter wason's research
+        - when people have formed hypothesis they focus on evidence supporting pre-existing view
+         - I believe you are right
+         - believe you are wrong
+         - I won't listen to you, you want listen to me... Imagine having a gun.
+         - we think that we see the world clearly
+         - we think that out explanation is the correct one
+         - who disagree with us is just wrong
+   - the backfire effect
+       - Brendan Nyhon and Jason reifler
+       - when you argue using facts
+          - people reject/discount the information
+          - cling even more to their original view
+        - correcting people ,*increases* erroneous beliefs
+    - cognitive dissonance
+       - Leon Festinger
+       - J. Merrill Carlsmith
+       - 1959
+       - we are extremely uncomfortable holding contradictory believes
+        - contardictory "evidence" causes severe  cognitive discomfort
+- cynics Vs skeptics
+   - skeptics
+       - are useful
+       - every group should have one
+       - every meeting should have one
+       - every team should have one
+       - Edvard de Bono : six thinking hats - someone who wears the black hat
+    - cynics
+        - are negative for the sake of being negative not RTO be helpful
+         - typically focused on low level interests, not the greater good
+        - 
+ :END:
+
+*** Just what is a "service mesh", and if I get one will it make everything OK? - Elton Stoneman
+:PROPERTIES:
+:CREATED:  [2019-03-21 Thu 18:46]
+:lg-subject: Just what is a "service mesh", and if I get one will it make everything OK? - Elton Stoneman
+:END:
+
+https://youtu.be/fki4nIvYJcc
+
+:KEYWORDS:
+K8s
+Ostio:
+Load-ballancing
+Traffic-managemen
+Docker
+Service-mesh
+Prometheus
+Graphana
+Elastic search
+Fluentd
+Observability
+Security
+Mesh
+Envoy
+:END:
+
+*** AppSecCali 2019 - Slack App Security: Securing your Workspaces from a Bot Uprising
+:PROPERTIES:
+:CREATED:  [2019-03-22 Fri 21:50]
+:lg-subject: AppSecCali 2019 - Slack App Security: Securing your Workspaces from a Bot Uprising
+:END:
+
+https://youtu.be/ED-RVhk8wg8
+
+Security
+
+Slack app security.
+
+*** Beauty in Code 2019, 2 of 6 — Kjell Ljøstad: "How to Become Agile Without Scrum or Kanban"
+:PROPERTIES:
+:CREATED:  [2019-03-25 Mon 20:31]
+:END:
+
+https://youtu.be/IhqxJCZKCz4
+   
+
+
+-not a kanban or scrum just agile
+- 26 richeat people own more than 3.8 mld
+- agle  means adaptible quick
+- not the strongest survive but thos mot adaptable for change
+- what isin agile manifesto
+   - individual ower 
+....
+- google -  wgy are soem teams 
+
+..- needs for performance teams (MIT human dynamic laboratory) over 2000 People in study
+    - everyone talks and listens in roughly equal measure
+    - members face one another and conversations energetic
+    - members connect directly with one another not through their bosses
+     - member periodically explore outside of the team and bring information black
+    - 
+ - does size matter
+     - oh yes
+     - ideal team size is approx 6
+        - the fenommen that occurs in group as it's size increases
+           - the individual effort goes down
+           - need for coordination goes up
+- study from quantitative software management
+   - you can deliver faster with more people but the cost will be enormous
+
+- the whole person (people must see a value in working for you)
+   - education and work
+   - history
+   - family and friends
+   - interests and hobbies
+   - future and dreams
+   - know eachother better
+   - relational skills
+      - a set of skills that helps you establish maintain and develop relationships between people.
+    - what is a relation
+      - love
+      - friendship
+      - friendly
+      - respect
+      - exhausting
+      - dangerous
+
+- relational management
+    - a positive view
+    - actively show interest
+    - Find teh good
+    - What motivates
+- Credo
+   - cultivate the positive
+   - tone down the negative
+- team as a puzzle
+   - competence
+   - personality
+   - teams must be of different personalities 
+
+Core of Agile
+   - communication + knowledge transfer=  working valuable software
+
+- forms of communication
+     - dialogue
+         - takes practice
+         - best way
+         - build on top what have been said
+     - discussion
+         - one of us is going to win .. not a good ways
+     - debate
+         - like politicians in TV
+
+   
+
+- how to listen
+   - intentional listening
+     - intention
+     - message
+     - wisdom
+   - correctional listening
+     - details
+     - formulations
+     - imPerfections
+- how to create or kill dialogue
+    - create
+      - active listening
+      - ask questions
+      - build on ideas
+      - recognition
+      - get everyone involved
+   - kill
+       - interruptions
+       - sarcasm
+       - corrections
+       - neglecting input
+       - accentuate own opinions
+** Videoteka
+*** FDP
+**** Jiří Podolský - E=mc2 a jaderná energie: Epizoda I (MFF FDP 2.3.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:55]
+:lg-authors: Jiří%20Podolský
+:lg-subject: E=mc2 a jaderná energie: Epizoda I
+:END:
+
+https://youtu.be/mP-DqZeYnyM
+
+**** Jiří Podolský - E=mc2 a jaderná energie: Epizoda II (MFF FDP 9.3.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:52]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - E=mc2 a jaderná energie: Epizoda II (MFF FDP 9.3.2017)
+:END:
+
+https://youtu.be/PNHPHeDcub0
+
+**** Podolský, Cejnar - Génius Einstein v Praze po 100 letech, fikce a skutečnost (MFF FDP 11.5.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:52]
+:lg-subject: Podolský, Cejnar - Génius Einstein v Praze po 100 letech, fikce a skutečnost (MFF FDP 11.5.2017)
+:END:
+
+https://youtu.be/iQHDGX-mO-w
+
+**** Podolský, Cejnar, ... - Génius Einstein v Praze po 100 letech, pohled do zákulisí (MFF FDP 4.5.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:53]
+:lg-subject: Podolský, Cejnar, ... - Génius Einstein v Praze po 100 letech, pohled do zákulisí (MFF FDP 4.5.2017)
+:END:
+
+https://youtu.be/WHAuEisOUBU
+
+**** Jiří Podolský - Kosmos jako celek – co o něm dnes víme? (MFF FDP 16.3.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:53]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Kosmos jako celek – co o něm dnes víme? (MFF FDP 16.3.2017)
+:END:
+
+https://youtu.be/iE-E7oJAyNE
+
+**** Podolský, Cejnar, ... - Génius Einstein v Praze po 100 letech, pohled do zákulisí (MFF FDP 4.5.2017)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:14]
+:lg-subject: Podolský, Cejnar, ... - Génius Einstein v Praze po 100 letech, pohled do zákulisí (MFF FDP 4.5.2017)
+:END:
+
+https://youtu.be/WHAuEisOUBU
+
+*** MFF FJDP
+**** Od Aristotela k Newtonovi
+:PROPERTIES:
+:CREATED:  [2019-02-27 Wed 21:22]
+:lg-serie: MFF FJDP
+:lg-authors: Pavel%20Krtouš
+:lg-format: Lecture
+:lg-yt-url: https://youtu.be/w9ulyaauBIE
+:lg-subject: Od Aristotela k Newtonovi
+:END:
+
+**** Pavel Krtouš - Newton vs. Mach (MFF FJDP 21.2.2019)
+:PROPERTIES:
+:CREATED:  [2019-03-06 Wed 22:48]
+:lg-authors: Pavel%20Krtouš
+:lg-subject: Pavel Krtouš - Newton vs. Mach (MFF FJDP 21.2.2019)
+:END:
+
+https://youtu.be/Nao3KDb1DdA
+
+Impetus
+Giordano Bruno
+Dynamika 2. Řádu
+Newton
+Gravitační zákon
+Principia
+
+**** Jiří Podolský - Astronomie, matka fyziky (MFF FDP 22.2.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:04]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Astronomie, matka fyziky (MFF FDP 22.2.2018)
+:END:
+
+https://youtu.be/Cxu4jiSiX8Y
+
+**** Jiří Podolský - Zrod matematicky formulované mechaniky (MFF FDP 8.3.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:03]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Zrod matematicky formulované mechaniky (MFF FDP 8.3.2018)
+:END:
+
+https://youtu.be/y4-SBAKvkAM
+
+**** Jiří Podolský - Heliocentrická revoluce (MFF FJDP 1.3.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:02]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Heliocentrická revoluce (MFF FJDP 1.3.2018)
+:END:
+
+https://youtu.be/x8rNuE3_Mwk
+
+**** Jiří Podolský - Od hmotných bodů ke spojitým polím (MFF FJDP 15.3.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:02]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Od hmotných bodů ke spojitým polím (MFF FJDP 15.3.2018)
+:END:
+
+https://youtu.be/C_Vhx9UfXf0
+
+**** Jiří Podolský - Gravitace jako deformace prostoročasu (MFF FJDP 29.3.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:56]
+:lg-authors: Jiří%20Podolský
+:lg-subject: Jiří Podolský - Gravitace jako deformace prostoročasu (MFF FJDP 29.3.2018)
+:END:
+
+https://youtu.be/K_Xa0T9So6w
+
+*** Pátečníci
+**** Martin Wihoda - Velká Morava a její místo v dějinách (Pátečníci 13.4.2018)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:59]
+:lg-subject: Martin Wihoda - Velká Morava a její místo v dějinách (Pátečníci 13.4.2018)
+:END:
+
+https://youtu.be/5o8fhcOgU24
+
+**** Petr Slavíček - Minulost a budoucnost periodické tabulky prvků (Pátečníci 18.1.2019)
+:PROPERTIES:
+:CREATED:  [2019-03-04 Mon 22:56]
+:lg-authors: Petr%20Slavíček
+:lg-subject: Petr Slavíček - Minulost a budoucnost periodické tabulky prvků (Pátečníci 18.1.2019)
+:END:
+
+https://youtu.be/x5paMKAhPCs
+
+**** Jiří Grygar - Alfred kontra Ignác Nobel - pompa a kabaret (Pátečníci 12.5.2017)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:12]
+:lg-subject: Jiří Grygar - Alfred kontra Ignác Nobel - pompa a kabaret (Pátečníci 12.5.2017)
+:END:
+
+https://youtu.be/Fq-VRTrLc_k
+
+**** Julius Lukeš - Mikrobi v nás (Pátečníci 29.6.2018)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:15]
+:lg-subject: Julius Lukeš - Mikrobi v nás (Pátečníci 29.6.2018)
+:END:
+
+https://youtu.be/5kqace415RA
+
+**** Jaroslav Kousal - Žhavé konce kosmických letů (Pátečníci 1.9.2017)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:15]
+:lg-subject: Jaroslav Kousal - Žhavé konce kosmických letů (Pátečníci 1.9.2017)
+:END:
+
+https://youtu.be/-p3YqlPywiQ
+
+**** Ludmila Hamplová - Hoaxy v medicíně (Pátečníci 15.6.2018)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:14]
+:lg-subject: Ludmila Hamplová - Hoaxy v medicíně (Pátečníci 15.6.2018)
+:END:
+
+https://youtu.be/7NfV3omWwd8
+
+*** ÚMKP
+**** Kde se bere naše "já"? (ÚMKP, NÚDZ 3.4.2017)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:02]
+:lg-authors: Filip%20Španiel
+:lg-subject: Kde se bere naše "já"? (ÚMKP, NÚDZ 3.4.2017)
+:END:
+
+https://youtu.be/ksSza5L2ph4
+
+**** Lukáš Pekárek - Ze života virů (ÚMKP, BC 25.2.2019)
+:PROPERTIES:
+:CREATED:  [2019-03-06 Wed 22:03]
+:lg-authors: Lukáš%20Pekárek
+:lg-subject: Lukáš Pekárek - Ze života virů (ÚMKP, BC 25.2.2019)
+:END:
+
+https://youtu.be/wOvCG4bEfDE
+
+
+
+Viri se liší mezi sebou o 30%
+Jsou tak geneticky rozdílné že neumíme najít společného předka
+Reverzní transkripce
+
+Lionel Messi. Nanismus
+EPO
+Insuline
+Sincitin
+Endogenní retrovirus tvorba placenty
+
+*** Neurazitelny.cz
+**** Omyly ve vědě - Petr Slavíček  Neurazitelny.cz  Večery na FF UK
+:PROPERTIES:
+:CREATED:  [2019-03-04 Mon 22:58]
+:lg-subject: Omyly ve vědě - Petr Slavíček  Neurazitelny.cz  Večery na FF UK
+:END:
+
+https://youtu.be/keJbMu2SRnk
+
+**** Kritické myšlení - Úvod do rozpoznávání keců | Neurazitelny.cz | Večery na FF UK
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:11]
+:lg-subject: Kritické myšlení - Úvod do rozpoznávání keců | Neurazitelny.cz | Večery na FF UK
+:END:
+
+https://youtu.be/AdRNgEktsvo
+
+**** Cyril Höschl: Dřív nebyla šance šířit blbosti tak rychle jako dnes | Neurazitelny.cz | Stůl pro tři
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:06]
+:lg-subject: Cyril Höschl: Dřív nebyla šance šířit blbosti tak rychle jako dnes | Neurazitelny.cz | Stůl pro tři
+:END:
+
+https://youtu.be/qqQ89pvydsI
+
+*** Biologické čtvrtky ve Viničné
+**** R. Kopecký: Autonomní agent s povolením zabíjet; přednáška
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:07]
+:lg-subject: Biologické čtvrtky ve Viničné; R. Kopecký: Autonomní agent s povolením zabíjet; přednáška
+:lg-serie: Biologické čtvrtky ve Viničné
+:END:
+
+https://youtu.be/9cBfxe7FdOg
+
+**** I. Horáček: Nezamrzlá evoluce; přednáška
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:12]
+:lg-subject: Biologické čtvrtky ve Viničné; I. Horáček: Nezamrzlá evoluce; přednáška
+:lg-serie: Biologické čtvrtky ve Viničné
+:END:
+
+https://youtu.be/tpVKpBaj418
+
+**** Čest tlouštíkům, sláva epitranskriptomu!
+:PROPERTIES:
+:CREATED:  [2019-03-01 Fri 22:05]
+:lg-serie: Biologické čtvrtky ve Viničné
+:lg-authors: Petr%20Telenský
+:lg-format: Lecture
+:lg-subject: Čest tlouštíkům, sláva epitranskriptomu!
+:END:
+
+https://youtu.be/5Dc6bExXkV4
+
+:TRIVIA:
+Jste tlustý
+Máte tlustý děti
+Dostanete cukrovku
+Dostanete rakovinu
+Nejhorší je že z toho zblbnete
+:END:
+
+*** Jiří Podolský - Feynmanova ztracená přednáška (MFF-PMF 20.12.2018)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:03]
+:lg-subject: Jiří Podolský - Feynmanova ztracená přednáška (MFF-PMF 20.12.2018)
+:END:
+
+https://youtu.be/Un0MOt7o6R8
+
+*** Pavel Cejnar - Nanosvět a kvantové počítání (MFF-PMF 6.12.2018)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:06]
+:lg-subject: Pavel Cejnar - Nanosvět a kvantové počítání (MFF-PMF 6.12.2018)
+:END:
+
+https://youtu.be/XERC54B0eSs
+
+*** Luboš Pick - Jak napálit matfyzáka (MFF-FPF 14.12.2017)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:35]
+:lg-subject: Luboš Pick - Jak napálit matfyzáka (MFF-FPF 14.12.2017)
+:END:
+
+https://youtu.be/tB_z17TBrNg
+
+*** The Royal Institution
+**** How to Think Like a Mathematician - with Eugenia Cheng
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:58]
+:lg-subject: How to Think Like a Mathematician - with Eugenia Cheng
+:END:
+
+https://youtu.be/8emPcpfqPRU
+
+**** Linguistics, Style and Writing in the 21st Century - with Steven Pinker
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:58]
+:lg-subject: Linguistics, Style and Writing in the 21st Century - with Steven Pinker
+:END:
+
+https://youtu.be/OV5J6BfToSw
+
+**** Q&A - Linguistics, Style and Writing - with Steven Pinker
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:59]
+:lg-subject: Q&A - Linguistics, Style and Writing - with Steven Pinker
+:END:
+
+https://youtu.be/7rYAnYXIhL0
+
+**** How the Wiring of Our Brains Shapes Who We Are - with Kevin Mitchell
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:59]
+:lg-subject: How the Wiring of Our Brains Shapes Who We Are - with Kevin Mitchell
+:END:
+
+https://youtu.be/SkJqkGX0ThQ
+
+**** How We Measure the World - with Michael de Podesta
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:00]
+:lg-subject: How We Measure the World - with Michael de Podesta
+:END:
+
+https://youtu.be/dguZLChkRV8
+
+**** Topology, Geometry and Life in Three Dimensions
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:01]
+:lg-subject: Topology, Geometry and Life in Three Dimensions
+:END:
+
+https://youtu.be/K60F97qChKg
+
+**** The Physics and Philosophy of Time - with Carlo Rovelli
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:03]
+:lg-subject: The Physics and Philosophy of Time - with Carlo Rovelli
+:END:
+
+https://youtu.be/-6rWqJhDv7M
+
+**** Q&A The Physics and Philosophy of Time - with Carlo Rovelli
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:03]
+:lg-subject: Q&A The Physics and Philosophy of Time - with Carlo Rovelli
+:END:
+
+https://youtu.be/NXcu0BlbTrM
+
+*** Marek Vácha - Podněty moderní biomedicíny pro filosofii a etiku (11. hodina)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:49]
+:lg-subject: Podněty moderní biomedicíny pro filosofii a etiku (11. hodina)
+:END:
+
+#+call:lg-get-props-entry()
+
+#+RESULTS:
+
+
+https://youtu.be/NCme5BSwNv0
+
+*** Marek Vácha - Podněty moderní biomedicíny pro filosofii a etiku (10. hodina)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:59]
+:lg-subject: Marek Vácha - Podněty moderní biomedicíny pro filosofii a etiku (10. hodina)
+:END:
+
+https://youtu.be/KdEYVJB56CI
+
+*** Marek Orko Vácha, Miloslav Nevrlý - 22. 5. 2017 - Knihkupectví a antikvariát Fryč
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:36]
+:lg-subject: Marek Orko Vácha, Miloslav Nevrlý - 22. 5. 2017 - Knihkupectví a antikvariát Fryč
+:END:
+
+https://youtu.be/8RKjEtHU4SY
+
+*** Stanislav Novotný - 60 let formátu Cinemascope (Krnov - Festival 70mm filmů 14.04.2013)
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:58]
+:lg-subject: Stanislav Novotný - 60 let formátu Cinemascope (Krnov - Festival 70mm filmů 14.04.2013)
+:END:
+
+https://youtu.be/oG4VtTGAssA
+
+*** Mgr. Jakub Rozehnal, Akustický vesmír
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 19:00]
+:lg-subject: Mgr. Jakub Rozehnal, Akustický vesmír
+:END:
+
+https://youtu.be/VYjSboE9ZE4
+
+*** Bohdan Zronek – ředitel Divize jaderná energetika ČEZ, a.s. na FEL
+:PROPERTIES:
+:CREATED:  [2018-08-23 Thu 18:54]
+:lg-subject: Bohdan Zronek – ředitel Divize jaderná energetika ČEZ, a.s. na FEL
+:END:
+
+https://youtu.be/LuVOB2peyno
+
+*** Komunisti vlevo, TOP 09 vpravo a kde je ANO? Aneb jak změřit, kdo je pravičák a kdo levičák
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:18]
+:lg-subject: Komunisti vlevo, TOP 09 vpravo a kde je ANO? Aneb jak změřit, kdo je pravičák a kdo levičák
+:END:
+
+https://youtu.be/I2A3H3caQsg
+
+*** Ještě dnes buď větším egoistou! O konzumní povaze naší doby
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:33]
+:lg-subject: Ještě dnes buď větším egoistou! O konzumní povaze naší doby
+:END:
+
+https://youtu.be/qg7m0ax3A1g
+
+*** Detektivem v přírodě
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:34]
+:lg-subject: Detektivem v přírodě
+:END:
+
+https://youtu.be/EiVyLvQ2PrU
+
+*** doc. MUDr. Rastislav Maďar, Ph.D., MBA, FRCPS
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:36]
+:lg-subject: doc. MUDr. Rastislav Maďar, Ph.D., MBA, FRCPS
+:END:
+
+https://youtu.be/9yEilCqKSSs
+
+*** Doc. MUDr. RASTISLAV MAĎAR, PhD., MBA, FRCPS
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:36]
+:lg-subject: Doc. MUDr. RASTISLAV MAĎAR, PhD., MBA, FRCPS
+:END:
+
+https://youtu.be/ovpTvlxcVSw
+
+*** P. Mgr. et Mgr. Marek Orko Vácha, Ph.D
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:36]
+:lg-subject: P. Mgr. et Mgr. Marek Orko Vácha, Ph.D
+:END:
+
+https://youtu.be/GcSgL4mVGp4
+
+*** doc. MUDr. Rastislav Maďar, Ph.D., MBA, FRCPS
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:37]
+:lg-subject: doc. MUDr. Rastislav Maďar, Ph.D., MBA, FRCPS
+:END:
+
+https://youtu.be/HfVQzRYSqwM
+
+*** Stručná historie (západní) vědy
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:39]
+:lg-subject: Stručná historie (západní) vědy
+:END:
+
+https://youtu.be/P1TGfNS3vmA
+
+*** Zdravotné benefity a riziká kondičného tréningu
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 18:40]
+:lg-subject: Zdravotné benefity a riziká kondičného tréningu
+:END:
+
+https://youtu.be/Hhd_XASTzng
+
+*** Science to Go: Richard Feynman
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:05]
+:lg-subject: Science to Go: Richard Feynman
+:END:
+
+https://youtu.be/8JrzL3GM7fM
+
+*** Psychedelický mozek a vědomí očima neurovědce
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:06]
+:lg-subject: Psychedelický mozek a vědomí očima neurovědce
+:END:
+
+https://youtu.be/x2chY8beAxI
+
+*** Ing. Dana Drábová, Ph.D., Dobrý sluha ale zlý pán aneb jaderná energetika 30 let po Černobylu
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:08]
+:lg-subject: Ing. Dana Drábová, Ph.D., Dobrý sluha ale zlý pán aneb jaderná energetika 30 let po Černobylu
+:END:
+
+https://youtu.be/8VgXlNqcnoI
+
+*** Mgr. Ondřej Vencálek, Ph.D., Výprava do světa podivuhodných náhod
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:10]
+:lg-subject: Mgr. Ondřej Vencálek, Ph.D., Výprava do světa podivuhodných náhod
+:END:
+
+https://youtu.be/4jE_b3nenQo
+
+*** Martin C. Putna - 16. 10. 2018 - Knihkupectví a antikvariát Fryč
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:10]
+:lg-subject: Martin C. Putna - 16. 10. 2018 - Knihkupectví a antikvariát Fryč
+:END:
+
+https://youtu.be/MNJZbNGX7qE
+
+*** Václav Moravec   Dezinformace a jak se jim bránit
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:11]
+:lg-subject: Václav Moravec   Dezinformace a jak se jim bránit
+:END:
+
+https://youtu.be/mwLUwGWBH54
+
+*** Jak se děti učí mluvit
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:11]
+:lg-subject: Jak se děti učí mluvit
+:END:
+
+https://youtu.be/FQBtoilbLpw
+
+*** Jiří Horáček - Nové modely fungování lidské mysli (ÚMKP, NUDZ 17.9.2018)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:12]
+:lg-subject: Jiří Horáček - Nové modely fungování lidské mysli (ÚMKP, NUDZ 17.9.2018)
+:END:
+
+https://youtu.be/C7eKPlTks7k
+
+*** Tomáš Přibyl, Když padají rakety
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:13]
+:lg-subject: Tomáš Přibyl, Když padají rakety
+:END:
+
+https://youtu.be/7VC19mNfs14
+
+*** Science Café OU - Etika výzkumu: Smí věda úplně všechno? A může jí v tom etika zabránit? - dr. Šiler
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:14]
+:lg-subject: Science Café OU - Etika výzkumu: Smí věda úplně všechno? A může jí v tom etika zabránit? - dr. Šiler
+:END:
+
+https://youtu.be/mjvWlTvG_yQ
+
+*** .pod lampou: Prvá sekunda vesmíru 5.7.2015
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:14]
+:lg-subject: .pod lampou: Prvá sekunda vesmíru 5.7.2015
+:END:
+
+https://youtu.be/dkoriLH_5-o
+
+*** Marek Orko Vácha: od eugeniky 19. století po projekt lidského genomu (15. 4. 2015)
+:PROPERTIES:
+:CREATED:  [2019-03-08 Fri 19:16]
+:lg-subject: Marek Orko Vácha: od eugeniky 19. století po projekt lidského genomu (15. 4. 2015)
+:END:
+
+https://youtu.be/cI390zLJc3I
+
+*** Nové záludné otázky z astronomie - prof. Mikulášek, 28.2.2019, UFY PřF JU
+:PROPERTIES:
+:CREATED:  [2019-03-09 Sat 13:00]
+:lg-subject: Nové záludné otázky z astronomie - prof. Mikulášek, 28.2.2019, UFY PřF JU
+:END:
+
+https://youtu.be/uHZ5BnKZtsM
+
+Proč  sluneční cykly korelují s počasím?
+Je hnědý trpaslík skutečně hnědý
+Kolikrát je kilonova větší než nova
+Karv je v současnosti na zemí 100 krát více než před tím
+
+*** Eugenia Cheng: To Infinity - and Beyond
+:PROPERTIES:
+:CREATED:  [2019-03-11 Mon 21:01]
+:lg-subject: Eugenia Cheng: To Infinity - and Beyond
+:END:
+
+https://youtu.be/cCn45UAjIzI
+
+ingressive vs congressive
+Critical thinking.., well name it thinking
+
 
