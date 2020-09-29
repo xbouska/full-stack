@@ -1,7 +1,8 @@
 #+BEGIN_COMMENT
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
-#+END_COMMENT
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+END_COMMENT
+#+SETUPFILE: ./theme-readtheorg.setup
 #+BEGIN_COMMENT
 #+OPTIONS: html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
@@ -1135,7 +1136,7 @@ Origin
   - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
 
 ** TODO The Elm Architecture (TEA)
-* WIP Security [0/3]                                                 :DOMAIN:
+* WIP Security [0/9]                                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
@@ -1177,7 +1178,7 @@ and the authorization server uses the Scope parameter to respond with the access
 
 - The Authentication Context Class Reference values actually utilized by the Authorization Server is returned within the Identity Token in the acr parameter.
 :END:
-** JWT
+** WIP JWT                                                           :TOPIC:
 :PROPERTIES:
 :learning_1:    https://tools.ietf.org/html/rfc7519
 :END:
@@ -1281,7 +1282,12 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** A8:2017-Insecure Deserialization
 *** A9:2017-Using Components with Known Vulnerabilities
 *** A10:2017-Insufficient Logging & Monitoring
-** Crypto
+** TODO (OWASP) attacks
+*** WIP CSRF / XSRF
+:PROPERTIES:
+:learning_1: https://owasp.org/www-community/attacks/csrf
+:END:
+** WIP Crypto
 *** Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
@@ -1319,9 +1325,9 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
 :END:
 
-** bastillion.io
-** PKI
-** X509
+** TODO bastillion.io
+** TODO PKI
+** WIP X509
 *** Why does GoDaddy have four different certificate chain, G2, G3, G4? :QUESTION:
 :ANSWER:
 - "G" stands for Root certificates generation.
@@ -1894,7 +1900,6 @@ By: Simon Conway Morris (Editor)
 - https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://github.com/IdentityModel/oidc-client-js
 ** security [0/2]
-*** TODO csrf
 *** TODO zap
 ** bookmarks/unsorted [0/59]
 *** TODO https://cloud.google.com/blog/products/data-analytics/presto-optional-component-now-available-on-dataproc
