@@ -1872,6 +1872,8 @@ By: Simon Conway Morris (Editor)
 - https://www.journaldev.com/2167/java-exception-interview-questions-and-answers
 - https://www.baeldung.com/java-equals-hashcode-contracts
 - https://www.javatpoint.com/html-interview-questions
+** bookmarks/js [0/1]
+*** TODO https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/
 ** bookmarks/i18n
 - https://www.simultrans.com/blog/what-are-.po-files
 - https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html
@@ -1891,68 +1893,73 @@ By: Simon Conway Morris (Editor)
 - https://oauth.net/2/scope/
 - https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://github.com/IdentityModel/oidc-client-js
-** bookmarks/unsorted [/]
-- https://cloud.google.com/compute/docs/machine-types
-- https://docs.nats.io/
-- https://github.com/nkatre/Free-DevOps-Books-1
-- https://en.wikipedia.org/wiki/Apache_Drill
-- https://cilium.io/
-- https://medium.com/@ruxijitianu/database-version-control-liquibase-versus-flyway-9872d43ee5a4
-- https://insights.stackoverflow.com/survey/2020#developer-profile
-- https://ldapwiki.com/wiki/Acr_values
-- https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
-- https://stackoverflow.com/questions/43535693/private-ios-app
-- https://emacs.christianbaeuerlein.com/my-org-config.html
-- https://www.typescriptlang.org/docs/handbook/advanced-types.html
-- https://cloud.google.com/logging
-- https://examples.yourdictionary.com/examples-of-hindsight-bias.html
-- https://guides.sonatype.com/foundations/devops/principle-based-devops-frameworks/
-- https://aws.amazon.com/getting-started/learning-path-hobbyist-developer/
-- https://blog.sonatype.com/2010/04/why-nexus-for-the-non-programmer/
-- https://en.wikipedia.org/wiki/Pomodoro_Technique
-- https://en.wikipedia.org/wiki/X.509
-- https://www.dmarcanalyzer.com/dkim/
-- https://www.dmarcanalyzer.com/dmarc/
-- https://www.dmarcanalyzer.com/spf/
-- https://www.npmjs.com/package/@dynatrace/react-native-plugin
-- https://astrobiomike.github.io/unix/six-glorious-commands
-- https://docs.ksqldb.io/en/latest/developer-guide/syntax-reference/
-- https://tapoueh.org/blog/2018/07/postgresql-listen-notify/
-- https://www.nbs-system.com/
-- https://crowdsec.net/
-- https://www.datawarehouse4u.info/SCD-Slowly-Changing-Dimensions.html
-- https://www.baeldung.com/spring-mvc-interview-questions
-- https://www.baeldung.com/spring-mvc-interview-questions
-- https://archive.fosdem.org/2018/schedule/event/closing_keynote/attachments/slides/2597/export/events/attachments/closing_keynote/slides/2597/FOSDEM_2018_Closing_Keynote.pdf
-- https://en.wikipedia.org/wiki/Cache_placement_policies
-- https://en.wikipedia.org/wiki/Cache_replacement_policies
-- https://tools.ietf.org/html/rfc6749#section-3.3
-- https://www.oauth.com/oauth2-servers/scope/defining-scopes/
-- https://cloudinit.readthedocs.io/en/latest/topics/availability.html
-- http://shiroyasha.io/transaction-isolation-levels-in-postgresql.html
-- https://stackoverflow.com/questions/13647604/isolation-levels-in-oracle
-- https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html
-- https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation
-- https://www.codecademy.com/articles/what-is-cors
-- https://github.com/IdentityModel/oidc-client-js/blob/dev/jsrsasign/dist/jsrsasign.js
-- https://snyk.io/vuln/npm:jsrsasign@8.0.12
-- https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
-- https://web.dev/samesite-cookies-explained/
-- https://cloud.google.com/stackdriver/pricing#pricing_examples_2
-- https://nativecloud.dev/cnn-2020-21/
-- https://k3d.io/
-- https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/
-- https://helm.sh/docs/topics/charts/#helm
-- https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes
-- https://aws.amazon.com/ec2/instance-types/
-- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
-- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
-- https://aws.amazon.com/cli/
-- https://martinfowler.com/articles/evodb.html
-- 
-- 
-- 
-- 
+** security [0/2]
+*** TODO csrf
+*** TODO zap
+** bookmarks/unsorted [0/59]
+*** TODO https://cloud.google.com/blog/products/data-analytics/presto-optional-component-now-available-on-dataproc
+*** TODO https://cloud.google.com/compute/docs/machine-types
+*** TODO https://docs.nats.io/
+*** TODO https://github.com/nkatre/Free-DevOps-Books-1
+*** TODO https://en.wikipedia.org/wiki/Apache_Drill
+*** TODO https://cilium.io/
+*** TODO https://medium.com/@ruxijitianu/database-version-control-liquibase-versus-flyway-9872d43ee5a4
+*** TODO https://insights.stackoverflow.com/survey/2020#developer-profile
+*** TODO https://ldapwiki.com/wiki/Acr_values
+*** TODO https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
+*** TODO https://stackoverflow.com/questions/43535693/private-ios-app
+*** TODO https://emacs.christianbaeuerlein.com/my-org-config.html
+*** TODO https://www.typescriptlang.org/docs/handbook/advanced-types.html
+*** TODO https://cloud.google.com/logging
+*** TODO https://examples.yourdictionary.com/examples-of-hindsight-bias.html
+*** TODO https://guides.sonatype.com/foundations/devops/principle-based-devops-frameworks/
+*** TODO https://aws.amazon.com/getting-started/learning-path-hobbyist-developer/
+*** TODO https://blog.sonatype.com/2010/04/why-nexus-for-the-non-programmer/
+*** TODO https://en.wikipedia.org/wiki/Pomodoro_Technique
+*** TODO https://en.wikipedia.org/wiki/X.509
+*** TODO https://www.dmarcanalyzer.com/dkim/
+*** TODO https://www.dmarcanalyzer.com/dmarc/
+*** TODO https://www.dmarcanalyzer.com/spf/
+*** TODO https://www.npmjs.com/package/@dynatrace/react-native-plugin
+*** TODO https://astrobiomike.github.io/unix/six-glorious-commands
+*** TODO https://docs.ksqldb.io/en/latest/developer-guide/syntax-reference/
+*** TODO https://tapoueh.org/blog/2018/07/postgresql-listen-notify/
+*** TODO https://www.nbs-system.com/
+*** TODO https://crowdsec.net/
+*** TODO https://www.datawarehouse4u.info/SCD-Slowly-Changing-Dimensions.html
+*** TODO https://www.baeldung.com/spring-mvc-interview-questions
+*** TODO https://www.baeldung.com/spring-mvc-interview-questions
+*** TODO https://archive.fosdem.org/2018/schedule/event/closing_keynote/attachments/slides/2597/export/events/attachments/closing_keynote/slides/2597/FOSDEM_2018_Closing_Keynote.pdf
+*** TODO https://en.wikipedia.org/wiki/Cache_placement_policies
+*** TODO https://en.wikipedia.org/wiki/Cache_replacement_policies
+*** TODO https://tools.ietf.org/html/rfc6749#section-3.3
+*** TODO https://www.oauth.com/oauth2-servers/scope/defining-scopes/
+*** TODO https://cloudinit.readthedocs.io/en/latest/topics/availability.html
+*** TODO http://shiroyasha.io/transaction-isolation-levels-in-postgresql.html
+*** TODO https://stackoverflow.com/questions/13647604/isolation-levels-in-oracle
+*** TODO https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html
+*** TODO https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation
+*** TODO https://www.codecademy.com/articles/what-is-cors
+*** TODO https://github.com/IdentityModel/oidc-client-js/blob/dev/jsrsasign/dist/jsrsasign.js
+*** TODO https://snyk.io/vuln/npm:jsrsasign@8.0.12
+*** TODO https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
+*** TODO https://web.dev/samesite-cookies-explained/
+*** TODO https://cloud.google.com/stackdriver/pricing#pricing_examples_2
+*** TODO https://nativecloud.dev/cnn-2020-21/
+*** TODO https://k3d.io/
+*** TODO https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/
+*** TODO https://helm.sh/docs/topics/charts/#helm
+*** TODO https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes
+*** TODO https://aws.amazon.com/ec2/instance-types/
+*** TODO https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+*** TODO https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+*** TODO https://aws.amazon.com/cli/
+*** TODO https://martinfowler.com/articles/evodb.html
+** bookmarks/Statistics [0/4]
+*** TODO https://en.wikipedia.org/wiki/German_tank_problem
+*** TODO https://en.wikipedia.org/wiki/Power_law
+*** TODO https://www.ncnr.nist.gov/resources/sansmodels/PowerLaw.html
+*** TODO https://www.forbes.com/sites/joshbersin/2014/02/19/the-myth-of-the-bell-curve-look-for-the-hyper-performers/#5d7a3e226bca
 ** From Orgzly
 *** Show HN: Poica – Algebraic data types and type introspection for pure C
 :PROPERTIES:
