@@ -21,9 +21,9 @@
 #+BEGIN_SRC emacs-lisp :exports none :results verbatim
 (org-html-export-to-html nil t nil nil)
  #+END_SRC
-#+BEGIN_CENTER
+#+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
- #+END_CENTER
+ #+END_CENTRE
 * WIP Software Engineering [0/2]                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SOFTWARE_ENGINEERING
@@ -1104,7 +1104,7 @@ Target to a link:
 **** How Does CORS Manage Requests From External Resources?     :QUESTION:
 **** What http headers were added by CORS?                      :QUESTION:
 :ANSWER:
-#+begin_src
+#+begin_src html
 Access-Control-Allow-Origin
 Access-Control-Allow-Credentials
 Access-Control-Allow-Headers
@@ -1612,21 +1612,20 @@ However, reactive programming may be used as a means to implement reactive syste
 **** What Are the Mono and Flux Types?                          :QUESTION:
 :ANSWER:
 - The WebFlux framework in Spring Framework 5 uses Reactor as its async foundation.
-
 - This project provides two core types: Mono to represent a single async value, and Flux to represent a stream of async values.
-
 - They both implement the ~Publisher~ interface defined in the Reactive Streams specification.
-
-Mono implements ~Publisher~ and returns 0 or 1 elements:
+- Mono implements ~Publisher~ and returns 0 or 1 elements:
 #+begin_src java
 public abstract class Mono<T> implements Publisher<T> {...}
 #+end_src
-Also, Flux implements ~Publisher~ and returns N elements:
 
+Also, Flux implements ~Publisher~ and returns N elements:
 #+begin_src java
 public abstract class Flux<T> implements Publisher<T> {...}
 #+end_src
-By definition, the two types represent streams, hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method. Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
+- By definition, the two types represent streams,
+  - hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method.
+  - Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
 :END:
 **** What Is the Use of Webclient and Webtestclient?            :QUESTION:
 :ANSWER:
@@ -2008,7 +2007,7 @@ Finally, to further drag these systems out into the light, I'll release Collabor
 :lg-subject: Adventures with the purely functional OS NixOS
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | YouTube |
@@ -2024,7 +2023,7 @@ https://youtu.be/4tuqI8V_cZw
 :lg-subject: Refactoring Restify OAuth2
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | YouTube |
@@ -2040,7 +2039,7 @@ https://youtu.be/aHrwUnsPom0
 :lg-subject: The three paths of Scaling with Akka - Fran Perez
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Fran%20PEREZ |
@@ -2057,7 +2056,7 @@ https://youtu.be/iAYou32RrYs
 :lg-subject: Opening keynote - Fun with categories - Bartosz Milewski
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Bartosz%20MILEWSKI |
@@ -2071,7 +2070,7 @@ https://youtu.be/MXbJPe30ONQ
 :lg-source: YouTube
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source | YouTube |
@@ -2086,7 +2085,7 @@ LambdaCon 2015: https://www.youtube.com/playlist?list=PLYQ3kvhWU-EC7UbWtzabORMAE
 :lg-subject: Efficient Microservices w/ Binary Protocol - gRPC 101
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-keywords | Microservices |
@@ -2102,7 +2101,7 @@ https://youtu.be/RqK-mwh3-aY
 :lg-subject: Webinar: Overview and Core Values of Domain-Driven Design - Part 1/5
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Michael%20PLÖD |
@@ -2120,7 +2119,7 @@ https://youtu.be/Z0zpSB85XGs
 :lg-subject: Webinar: Interna00l Building Blocks: Aggregates, Entities, Value Objects Part 3/5
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Michael%20PLÖD               |
@@ -2136,7 +2135,7 @@ https://youtu.be/Z0zpSB85XGs
 :lg-subject: Category Theory II 8.1: F-Algebras, Lambek's lemma
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Bartosz%20MILEWSKI |
@@ -2153,7 +2152,7 @@ https://youtu.be/zkDVCQiveEo
 :lg-subject: BOB 2017 - Martin Kühl: The hidden nature of data
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Martin%20KÜHL |
@@ -2170,7 +2169,7 @@ https://youtu.be/f7ODZVmXj-4
 :lg-subject: Adventures with the purely functional OS NixOS
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | YouTube |
@@ -2186,7 +2185,7 @@ https://youtu.be/4tuqI8V_cZw
 :lg-subject: Scala Tutorial 18q - Arrays
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | YouTube |
@@ -2209,7 +2208,7 @@ https://youtu.be/Br7-ry5swIg
 :lg-subject: Avoiding Microserv0ice Megadisasters - Jimmy Bogard
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors    | Jimmy%20BOGARD                                                                                                               |
@@ -2248,7 +2247,7 @@ https://youtu.be/Br7-ry5swIg
 :lg-subject: NYLUG Presents: Charles Strahan -on- Introduction to NixOS
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Charles%20STRAHAN |
@@ -2267,7 +2266,7 @@ https://youtu.be/VivXSoovUFI
 :lg-subject: An opinionated guide to Haskell
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | Blog    |
@@ -2283,7 +2282,7 @@ An opinionated guide to Haskell - https://lexi-lambda.github.io/blog/2018/02/10/
 :lg-subject: bench: Command-line benchmark tool
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-keywords | Linux |
@@ -2300,7 +2299,7 @@ https://hackage.haskell.org/package/bench
 :lg-subject: Literate DevOps
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-keywords | org-mode |
@@ -2317,7 +2316,7 @@ http://howardism.org/Technical/Emacs/literate-devops.html
 :lg-subject: Emacs Tutorial 18 - Mark multiple and a few other things!
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | YouTube |
@@ -2336,7 +2335,7 @@ https://youtu.be/oSzxZWB9Qkg
 :lg-subject: 10 Tips for failing badly at Microservices by David Schmitz
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors  | David%20SCHMITZ |
@@ -2356,7 +2355,7 @@ https://youtu.be/X0tjziAQfNQ
 :lg-subject: Stop Treading Water:  Learning to Learn by Edward Kmett
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors | Edward%20KMETT |
@@ -2374,7 +2373,7 @@ https://youtu.be/j0XmixCsWjs
 :lg-subject: Walkthrough for Systemd Portable Services
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-source  | Blog    |
@@ -2395,7 +2394,7 @@ Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough
 :lg-subject: SE-Radio 238: Linda Rising on the Agile Brain
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors    | Linda%20Rising        |
@@ -2434,7 +2433,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 :lg-subject: SE-Radio 241: Kyle Kingsbury on Consensus in Distributed Systems
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors  | Kyle%20Kingsbury                   |
@@ -2460,7 +2459,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 :lg-subject: SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 
@@ -2482,7 +2481,7 @@ Natalie Silvanovich from Google Project Zero talks with Kim Carter about what at
 :lg-subject: Worst Computer Bugs in History: Therac-25 (2017)
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 
@@ -2494,7 +2493,7 @@ Worst Computer Bugs in History: Therac-25 (2017) - https://blog.bugsnag.com/bug-
 :lg-subject: 48 Dirty Little Secrets Cryptographers Don’t Want You To Know
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 
@@ -2510,7 +2509,7 @@ Chinese general algorithm
 :lg-subject: Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
 :END:
 
-#+call: lg-get-props-entry()
+
 
 
 
@@ -2522,7 +2521,7 @@ https://youtu.be/rVnXzW31pWQ
 :lg-subject: APPSEC Cali 2018 - What's New in TLS 1.3
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 
@@ -2537,7 +2536,7 @@ https://youtu.be/eTJjMGClri4
 :lg-subject: APPSEC Cali 2018 - OWASP Top 10
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 
@@ -2556,7 +2555,7 @@ Owasp top 10 good insight. Speaks about controversy at the beginning but after i
 :lg-subject: What Doctors Can Teach Us on Continuous Learning - Johnny Graber
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-yt-url | https://youtu.be/SuZZV74wTkw |
@@ -2579,7 +2578,7 @@ Owasp top 10 good insight. Speaks about controversy at the beginning but after i
 :lg-subject: Exploiting Network Printers
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors  | Jens%20Müller                |
@@ -2610,7 +2609,7 @@ Owasp top 10 good insight. Speaks about controversy at the beginning but after i
 :lg-subject: Attacks Against GSMA's M2M Remote Provisioning
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors  | Maxime%20Meyer               |
@@ -2637,7 +2636,7 @@ The way the SIM card is manufactured. Esp for the iot and the new way of limitin
 :lg-subject: Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
 :END:
 
-#+call: lg-get-props-entry()
+
 
 #+RESULTS:
 | lg-authors    | Christian%20Wenz             |
@@ -4299,7 +4298,6 @@ https://youtu.be/NXcu0BlbTrM
 :lg-subject: Podněty moderní biomedicíny pro filosofii a etiku (11. hodina)
 :END:
 
-#+call:lg-get-props-entry()
 
 #+RESULTS:
 
