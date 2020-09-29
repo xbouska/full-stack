@@ -550,7 +550,11 @@ Consider following status codes:
 ** TODO DoR                                                          :TOPIC:
 ** TODO Uml                                                          :TOPIC:
 ** TODO C4                                                           :TOPIC:
-** TODO Org42                                                        :TOPIC:
+** WIP Arc42                                                         :TOPIC:
+:PROPERTIES:
+:learning_1: https://arc42.org/
+:learning_2: https://www.se-radio.net/2015/12/se-radio-episode-244-gernot-starke-on-architecture-documentation-using-arc42/
+:END:
 * WIP Cloud  [0/7]                                                   :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CLOUD
@@ -1019,7 +1023,7 @@ ip route sh
 **** metrics
 **** traces
 *** Tail Latency
-* WIP Web Front End [0/5]                                            :DOMAIN:
+* WIP Web Front End [0/6]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: WEB
 :END:
@@ -1027,6 +1031,7 @@ ip route sh
 *** React 
 *** React Native
 *** react-hooks
+** TODO Next.js
 ** TODO Angular
 ** WIP PWA
 *** app-shell model 
@@ -1059,6 +1064,10 @@ Target to a link:
 #+begin_src html
 <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
 #+end_src
+:END:
+*** TODO Google Fonts API
+:PROPERTIES:
+:learning_1: https://developers.google.com/fonts
 :END:
 *** WIP Cookies
 :PROPERTIES:
@@ -1136,11 +1145,33 @@ Origin
   - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
 
 ** TODO The Elm Architecture (TEA)
-* WIP Security [0/9]                                                 :DOMAIN:
+* WIP Security [0/11]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
-** SPIFFE                                                            :TOPIC:
+** WIP Crypto
+*** Block Ciphers
+**** ECB, CBC, OFB, CFB, CTR  - what they are
+:PROPERTIES:
+:learning_1:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
+:END:
+**** RSA
+**** AES
+**** DES
+*** Hash
+***** base64
+*** symetricka sifra
+*** asymetricka sifra
+*** HMAC
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/HMAC
+:END:
+:ANSWER:
+- In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. 
+- As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message. 
+:END:
+
+** WIP SPIFFE                                                        :TOPIC:
 *** what is spiffe
 :PROPERTIES:
 :lerning:  https://spiffe.io/docs/latest/spiffe/overview/
@@ -1151,7 +1182,7 @@ Origin
 - Further, modern developers are expected to understand and play a role in how applications are deployed and managed in production environments. Operations teams require deeper visibility into the applications they are managing. As we move to a more evolved security stance, we must offer better tools to both teams so they can play an active role in building secure, distributed applications.
 - SPIFFE is a set of open-source specifications for a framework capable of bootstrapping and issuing identity to services across heterogeneous environments and organizational boundaries. The heart of these specifications is the one that defines short lived cryptographic identity documents – called SVIDs via a simple API. Workloads can then use these identity documents when authenticating to other workloads, for example by establishing a TLS connection or by signing and verifying a JWT token.
 :END:
-** Oauth2/OIDC                                                       :TOPIC:
+** WIP Oauth2/OIDC                                                   :TOPIC:
 *** grant (flow) types:
 **** Authorization Code Flow
 **** Client Credentials Flow
@@ -1247,6 +1278,23 @@ and the authorization server uses the Scope parameter to respond with the access
   - a value that contains a Collision-Resistant Name.
 - In each case, the definer of the name or value needs to take reasonable precautions to make sure they are in control of the part of the namespace they use to define the Claim Name.
 :END:
+*** RS256 vs HS256: What's the difference?
+:PROPERTIES:
+:learning_1: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+:END:
+:ANSWER:
+- Both choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
+  - *RS256 (RSA Signature with SHA-256)* is an asymmetric algorithm, and it uses a public/private key pair: the identity provider has a private (secret) key used to generate the signature, and the consumer of the JWT gets a public key to validate the signature. Since the public key, as opposed to the private key, doesn't need to be kept secured, most identity providers make it easily available for consumers to obtain and use (usually through a metadata URL).
+  - *HS256 (HMAC with SHA-256)*, on the other hand, involves a combination of a hashing function and one (secret) key that is shared between the two parties used to generate the hash that will serve as the signature. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised.
+- If you will be developing the application consuming the JWTs, you can safely use HS256, because you will have control on who uses the secret keys. If, on the other hand, you don't have control over the client, or you have no way of securing a secret key, RS256 will be a better fit, since the consumer only needs to know the public (shared) key.
+- Since the public key is usually made available from metadata endpoints, clients can be programmed to retrieve the public key automatically. If this is the case (as it is with the .Net Core libraries), you will have less work to do on configuration (the libraries will fetch the public key from the server). Symmetric keys, on the other hand, need to be exchanged out of band (ensuring a secure communication channel), and manually updated if there is a signing key rollover.
+- Auth0 provides metadata endpoints for the OIDC, SAML and WS-Fed protocols, where the public keys can be retrieved. You can see those endpoints under the "Advanced Settings" of a client.
+- The OIDC metadata endpoint, for example, takes the form of https://{account domain}/.well-known/openid-configuration.
+  - If you browse to that URL, you will see a JSON object with a reference to https://{account domain}/.well-known/jwks.json, which contains the public key (or keys) of the account.
+- If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
+:END:
+
+
 ** WIP JWKS
 :PROPERTIES:
 :lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
@@ -1287,44 +1335,6 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :PROPERTIES:
 :learning_1: https://owasp.org/www-community/attacks/csrf
 :END:
-** WIP Crypto
-*** Block Ciphers
-**** ECB, CBC, OFB, CFB, CTR  - what they are
-:PROPERTIES:
-:learning_1:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
-:END:
-**** RSA
-**** AES
-**** DES
-*** Hash
-***** base64
-*** symetricka sifra
-*** asymetricka sifra
-*** HMAC
-:PROPERTIES:
-:learning_1: https://en.wikipedia.org/wiki/HMAC
-:END:
-:ANSWER:
-- In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. 
-- As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message. 
-:END:
-
-*** RS256 vs HS256: What's the difference?
-:PROPERTIES:
-:learning_1: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
-:END:
-:ANSWER:
-- Both choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
-  - *RS256 (RSA Signature with SHA-256)* is an asymmetric algorithm, and it uses a public/private key pair: the identity provider has a private (secret) key used to generate the signature, and the consumer of the JWT gets a public key to validate the signature. Since the public key, as opposed to the private key, doesn't need to be kept secured, most identity providers make it easily available for consumers to obtain and use (usually through a metadata URL).
-  - *HS256 (HMAC with SHA-256)*, on the other hand, involves a combination of a hashing function and one (secret) key that is shared between the two parties used to generate the hash that will serve as the signature. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised.
-- If you will be developing the application consuming the JWTs, you can safely use HS256, because you will have control on who uses the secret keys. If, on the other hand, you don't have control over the client, or you have no way of securing a secret key, RS256 will be a better fit, since the consumer only needs to know the public (shared) key.
-- Since the public key is usually made available from metadata endpoints, clients can be programmed to retrieve the public key automatically. If this is the case (as it is with the .Net Core libraries), you will have less work to do on configuration (the libraries will fetch the public key from the server). Symmetric keys, on the other hand, need to be exchanged out of band (ensuring a secure communication channel), and manually updated if there is a signing key rollover.
-- Auth0 provides metadata endpoints for the OIDC, SAML and WS-Fed protocols, where the public keys can be retrieved. You can see those endpoints under the "Advanced Settings" of a client.
-- The OIDC metadata endpoint, for example, takes the form of https://{account domain}/.well-known/openid-configuration.
-  - If you browse to that URL, you will see a JSON object with a reference to https://{account domain}/.well-known/jwks.json, which contains the public key (or keys) of the account.
-- If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
-:END:
-
 ** TODO bastillion.io
 ** TODO PKI
 ** WIP X509
