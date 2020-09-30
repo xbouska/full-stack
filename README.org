@@ -1854,7 +1854,13 @@ By: Simon Conway Morris (Editor)
 
 ** TODO P. Mgr. et Mgr. Marek Orko Vácha, Ph.D
 * TODO To integrate :no_export:
+** TODO devops
+*** argocd
+*** fluxcd
+*** gitops
+*** cncf
 ** bookmarks/other
+** 
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
