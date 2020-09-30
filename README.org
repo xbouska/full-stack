@@ -560,7 +560,11 @@ Consider following status codes:
 :CUSTOM_ID: CLOUD
 :END:
 ** TODO Cloud native architecture
-** TODO Open Policy Agent
+** WIP Open Policy Agent
+:PROPERTIES:
+:learning_1: https://www.openpolicyagent.org/docs/latest/
+:learning_2: https://www.se-radio.net/2020/04/episode-406-torin-sandall-on-distributed-policy-enforcement/
+:END:
 ** TODO IaaS
 ** TODO PaaS
 ** TODO SaaS
