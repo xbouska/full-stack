@@ -44,7 +44,7 @@
 ** Unicode
 *** What is unicode
 :PROPERTIES:
-:lerning:  http://www.unicode.org/standard/WhatIsUnicode.html
+:learning_1:  http://www.unicode.org/standard/WhatIsUnicode.html
 :END:
 - The Unicode Standard provides a unique number for every character, no matter what platform, device, application or language. It has been adopted by all modern software providers and now allows data to be transported through many different platforms, devices and applications without corruption. Support of Unicode forms the foundation for the representation of languages and symbols in all major operating systems, search engines, browsers, laptops, and smart phonesplus the Internet and World Wide Web (URLs, HTML, XML, CSS, JSON, etc.). Supporting Unicode is the best way to implement ISO/IEC 10646.
 - The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
@@ -219,7 +219,7 @@ Consider following status codes:
 ** TODO Antifragile architecture
 ** WIP Evolutionary database design
 :PROPERTIES:
-:lerning:  https://martinfowler.com/articles/evodb.html
+:learning_1:  https://martinfowler.com/articles/evodb.html
 :END:
 
 * WIP Data [0/9]                                                     :DOMAIN:
@@ -654,11 +654,11 @@ Consider following status codes:
 :END:
 ** WIP Culture
 :PROPERTIES:
-:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
+:learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 :END:
 *** TODO The Three Ways
 :PROPERTIES:
-:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
+:learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 :END:
 
 The Phoenix Project/DevOps Handbook’s Three Ways
@@ -696,7 +696,7 @@ Some of the key principles of the Third Way are:
 *** ACCELERATE
 *** CALMS (Culture, Automation, Lean, Measurement, Sharing)
 :PROPERTIES:
-:lerning:  https://blog.sonatype.com/principle-based-devops-frameworks-calms
+:learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-calms
 :END:
 Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALMS framework is used as a means of assessing whether an organization is ready to adopt DevOps processes, or how an organization is progressing in their DevOps transformation. It is based on the following five pillars:
 
@@ -907,7 +907,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 :END:
 **** what are podSelectors?                                     :QUESTION:
 :PROPERTIES:
-:lerning:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
+:learning_1:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
 :END:
 :ANSWER:
 matchLabels: 
@@ -1071,7 +1071,7 @@ Target to a link:
 :END:
 *** WIP Cookies
 :PROPERTIES:
-:lerning:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
+:learning_1:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
 :END:
 **** types of cookies
 :ANSWER:
@@ -1088,7 +1088,7 @@ Target to a link:
 *** TODO Local Storage                                              :TOPIC:
 *** WIP Cookies / SameSite                                          :TOPIC:
 :PROPERTIES:
-:lerning:  https://web.dev/samesite-cookies-explained/
+:learning_1:  https://web.dev/samesite-cookies-explained/
 :END:
 *** Less
 *** Sass
@@ -1174,7 +1174,7 @@ Origin
 ** WIP SPIFFE                                                        :TOPIC:
 *** what is spiffe
 :PROPERTIES:
-:lerning:  https://spiffe.io/docs/latest/spiffe/overview/
+:learning_1:  https://spiffe.io/docs/latest/spiffe/overview/
 :END:
 :ANSWER:
 - SPIFFE, the Secure Production Identity Framework for Everyone, is a set of open-source standards for securely identifying software systems in dynamic and heterogeneous environments. Systems that adopt SPIFFE can easily and reliably mutually authenticate wherever they are running.
@@ -1201,7 +1201,7 @@ and the authorization server uses the Scope parameter to respond with the access
 :end:
 *** What is acr_values
 :PROPERTIES:
-:lerning:  https://ldapwiki.com/wiki/Acr_values
+:learning_1:  https://ldapwiki.com/wiki/Acr_values
 :END:
 :ANSWER:
 - Acr_values is an OPTIONAL parameter that is a Space-separated string that specifies the Authentication Context Class Values within the Authentication Request that the Authorization Server is being requested to use for processing requests from this Client, with the values appearing in order of preference.
@@ -1297,7 +1297,7 @@ and the authorization server uses the Scope parameter to respond with the access
 
 ** WIP JWKS
 :PROPERTIES:
-:lerning:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
+:learning_1:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
 :END:
 - JSON Web Key Sets:
   - The JSON Web Key Set (JWKS) is a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by the authorization server and signed using the RS256 signing algorithm.
@@ -1371,7 +1371,10 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 **** TODO Monad
 **** TODO Kleisli Operator
 **** TODO Free Monad
-**** TODO fix
+**** TODO Fix
+:PROPERTIES:
+:learning_1: https://www.parsonsmatt.org/2016/10/26/grokking_fix.html
+:END:
 **** TODO Optics
 ***** Lenses
 ***** Prisms
@@ -1537,7 +1540,7 @@ try {
 **** TODO Gradle
 *** Spring & Spring Boot
 :PROPERTIES:
-:lerning:  https://www.baeldung.com/spring-interview-questions
+:learning_1:  https://www.baeldung.com/spring-interview-questions
 :END:
 **** Jaký je rozdíl mezi JavaEE a Springem?                     :QUESTION:
 - JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
