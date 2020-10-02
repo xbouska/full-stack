@@ -25,29 +25,29 @@
 #+begin_src emacs-lisp :exports none 
   (setq
    lg-properties-display-list
-   '("lg-authors"
-     "lg-consumed"
-     "lg-duration"
-     "lg-event-date"
-     "lg-group"
-     "lg-keywords"
-     "lg-quality"
-     "lg-source"
-     "lg-subject"
-     "lg-topic"
-     "lg-url-1"
-     "lg-yt-url"
-     "learning_1"
-     "learning_2"
+   (list '("lg-authors" "authors" org-link-decode)
+     '("lg-consumed" "consumed" identity)
+     '("lg-duration" "duration" identity)
+     '("lg-event-date" "event date" identity)
+     '("lg-group" "group" identity)
+     '("lg-keywords" "keywords" identity)
+     '("lg-quality" "quality" identity)
+     '("lg-source" "source" identity)
+     '("lg-subject" "subject" identity)
+     '("lg-topic" "topic" identity)
+     '("lg-url-1" "url-1" identity)
+     '("lg-yt-url" "youtube" identity)
+     '("learning_1" "learning" identity)
+     '("learning_2" "learning" identity)
      ))
   ;;-----------------------
 
   (defun lg-get-props()
     (mapcar
      (lambda (propname)
-       (let ((value (org-entry-get (point) propname)))
+       (let ((value (org-entry-get (point) (nth 0 propname))))
          (when value
-           (list propname value))))
+           (list (nth 1 propname) (funcall (nth 2 propname) value )))))
      lg-properties-display-list))
 
 #+end_src
@@ -89,7 +89,7 @@
 #+call: lg-get-props-entry()
 
 #+RESULTS:
-| learning_1 | http://www.unicode.org/standard/WhatIsUnicode.html |
+| learning | http://www.unicode.org/standard/WhatIsUnicode.html |
 
 - The Unicode Standard provides a unique number for every character, no matter what platform, device, application or language. It has been adopted by all modern software providers and now allows data to be transported through many different platforms, devices and applications without corruption. Support of Unicode forms the foundation for the representation of languages and symbols in all major operating systems, search engines, browsers, laptops, and smart phonesplus the Internet and World Wide Web (URLs, HTML, XML, CSS, JSON, etc.). Supporting Unicode is the best way to implement ISO/IEC 10646.
 - The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
@@ -635,6 +635,11 @@ Consider following status codes:
 :learning_2: https://www.se-radio.net/2020/04/episode-406-torin-sandall-on-distributed-policy-enforcement/
 :END:
 #+call: lg-get-props-entry()
+
+#+RESULTS:
+| learning | https://www.openpolicyagent.org/docs/latest/                                                  |
+| learning | https://www.se-radio.net/2020/04/episode-406-torin-sandall-on-distributed-policy-enforcement/ |
+
 ** TODO IaaS
 ** TODO PaaS
 ** TODO SaaS
@@ -732,6 +737,10 @@ Consider following status codes:
 :learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 :END:
 #+call: lg-get-props-entry()
+
+#+RESULTS:
+| learning | https://blog.sonatype.com/principle-based-devops-frameworks-three-ways |
+
 *** TODO The Three Ways
 :PROPERTIES:
 :learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
@@ -1840,9 +1849,13 @@ The moral aspect
 *** TODO Coding Blocks
 *** TODO SE-Radio
 ** WIP Books
-*** Thinking, Fast and Slow                                       :AUDIBLE:
+*** Daniel Kahneman: Thinking, Fast and Slow                      :AUDIBLE:
+:PROPERTIES:
+:CUSTOM_ID: Thinking, Fast and Slow
+:END:
 By: Daniel Kahneman
 The guru to the gurus at last shares his knowledge with the rest of us....
+
 
 *** Failure: Why Science Is so Successful                         :AUDIBLE:
 By: Stuart Firestein
@@ -2301,15 +2314,14 @@ https://youtu.be/gR_EGN86fvg
 :END:
 #+call: lg-get-props-entry()
 
-
-
 #+RESULTS:
-| lg-authors    | Linda%20Rising        |
-| lg-consumed   | <2018-08-04 So>       |
-| lg-event-date | <2015-11-09 Po>       |
-| lg-keywords   | Soft%20Skills         |
-| lg-quality    | worth returning to it |
-| lg-source     | SE-Radio              |
+| authors    | Linda Rising                                  |
+| consumed   | <2018-08-04 Sat>                              |
+| event date | <2015-11-09 Mon>                              |
+| keywords   | Soft%20Skills                                 |
+| quality    | worth returning to it                         |
+| source     | SE-Radio                                      |
+| subject    | SE-Radio 238: Linda Rising on the Agile Brain |
 
 **** My Remarks
 
@@ -2338,14 +2350,14 @@ CLOSED: [2019-03-20 Wed 21:19]
 :END:
 #+call: lg-get-props-entry()
 
-https://vimeo.com/325143661
+- https://vimeo.com/325143661
 
 :KEYWORDS:
 Cognitive-bias
 :END:
 
 :REFERENCES:
-- Daniel kahneman think fast and slow
+- [[#Thinking, Fast and Slow][Daniel Kahneman: Thinking, Fast and Slow]]
 - Dan Ariely: predictably irrational
 :END:
 
