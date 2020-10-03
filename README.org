@@ -25,20 +25,20 @@
 #+begin_src emacs-lisp :exports none 
   (setq
    lg-properties-display-list
-   (list '("lg-authors" "authors" org-link-decode)
-     '("lg-consumed" "consumed" identity)
-     '("lg-duration" "duration" identity)
-     '("lg-event-date" "event date" identity)
-     '("lg-group" "group" identity)
-     '("lg-keywords" "keywords" identity)
-     '("lg-quality" "quality" identity)
-     '("lg-source" "source" identity)
-     '("lg-subject" "subject" identity)
-     '("lg-topic" "topic" identity)
-     '("lg-url-1" "url-1" identity)
-     '("lg-yt-url" "youtube" identity)
-     '("learning_1" "learning" identity)
-     '("learning_2" "learning" identity)
+   (list '("lg-authors" "Authors" org-link-decode)
+     '("lg-consumed" "Seen" identity)
+     '("lg-duration" "Duration" identity)
+     '("lg-event-date" "Event Date" identity)
+     '("lg-group" "Group" identity)
+     '("lg-keywords" "Keywords" identity)
+     '("lg-quality" "Quality" identity)
+     '("lg-source" "Source" identity)
+     '("lg-subject" "Subject" identity)
+     '("lg-topic" "Topic" identity)
+     '("lg-url-1" "Url" identity)
+     '("lg-yt-url" "Youtube" identity)
+     '("learning_1" "Learning" identity)
+     '("learning_2" "Learning" identity)
      ))
   ;;-----------------------
 
@@ -52,15 +52,10 @@
 
 #+end_src
 
-#+RESULTS:
-: lg-get-props
-
 #+name: lg-get-props-entry
 #+begin_src emacs-lisp :exports results
 (lg-get-props)
 #+end_src
-
-#+RESULTS: lg-get-props-entry
 
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
@@ -88,9 +83,6 @@
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| learning | http://www.unicode.org/standard/WhatIsUnicode.html |
-
 - The Unicode Standard provides a unique number for every character, no matter what platform, device, application or language. It has been adopted by all modern software providers and now allows data to be transported through many different platforms, devices and applications without corruption. Support of Unicode forms the foundation for the representation of languages and symbols in all major operating systems, search engines, browsers, laptops, and smart phonesplus the Internet and World Wide Web (URLs, HTML, XML, CSS, JSON, etc.). Supporting Unicode is the best way to implement ISO/IEC 10646.
 - The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
 *** utf-8
@@ -102,9 +94,6 @@
 :learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
 :END:
 #+call: lg-get-props-entry()
-
-#+RESULTS:
-| learning_1 | https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/ |
 
 *** json
 *** xml
@@ -636,10 +625,6 @@ Consider following status codes:
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| learning | https://www.openpolicyagent.org/docs/latest/                                                  |
-| learning | https://www.se-radio.net/2020/04/episode-406-torin-sandall-on-distributed-policy-enforcement/ |
-
 ** TODO IaaS
 ** TODO PaaS
 ** TODO SaaS
@@ -737,9 +722,6 @@ Consider following status codes:
 :learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
 :END:
 #+call: lg-get-props-entry()
-
-#+RESULTS:
-| learning | https://blog.sonatype.com/principle-based-devops-frameworks-three-ways |
 
 *** TODO The Three Ways
 :PROPERTIES:
@@ -1948,13 +1930,6 @@ By: Simon Conway Morris (Editor)
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors | Bartosz%20MILEWSKI |
-| lg-source  | YouTube            |
-| lg-subject | Category Theory    |
-
 https://youtu.be/MXbJPe30ONQ
 
 *** TODO Category Theory II 8.1: F-Algebras, Lambek's lemma
@@ -1965,13 +1940,6 @@ https://youtu.be/MXbJPe30ONQ
 :lg-subject: Category Theory II 8.1: F-Algebras, Lambek's lemma
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-authors | Bartosz%20MILEWSKI |
-| lg-source  | YouTube            |
-| lg-subject | Category Theory    |
 
 https://youtu.be/zkDVCQiveEo
 ** TODO Venkat SUBRAMANIAM
@@ -2041,12 +2009,6 @@ Simon Peyton-jones (mr. Haskell) excel is the world's most popular functional la
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| lg-authors | Kevlin%20Henney              |
-| lg-quality | worth returning to it        |
-| lg-source  | YouTube                      |
-| lg-yt-url  | https://youtu.be/v-RkKohsF78 |
-
 https://youtu.be/v-RkKohsF78
 
 - Pražské jaro.
@@ -2110,10 +2072,6 @@ https://youtu.be/v-RkKohsF78
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| lg-authors | Michael%20PLÖD |
-| lg-subject | DDD            |
-
 https://youtu.be/Z0zpSB85XGs
 *** TODO Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5
 :PROPERTIES:
@@ -2127,11 +2085,6 @@ https://youtu.be/Z0zpSB85XGs
 #+call: lg-get-props-entry()
 
 
-#+RESULTS:
-| lg-authors | Michael%20PLÖD               |
-| lg-source  | YouTube                      |
-| lg-subject | DDD                          |
-| lg-yt-url  | https://youtu.be/RHg53wMflCc |
 ** TODO Brian GOETZ
 ** TODO Troy HUNT
 ** TODO Scott MEYERS
@@ -2148,11 +2101,6 @@ https://youtu.be/Z0zpSB85XGs
 #+call: lg-get-props-entry()
 
 
-
-#+RESULTS:
-| lg-authors | Edward%20KMETT |
-| lg-source  | YouTube        |
-| lg-subject | Haskell        |
 
 
 https://youtu.be/j0XmixCsWjs
@@ -2286,8 +2234,6 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| lg-subject | There is No Such Thing as a Microservice! - Chris Richardson January 2018 |
 
 *** TODO Developing Microservices with Aggregates by Chris Richardson
 :PROPERTIES:
@@ -2296,8 +2242,6 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| lg-subject | Developing Microservices with Aggregates by Chris Richardson |
 
 https://youtu.be/gR_EGN86fvg
 ** WIP Linda Rising [0/2]
@@ -2314,14 +2258,6 @@ https://youtu.be/gR_EGN86fvg
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-| authors    | Linda Rising                                  |
-| consumed   | <2018-08-04 Sat>                              |
-| event date | <2015-11-09 Mon>                              |
-| keywords   | Soft%20Skills                                 |
-| quality    | worth returning to it                         |
-| source     | SE-Radio                                      |
-| subject    | SE-Radio 238: Linda Rising on the Agile Brain |
 
 **** My Remarks
 
@@ -2612,13 +2548,6 @@ Teach Yourself Computer Science - https://teachyourselfcs.com
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-source  | YouTube |
-| lg-subject | NixOS   |
-
-
 https://youtu.be/4tuqI8V_cZw
 
 *** TODO Refactoring Restify OAuth2
@@ -2630,10 +2559,6 @@ https://youtu.be/4tuqI8V_cZw
 #+call: lg-get-props-entry()
 
 
-
-#+RESULTS:
-| lg-source  | YouTube |
-| lg-subject | OAuth2  |
 
 https://youtu.be/aHrwUnsPom0
 
@@ -2647,12 +2572,6 @@ https://youtu.be/aHrwUnsPom0
 #+call: lg-get-props-entry()
 
 
-
-#+RESULTS:
-| lg-authors | Fran%20PEREZ |
-| lg-source  | YouTube      |
-| lg-subject | Akka         |
-
 https://youtu.be/iAYou32RrYs
 
 *** TODO LambdaCon 2015
@@ -2660,11 +2579,6 @@ https://youtu.be/iAYou32RrYs
 :lg-source: YouTube
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-source | YouTube |
 
 LambdaCon 2015: https://www.youtube.com/playlist?list=PLYQ3kvhWU-EC7UbWtzabORMAEIVsSA827
 
@@ -2677,13 +2591,6 @@ LambdaCon 2015: https://www.youtube.com/playlist?list=PLYQ3kvhWU-EC7UbWtzabORMAE
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-keywords | Microservices |
-| lg-source   | YouTube       |
-| lg-subject  | gRPC          |
-
 https://youtu.be/RqK-mwh3-aY
 
 *** TODO BOB 2017 - Martin Kühl: The hidden nature of data
@@ -2695,15 +2602,7 @@ https://youtu.be/RqK-mwh3-aY
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors | Martin%20KÜHL |
-| lg-group   | BOB 2017      |
-| lg-source  | YouTube       |
-
 https://youtu.be/f7ODZVmXj-4
-
 *** TODO Adventures with the purely functional OS NixOS
 :PROPERTIES:
 :lg-source: YouTube
@@ -2712,14 +2611,6 @@ https://youtu.be/f7ODZVmXj-4
 :lg-subject: Adventures with the purely functional OS NixOS
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-source  | YouTube |
-| lg-subject | NixOS   |
-| lg-topic   | NixOS   |
-
 https://youtu.be/4tuqI8V_cZw
 
 *** TODO Scala Tutorial 18q - Arrays
@@ -2729,16 +2620,8 @@ https://youtu.be/4tuqI8V_cZw
 :lg-subject: Scala Tutorial 18q - Arrays
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-source  | YouTube |
-| lg-subject | Scala   |
-
 https://youtu.be/Br7-ry5swIg
-
-*** TODO Avoiding Microserv0ice Megadisasters - Jimmy Bogard
+*** TODO Avoiding Microservice Megadisasters - Jimmy Bogard
 :PROPERTIES:
 :lg-source: YouTube
 :lg-authors: Jimmy%20BOGARD
@@ -2753,21 +2636,6 @@ https://youtu.be/Br7-ry5swIg
 :lg-subject: Avoiding Microserv0ice Megadisasters - Jimmy Bogard
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-authors    | Jimmy%20BOGARD                                                                                                               |
-| lg-consumed   | <2018-08-03 Pá>                                                                                                              |
-| lg-duration   | 45:26                                                                                                                        |
-| lg-event-date | <2017-01-16 Po>                                                                                                              |
-| lg-group      | NDC London 2017                                                                                                              |
-| lg-keywords   | Conways%20Law Deadlock Disaster Single%20Source%20Of%20Truth DDD Bounded%20Context API%20Hell Eric%20Evans CAP Microservices |
-| lg-source     | YouTube                                                                                                                      |
-| lg-subject    | Microservices                                                                                                                |
-| lg-topic      | Disaster                                                                                                                     |
-| lg-yt-url     | https://youtu.be/gfh-VCTwMw8                                                                                                 |
-
 
 - https://youtu.be/gfh-VCTwMw8
 - Jak nedělat microservices, založeno na mylných představách
@@ -2794,15 +2662,6 @@ https://youtu.be/Br7-ry5swIg
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors | Charles%20STRAHAN |
-| lg-source  | YouTube           |
-| lg-subject | NixOS             |
-| lg-topic   | NixOS             |
-
-
 https://youtu.be/VivXSoovUFI
 
 *** TODO An opinionated guide to Haskell
@@ -2814,13 +2673,6 @@ https://youtu.be/VivXSoovUFI
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-source  | Blog    |
-| lg-subject | Haskell |
-
-
 An opinionated guide to Haskell - https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/
 
 *** TODO bench: Command-line benchmark tool
@@ -2830,13 +2682,6 @@ An opinionated guide to Haskell - https://lexi-lambda.github.io/blog/2018/02/10/
 :lg-subject: bench: Command-line benchmark tool
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-keywords | Linux |
-| lg-subject  | Linux |
-
 
 https://hackage.haskell.org/package/bench
 
@@ -2848,13 +2693,6 @@ https://hackage.haskell.org/package/bench
 :lg-subject: Literate DevOps
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-keywords | org-mode |
-| lg-subject  | Emacs    |
-
 
 http://howardism.org/Technical/Emacs/literate-devops.html
 
@@ -2869,15 +2707,6 @@ http://howardism.org/Technical/Emacs/literate-devops.html
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors  | David%20SCHMITZ |
-| lg-consumed | <2108-03-11 Ne> |
-| lg-keywords | Microservices   |
-| lg-source   | YouTube         |
-
-
 https://youtu.be/X0tjziAQfNQ
 
 *** TODO Emacs Tutorial 18 - Mark multiple and a few other things!
@@ -2888,13 +2717,6 @@ https://youtu.be/X0tjziAQfNQ
 :lg-subject: Emacs Tutorial 18 - Mark multiple and a few other things!
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-source  | YouTube |
-| lg-subject | Emacs   |
-
 
 https://youtu.be/oSzxZWB9Qkg
 
@@ -2928,25 +2750,13 @@ Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors  | Kyle%20Kingsbury                   |
-| lg-consumed | <2018-08-04 So>                    |
-| lg-keywords | CAP CRDT Redis PostgreSQL RabbitMQ |
-| lg-quality  | worth returning to it              |
-| lg-source   | SE-Radio                           |
-
 **** Official description
-
 - Kyle Kingsbury, known as Aphyr on Twitter and for his blog by the same name, talks to Stefan Tilkov about consensus in distributed systems and about his experience in testing systems to see how they behave in case of failures.
 - In addition to discussing some of the theoretical foundations, such as the CAP theorem, isolation levels, and consensus protocols,
 - Kyle talks about some specific databases, including MongoDB, Riak, and Redis, and discusses how they maintain and achieve  or fail to achieve  a consistent state.
 - Finally, there’s some advice for practitioners on how to pick a solution and understand its properties.
 
 **** My Remarks
-
-- 
 
 *** TODO SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
 :PROPERTIES:
@@ -2956,20 +2766,14 @@ Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough
 #+call: lg-get-props-entry()
 
 
+- SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
 
-#+RESULTS:
+- 17.07.18 by se-radio team
 
+- Web player: http://podplayer.net/?id=52997029
+- Episode: http://feedproxy.google.com/~r/se-radio/~5/ank_v4SW3xw/SE-Radio-Episode-330-Natalie-Silvanovich-on-Attack-Surface-Reduction.mp3
 
-
-
-SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
-
-17.07.18 by se-radio team
-
-Web player: http://podplayer.net/?id=52997029
-Episode: http://feedproxy.google.com/~r/se-radio/~5/ank_v4SW3xw/SE-Radio-Episode-330-Natalie-Silvanovich-on-Attack-Surface-Reduction.mp3
-
-Natalie Silvanovich from Google Project Zero talks with Kim Carter about what attack surface is in regards to software, how to identify risks and reduce the attack surface of the software you as a Software Engineer are creating. Natalie found over 100 0 day security defects in flash in her first year at Google, and […]
+- Natalie Silvanovich from Google Project Zero talks with Kim Carter about what attack surface is in regards to software, how to identify risks and reduce the attack surface of the software you as a Software Engineer are creating. Natalie found over 100 0 day security defects in flash in her first year at Google, and […]
 
 *** TODO Worst Computer Bugs in History: Therac-25 (2017)
 :PROPERTIES:
@@ -2978,11 +2782,7 @@ Natalie Silvanovich from Google Project Zero talks with Kim Carter about what at
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-
-Worst Computer Bugs in History: Therac-25 (2017) - https://blog.bugsnag.com/bug-day-race-condition-therac-25/
+- Worst Computer Bugs in History: Therac-25 (2017) - https://blog.bugsnag.com/bug-day-race-condition-therac-25/
 
 *** TODO 48 Dirty Little Secrets Cryptographers Don’t Want You To Know
 :PROPERTIES:
@@ -2991,12 +2791,10 @@ Worst Computer Bugs in History: Therac-25 (2017) - https://blog.bugsnag.com/bug-
 :END:
 #+call: lg-get-props-entry()
 
-#+RESULTS:
-
 https://youtu.be/iZa_XKpj9X4
 
-Eliptické křivky
-Chinese general algorithm
+- Eliptické křivky
+- Chinese general algorithm
 
 *** TODO Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
 :PROPERTIES:
@@ -3005,10 +2803,6 @@ Chinese general algorithm
 :lg-subject: Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
 :END:
 #+call: lg-get-props-entry()
-
-
-
-
 
 https://youtu.be/rVnXzW31pWQ
 
@@ -3019,13 +2813,6 @@ https://youtu.be/rVnXzW31pWQ
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-
-
-
-
 https://youtu.be/eTJjMGClri4
 
 *** TODO APPSEC Cali 2018 - OWASP Top 10
@@ -3035,16 +2822,9 @@ https://youtu.be/eTJjMGClri4
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-
-
-
-
 https://youtu.be/TXAztSpYpvE
 
-Owasp top 10 good insight. Speaks about controversy at the beginning but after it is nice
+- Owasp top 10 good insight. Speaks about controversy at the beginning but after it is nice
 
 *** TODO What Doctors Can Teach Us on Continuous Learning - Johnny Graber
 :PROPERTIES:
@@ -3054,13 +2834,6 @@ Owasp top 10 good insight. Speaks about controversy at the beginning but after i
 :lg-subject: What Doctors Can Teach Us on Continuous Learning - Johnny Graber
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-yt-url | https://youtu.be/SuZZV74wTkw |
-
-
 
  - Dream on learning playing guitar Vs learning playing guitar.
  - use the training budget
@@ -3270,7 +3043,7 @@ Practical Cryptography for Developers - https://cryptobook.nakov.com/
 :END:
 #+call: lg-get-props-entry()
 
-Designing Resilient Systems: Circuit Breakers or Retries? - https://engineering.grab.com/designing-resilient-systems-part-1
+- Designing Resilient Systems: Circuit Breakers or Retries? - https://engineering.grab.com/designing-resilient-systems-part-1
 
 *** TODO GOTO 2018
 :PROPERTIES:
@@ -3677,21 +3450,18 @@ Todo: lookup the political party parliament voting consistecy.. it was in Czech 
 
 https://youtu.be/f03FWiIfXoQ
 
-QCon SF 2018
+- QCon SF 2018
+- Conference talk
 
-  Conference talk
-
-
-:Taken:
-CRDT are not only academy
-:End:
-
-:Topics:
-CRDT
-CV - causality vector
-CAP theory
-Conflict resolution
-:End:
+:TAKEN:
+- CRDT are not only academy
+:END:
+:TOPICS:
+- CRDT
+- CV - causality vector
+- CAP theory
+- Conflict resolution
+:END:
 
 *** TODO Alex Anthony - Easier code reviews with ESLint (Feb React London speaker)
 :PROPERTIES:
@@ -3714,17 +3484,16 @@ Meetup talk
 
 https://youtu.be/kopTiMg5u9E
 
-Underground ralroad?
+- Underground ralroad?
  
-History...
-It industry borrow a terminology from the sports?
-Self organized human run API. 
-John p Parker wealthiest man in Ohio.
-Lived a double live 
-Brought people From 
-Not interesting
-
-Hangout
+- History...
+- It industry borrow a terminology from the sports?
+- Self organized human run API. 
+- John p Parker wealthiest man in Ohio.
+- Lived a double live 
+- Brought people From 
+- Not interesting
+- Hangout
 
 *** TODO Re Imagine The Hiring Process
 :PROPERTIES:
@@ -3735,20 +3504,20 @@ Hangout
 
 https://youtu.be/TbZ57raC1TE
 
-Elle Meredith
-Lachlan Hardy
+- Elle Meredith
+- Lachlan Hardy
 :TOPICS:
-HumanResources
-diversity
-Inclusion
-Culture
-Unconscious-bias
-Privilege
-Oppression
-Fluency-heuristic
-Collaborative-friction
-Diversity-dept
-Cultural-fit
+- HumanResources
+- Diversity
+- Inclusion
+- Culture
+- Unconscious-bias
+- Privilege
+- Oppression
+- Fluency-heuristic
+- Collaborative-friction
+- Diversity-dept
+- Cultural-fit
 :END:
 :REFERENCES:
 Mark s. Luckie
@@ -3814,14 +3583,41 @@ https://www.youtube.com/channel/UCPHcNDphBAvooQI5U4yC0mA
 :END:
 #+call: lg-get-props-entry()
 
-Episode 56: Developer Hiring
+- Episode 56: Developer Hiring
 
-2/27/19 by Table XI
+- 2/27/19 by Table XI
 
-Web player: http://podplayer.net/?id=64477200
-Episode: https://aphid.fireside.fm/d/1437767933/e2f17a1d-4992-4c1c-b414-0780dcd58bc3/06bea63d-6fc1-4a82-88e8-917b0521000b.mp3
+- Web player: http://podplayer.net/?id=64477200
+- Episode: https://aphid.fireside.fm/d/1437767933/e2f17a1d-4992-4c1c-b414-0780dcd58bc3/06bea63d-6fc1-4a82-88e8-917b0521000b.mp3
 
-Developer Hiring TableXI is now offering training for developers and products teams! For more info, email workshops@tablexi.com or find us at http://tablexi.com.workshops Today on the show, we're talking about hiring with Jennifer Tu and Zee Spencer of Cohere, Thayer Prime of Team Prime, and software consultant Matt Patterson. We talk about the entire developer hiring process from how to advertise your company to potential candidates, through coding tests and interviews, and all the way to the final decision process. It's a great conversation with a lot of different perspectives and a lot of good advice. We’d like to hear from you. What do you look for when hiring developers? Let us know at http://techdoneright.io/56 or on Twitter at @tech_done_right Guests Jennifer Tu: Cofounder of Cohere. Zee Spencer: Cofounder of Cohere. Thayer Prime: Founder of Team Prime. Matt Patterson: Software Consultant. Notes 02:55 - Common Mistakes When Hiring Developers 05:17 - Effective Hiring Procedures and Interview Processes 10:31 - Getting Your Company’s Name Out There 15:30 - Recruitment, Onboarding, and Reviews 18:52 - Sending Take-Home Exercises and the Problems They Present; Pre-Hire Pairing 30:33 - Good and Bad Uses of Interview Time 33:11 - Developing Interview Question and Using Standardization to Remove Biases 35:34 - Making Yes/No Decisions Related Episodes Apprenticeship with Megan Tiu, Kara Carrell, and Alyssa Ramsey Diversity and Inclusion at Small Companies with Meara Charnetzki, Michael Donnelly, and Elena Valentine Live Panel: Hiring Developers in (and out of) Health Care Developer Bootcamps and Computing Education with Jeff Casimir and Mark Guzdial Special Guests: Jennifer Tu, Matt Patterson, Thayer Prime, and Zee Spencer.
+- Developer Hiring TableXI is now offering training for developers and products teams! For more info, email workshops@tablexi.com or find us at http://tablexi.com.workshops
+- Today on the show, we're talking about hiring with Jennifer Tu and Zee Spencer of Cohere, Thayer Prime of Team Prime, and software consultant Matt Patterson.
+- We talk about the entire developer hiring process from how to advertise your company to potential candidates, through coding tests and interviews, and all the way to the final decision process.
+- It's a great conversation with a lot of different perspectives and a lot of good advice.
+- 
+- We’d like to hear from you.
+- What do you look for when hiring developers?
+- Let us know at http://techdoneright.io/56 or on Twitter at @tech_done_right
+- Guests
+  - Jennifer Tu: Cofounder of Cohere.
+  - Zee Spencer: Cofounder of Cohere.
+  - Thayer Prime: Founder of Team Prime.
+  - Matt Patterson: Software Consultant.
+- Notes
+  - 02:55 - Common Mistakes When Hiring Developers
+  - 05:17 - Effective Hiring Procedures and Interview Processes
+  - 10:31 - Getting Your Company’s Name Out There
+  - 15:30 - Recruitment, Onboarding, and Reviews
+  - 18:52 - Sending Take-Home Exercises and the Problems They Present; Pre-Hire Pairing
+  - 30:33 - Good and Bad Uses of Interview Time
+  - 33:11 - Developing Interview Question and Using Standardization to Remove Biases
+  - 35:34 - Making Yes/No Decisions
+- Related Episodes
+  - Apprenticeship with Megan Tiu, Kara Carrell, and Alyssa Ramsey
+  - Diversity and Inclusion at Small Companies with Meara Charnetzki, Michael Donnelly, and Elena Valentine
+  - Live Panel: Hiring Developers in (and out of) Health Care Developer Bootcamps and Computing Education with Jeff Casimir and Mark Guzdial
+- Special Guests:
+  - Jennifer Tu, Matt Patterson, Thayer Prime, and Zee Spencer.
 
 *** TODO Evelina Gabasova - Exploring StackOverflow Data
 :PROPERTIES:
@@ -3838,7 +3634,7 @@ https://youtu.be/K8CIBh22VzE
 :END:
 #+call: lg-get-props-entry()
 
-*** TODO Upskilling  Enterprise DevOps Skills Report Results!
+*** TODO Upskilling Enterprise DevOps Skills Report Results!
 :PROPERTIES:
 :CREATED:  [2019-03-09 Sat 13:39]
 :lg-subject: Upskilling  Enterprise DevOps Skills Report Results!
@@ -3847,30 +3643,25 @@ https://youtu.be/K8CIBh22VzE
 
 https://youtu.be/5kbhyAQUqMA
 
-Eveline oehrlich
-Jayne grill
-
-Webinar
-
+- Eveline oehrlich
+- Jayne grill
+- Webinar
 
 :KEYWORDS:
 - DevOps
 - skills-benchmarking
-4th-tevolution
-Industry 4.0
-T-shaped-professional
-I-shaped-professional
-Knowledge
-Skill
-Ability
+- 4th-tevolution
+- Industry 4.0
+- T-shaped-professional
+- I-shaped-professional
+- Knowledge
+- Skill
+- Ability
 :END:
-
-
-
 :REFERENCES:
-Electric cloud university
-DevOps institute (DOI)
-DevOpsinstitute.com
+- Electric cloud university
+- DevOps institute (DOI)
+- DevOpsinstitute.com
 :END:
 
 :POINTS-TAKEN:
@@ -3982,9 +3773,6 @@ DevOpsinstitute.com
     - 3% other
 :END:
 
-Skončil jsem na 33:16 .. Budu pokračovat.
-
-
 *** TODO Just what is a "service mesh", and if I get one will it make everything OK? - Elton Stoneman
 :PROPERTIES:
 :CREATED:  [2019-03-21 Thu 18:46]
@@ -3995,20 +3783,20 @@ Skončil jsem na 33:16 .. Budu pokračovat.
 https://youtu.be/fki4nIvYJcc
 
 :KEYWORDS:
-K8s
-Ostio:
-Load-ballancing
-Traffic-managemen
-Docker
-Service-mesh
-Prometheus
-Graphana
-Elastic search
-Fluentd
-Observability
-Security
-Mesh
-Envoy
+- K8s
+- Ostio:
+- Load-ballancing
+- Traffic-managemen
+- Docker
+- Service-mesh
+- Prometheus
+- Graphana
+- Elastic search
+- Fluentd
+- Observability
+- Security
+- Mesh
+- Envoy
 :END:
 
 *** TODO AppSecCali 2019 - Slack App Security: Securing your Workspaces from a Bot Uprising
@@ -4032,8 +3820,6 @@ Slack app security.
 
 https://youtu.be/IhqxJCZKCz4
    
-
-
 - not a kanban or scrum just agile
 - 26 richeat people own more than 3.8 mld
 - agle  means adaptible quick
@@ -4041,7 +3827,7 @@ https://youtu.be/IhqxJCZKCz4
 - what is in agile manifesto
    - individual ower 
 ....
-- google -  wgy are soem teams 
+- google -  wgy are soem teams
 
 ..- needs for performance teams (MIT human dynamic laboratory) over 2000 People in study
     - everyone talks and listens in roughly equal measure
