@@ -1055,8 +1055,10 @@ example: matchLabels:{}
 *** snap
 *** apt
 *** ssh 
-**** how to create trust between computers
+**** TODO how to create trust between computers
+**** TODO tarpit
 *** awk 
+*** 
 :PROPERTIES:
 :learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
 :learning_1: https://linuxhint.com/20_awk_examples/
