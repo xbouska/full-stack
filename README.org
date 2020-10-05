@@ -1048,60 +1048,60 @@ example: matchLabels:{}
 *** ELK                                                             :TOPIC:
 *** DynaTrace                                                       :TOPIC:
 *** Piwik                                                           :TOPIC:
-** TODO Linux
-*** cron
-*** runlevel / init / inittab 
-*** systemd
-*** snap
-*** apt
-*** ssh 
+** TODO Linux [0/36]
+*** TODO cron
+*** TODO runlevel / init / inittab 
+*** TODO systemd
+*** TODO snap
+*** TODO apt
+*** TODO ssh 
 **** TODO how to create trust between computers
 **** TODO tarpit
-*** awk 
+*** TODO awk 
 *** 
 :PROPERTIES:
 :learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
 :learning_1: https://linuxhint.com/20_awk_examples/
 :END:
 #+call: lg-get-props-entry()
-*** sed 
-*** grep 
-*** tail
-*** head
-*** rsync
-*** mount
-*** ls / ps / htop
-*** bash                                                          :TOPIC:
+*** TODO sed 
+*** TODO grep 
+*** TODO tail
+*** TODO head
+*** TODO rsync
+*** TODO mount
+*** TODO ls / ps / htop
+*** TODO bash                                                       :TOPIC:
 **** co je to here doc?                                         :QUESTION:
-*** co je to regexp
-*** list open ports
-*** iptables
-*** BPF
-*** list open files
-*** stdin stdout stderr
-*** NFS
-*** file types: 
+*** TODO co je to regexp
+*** TODO list open ports
+*** TODO iptables
+*** TODO BPF
+*** TODO list open files
+*** TODO stdin stdout stderr
+*** TODO NFS
+*** TODO file types: 
 **** block device
 **** character device
 **** named pipe
 **** symlink
-*** etc/nsswitch./conf
-*** etc/resolv.conf
-*** ip
+*** TODO etc/nsswitch./conf
+*** TODO etc/resolv.conf
+*** TODO ip
 #+begin_src bash
 ip addr sh
 ip route sh
 #+end_src
-*** nmap
-*** nc
-*** socat
-*** chmod
-*** dd
-*** tar
-*** apt-get apt
-*** wget
-*** curl
-*** find
+*** TODO nmap
+*** TODO nc
+*** TODO socat
+*** TODO chmod
+*** TODO dd
+*** TODO tar
+*** TODO apt-get /  apt / dpkg
+*** TODO wget
+*** TODO curl
+*** TODO find
 ** TODO Observability
 *** 3 pillars
 **** logs
