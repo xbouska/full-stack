@@ -723,7 +723,7 @@ Consider following status codes:
 :PROPERTIES:
 :learning_1: https://min.io/product/overview
 :END:
-* WIP DEVOPS / SRE   [0/4]                                           :DOMAIN:
+* WIP DEVOPS / SRE   [0/5]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
@@ -1051,6 +1051,8 @@ example: matchLabels:{}
 *** ELK                                                             :TOPIC:
 *** DynaTrace                                                       :TOPIC:
 *** Piwik                                                           :TOPIC:
+*** argocd
+*** fluxcd
 ** TODO Linux [0/36]
 *** TODO cron
 *** TODO runlevel / init / inittab 
@@ -1061,7 +1063,6 @@ example: matchLabels:{}
 **** TODO how to create trust between computers
 **** TODO tarpit
 *** TODO awk 
-*** 
 :PROPERTIES:
 :learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
 :learning_1: https://linuxhint.com/20_awk_examples/
@@ -1111,6 +1112,8 @@ ip route sh
 **** metrics
 **** traces
 *** Tail Latency
+** TODO gitops
+
 * WIP Web Front End [0/8]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: WEB
@@ -1869,7 +1872,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
 * WIP Psychology                                                     :DOMAIN:
-** Conginive Biases                                                  :TOPIC:
+** Cognitive Biases                                                  :TOPIC:
 ** Glossary                                                          :TOPIC:
 *** knowledge
 - definition
@@ -1912,7 +1915,11 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://www.thestrangeloop.com/
 :END:
-
+*** DEVOXX
+*** GOTO
+*** NDC
+*** QCon
+*** Beauty in Code
 ** WIP Books
 *** Daniel Kahneman: Thinking, Fast and Slow                      :AUDIBLE:
 :PROPERTIES:
@@ -2445,9 +2452,7 @@ Cognitive-bias
 ** TODO Marek Orko VÁCHA
 * TODO To integrate :no_export:
 ** TODO devops
-*** argocd
-*** fluxcd
-*** gitops
+
 *** cncf
 ** bookmarks Postgresql
 - https://iqsanswers.com/postgresql-interview-questions-answers/
