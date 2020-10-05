@@ -1235,6 +1235,8 @@ Origin
   - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
 
 ** TODO The Elm Architecture (TEA)
+- http://blog.jenkster.com/2016/06/how-elm-slays-a-ui-antipattern.html
+
 * WIP Security [0/11]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
