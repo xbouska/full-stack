@@ -1972,32 +1972,31 @@ https://youtu.be/zkDVCQiveEo
 :END:
 #+call: lg-get-props-entry()
 
-https://youtu.be/AbgsfeGvg3E
-
-1968 rok novinek
-Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
-Not a new ideas. 
-Singleton single malt whiskey
-System has either zero or multiple singleton
-Rian Foote: Patterns are aggressive disregard of originality.
-Richard Gabriel: worse is better in 1990. Develop with minimal invention. Better to have underfeatute software that is rock solid
-Simplicity
-Completeness
-C2 wiki was 150 lines of perl code.
-Correctness: 
-Consistent
-1968 NATO science conference. Software development process is iterative
-1968 afips. Influential conference..
+- https://youtu.be/AbgsfeGvg3E
+- 1968: you full of news
+- Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
+- Not a new ideas. 
+- Singleton single malt whiskey
+- System has either zero or multiple singleton
+- Rian Foote: Patterns are aggressive disregard of originality.
+- Richard Gabriel: worse is better in 1990. Develop with minimal invention. Better to have underfeatute software that is rock solid
+- Simplicity
+- Completeness
+- C2 wiki was 150 lines of perl code.
+- Correctness: 
+- Consistent
+- 1968 NATO science conference. Software development process is iterative
+- 1968 afips. Influential conference..
 - Improve usability by making the software Faster. 
 - The fastest io is no io
 - Command line tools can be 235x faster than your Hadoop cluster
 - 299792458 is in no configuration file.
 - can you fit your code in your cognitive limit
 - lion's commentary of Unix 6th edition 9500 lines is a complete os.
- - there are Java classes bigger than that
+  - there are Java classes bigger than that
 
 - Stonehenge as an enterprise software. Mono lithos one huge stone difficult to move
-UNIX philosophy. White one thing that does one thing and does it well.
+- UNIX philosophy. White one thing that does one thing and does it well.
 
 - 11 years of sun cycle reflect the SW industry cycle.
 - write programs to work together
@@ -2007,15 +2006,17 @@ UNIX philosophy. White one thing that does one thing and does it well.
 - ward Cunningham oopsla 92 technical dept
 
 
-- jack w reeves programming is a design activity
-- Alan Kay oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
+- Jack W. Reeves:
+  - programming is a design activity
+- Alan Kay:
+  - oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
 - William Cook lambda calculus was the first object-oriented language (1941) 1932
-
-Simon Peyton-jones (mr. Haskell) excel is the world's most popular functional language
+- Simon Peyton-Jones (mr. Haskell):
+  - excel is the world's most popular functional language
 
 - coordinatio languages: separate computation and coordination
- - Unix pipe 1964
- - ken Thompson 1970 implementace pipe in Unix
+  - Unix pipe 1964
+  - ken Thompson 1970 implementace pipe in Unix
 *** TODO Kevlin Henney - 1968
 :PROPERTIES:
 :CREATED:  [2019-02-26 Tue 20:34]
