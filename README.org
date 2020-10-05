@@ -52,6 +52,9 @@
 
 #+end_src
 
+#+RESULTS:
+: lg-get-props
+
 #+name: lg-get-props-entry
 #+begin_src emacs-lisp :exports results
 (lg-get-props)
@@ -236,14 +239,21 @@ Consider following status codes:
 :END:
 
 ** WIP micro-service-architecture
-** WIP Enterprise Architecture Integration Patterns [0/3]
+** WIP Enterprise Architecture Integration Patterns [0/4]
 *** WIP Integration Styles:
 **** TODO File Transfer
 **** TODO Shared Database
 **** TODO Remote Procedure Invocation
 **** TODO Messaging
-*** TODO orchestration
-*** TODO choreography
+*** WIP Messaging Systems
+**** Message Channel
+**** Message
+**** Pipes and Filtres
+**** Message Router
+**** Message Translator
+**** Message Endpoint
+*** TODO Orchestration
+*** TODO Choreography
 ** TODO Event Sourcing
 ** TODO CQRS
 ** TODO CRUD
