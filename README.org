@@ -1871,12 +1871,42 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Cyclomatic complexity                                        :TOPIC:
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
-* WIP Information Sources [0/5]                                      :DOMAIN:
+
+* WIP Psychology                                                     :DOMAIN:
+** Cognitive Biases                                                  :TOPIC:
+** Glossary                                                          :TOPIC:
+*** knowledge
+- definition
+  - practical and/or theoretical understanding of a topic
+- obtained throughput
+  - learning training experience
+*** skill
+- definition
+  - things that one learns through training and/or through experience
+- obtained throughput
+  - practicing, learning
+*** ability
+- definition
+  - level of being able to perform or deliver a task
+- obtained throughput
+  - natural capability
+
+* WIP Core Values [0/2]                                              :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CORE_VALUES
+:END:
+The moral aspect
+** TODO Code of Conduct                                                :TOPIC:
+** WIP SW developer responsibility                                   :TOPIC:
+- finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
+  - 
+* WIP Information Sources [0/6]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
 :END:
 - where to learn, what to read and follow
 ** TODO YouTube
+** TODO quicklabs
 ** TODO Udemy
 ** TODO Podcasts
 *** TODO InfoQ
@@ -2424,6 +2454,7 @@ Cognitive-bias
 ** TODO Steven PINKER [0/0]
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
+
 * WIP Psychology                                                     :DOMAIN:
 ** Cognitive Biases                                                  :TOPIC:
 ** Glossary                                                          :TOPIC:
@@ -2458,7 +2489,8 @@ The moral aspect
 :learning_1: https://ethics.acm.org/
 :END:
 
-* TODO To integrate :no_export:
+
+* WIP To integrate                                                :no_export:
 ** TODO devops
 
 *** cncf
@@ -2469,9 +2501,13 @@ The moral aspect
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
-- https://www.softwaretestinghelp.com/git-interview-questions/
 - https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
 - https://www.illumio.com/
+
+** bookamrks/git
+- https://learngitbranching.js.org/
+- https://www.softwaretestinghelp.com/git-interview-questions/
+
 ** bookmarks/kubernetes
 - tiller
 - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
@@ -2516,7 +2552,16 @@ The moral aspect
 - http://www.chschneider.org/linux/server/openldap.shtml
 - https://medium.com/@raghu.icecraft/simple-working-with-ldapsearch-cf6a5986977
 - https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
-** bookmarks/oidc
+** bookmarks/oidc [0/2]
+*** TODO OpenID Connect Core 1.0 incorporating errata set 1
+:PROPERTIES:
+:learning_1: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
+:END:
+- OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
+- This specification defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User. It also describes the security and privacy considerations for using OpenID Connect.
+
+*** TODO others
+- https://openid.net/specs/openid-connect-core-1_0.html
 - https://hub.docker.com/r/jboss/keycloak/
 - https://openid.net/2015/05/26/enhancing-oauth-security-for-mobile-applications-with-pkse/
 - https://github.com/vaquarkhan/vaquarkhan
