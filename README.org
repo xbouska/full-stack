@@ -1270,12 +1270,12 @@ Origin
 ** TODO The Elm Architecture (TEA)
 - http://blog.jenkster.com/2016/06/how-elm-slays-a-ui-antipattern.html
 
-* WIP Security [0/11]                                                :DOMAIN:
+* WIP Security [0/14]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
-** WIP Crypto
-*** Block Ciphers
+** WIP Crypto [0/5]
+*** WIP Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
 :PROPERTIES:
 :learning_1:    https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//
@@ -1284,11 +1284,11 @@ Origin
 **** RSA
 **** AES
 **** DES
-*** Hash
+*** WIP Hash
 ***** base64
-*** symetricka sifra
-*** asymetricka sifra
-*** HMAC
+*** TODO Symetric Encryption
+*** TODO Asymetric Encryption
+*** WIP HMAC
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/HMAC
 :END:
@@ -1425,7 +1425,6 @@ and the authorization server uses the Scope parameter to respond with the access
 - If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
 :END:
 
-
 ** WIP JWKS
 :PROPERTIES:
 :learning_1:  https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets
@@ -1443,12 +1442,12 @@ and the authorization server uses the Scope parameter to respond with the access
 
 Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DOMAIN/.well-known/jwks.json. This endpoint will contain the JWK used to sign all Auth0-issued JWTs for this tenant.
 
-** LDAP
+** WIP LDAP
 *** object class
 **** inetOrgPerson
 *** OID
 *** CN, DN, SN,
-** OWASP top 10 2017
+** WIP OWASP top 10 2017
 :PROPERTIES:
 :learning_1: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
 :END:
@@ -1479,9 +1478,19 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - When CA needs to get a new chain (for example, because of upgrade from SHA-1 to SHA-256), they just increment the generation number.
 - This is good because obsolete certificates can be better identified.
 :END:
-** TODO Illumio Security
-** TODO DEVSECOPS
-
+** WIP DevSecOps
+:PROPERTIES:
+:learning_1: https://snyk.io/devsecops/
+:END:
+- What Is DevSecOps?
+  - DevSecOps refers to the integration of security practices into a DevOps software delivery model.
+  - Its foundation is a culture where development and operations are enabled through process and tooling to take part in a shared responsibility for delivering secure software.
+  - The definition of DevSecOps, at a high-functioning level, is to integrate security objectives as early as possible in the lifecycle of software development.
+  - While security is “everyone’s responsibility,” DevOps teams are uniquely positioned at the intersection of development and operations, empowered to apply security in both breadth and depth.
+** WIP Tools & Solutions [0/3]
+*** TODO Illumio Security
+*** TODO Snyk
+*** TODO Jfrog Xray
 * WIP Languages & programming [0/11]                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
