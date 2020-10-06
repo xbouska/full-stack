@@ -1871,34 +1871,6 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Cyclomatic complexity                                        :TOPIC:
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
-* WIP Psychology                                                     :DOMAIN:
-** Cognitive Biases                                                  :TOPIC:
-** Glossary                                                          :TOPIC:
-*** knowledge
-- definition
-  - practical and/or theoretical understanding of a topic
-- obtained throughput
-  - learning training experience
-*** skill
-- definition
-  - things that one learns through training and/or through experience
-- obtained throughput
-  - practicing, learning
-*** ability
-- definition
-  - level of being able to perform or deliver a task
-- obtained throughput
-  - natural capability
-
-* WIP Core Values [0/2]                                              :DOMAIN:
-:PROPERTIES:
-:CUSTOM_ID: CORE_VALUES
-:END:
-The moral aspect
-** TODO Code of Conduct                                                :TOPIC:
-** WIP SW developer responsibility                                   :TOPIC:
-- finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
-  - 
 * WIP Information Sources [0/5]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
@@ -2005,7 +1977,7 @@ By: Irvin D. Yalom
 By: Simon Conway Morris (Editor)
 
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
-* WIP Big Names        [0/19]                                        :DOMAIN:
+* WIP Big Names        [0/20]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -2033,6 +2005,8 @@ https://youtu.be/MXbJPe30ONQ
 
 https://youtu.be/zkDVCQiveEo
 ** TODO Venkat SUBRAMANIAM
+** TODO Hannah FRY
+*** Hello World
 ** TODO Trisha GEE
 ** WIP Kevlin HENNEY [0/2]
 *** TODO GOTO 2018 • Old Is the New New • Kevlin Henney
@@ -2450,6 +2424,40 @@ Cognitive-bias
 ** TODO Steven PINKER [0/0]
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
+* WIP Psychology                                                     :DOMAIN:
+** Cognitive Biases                                                  :TOPIC:
+** Glossary                                                          :TOPIC:
+*** knowledge
+- definition
+  - practical and/or theoretical understanding of a topic
+- obtained throughput
+  - learning training experience
+*** skill
+- definition
+  - things that one learns through training and/or through experience
+- obtained throughput
+  - practicing, learning
+*** ability
+- definition
+  - level of being able to perform or deliver a task
+- obtained throughput
+  - natural capability
+* WIP Core Values [0/3]                                              :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CORE_VALUES
+:END:
+The moral aspect
+** TODO Code of Conduct                                                :TOPIC:
+** WIP SW developer responsibility                                   :TOPIC:
+- finally the code that was driving the engine in diesel gate was written by someone
+  - -> this developer(s) knew what are they doing
+  
+  - 
+** WIP ACM ethics Code 
+:PROPERTIES:
+:learning_1: https://ethics.acm.org/
+:END:
+
 * TODO To integrate :no_export:
 ** TODO devops
 
