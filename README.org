@@ -2462,9 +2462,13 @@ Cognitive-bias
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
 - http://site.icu-project.org/
-- https://www.softwaretestinghelp.com/git-interview-questions/
 - https://enterprisecraftsmanship.com/posts/entity-vs-value-object-the-ultimate-list-of-differences/
 - https://www.illumio.com/
+
+** bookamrks/git
+- https://learngitbranching.js.org/
+- https://www.softwaretestinghelp.com/git-interview-questions/
+
 ** bookmarks/kubernetes
 - tiller
 - https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
