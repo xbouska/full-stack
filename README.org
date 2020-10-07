@@ -291,6 +291,10 @@ Consider following status codes:
 :END:
 
 ** WIP micro-service-architecture
+*** Saga
+*** CQRS
+*** Single source of truth
+
 ** WIP Enterprise Architecture Integration Patterns [0/4]
 *** WIP Integration Styles:
 **** TODO File Transfer
@@ -304,8 +308,16 @@ Consider following status codes:
 **** Message Router
 **** Message Translator
 **** Message Endpoint
-*** TODO Orchestration
 *** TODO Choreography
+- distributed decision making
+  - simple..
+  - for primitive cases.
+  - Higher connaissance
+  - cyclic dependencies …
+  - Overloads domain objectsviin. I minimal
+*** TODO Orchestration
+◦ centralized decision making 
+ - orchestration objects implements state machine and invokes the participants 
 ** TODO Event Sourcing
 ** TODO CQRS
 ** TODO CRUD
@@ -1545,10 +1557,11 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
   - Its foundation is a culture where development and operations are enabled through process and tooling to take part in a shared responsibility for delivering secure software.
   - The definition of DevSecOps, at a high-functioning level, is to integrate security objectives as early as possible in the lifecycle of software development.
   - While security is “everyone’s responsibility,” DevOps teams are uniquely positioned at the intersection of development and operations, empowered to apply security in both breadth and depth.
-** WIP Tools & Solutions [0/3]
+** WIP Tools & Solutions [0/4]
 *** TODO Illumio Security
 *** TODO Snyk
 *** TODO Jfrog Xray
+*** TODO Burp Suite
 * WIP Languages & programming [0/11]                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
@@ -2361,41 +2374,41 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
 - 2pc is not an option
 - sequencing Saga transactions
   - after completion of transaction T(I) "something" must decide what step to execute next
-   - success: which T(I+1) ... Branching
-   - failure: C(i-1)
+    - success: which T(I+1) ... Branching
+    - failure: C(i-1)
 - coordination
-   - choreography: *distributed* decision making
-      - simple.. for primitive cases. Higher connaissance cyclic dependencies ... Overloads domain objectsviin. I minimal 
-   - orchestration: *centralized* decision making
-       - orchestration objects implements state machine and invokes the participants
+  - choreography: *distributed* decision making
+    - simple.. for primitive cases. Higher connaissance cyclic dependencies ... Overloads domain objectsviin. I minimal 
+  - orchestration: *centralized* decision making
+    - orchestration objects implements state machine and invokes the participants
 
 - queries
-   - API compositions pattern
-      - to difficult to implement in many cases
-   - CQRS
-     - mouthful way of saying: maintain a replica of the data in a format that makes it easy to query (use elastic search on mongodb. 
+  - API compositions pattern
+    - to difficult to implement in many cases
+  - CQRS
+    - mouthful way of saying: maintain a replica of the data in a format that makes it easy to query (use elastic search or mongodb)
       - the view is maintained up to date by subscribing to the events emitted by the services that own the data ... Update the replica
       - commands
-          - POST
-          - PUT
-          - DELETE
+        - POST
+        - PUT
+        - DELETE
       - Queries
-          - GET
-             - you can use even different types of databases per type of view
-   - replication lag (handling)
-      - has to be handled by the UI side
+        - GET
+          - you can use even different types of databases per type of view
+  - replication lag (handling)
+    - has to be handled by the UI side
 - implementing transactional messaging
-   - publish to message broker first
-      - only in very simple cases
-   - use even sourcing
-      - event sourcing = event centric approach to business logic and persistence
-      - persist object as a sequence of events
-         - replay events to re-enter create in memory state
-         - sidenote: Apache Kafka != Event store
-      - Event sourcing guarantees: state change -> event is published
-   - traditional persistence + transactional outbox pattern
-      - transactional log tailing
-      - polling - but it introduces latency
+  - publish to message broker first
+    - only in very simple cases
+  - use even sourcing
+    - event sourcing = event centric approach to business logic and persistence
+    - persist object as a sequence of events
+      - replay events to re-enter create in memory state
+      - sidenote: Apache Kafka != Event store
+    - Event sourcing guarantees: state change -> event is published
+  - traditional persistence + transactional outbox pattern
+    - transactional log tailing
+    - polling - but it introduces latency
 
 - 
 
@@ -2570,9 +2583,9 @@ The moral aspect
 :learning_1: https://ethics.acm.org/
 :END:
 * WIP Concepts [0/3]
-** TODO Fat Tail Distribution
-** TODO Data Driven Decision
-** TODO Scepticism
+** TODO Fat Tail Distribution                                        :TOPIC:
+** TODO Data Driven Decision                                         :TOPIC:
+** TODO Scepticism                                                   :TOPIC:
 * WIP To integrate                                                :no_export:
 ** TODO devops
 
