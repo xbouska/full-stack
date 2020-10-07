@@ -144,7 +144,7 @@ basic of architecture
 **** TODO Redis
 
 *** TODO JMS
-*** TODO AMQP (Advanced Message Queuing Protocol)
+*** WIP AMQP (Advanced Message Queuing Protocol)
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol
 :END:
@@ -155,7 +155,7 @@ basic of architecture
   - Azure Service Bus
   - *Solace PubSub+*, a multi-protocol broker in hardware, software, and cloud
 - beware there is more incompatible protcol versions 0-8, 0-9, 0-9-1
-*** TODO MQTT (Message Queuing Telemetry Transport)
+*** WIP MQTT (Message Queuing Telemetry Transport)
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/MQTT
 :END:
@@ -168,7 +168,7 @@ basic of architecture
 - MQTT relies on the TCP protocol for data transmission. A variant, MQTT-SN, is used over other transports such as UDP or Bluetooth.
 - MQTT sends connection credentials in plain text format and does not include any measures for security or authentication. This can be provided by using TLS to encrypt and protect the transferred information against interception, modification or forgery.
 - The default unencrypted MQTT port is 1883. The encrypted port is 8883.[16]
-*** TODO HTTP(s)
+
 ** WIP HTTP Family                                                   :TOPIC:
 *** HTTP
 **** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
@@ -186,6 +186,12 @@ basic of architecture
     - through which a client requests a particular URL in order to receive an event stream.
 :END:
 **** WIP What are WebSockets                                    :QUESTION:
+**** TODO XMLHttpRequest (XHR)
+- objects are used to interact with servers. 
+- You can retrieve data from a URL without having to do a full page refresh.
+- This enables a Web page to update just part of a page without disrupting what the user is doing.
+- XMLHttpRequest is used heavily in AJAX programming.
+- Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
 ** WIP REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
@@ -1209,7 +1215,7 @@ example: matchLabels:{}
 *** TODO argocd                                                     :TOPIC:
 *** TODO fluxcd                                                     :TOPIC:
 *** TODO Prometheus                                                 :TOPIC:
-* WIP Web Front End [0/8]                                            :DOMAIN:
+* WIP Web Front End [0/9]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: WEB
 :END:
@@ -1223,6 +1229,12 @@ example: matchLabels:{}
 ** TODO Angular
 ** WIP PWA
 *** app-shell model 
+
+** WIP Web API
+*** Server-send events
+- Traditionally, a web page has to send a request to the server to receive new data; that is, the page requests data from the server.
+- With server-sent events, it's possible for a server to send new data to a web page at any time, by pushing messages to the web page.
+- These incoming messages can be treated as Events + data inside the web page.
 
 ** WIP HTML + CSS
 *** Chrome Development Tools
