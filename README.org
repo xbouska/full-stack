@@ -1906,34 +1906,6 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
 
-* WIP Psychology                                                     :DOMAIN:
-** Cognitive Biases                                                  :TOPIC:
-** Glossary                                                          :TOPIC:
-*** knowledge
-- definition
-  - practical and/or theoretical understanding of a topic
-- obtained throughput
-  - learning training experience
-*** skill
-- definition
-  - things that one learns through training and/or through experience
-- obtained throughput
-  - practicing, learning
-*** ability
-- definition
-  - level of being able to perform or deliver a task
-- obtained throughput
-  - natural capability
-
-* WIP Core Values [0/2]                                              :DOMAIN:
-:PROPERTIES:
-:CUSTOM_ID: CORE_VALUES
-:END:
-The moral aspect
-** TODO Code of Conduct                                                :TOPIC:
-** WIP SW developer responsibility                                   :TOPIC:
-- finally the code that was driving the engine in diesel gat was written by someone -> this developer(s) knew what are they doing
-  - 
 * WIP Information Sources [0/6]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
@@ -2490,8 +2462,6 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-
-
 * WIP To integrate                                                :no_export:
 ** TODO devops
 
