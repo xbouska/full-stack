@@ -2569,6 +2569,10 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
+* WIP Concepts [0/3]
+** TODO Fat Tail Distribution
+** TODO Data Driven Decision
+** TODO Scepticism
 * WIP To integrate                                                :no_export:
 ** TODO devops
 
