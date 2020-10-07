@@ -709,14 +709,13 @@ Consider following status codes:
 - boto3
 - aws-shell
 ** GCP Services                                                      :TOPIC:
-*** TODO bigquery
+*** TODO BigQuery
+*** TODO PubSub
 *** TODO composer
 *** TODO dataflow
-*** TODO firestore
 *** TODO automl
 *** TODO dataproc
 *** TODO secretmanager
-*** TODO pubsub
 *** TODO iam
 *** WIP aim:service accounts
 :PROPERTIES:
@@ -729,6 +728,18 @@ Consider following status codes:
   - Running workloads on on-premises workstations or data centers that call Google APIs.
   - Running workloads which are not tied to the lifecycle of a human user.
 - Your application assumes the identity of the service account to call Google APIs, so that the users aren't directly involved.
+
+*** WIP Firebase
+- is a platform developed by Google for creating mobile and web applications.
+- It was originally an independent company founded in 2011[1].
+- In 2014, Google acquired the platform[2] and it is now their flagship offering for app development.
+- Firebase is a toolset to “build, improve, and grow your app”, and the tools it gives you cover a large portion of the services that developers would normally have to build themselves, but don’t really want to build, because they’d rather be focusing on the app experience itself.
+- This includes things like analytics, authentication, databases, configuration, file storage, push messaging, and the list goes on.
+- The services are hosted in the cloud, and scale with little to no effort on the part of the developer.
+**** What sort of apps is Firebase good for?
+- There’s really no limit to the types of apps that can be helped by Firebase products. There are only limits to the platforms it can be used on. iOS and Android are the primary targets for the Firebase SDKs, and there’s increasing support for web, Flutter, Unity, and C++. You should also know there’s an Admin SDK available for a variety of languages, to be used with any backend components you might require.
+- On top of those SDKs, there’s a library called FirebaseUI (Android, iOS, web) that provides a bunch of helpful utilities to make development with Firebase even easier. And there are also projects such as AngularFire that wrap the web SDKs for use with Angular. These are open source. Firebase likes open source.
+
 
 ** GCP CLI                                                           :TOPIC:
 - gcloud
@@ -1895,7 +1906,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** strongly typed
 **** weakly typed
 
-* WIP Quality and Testing   [0/6]                                    :DOMAIN:
+* WIP Quality and Testing   [0/7]                                    :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: QUALITY
 :END:
@@ -1905,7 +1916,56 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 ** TODO Cyclomatic complexity                                        :TOPIC:
 ** TODO Code quality                                                 :TOPIC:
 ** TODO Unit testing
+** WIP Tools [1/2]
+*** WIP Jest
+:PROPERTIES:
+:learning_1: https://jestjs.io/
+:END:
+:DESCRIPTION:
+- Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+- It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
+:END:
+- universal
+- lambdas can be tested
+- all in one:
+  - orchestrator
+  - assertion library (expect)
+  - report generator
+  - react-test-libraries
+- contains Istambul as a JS coverage tool
 
+*** Enzyme                                                       :OUTDATED:
+:PROPERTIES:
+:learning_1: https://enzymejs.github.io/enzyme/
+:END:
+:DESCRIPTION:
+- Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
+- You can also manipulate, traverse, and in some ways simulate runtime given the output.
+- Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.
+:END:
+*** COMPETE Enzyme vs react-testing-library
+:PROPERTIES:
+:learning_1: https://blog.logrocket.com/enzyme-vs-react-testing-library-a-mindset-shift/
+:END:
+- With react-testing-library, you’re able to easily write tests that represent well enough how the application is experienced by users.
+- Let’s say that when you write your tests with react-testing-library, you’re testing your application as if you were the user interacting with the application’s interface.
+- On the other hand, when you’re writing your tests with Enzyme, even though you are also able to achieve the same level of confidence that you might get with react-testing-library, it is a bit more cumbersome to build your test structure in a way that resembles a real user.
+- In general, what you might see in codebases when looking at tests with Enzyme is that you’re actually testing the props and state of your components, meaning you are testing the internal behavior of components to confirm that the correct view is being presented to users.
+
+*** Jasmine                                                      :OUTDATED:
+*** Istambul                                                     :OUTDATED:
+:PROPERTIES:
+:learning_1: https://istanbul.js.org/
+:END:
+:DESCRIPTION:
+- Istanbul instruments your ES5 and ES2015+ JavaScript code with line counters, so that you can track how well your unit-tests exercise your codebase.
+- The nyc command-line-client for Istanbul works well with most JavaScript testing frameworks: tap, mocha, AVA, etc.
+:END:
+
+*** Karma (Orchestrator)                                         :OUTDATED:
+*** Mocha                                                        :OUTDATED:
+*** FantomJS                                                     :OUTDATED:
+*** Protractor
 * WIP Information Sources [0/6]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
