@@ -123,8 +123,7 @@ basic of architecture
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
-** WIP Messaging Protocols                                           :TOPIC:
-
+** WIP Messaging                                           :TOPIC:
 *** TODO Queue
 *** TODO Topics
 *** WIP QoS 
@@ -133,7 +132,7 @@ basic of architecture
   - *At least once* - the message is re-tried by the sender multiple times until acknowledgement is received (acknowledged delivery).
   - *Exactly once* - the sender and receiver engage in a two-level handshake to ensure only one copy of the message is received (assured delivery).
 
-*** Tools
+*** WIP Tools
 **** TODO Solace Pub/Sub Plus
 **** TODO Google Pub/Sub
 **** TODO AWS SNS
@@ -233,7 +232,7 @@ Consider following status codes:
 :END:
 *** TODO HATEOAS
 ** TODO GraphQL
-** TODO 12 Factor Apps
+** WIP 12 Factor Apps
 :PROPERTIES:
 :learning_1: https://12factor.net/
 :END:
@@ -314,17 +313,38 @@ Consider following status codes:
 *** DRY                                                           :TOPIC:
 *** KISS                                                          :TOPIC:
 *** YAGNI                                                         :TOPIC:
-*** SOLID
-*** open-close principal                                          :TOPIC:
-*** High cohesion                                                 :TOPIC:
-*** Low coupling                                                  :TOPIC:
+*** WIP SOLID
+- *S* single responsibility
+- *O* open–closed
+- *L* liskov substitution
+- *I* interface segregation
+- *D* dependency inversion
+*** Open/Close principal                                            :TOPIC:
+*** High Cohesion                                                   :TOPIC:
+*** Low Coupling                                                    :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
+*** WIP Information Hiding                                          :TOPIC:
+- In computer science, information hiding is the principle of segregation of the design decisions in a computer program that are most likely to change, thus protecting other parts of the program from extensive modification if the design decision is changed. The protection involves providing a stable interface which protects the remainder of the program from the implementation (the details that are most likely to change).
+- Written another way, information hiding is the ability to prevent certain aspects of a class or software component from being accessible to its clients, using either programming language features (like private variables) or an explicit exporting policy
+*** WIP Encapsulation                                               :TOPIC:
+- The mechanism of Encapsulation in ObjectOriented Programming (OOP) is a direct application of Information Hiding
+*** WIP The Law of Demeter (LoD) or principle of least knowledge 
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Law_of_Demeter
+:END:
+- is a design guideline for developing software, particularly object-oriented programs. In its general form, the LoD is a specific case of loose coupling. The guideline was proposed by Ian Holland at Northeastern University towards the end of 1987, and can be succinctly summarized in each of the following ways:[1]
+  - Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
+  - Each unit should only talk to its friends; don't talk to strangers.
+  - Only talk to your immediate friends.
+- The fundamental notion is that a given object should assume as little as possible about the structure or properties of anything else (including its subcomponents), in accordance with the principle of "information hiding". It may be viewed as a corollary to the principle of least privilege, which dictates that a module possess only the information and resources necessary for its legitimate purpose.
+- It is so named for its origin in the Demeter Project, an adaptive programming and aspect-oriented programming effort. The project was named in honor of Demeter, “distribution-mother” and the Greek goddess of agriculture, to signify a bottom-up philosophy of programming which is also embodied in the law itself.
+
+** TODO Antifragile architecture
 ** WIP Evolutionary database design
 :PROPERTIES:
 :learning_1:  https://martinfowler.com/articles/evodb.html
 :END:
 #+call: lg-get-props-entry()
-** TODO Antifragile architecture
 * WIP Data [0/9]                                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DATA
