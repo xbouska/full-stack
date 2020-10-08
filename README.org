@@ -69,8 +69,9 @@
 :END:
 ** WIP bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
-*** one`s complement
-*** two`s complements
+*** one's complement
+*** two's complements
+*** BCD encoding
 *** ieee754 explain float: mantisa,exponent
 *** Endian
 ** WIP TCP/IP
