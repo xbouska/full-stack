@@ -211,7 +211,7 @@ basic of architecture
 - Like most modern JS written today, Fetch is based on Promises rather than callbacks.
 - In our project, the Fetch example can be seen here and the code is shown below:
 
-#+begin_src javascript
+#+begin_src js
 <!DOCTYPE html>
 <head>
   <title>FETCH Example</title>
@@ -248,6 +248,20 @@ basic of architecture
 #+end_src
 
 - The actual Fetch request takes place in the <script> tag between lines 16 and 33. On line 16, we make a request to the url "/api/endpoint" which returns a list of Reddit subs available to view. The initial response is on line 17 ("payload") which we then convert into JSON and parse starting on line 19. The "data" object is an array of Reddit subs with "name" and "path" keys. In lines 22 through 28, we populate a <div> tag with id "list" using the objects in the data array and connect each element to a link to view the sub content.
+**** WIP axios
+Axios: Axios is a Javascript library used to make HTTP requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. It can be used intercept HTTP requests and responses and enables client-side protection against XSRF. It also has the ability to cancel requests.
+
+#+begin_src js
+axios.get('url') 
+  .then((response) => { 
+  
+    // Code for handling the response 
+  }) 
+  .catch((error) => { 
+  
+    // Code for handling the error 
+  }) 
+#+end_src
 ** WIP REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
