@@ -1236,6 +1236,11 @@ example: matchLabels:{}
 - With server-sent events, it's possible for a server to send new data to a web page at any time, by pushing messages to the web page.
 - These incoming messages can be treated as Events + data inside the web page.
 
+
+*** Tools
+**** SoapUI
+**** curl
+
 ** WIP HTML + CSS
 *** Chrome Development Tools
 *** HTML5 Layout 
@@ -1393,14 +1398,34 @@ Origin
 - SPIFFE is a set of open-source specifications for a framework capable of bootstrapping and issuing identity to services across heterogeneous environments and organizational boundaries. The heart of these specifications is the one that defines short lived cryptographic identity documents – called SVIDs via a simple API. Workloads can then use these identity documents when authenticating to other workloads, for example by establishing a TLS connection or by signing and verifying a JWT token.
 :END:
 ** WIP Oauth2/OIDC                                                   :TOPIC:
-*** grant (flow) types:
-**** Authorization Code Flow
-**** Client Credentials Flow
-**** Device Code
-**** Refresh Token
-**** PKCE
-**** (Implicit Flow)
-**** (Password Grant)
+*** grant (flow) types [/]
+**** TODO Authorization Code Flow
+**** TODO Client Credentials Flow
+**** TODO Device Code
+**** TODO Refresh Token
+**** TODO PKCE
+**** TODO (Implicit Flow)
+**** TODO (Password Grant)
+**** WIP Resource Owner Password Credential Grant
+:PROPERTIES:
+:learning_1: https://www.netiq.com/documentation/access-manager-45-developer-documentation/pdfdoc/oauth-application-developer-guide/oauth-application-developer-guide.pdf
+:END:
+- from soapUI template
+- requested attributes:
+  - Resource Owner Name
+  - Resource Owner Password
+  - Client identification
+  - Client Secret
+  - Access Token URI:
+  - scope
+- example for netIq
+#+begin_src bash
+curl --request POST \
+ --url https://<idphost:port>/nidp/oauth/nam/token \
+ --header 'content-type: application/x-www-form-urlencoded' \
+ --data 'grant_type=password&client_id=bb775b12-bbd4-423b-83d9-647aeb98608d&client_secret=bBbE4mNO_kWWAnEeOL1CLTyuPhNLhHkTThArEckyrdLmRLn3GhnxjsKI2mEijCSlPjftxHod05dpuGs6wA&username=user1&password=pass@123&scope=email%20profile'
+#+end_src
+
 *** Scope
 :answer:
 A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. 
@@ -2599,6 +2624,34 @@ The moral aspect
 ** TODO Data Driven Decision                                         :TOPIC:
 ** TODO Scepticism                                                   :TOPIC:
 * WIP To integrate                                                :no_export:
+** TODO dog - used technologies
+- AWS
+  - API Gateway
+  - Lambda
+  - DynamoDB
+  - Elasticsearch
+  - Kinesis
+  - SNS
+  - S3
+  - CloudWatch
+  - CloudFormation
+  - SAM
+  - CloudFront
+  - Secrets Manager
+  - Route 53
+  - VPC
+  - Kibana
+- Other
+  - IDEA
+  - JavaScript ES6
+  - React 16
+  - React styled-components (instead of CSS file)
+  - Webpack 4
+  - Bootstrap 4
+  - Jest
+  - NodeJS
+  - git
+
 ** TODO devops
 
 *** cncf
