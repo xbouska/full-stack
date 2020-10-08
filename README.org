@@ -206,6 +206,48 @@ basic of architecture
 - This enables a Web page to update just part of a page without disrupting what the user is doing.
 - XMLHttpRequest is used heavily in AJAX programming.
 - Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
+**** WIP Fetch
+- Fetch is a fairly recent addition to the JavaScript world (introduced in 2015) utilizing a modern syntax for making requests from the browser.
+- Like most modern JS written today, Fetch is based on Promises rather than callbacks.
+- In our project, the Fetch example can be seen here and the code is shown below:
+
+#+begin_src javascript
+<!DOCTYPE html>
+<head>
+  <title>FETCH Example</title>
+</head>
+
+<body>
+  <div>
+    <h1>Select Reddit Sub</h1>
+    <div id="list"></div>
+
+  </div>
+
+  <script>
+    (function(){
+      fetch('/api/endpoint')
+        .then(payload => payload.json())
+        .then(resp => {
+          var data = resp.data // array of Reddit subs returned from "endpoint.js"
+          console.log(JSON.stringify(data))
+          var html = '<ol>'
+          data.forEach(function(sub){
+            html += '<a href="/axios/'+sub.path+'">'+sub.name+'</a><br />'
+          })
+          html += '</ol>'
+          document.getElementById('list').innerHTML = html
+        })
+        .catch(err => {
+          console.log('ERROR. Something went wrong.')
+        })
+    })()
+  </script>
+</body>
+</html>
+#+end_src
+
+- The actual Fetch request takes place in the <script> tag between lines 16 and 33. On line 16, we make a request to the url "/api/endpoint" which returns a list of Reddit subs available to view. The initial response is on line 17 ("payload") which we then convert into JSON and parse starting on line 19. The "data" object is an array of Reddit subs with "name" and "path" keys. In lines 22 through 28, we populate a <div> tag with id "list" using the objects in the data array and connect each element to a link to view the sub content.
 ** WIP REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
 :ANSWER:
@@ -377,6 +419,7 @@ Consider following status codes:
 :learning_1:  https://martinfowler.com/articles/evodb.html
 :END:
 #+call: lg-get-props-entry()
+
 * WIP Data [0/9]                                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DATA
