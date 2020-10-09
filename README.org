@@ -709,6 +709,18 @@ Consider following status codes:
   - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
   - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
 
+*** Apache Oozie Workflow Scheduler for Hadoop
+:PROPERTIES:
+:learning_1: oozie.apache.org
+:END:
+#+call: lg-get-props-entry()
+
+- Oozie is a workflow scheduler system to manage Apache Hadoop jobs.
+- Oozie Workflow jobs are Directed Acyclical Graphs (DAGs) of actions.
+- Oozie Coordinator jobs are recurrent Oozie Workflow jobs triggered by time (frequency) and data availability.
+- Oozie is integrated with the rest of the Hadoop stack supporting several types of Hadoop jobs out of the box (such as Java map-reduce, Streaming map-reduce, Pig, Hive, Sqoop and Distcp) as well as system specific jobs (such as Java programs and shell scripts).
+- Oozie is a scalable, reliable and extensible system.
+
 *** TODO Hadoop
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Apache_Hadoop
