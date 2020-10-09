@@ -200,6 +200,18 @@ basic of architecture
     - through which a client requests a particular URL in order to receive an event stream.
 :END:
 **** WIP What are WebSockets                                    :QUESTION:
+**** WIP EventSource
+:PROPERTIES:
+:learning_1: https://developer.mozilla.org/en-US/docs/Web/API/EventSource
+:END:
+- The EventSource interface is web content's interface to server-sent events.
+- An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format.
+- The connection remains open until closed by calling EventSource.close().
+- Once the connection is opened, incoming messages from the server are delivered to your code in the form of events.
+- If there is an event field in the incoming message, the triggered event is the same as the event field value. If no event field is present, then a generic message event is fired.
+- Unlike WebSockets, server-sent events are unidirectional; that is, data messages are delivered in one direction, from the server to the client (such as a user's web browser).
+- That makes them an excellent choice when there's no need to send data from the client to the server in message form. 
+- For example, EventSource is a useful approach for handling things like social media status updates, news feeds, or delivering data into a client-side storage mechanism like IndexedDB or web storage.
 **** TODO XMLHttpRequest (XHR)
 - objects are used to interact with servers. 
 - You can retrieve data from a URL without having to do a full page refresh.
@@ -299,7 +311,6 @@ Consider following status codes:
 - For example, session maintained by server is identified by session identifier passed by the client.
 :END:
 *** What is the difference between PUT and POST?                 :QUESTION:
-
 :ANSWER:
 - PUT puts a file or resource at a particular URI and exactly at that URI. If there is already a file or resource at that URI, PUT changes that file or resource. If there is no resource or file there, PUT makes one
 - POST sends data to a particular URI and expects the resource at that URI to deal with the request. The web server at this point can decide what to do with the data in the context of specified resource
@@ -392,8 +403,8 @@ Consider following status codes:
   - cyclic dependencies …
   - Overloads domain objectsviin. I minimal
 *** TODO Orchestration
-◦ centralized decision making 
- - orchestration objects implements state machine and invokes the participants 
+- centralized decision making
+  - orchestration objects implements state machine and invokes the participants
 ** TODO Event Sourcing
 ** TODO CQRS
 ** TODO CRUD
@@ -1668,11 +1679,16 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
   + While security is “everyone’s responsibility,” DevOps teams are uniquely positioned at the intersection of development and operations, empowered to apply security in both breadth and depth.
 *** TODO Zero Trust Network
 
-** WIP Tools & Solutions [0/4]
+** WIP Tools & Solutions [0/9]
 *** TODO Illumio Security
 *** TODO Snyk
 *** TODO Jfrog Xray
 *** TODO Burp Suite
+*** TODO Metasploit
+*** TODO wireshark
+*** TODO hydra
+*** TODO nmap
+*** TODO nessus
 * WIP Languages & programming [0/11]                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
