@@ -2989,10 +2989,11 @@ The moral aspect
 :learning_1: https://ethics.acm.org/
 :END:
 #+call: lg-get-props-entry()
-* WIP Concepts [0/3]
+* WIP Concepts [0/4]
 ** TODO Fat Tail Distribution                                        :TOPIC:
 ** TODO Data Driven Decision                                         :TOPIC:
 ** TODO Scepticism                                                   :TOPIC:
+** TODO Data Driven Decision
 * WIP To integrate                                                :no_export:
 ** TODO dog - used technologies
 - AWS
