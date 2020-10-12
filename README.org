@@ -2509,7 +2509,7 @@ From one of the world's most highly regarded social scientists, a transformative
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
 *** Irvin D. Yalom: The Schopenhauer Cure: A Novel      :AUDIBLE:no_export:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
-* WIP Big Names        [0/20]                                        :DOMAIN:
+* WIP Big Names        [0/22]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -2708,6 +2708,8 @@ https://youtu.be/j0XmixCsWjs
 :END:
 #+call: lg-get-props-entry()
 - Book: Designing data intensive applications
+** TODO Kent BECK
+** TODO Zuzana SOCHOVA
 ** TODO Brian LONSDORF
 - https://twitter.com/drboolean
 - https://github.com/DrBoolean
@@ -2836,7 +2838,7 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
 
 
 https://youtu.be/gR_EGN86fvg
-** WIP Linda Rising [0/2]
+** WIP Linda RISING [0/2]
 *** TODO SE-Radio 238: Linda Rising on the Agile Brain
 :PROPERTIES:
 :CREATED:  [2018-08-05 Sun 10:18]
@@ -2953,6 +2955,7 @@ Cognitive-bias
 
 * WIP Psychology                                                     :DOMAIN:
 ** Cognitive Biases                                                  :TOPIC:
+** TODO Milgram experiment
 ** Glossary                                                          :TOPIC:
 *** knowledge
 - definition
@@ -2969,6 +2972,7 @@ Cognitive-bias
   - level of being able to perform or deliver a task
 - obtained throughput
   - natural capability
+
 * WIP Core Values [0/3]                                              :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CORE_VALUES
