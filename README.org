@@ -302,6 +302,7 @@ set2:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
 :END:
+
 basic of architecture 
 ** WIP DDD                                                           :TOPIC:
 *** bounded context                                               :TOPIC:
@@ -638,7 +639,7 @@ Consider following status codes:
 ** WIP background                                                    :TOPIC:
 *** What does ACID mean?                                      :QUESTION:
 :PROPERTIES:
-:learning_1: - https://en.wikipedia.org/wiki/ACID
+:learning_1: https://en.wikipedia.org/wiki/ACID
 :END:
 #+call: lg-get-props-entry()
 :ANSWER:
@@ -850,7 +851,7 @@ Consider following status codes:
 - *changeset*:
   - XML, JSON, YAML, SQL
 - can use context and label for filteriing chich chnages slould be applied where
-** WIP DBMS [0/14]
+** WIP DBMS [0/15]
 *** WIP PostgreSQL
 **** What is the current version of PostgreSQL                  :QUESTION:
 **** Explain about Multi version concurrency control?           :QUESTION:
@@ -906,9 +907,9 @@ Consider following status codes:
   - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
   - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
 
-*** Apache Oozie Workflow Scheduler for Hadoop
+*** WIP Apache Oozie Workflow Scheduler for Hadoop
 :PROPERTIES:
-:learning_1: oozie.apache.org
+:learning_1: https://oozie.apache.org
 :END:
 #+call: lg-get-props-entry()
 
@@ -949,7 +950,7 @@ Consider following status codes:
 - It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
 *** WIP Apache Avro
 :PROPERTIES:
-:learning_1: avro.apache.org
+:learning_1: https://avro.apache.org
 :END:
 #+call: lg-get-props-entry()
 - Avro is a row-oriented remote procedure call and data serialization framework developed within Apache's Hadoop project.
@@ -1500,9 +1501,10 @@ example: matchLabels:{}
 :CUSTOM_ID: WEB
 :END:
 ** WIP React
-*** React 
-*** React Native
-*** react-hooks
+*** TODO React 
+*** TODO React Native
+*** TODO react-hooks
+*** TODO react-styled-components
 ** TODO Relay
 ** TODO Apollo
 ** TODO Next.js
@@ -1521,7 +1523,7 @@ example: matchLabels:{}
 **** SoapUI
 **** curl
 
-** WIP HTML + CSS
+** WIP HTML + CSS [/]
 *** Chrome Development Tools
 *** HTML5 Layout 
 :ANSWER:
@@ -1560,7 +1562,7 @@ Target to a link:
 :learning_1:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
 :END:
 #+call: lg-get-props-entry()
-**** types of cookies
+**** Cookie Types
 :ANSWER:
 - Two Types of Cookies
 - *Session cookies*
@@ -1578,9 +1580,25 @@ Target to a link:
 :learning_1:  https://web.dev/samesite-cookies-explained/
 :END:
 #+call: lg-get-props-entry()
-*** Less
-*** Sass
-*** CORS
+*** TODO CSS preprocessors: LESS Sass
+:PROPERTIES:
+:learning_1:  https://www.lambdatest.com/blog/css-preprocessors-sass-vs-less-vs-stylus-with-examples/
+:END:
+#+call: lg-get-props-entry()
+- What Is A CSS Preprocessor?
+  - CSS in itself is devoid of complex logic and functionality which is required to write reusable and organized code. As a result, a developer is bound by limitations and would face extreme difficulty in code maintenance and scalability, especially when working on large projects involving extensive code and multiple CSS stylesheets. This is where CSS Preprocessors come to the rescue.
+  - A CSS Preprocessor is a tool used to extend the basic functionality of default vanilla CSS through its own scripting language. It helps us to use complex logical syntax like – variables, functions, mixins, code nesting, and inheritance to name a few, supercharging your vanilla CSS. By using CSS Preprocessors, you can seamlessly automate menial tasks, build reusable code snippets, avoid code repetition and bloating and write nested code blocks that are well organized and easy to read.
+  - However, browsers can only understand native vanilla CSS code and will be unable to interpret the CSS Preprocessor syntax. Therefore, the complex and advanced Preprocessor syntax needs to be first compiled into native CSS syntax which can then be interpreted by the browsers to avoid cross browser compatibility issues. While different Preprocessors have their own unique syntaxes, eventually all of them are compiled to the same native CSS code.
+  - Moving forward in the article, we will take a look at the 3 most popular CSS Preprocessors currently being used by developers around the world i.e Sass, LESS, and Stylus.
+
+
+*** TODO Sass
+:PROPERTIES:
+:learning_1: https://sass-lang.com/guide
+:END:
+#+call: lg-get-props-entry()
+*** TODO Less
+*** WIP CORS
 :PROPERTIES:
 :learning_1: https://www.codecademy.com/articles/what-is-cors
 :learning_2: https://dev.to/ahmedatefae/web-security-knowledge-you-must-understand-it-part-i-https-tls-ssl-cors-csp-298l
@@ -1634,6 +1652,18 @@ Origin
   - connect-src: defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource, If it makes any connections to a host, that’s not allowed here, the browser will respond with a 400 error example ~connect-src ‘self’;~
   - Multi-label directives defines: ~default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’;~
 
+*** WIP Bundlers
+:PROPERTIES:
+:learning_1: https://bundlers.tooling.report/
+:END:
+#+call: lg-get-props-entry()
+*** WIP Webpack
+:PROPERTIES:
+:learning_1: https://webpack.js.org/concepts/
+:END:
+#+call: lg-get-props-entry()
+- At its core, webpack is a static module bundler for modern JavaScript applications.
+- When webpack processes your application, it internally builds a dependency graph which maps every module your project needs and generates one or more bundles.
 ** TODO The Elm Architecture (TEA)
 - http://blog.jenkster.com/2016/06/how-elm-slays-a-ui-antipattern.html
 
@@ -1836,7 +1866,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** CN, DN, SN,
 ** WIP OWASP top 10 2017
 :PROPERTIES:
-:learning_1: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+:learning_1: https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
 :END:
 #+call: lg-get-props-entry()
 *** A1:2017-Injection
@@ -2896,6 +2926,8 @@ Cognitive-bias
 :PROPERTIES:
 :CUSTOM_ID: CORE_VALUES
 :END:
+#+call: lg-get-props-entry()
+
 The moral aspect
 ** TODO Code of Conduct                                                :TOPIC:
 ** WIP SW developer responsibility                                   :TOPIC:
@@ -2907,10 +2939,16 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/3]
+* WIP Concepts [0/3]                                                 :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CONCEPTS
+:END:
+#+call: lg-get-props-entry()
+
 ** TODO Fat Tail Distribution                                        :TOPIC:
 ** TODO Data Driven Decision                                         :TOPIC:
 ** TODO Scepticism                                                   :TOPIC:
+
 * WIP To integrate                                                :no_export:
 ** TODO dog - used technologies
 - AWS
@@ -5542,5 +5580,93 @@ https://youtu.be/cCn45UAjIzI
 
 ingressive vs congressive
 Critical thinking.., well name it thinking
+
+
+* WIP Index 
+:PROPERTIES:
+:header-args+: :results value table raw replace
+:header-args+: :exports results
+:header-args+: :var cols='(ITEM LEARNING_1) 
+:header-args+: :var colnames='(Item ref)
+:header-args+: :eval export
+:header-args+: :noweb eval
+:header-args+:  :var conds='true
+:END:
+#+name: collector
+#+begin_src elisp :eval no
+  (setq org-propview-default-value "-")
+  (let ((org-propview-default-value ""))
+    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil '("README.org") nil colnames ))
+#+end_src
+
+#+call:collector()
+
+#+RESULTS:
+| Item                                                     | ref                                                                                                                                                          |
+|----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| What is unicode                                          | http://www.unicode.org/standard/WhatIsUnicode.html                                                                                                           |
+| yaml                                                     | https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/                                                                                       |
+| 12 Factor Apps                                           | https://12factor.net/                                                                                                                                        |
+| OpenApiSpec / Open API 3.0 / Swagger                     | https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial                                                                                                 |
+| The Law of Demeter (LoD) or principle of least knowledge | https://en.wikipedia.org/wiki/Law_of_Demeter                                                                                                                 |
+| Evolutionary database design                             | https://martinfowler.com/articles/evodb.html                                                                                                                 |
+| What does ACID mean?                                     | https://en.wikipedia.org/wiki/ACID                                                                                                                           |
+| What is object relation impedance mismatch               | https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch                                                                                           |
+| CAP theorem                                              | https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e                                                          |
+| Beyond CAP database systems                              | http://www.grokkingsystemdesigns.com/beyond-cap-theorem/                                                                                                     |
+| Paxos                                                    | https://en.wikipedia.org/wiki/Paxos_(computer_science)                                                                                                       |
+| Big Query                                                | https://cloud.google.com/files/BigQueryTechnicalWP.pdf                                                                                                       |
+| Atlas MongoDB                                            | https://www.mongodb.com/cloud/atlas                                                                                                                          |
+| Sparc                                                    | https://spark.apache.org/                                                                                                                                    |
+| Apache Oozie Workflow Scheduler for Hadoop               | https://oozie.apache.org                                                                                                                                     |
+| Hadoop                                                   | https://en.wikipedia.org/wiki/Apache_Hadoop                                                                                                                  |
+| hue                                                      | https://gethue.com/                                                                                                                                          |
+| Hive                                                     | https://hive.apache.org/                                                                                                                                     |
+| HBase                                                    | https://hbase.apache.org/                                                                                                                                    |
+| Apache Parquet                                           | https://en.wikipedia.org/wiki/Apache_Parquet                                                                                                                 |
+| Apache Avro                                              | https://avro.apache.org                                                                                                                                      |
+| Arc42                                                    | https://arc42.org/                                                                                                                                           |
+| Open Policy Agent                                        | https://www.openpolicyagent.org/docs/latest/                                                                                                                 |
+| aim:service accounts                                     | https://cloud.google.com/iam/docs/understanding-service-accounts                                                                                             |
+| MinIO Object Storage                                     | https://min.io/product/overview                                                                                                                              |
+| Culture                                                  | https://blog.sonatype.com/principle-based-devops-frameworks-three-ways                                                                                       |
+| The Three Ways                                           | https://blog.sonatype.com/principle-based-devops-frameworks-three-ways                                                                                       |
+| CALMS (Culture, Automation, Lean, Measurement, Sharing)  | https://blog.sonatype.com/principle-based-devops-frameworks-calms                                                                                            |
+| awk                                                      | https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux                                                     |
+| DNS                                                      | https://www.freshersemploy.com/dns-interview-questions-answers/                                                                                              |
+| What are network policies?                               | https://github.com/ahmetb/kubernetes-network-policy-recipes                                                                                                  |
+| what are podSelectors?                                   | https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362                                               |
+| what is a RBAC                                           | https://www.cncf.io/blog/2018/08/01/demystifying-rbac-in-kubernetes/                                                                                         |
+| Google Fonts API                                         | https://developers.google.com/fonts                                                                                                                          |
+| Cookies                                                  | https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html                                                                                              |
+| Cookies / SameSite                                       | https://web.dev/samesite-cookies-explained/                                                                                                                  |
+| CSS preprocessors: LESS Sass                             | https://www.lambdatest.com/blog/css-preprocessors-sass-vs-less-vs-stylus-with-examples/                                                                      |
+| Sass                                                     | https://sass-lang.com/guide                                                                                                                                  |
+| CORS                                                     | https://www.codecademy.com/articles/what-is-cors                                                                                                             |
+| Content Security Policy (CSP)                            | https://dev.to/ahmedatefae/web-security-knowledge-you-must-understand-it-part-i-https-tls-ssl-cors-csp-298l                                                  |
+| Bundlers                                                 | https://bundlers.tooling.report/                                                                                                                             |
+| Webpack                                                  | https://webpack.js.org/concepts/                                                                                                                             |
+| ECB, CBC, OFB, CFB, CTR  - what they are                 | https:/www.highgo.ca/2019/08/08/the-difference-in-five-modes-in-the-aes-encryption-algorithm//                                                               |
+| HMAC                                                     | https://en.wikipedia.org/wiki/HMAC                                                                                                                           |
+| what is spiffe                                           | https://spiffe.io/docs/latest/spiffe/overview/                                                                                                               |
+| Resource Owner Password Credential Grant                 | https://www.netiq.com/documentation/access-manager-45-developer-documentation/pdfdoc/oauth-application-developer-guide/oauth-application-developer-guide.pdf |
+| What is acr_values                                       | https://ldapwiki.com/wiki/Acr_values                                                                                                                         |
+| JWT                                                      | https://tools.ietf.org/html/rfc7519                                                                                                                          |
+| RS256 vs HS256: What's the difference?                   | https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference                                                                             |
+| JWKS                                                     | https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets                                                                                              |
+| OWASP top 10 2017                                        | https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/                                                                                                    |
+| CSRF / XSRF                                              | https://owasp.org/www-community/attacks/csrf                                                                                                                 |
+| DevSecOps                                                | https://snyk.io/devsecops/                                                                                                                                   |
+| Fix                                                      | https://www.parsonsmatt.org/2016/10/26/grokking_fix.html                                                                                                     |
+| The Mostly Adequate Guide to Functional Programming      | https://github.com/MostlyAdequate/mostly-adequate-guide                                                                                                      |
+| Spring & Spring Boot                                     | https://www.baeldung.com/spring-interview-questions                                                                                                          |
+| Babel                                                    | https://babeljs.io/                                                                                                                                          |
+| Jest                                                     | https://jestjs.io/                                                                                                                                           |
+| Enzyme                                                   | https://enzymejs.github.io/enzyme/                                                                                                                           |
+| Enzyme vs react-testing-library                          | https://blog.logrocket.com/enzyme-vs-react-testing-library-a-mindset-shift/                                                                                  |
+| Istambul                                                 | https://istanbul.js.org/                                                                                                                                     |
+| StrangeLoop                                              | https://www.thestrangeloop.com/                                                                                                                              |
+| ACM ethics Code                                          | https://ethics.acm.org/                                                                                                                                      |
+| OpenID Connect Core 1.0 incorporating errata set 1       | https://openid.net/specs/openid-connect-core-1_0.html#IDToken                                                                                                |
 
 
