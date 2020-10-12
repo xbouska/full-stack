@@ -68,6 +68,7 @@
 :PROPERTIES:
 :CUSTOM_ID: SOFTWARE_ENGINEERING
 :END:
+#+call: lg-get-props-entry()
 ** WIP bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** one's complement
@@ -292,6 +293,7 @@ set2:
 :learning_2: http://erikdemaine.org/papers/BRICS2002/paper.pdf
 :learning_3: https://www.cs.ox.ac.uk/ralf.hinze/WG2.8/33/slides/Edward.pdf
 :END:
+#+call: lg-get-props-entry()
 - In computing, a cache-oblivious algorithm (or cache-transcendent algorithm) is an algorithm designed to take advantage of a CPU cache without having the size of the cache (or the length of the cache lines, etc.) as an explicit parameter.
 - An optimal cache-oblivious algorithm is a cache-oblivious algorithm that uses the cache optimally (in an asymptotic sense, ignoring constant factors).
 - Thus, a cache-oblivious algorithm is designed to perform well, without modification, on multiple machines with different cache sizes, or for a memory hierarchy with different levels of cache having different sizes. Cache-oblivious algorithms are contrasted with explicit blocking, as in loop nest optimization, which explicitly breaks a problem into blocks that are optimally sized for a given cache.
@@ -302,7 +304,8 @@ set2:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
 :END:
-basic of architecture 
+#+call: lg-get-props-entry()
+ *architecture* and *design*
 ** WIP DDD                                                           :TOPIC:
 *** bounded context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
@@ -348,6 +351,7 @@ basic of architecture
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol
 :END:
+#+call: lg-get-props-entry()
 - AMQP 1.0 broker implementations
   - *Apache Qpid*, an open-source project at the Apache Foundation
   - *Apache ActiveMQ*, an open-source project at the Apache Foundation
@@ -359,6 +363,7 @@ basic of architecture
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/MQTT
 :END:
+#+call: lg-get-props-entry()
 - The MQTT protocol defines two types of network entities: a message broker and a number of clients. An MQTT broker is a server that receives all messages from the clients and then routes the messages to the appropriate destination clients.[13] An MQTT client is any device (from a micro controller up to a full-fledged server) that runs an MQTT library and connects to an MQTT broker over a network.[14]
 - Information is organized in a hierarchy of topics. When a publisher has a new item of data to distribute, it sends a control message with the data to the connected broker. The broker then distributes the information to any clients that have subscribed to that topic. The publisher does not need to have any data on the number or locations of subscribers, and subscribers, in turn, do not have to be configured with any data about the publishers.
 - If a broker receives a message on a topic for which there are no current subscribers, the broker discards the message unless the publisher of the message designated the message as a retained message. A retained message is a normal MQTT message with the retained flag set to true. The broker stores the last retained message and the corresponding QoS for the selected topic. Each client that subscribes to a topic pattern that matches the topic of the retained message receives the retained message immediately after they subscribe. The broker stores only one retained message per topic.[15] This allows new subscribers to a topic to receive the most current value rather than waiting for the next update from a publisher.
@@ -390,6 +395,7 @@ basic of architecture
 :PROPERTIES:
 :learning_1: https://developer.mozilla.org/en-US/docs/Web/API/EventSource
 :END:
+#+call: lg-get-props-entry()
 - The EventSource interface is web content's interface to server-sent events.
 - An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format.
 - The connection remains open until closed by calling EventSource.close().
@@ -509,6 +515,7 @@ Consider following status codes:
 :PROPERTIES:
 :learning_1: https://12factor.net/
 :END:
+#+call: lg-get-props-entry()
 1. Codebase
    - One codebase tracked in revision control, many deploys
 2. II. Dependencies
@@ -594,9 +601,9 @@ Consider following status codes:
 ** TODO Event Sourcing
 ** TODO CQRS
 ** TODO CRUD
-** WIP (Pragmatic) Design principes
-*** DRY                                                           :TOPIC:
-*** KISS                                                          :TOPIC:
+** WIP (Pragmatic) Design principes [0/11]
+*** TODO DRY                                                        :TOPIC:
+*** TODO KISS                                                       :TOPIC:
 *** WIP GRASP
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
@@ -611,10 +618,10 @@ Consider following status codes:
 - *L* liskov substitution
 - *I* interface segregation
 - *D* dependency inversion
-*** YAGNI                                                         :TOPIC:
-*** Open/Close principal                                            :TOPIC:
-*** High Cohesion                                                   :TOPIC:
-*** Low Coupling                                                    :TOPIC:
+*** TODO YAGNI                                                      :TOPIC:
+*** TODO Open/Close principal                                       :TOPIC:
+*** TODO High Cohesion                                              :TOPIC:
+*** TODO Low Coupling                                               :TOPIC:
 **** What is temporal coupling?                                 :QUESTION:
 *** WIP Information Hiding                                          :TOPIC:
 - In computer science, information hiding is the principle of segregation of the design decisions in a computer program that are most likely to change, thus protecting other parts of the program from extensive modification if the design decision is changed. The protection involves providing a stable interface which protects the remainder of the program from the implementation (the details that are most likely to change).
@@ -644,6 +651,7 @@ Consider following status codes:
 :PROPERTIES:
 :CUSTOM_ID: DATA
 :END:
+#+call: lg-get-props-entry()
 ** WIP background                                                    :TOPIC:
 *** What does ACID mean?                                      :QUESTION:
 :PROPERTIES:
@@ -1006,6 +1014,7 @@ Consider following status codes:
 :PROPERTIES:
 :CUSTOM_ID: CLOUD
 :END:
+#+call: lg-get-props-entry()
 ** TODO Cloud native architecture
 ** WIP Open Policy Agent
 :PROPERTIES:
@@ -1059,6 +1068,22 @@ Consider following status codes:
 *** RDS
 *** AWS Wavelength
 - AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
+*** API Gateway
+*** Lambda
+*** DynamoDB
+*** Elasticsearch
+*** Kinesis
+*** SNS
+*** S3
+*** CloudWatch
+*** CloudFormation
+*** SAM
+*** CloudFront
+*** Secrets Manager
+*** Route 53
+*** VPC
+
+
 ** AWS cli 
 - boto3
 - aws-shell
@@ -1113,10 +1138,12 @@ Consider following status codes:
 :PROPERTIES:
 :learning_1: https://min.io/product/overview
 :END:
+#+call: lg-get-props-entry()
 * WIP DEVOPS / SRE   [0/5]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
+#+call: lg-get-props-entry()
 ** WIP Culture
 :PROPERTIES:
 :learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-three-ways
@@ -1166,7 +1193,7 @@ Some of the key principles of the Third Way are:
 :learning_1:  https://blog.sonatype.com/principle-based-devops-frameworks-calms
 :END:
 #+call: lg-get-props-entry()
-Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALMS framework is used as a means of assessing whether an organization is ready to adopt DevOps processes, or how an organization is progressing in their DevOps transformation. It is based on the following five pillars:
+- Created by Jez Humble, co-author of The DevOps Handbook and Accelerate, the CALMS framework is used as a means of assessing whether an organization is ready to adopt DevOps processes, or how an organization is progressing in their DevOps transformation. It is based on the following five pillars:
 
 - *Culture.* Before silos can be torn down, there needs to be a culture of shared responsibility, or at least a group of people devoted to establishing that culture in a grassroots type of way, with management approval and support.
 - *Automation.* Similar to the technical practices centered around continuous delivery mentioned above, teams undertaking a DevOps transformation should be devoted to automating as many manual tasks as possible, especially with respect to continuous integration and test automation.
@@ -1461,6 +1488,7 @@ example: matchLabels:{}
 :PROPERTIES:
 :learning_1: https://www.cncf.io/blog/2018/08/01/demystifying-rbac-in-kubernetes/
 :END:
+#+call: lg-get-props-entry()
 **** WIP network policy API
 **** TODO whats is kube-dns
 **** TODO helm
@@ -1495,7 +1523,7 @@ example: matchLabels:{}
 *** Cloud Formation                                                 :TOPIC:
 *** Hashicorp Consul                                                :TOPIC:
 *** Hashicorp Vault                                                 :TOPIC:
-*** zookeeper                                                       :TOPIC:
+*** Zookeeper                                                       :TOPIC:
 *** Kibana                                                          :TOPIC:
 *** Graphana                                                        :TOPIC:
 *** ELK                                                             :TOPIC:
@@ -1508,6 +1536,7 @@ example: matchLabels:{}
 :PROPERTIES:
 :CUSTOM_ID: WEB
 :END:
+#+call: lg-get-props-entry()
 ** WIP React
 *** React 
 *** React Native
@@ -1532,7 +1561,7 @@ example: matchLabels:{}
 
 ** WIP HTML + CSS
 *** Chrome Development Tools
-*** HTML5 Layout 
+*** HTML5 Layout tags
 :ANSWER:
 #+begin_src html
 <header> It is used to define a header for a document or a section.
@@ -1650,6 +1679,7 @@ Origin
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
+#+call: lg-get-props-entry()
 ** WIP Crypto [0/5]
 *** WIP Block Ciphers
 **** ECB, CBC, OFB, CFB, CTR  - what they are
@@ -1845,7 +1875,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** CN, DN, SN,
 ** WIP OWASP top 10 2017
 :PROPERTIES:
-:learning_1: - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
+:learning_1:  https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/
 :END:
 #+call: lg-get-props-entry()
 *** A1:2017-Injection
@@ -1879,6 +1909,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :PROPERTIES:
 :learning_1: https://snyk.io/devsecops/
 :END:
+#+call: lg-get-props-entry()
 - What Is DevSecOps?
   + DevSecOps refers to the integration of security practices into a DevOps software delivery model.
   + Its foundation is a culture where development and operations are enabled through process and tooling to take part in a shared responsibility for delivering secure software.
@@ -1900,6 +1931,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
 :END:
+#+call: lg-get-props-entry()
 ** WIP Functional Programming  [0/5]                                 :TOPIC:
 *** WIP Lambda Calculus                                             :TOPIC:
 **** α-conversion
@@ -2011,11 +2043,15 @@ public final int hashCode() {
 :ANSWER:
 - Yes, we can have static method in the interface from Java 8.
 :END:
-****  You have a list of Custom objects? How can you sort them? :QUESTION:
+**** You have a list of Custom objects? How can you sort them? :QUESTION:
 :ANSWER:
 You need to use Comparable or Comparator interface to sort list of custom objects.
 :END:
 **** How to create thread safe Singleton in Java                :QUESTION:
+:PROPERTIES:
+:learning_1: https://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html
+:END:
+#+call: lg-get-props-entry()
 :ANSWER:
 - use double checked locking
 - use class loader
@@ -2285,6 +2321,37 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** TODO NodeJS                                                     :TOPIC:
 ** TODO JS environment
 *** npm
+**** Scoped Packages
+:PROPERTIES:
+:learning_1: https://docs.npmjs.com/about-scopes
+:END:
+#+call: lg-get-props-entry()
+About scopes
+- Note: You must be using npm version 2 or greater to use scopes. To upgrade to the latest version of npm, on the command line, run npm install npm@latest -g
+- When you sign up for an npm user account or create an Org, you are granted a scope that matches your user or Org name. You can use this scope as a namespace for related packages.
+
+- A scope allows you to create a package with the same name as a package created by another user or Org without conflict.
+
+- When listed as a dependent in a package.json file, scoped packages are preceded by their scope name. The scope name is everything between the @ and the slash:
+
+- “npm” scope:
+#+begin_src
+@npm/package-name
+#+end_src
+- “npmcorp” scope:
+#+begin_src
+@npmcorp/package-name
+#+end_src
+- To create and publish public scoped packages, see “Creating and publishing scoped public packages”.
+
+- To create and publish private scoped packages, see “Creating and publishing private packages”.
+
+- Scopes and package visibility§
+  - Unscoped packages are always public.
+  - Private packages are always scoped.
+  - Scoped packages are private by default; you must pass a command-line flag when publishing to make them public.
+
+- For more information on package scope and visibility, see “Package scope, access level, and visibility”.
 *** yarn
 *** nvm
 *** Name soem popular libraries?
@@ -2293,7 +2360,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :learning_1: https://babeljs.io/
 :END:
-
+#+call: lg-get-props-entry()
 ** WIP Language theory                                               :TOPIC:
 *** Garbage Collector
 *** Type systems
@@ -2304,6 +2371,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :CUSTOM_ID: QUALITY
 :END:
+#+call: lg-get-props-entry()
 ** TODO Blue green deployment
 ** TODO AB testing
 ** TODO Code coverage
@@ -2315,6 +2383,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :learning_1: https://jestjs.io/
 :END:
+#+call: lg-get-props-entry()
 :DESCRIPTION:
 - Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 - It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
@@ -2332,6 +2401,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :learning_1: https://enzymejs.github.io/enzyme/
 :END:
+#+call: lg-get-props-entry()
 :DESCRIPTION:
 - Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
 - You can also manipulate, traverse, and in some ways simulate runtime given the output.
@@ -2340,6 +2410,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** COMPETE Enzyme vs react-testing-library
 :PROPERTIES:
 :learning_1: https://blog.logrocket.com/enzyme-vs-react-testing-library-a-mindset-shift/
+#+call: lg-get-props-entry()
 :END:
 - With react-testing-library, you’re able to easily write tests that represent well enough how the application is experienced by users.
 - Let’s say that when you write your tests with react-testing-library, you’re testing your application as if you were the user interacting with the application’s interface.
@@ -2351,6 +2422,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :learning_1: https://istanbul.js.org/
 :END:
+#+call: lg-get-props-entry()
 :DESCRIPTION:
 - Istanbul instruments your ES5 and ES2015+ JavaScript code with line counters, so that you can track how well your unit-tests exercise your codebase.
 - The nyc command-line-client for Istanbul works well with most JavaScript testing frameworks: tap, mocha, AVA, etc.
@@ -2364,6 +2436,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :CUSTOM_ID: INFORMATION_SOURCES
 :END:
+#+call: lg-get-props-entry()
 - where to learn, what to read and follow
 ** TODO YouTube
 ** TODO quicklabs
@@ -2377,6 +2450,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :learning_1: https://www.thestrangeloop.com/
 :END:
+#+call: lg-get-props-entry()
 *** DEVOXX
 *** GOTO
 *** NDC
@@ -2439,6 +2513,7 @@ From one of the world's most highly regarded social scientists, a transformative
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
+#+call: lg-get-props-entry()
 - Important people, people that are worth to follow
 ** TODO Bartosz MILEWSKI [0/1]
 *** TODO Opening keynote - Fun with categories - Bartosz Milewski
@@ -2743,11 +2818,7 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
   - traditional persistence + transactional outbox pattern
     - transactional log tailing
     - polling - but it introduces latency
-
-- 
-
 :END:
-#+call: lg-get-props-entry()
 
 *** TODO There is No Such Thing as a Microservice! - Chris Richardson January 2018
 :PROPERTIES:
@@ -2799,15 +2870,12 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
 
 *** TODO Meeting resistance and moving forward — Linda Rising
-CLOSED: [2019-03-20 Wed 21:19]
 :PROPERTIES:
-:CREATED:  [2019-03-20 Wed 05:46]
 :lg-subject: Watch Meeting resistance and moving forward — Linda Rising
 :lg-authors: Linda%20Rising
+:leadning_1:  https://vimeo.com/325143661
 :END:
 #+call: lg-get-props-entry()
-
-- https://vimeo.com/325143661
 
 :KEYWORDS:
 Cognitive-bias
@@ -2905,17 +2973,18 @@ Cognitive-bias
 :PROPERTIES:
 :CUSTOM_ID: CORE_VALUES
 :END:
+#+call: lg-get-props-entry()
 The moral aspect
 ** TODO Code of Conduct                                                :TOPIC:
 ** WIP SW developer responsibility                                   :TOPIC:
 - finally the code that was driving the engine in diesel gate was written by someone
   - -> this developer(s) knew what are they doing
-  
   - 
 ** WIP ACM ethics Code 
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
+#+call: lg-get-props-entry()
 * WIP Concepts [0/3]
 ** TODO Fat Tail Distribution                                        :TOPIC:
 ** TODO Data Driven Decision                                         :TOPIC:
@@ -2954,7 +3023,7 @@ The moral aspect
 *** cncf
 ** bookmarks Postgresql
 - https://iqsanswers.com/postgresql-interview-questions-answers/
-
+  
 ** bookmarks/other
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
