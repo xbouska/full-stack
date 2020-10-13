@@ -8,7 +8,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:nil tags:t |:t H:7 num:4 toc:t ^:nil p:nil html-style:nil pri:t
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: NO_EXPORT
 #+EXPORT_FILE_NAME: public/fullstack.html
 #+STARTUP:  overview entitiespretty
 #+TODO:  TODO WIP | COMPETE OBSOLETE
@@ -607,7 +607,7 @@ Consider following status codes:
 *** TODO KISS                                                       :TOPIC:
 *** WIP GRASP
 :PROPERTIES:
-:learning_1: https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)
+:learning_1: https://en.wikipedia.org/wiki/GRASP_%28object-oriented_design%29
 :END:
 #+call: lg-get-props-entry()
 - General Responsibility Assignment Software Patterns (or Principles), abbreviated GRASP, consist of guidelines for assigning responsibility to classes and objects in object-oriented design.[1] It is not related to the SOLID design principle.
@@ -2462,9 +2462,9 @@ About scopes
 *** Mocha                                                        :OUTDATED:
 *** FantomJS                                                     :OUTDATED:
 *** Protractor
-* WIP Information Sources [0/6]                                      :DOMAIN:
+* WIP Learning Channels [0/6]                                        :DOMAIN:
 :PROPERTIES:
-:CUSTOM_ID: INFORMATION_SOURCES
+:CUSTOM_ID: LEARNING_CHANNELS
 :END:
 #+call: lg-get-props-entry()
 - where to learn, what to read and follow
@@ -2532,13 +2532,33 @@ From one of the world's most highly regarded social scientists, a transformative
 - The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
 *** Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature :AUDIBLE:
 - In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
-*** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:
+*** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:NO_EXPORT:
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
 
-*** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:
+*** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
-*** Irvin D. Yalom: The Schopenhauer Cure: A Novel      :AUDIBLE:no_export:
+*** Irvin D. Yalom: The Schopenhauer Cure: A Novel      :AUDIBLE:NO_EXPORT:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
+* WIP Psychology                                                     :DOMAIN:
+** Cognitive Biases                                                  :TOPIC:
+** TODO Milgram experiment
+** Glossary                                                          :TOPIC:
+*** knowledge
+- definition
+  - practical and/or theoretical understanding of a topic
+- obtained throughput
+  - learning training experience
+*** skill
+- definition
+  - things that one learns through training and/or through experience
+- obtained throughput
+  - practicing, learning
+*** ability
+- definition
+  - level of being able to perform or deliver a task
+- obtained throughput
+  - natural capability
+
 * WIP Big Names        [0/22]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
@@ -2572,125 +2592,10 @@ https://youtu.be/zkDVCQiveEo
 *** Hello World
 ** TODO Trisha GEE
 ** WIP Kevlin HENNEY [0/2]
-*** TODO GOTO 2018 • Old Is the New New • Kevlin Henney
-:PROPERTIES:
-:author:   Kevlin Henney
-:CREATED:  [2019-02-24 Sun 20:41]
-:END:
-#+call: lg-get-props-entry()
+- interresting and usually funny conference talks 
+- [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]
+- [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]
 
-- https://youtu.be/AbgsfeGvg3E
-- 1968: you full of news
-- Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
-- Not a new ideas. 
-- Singleton single malt whiskey
-- System has either zero or multiple singleton
-- Rian Foote: Patterns are aggressive disregard of originality.
-- Richard Gabriel: worse is better in 1990. Develop with minimal invention. Better to have underfeatute software that is rock solid
-- Simplicity
-- Completeness
-- C2 wiki was 150 lines of perl code.
-- Correctness: 
-- Consistent
-- 1968 NATO science conference. Software development process is iterative
-- 1968 afips. Influential conference..
-- Improve usability by making the software Faster. 
-- The fastest io is no io
-- Command line tools can be 235x faster than your Hadoop cluster
-- 299792458 is in no configuration file.
-- can you fit your code in your cognitive limit
-- lion's commentary of Unix 6th edition 9500 lines is a complete os.
-  - there are Java classes bigger than that
-
-- Stonehenge as an enterprise software. Mono lithos one huge stone difficult to move
-- UNIX philosophy. White one thing that does one thing and does it well.
-
-- 11 years of sun cycle reflect the SW industry cycle.
-- write programs to work together
-- ask Alfred aho. Tdd on 1970 th
-
-
-- ward Cunningham oopsla 92 technical dept
-
-
-- Jack W. Reeves:
-  - programming is a design activity
-- Alan Kay:
-  - oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
-- William Cook lambda calculus was the first object-oriented language (1941) 1932
-- Simon Peyton-Jones (mr. Haskell):
-  - excel is the world's most popular functional language
-
-- coordinatio languages: separate computation and coordination
-  - Unix pipe 1964
-  - ken Thompson 1970 implementace pipe in Unix
-*** TODO Kevlin Henney - 1968
-:PROPERTIES:
-:CREATED:  [2019-02-26 Tue 20:34]
-:lg-authors: Kevlin%20Henney
-:lg-source: YouTube
-:lg-quality: worth returning to it
-:lg-tech-q: good
-:lg-yt-url: https://youtu.be/v-RkKohsF78
-:lg-serie: YOW! Conference 2018
-:lg-form:  conference-talk
-:END:
-#+call: lg-get-props-entry()
-
-https://youtu.be/v-RkKohsF78
-
-- Pražské jaro.
-- Jimmy Hendrix
-- Led Zeppelin
-- Facebook in 1969
-- NATO congerence in Garmish (1968)
-- Peter McBride: software craftsmanship
-- Apollo project Margaret Heafield Hamilton inventés the software engineering term
-- AFIPS conference proceedings vol. 33 1968
-  - PERT .. createss only a paper
-  - most deadly think in SW: you specify what you are going to do and then you do it an
-  - design process is an iterative one
-  - unit test, modularity 
-  - Patterns: aggressive disregard to originality
-- Christopher Alexander: notes on the synthesis of form 
-  - book published in 1964
-  - referenced in many later works in system / subsystem thinking
-- Melvin Conway: how committees invent
-  - Conway's law mandatory to mention on each conference
-  - returns every 10 years
-  - communication structures define system design
-- Adam Thornhill:
-  - your code as a crime scene (book)
-  - talks about Conway's law.. based on much more data than the original Conway definition
-- Stonehenge.. 
-  - as a legacy system.. 
-  - how did they do it.. 
-  - we don't know
-  - there is no documentation 
-  - Doug Mcllroy: this is the UNIX philosophy:
-    - write programs that do one thing and do it well
-    - write programs to work together
-    - isn't this microservice definition
-- Alan Perlis (first recipient of the Turing award)
-  - a software system can be best designed if the testing is interlaced with the design instead of being used after the design
-- bi-quinary coded decimal system
-  - first system used in early computers
-- ALGOL 68
-  - int, long, void, bool, char, short, union, struct
-  - born shell was inspired by algol
-  - { did not exist at that time keyboard
-  - actually try to write { on Scandinavian keyboard it is worse than. Emacs
-  - start to look like lisp..
-  - TDD in algol 68
-- TDD instituted in 70 th wit AWK
-- Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
-- simula 67 
-  - definition os class and instance
-- pragmatic bullshit
-  - we use pragmatic Agile
-  - pragmatic functional
-  - pragmatic structured programming
-- lisp....
 ** WIP Michael PLÖD [0/2]
 *** TODO Webinar: Overview and Core Values of Domain-Driven Design - Part 1/5
 :PROPERTIES:
@@ -2983,26 +2888,6 @@ Cognitive-bias
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
 
-* WIP Psychology                                                     :DOMAIN:
-** Cognitive Biases                                                  :TOPIC:
-** TODO Milgram experiment
-** Glossary                                                          :TOPIC:
-*** knowledge
-- definition
-  - practical and/or theoretical understanding of a topic
-- obtained throughput
-  - learning training experience
-*** skill
-- definition
-  - things that one learns through training and/or through experience
-- obtained throughput
-  - practicing, learning
-*** ability
-- definition
-  - level of being able to perform or deliver a task
-- obtained throughput
-  - natural capability
-
 * WIP Core Values [0/3]                                              :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CORE_VALUES
@@ -3027,8 +2912,182 @@ The moral aspect
 ** TODO Fat Tail Distribution                                        :TOPIC:
 ** TODO Data Driven Decision                                         :TOPIC:
 ** TODO Scepticism                                                   :TOPIC:
+* WIP Commented Videos                                              :CHAPTER:
+** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
+:PROPERTIES:
+:author:   Kevlin Henney
+:CREATED:  [2019-02-24 Sun 20:41]
+:lg-yt-url: https://youtu.be/AbgsfeGvg3E
+:CUSTOM_ID: YT:AbgsfeGvg3E
+:END:
+#+call: lg-get-props-entry()
 
-* WIP To integrate                                                :no_export:
+- https://youtu.be/AbgsfeGvg3E
+- 1968: year full of news
+- Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
+- Not a new ideas. 
+- Singleton single malt whiskey
+- System has either zero or multiple singleton
+- Rian Foote: Patterns are aggressive disregard of originality.
+- Richard Gabriel: worse is better in 1990.
+  - Develop with minimal invention.
+  - Better to have underfeatute software that is rock solid
+- Simplicity
+- Completeness
+- C2 wiki was 150 lines of perl code.
+- Correctness: 
+- Consistent
+- 1968 NATO science conference. Software development process is iterative
+- 1968 afips. Influential conference..
+- Improve usability by making the software Faster. 
+- The fastest io is no io
+- Command line tools can be 235x faster than your Hadoop cluster
+- 299792458 is in no configuration file.
+- can you fit your code in your cognitive limit
+- lion's commentary of Unix 6th edition 9500 lines is a complete os.
+  - there are Java classes bigger than that
+
+- Stonehenge as an enterprise software.
+  - Mono lithos one huge stone difficult to move
+- UNIX philosophy.
+  - White one thing that does one thing and does it well.
+
+- 11 years of sun cycle reflect the SW industry cycle.
+- write programs to work together
+- ask Alfred Aho. Tdd on 1970 th
+
+
+- Ward Cunningham oopsla 92 technical dept
+
+
+- Jack W. Reeves:
+  - programming is a design activity
+- Alan Kay:
+  - oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
+- William Cook lambda calculus was the first object-oriented language (1941) 1932
+- Simon Peyton-Jones (mr. Haskell):
+  - excel is the world's most popular functional language
+
+- coordinatio languages: separate computation and coordination
+  - Unix pipe 1964
+  - Ken Thompson 1970 implementace pipe in Unix
+
+** WIP Kevlin Henney - 1968
+:PROPERTIES:
+:CREATED:  [2019-02-26 Tue 20:34]
+:lg-authors: Kevlin%20Henney
+:lg-source: YouTube
+:lg-quality: worth returning to it
+:lg-tech-q: good
+:lg-yt-url: https://youtu.be/v-RkKohsF78
+:lg-serie: YOW! Conference 2018
+:lg-form:  conference-talk
+:CUSTOM_ID: YT:v-RkKohsF78
+:END:
+#+call: lg-get-props-entry()
+
+https://youtu.be/v-RkKohsF78
+
+- Pražské jaro.
+- Jimmy Hendrix
+- Led Zeppelin
+- Facebook in 1969
+- NATO congerence in Garmish (1968)
+- Peter McBride: software craftsmanship
+- Apollo project Margaret Heafield Hamilton inventés the software engineering term
+- AFIPS conference proceedings vol. 33 1968
+  - PERT .. createss only a paper
+  - most deadly think in SW: you specify what you are going to do and then you do it an
+  - design process is an iterative one
+  - unit test, modularity 
+  - Patterns: aggressive disregard to originality
+- Christopher Alexander: notes on the synthesis of form 
+  - book published in 1964
+  - referenced in many later works in system / subsystem thinking
+- Melvin Conway: how committees invent
+  - Conway's law mandatory to mention on each conference
+  - returns every 10 years
+  - communication structures define system design
+- Adam Thornhill:
+  - your code as a crime scene (book)
+  - talks about Conway's law.. based on much more data than the original Conway definition
+- Stonehenge.. 
+  - as a legacy system.. 
+  - how did they do it.. 
+  - we don't know
+  - there is no documentation 
+  - Doug Mcllroy: this is the UNIX philosophy:
+    - write programs that do one thing and do it well
+    - write programs to work together
+    - isn't this microservice definition
+- Alan Perlis (first recipient of the Turing award)
+  - a software system can be best designed if the testing is interlaced with the design instead of being used after the design
+- bi-quinary coded decimal system
+  - first system used in early computers
+- ALGOL 68
+  - int, long, void, bool, char, short, union, struct
+  - born shell was inspired by algol
+  - { did not exist at that time keyboard
+  - actually try to write { on Scandinavian keyboard it is worse than. Emacs
+  - start to look like lisp..
+  - TDD in algol 68
+- TDD instituted in 70 th wit AWK
+- Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
+- simula 67 
+  - definition os class and instance
+- pragmatic bullshit
+  - we use pragmatic Agile
+  - pragmatic functional
+  - pragmatic structured programming
+- lisp....
+* WIP Commented Podcasts                                            :CHAPTER:
+* WIP Index                                                         :CHAPTER:
+:PROPERTIES:
+:header-args+: :results value table raw replace
+:header-args+: :exports results
+:header-args+: :eval export
+:END:
+** Learning Links
+:PROPERTIES:
+:header-args+: :var cols='(ITEM LEARNING_1)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-learning
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "N/D"))
+    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil '("README.org") nil colnames ))
+#+end_src
+#+call:collector-learning()
+** Youtube videos
+:PROPERTIES:
+:header-args+: :var cols='(ITEM LG-YT-URL)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-yt
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "N/D"))
+    (org-propview-collect cols "%S" '((boundp 'LG-YT-URL)) nil '("README.org") nil colnames ))
+#+end_src
+
+
+#+call:collector-yt()
+
+#+RESULTS:
+| Item                                                                            | ref                          |
+|---------------------------------------------------------------------------------+------------------------------|
+| Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5 | https://youtu.be/RHg53wMflCc |
+| GOTO 2018 • Old Is the New New • Kevlin Henney                                  | https://youtu.be/AbgsfeGvg3E |
+| Kevlin Henney - 1968                                                            | https://youtu.be/v-RkKohsF78 |
+| Avoiding Microservice Megadisasters - Jimmy Bogard                              | https://youtu.be/gfh-VCTwMw8 |
+| Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016        | https://youtu.be/rVnXzW31pWQ |
+| What Doctors Can Teach Us on Continuous Learning - Johnny Graber                | https://youtu.be/SuZZV74wTkw |
+| Exploiting Network Printers                                                     | https://youtu.be/DwKzSO4yA_s |
+| Attacks Against GSMA's M2M Remote Provisioning                                  | https://youtu.be/rI9hvDDbdlE |
+| Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz   | https://youtu.be/avFR_Af0KGk |
+| Od Aristotela k Newtonovi                                                       | https://youtu.be/w9ulyaauBIE |
+
+
+* WIP To integrate                                                :NO_EXPORT:
 ** TODO dog - used technologies
 - AWS
   - API Gateway
@@ -5659,25 +5718,3 @@ https://youtu.be/cCn45UAjIzI
 
 ingressive vs congressive
 Critical thinking.., well name it thinking
-
-
-* WIP Index 
-:PROPERTIES:
-:header-args+: :results value table raw replace
-:header-args+: :exports results
-:header-args+: :var cols='(ITEM LEARNING_1) 
-:header-args+: :var colnames='(Item ref)
-:header-args+: :eval export
-:header-args+: :noweb eval
-:header-args+:  :var conds='true
-:END:
-#+name: collector
-#+begin_src elisp :eval no
-  (setq org-propview-default-value "-")
-  (let ((org-propview-default-value ""))
-    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil '("README.org") nil colnames ))
-#+end_src
-
-#+call:collector()
-
-
