@@ -37,6 +37,7 @@
      '("lg-topic" "Topic" identity)
      '("lg-url-1" "Url" identity)
      '("lg-yt-url" "Youtube" identity)
+     '("lg-vimeo-url" "Youtube" identity)
      '("learning_1" "Learning" identity)
      '("learning_2" "Learning" identity)
      '("learning_3" "Learning" identity)
@@ -2595,7 +2596,6 @@ https://youtu.be/zkDVCQiveEo
 - interresting and usually funny conference talks 
 - [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]
 - [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]
-
 ** WIP Michael PLÖD [0/2]
 *** TODO Webinar: Overview and Core Values of Domain-Driven Design - Part 1/5
 :PROPERTIES:
@@ -2645,15 +2645,190 @@ https://youtu.be/j0XmixCsWjs
 - Book: Designing data intensive applications
 ** TODO Kent BECK
 ** TODO Zuzana SOCHOVA
-** TODO Brian LONSDORF
+** TODO Brian LONSDORF (dr Boolean)
 - https://twitter.com/drboolean
 - https://github.com/DrBoolean
 - https://egghead.io/instructors/brian-lonsdorf
 ** TODO Chris RICHARDSON [0/3]
-*** TODO YOW! Conference 2018 - Chris Richardson - Events and Commands
+- [[#yt:fhZwzm-d9ys][YOW! Conference 2018 - Chris Richardson - Events and Commands]]
+- [[#YT:gR_EGN86fvg][Developing Microservices with Aggregates by Chris Richardson]]
+*** TODO There is No Such Thing as a Microservice! - Chris Richardson January 2018
+:PROPERTIES:
+:lg-subject: There is No Such Thing as a Microservice! - Chris Richardson January 2018
+:END:
+#+call: lg-get-props-entry()
+
+
+** WIP Linda RISING [0/2]
+- Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org 
+- [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
+- [[#se-radio-238][SE-Radio 238: Linda Rising on the Agile Brain]]
+
+
+** TODO Steven PINKER [0/0]
+** TODO Nassim TALEB
+** TODO Marek Orko VÁCHA
+
+* WIP Core Values [0/3]                                              :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CORE_VALUES
+:END:
+#+call: lg-get-props-entry()
+The moral aspect
+** TODO Code of Conduct                                                :TOPIC:
+** WIP SW developer responsibility                                   :TOPIC:
+- finally the code that was driving the engine in diesel gate was written by someone
+  - -> those developer(s) must have known what they were doing
+  - 
+** WIP ACM ethics Code 
+:PROPERTIES:
+:learning_1: https://ethics.acm.org/
+:END:
+* WIP Concepts [0/4]                                                 :DOMAIN:
+:PROPERTIES:
+:CUSTOM_ID: CONCEPTS
+:END:
+#+call: lg-get-props-entry()
+
+** TODO Fat Tail Distribution                                        :TOPIC:
+** TODO Data Driven Decision                                         :TOPIC:
+** TODO Shift Left
+- like shift left security
+** TODO Scepticism                                                   :TOPIC:
+* WIP Commented Videos                                              :CHAPTER:
+** YouTube 
+*** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
+:PROPERTIES:
+:author:   Kevlin Henney
+:CREATED:  [2019-02-24 Sun 20:41]
+:lg-yt-url: https://youtu.be/AbgsfeGvg3E
+:CUSTOM_ID: YT:AbgsfeGvg3E
+:END:
+#+call: lg-get-props-entry()
+
+- https://youtu.be/AbgsfeGvg3E
+- 1968: year full of news
+- Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
+- Not a new ideas. 
+- Singleton single malt whiskey
+- System has either zero or multiple singleton
+- Rian Foote: Patterns are aggressive disregard of originality.
+- Richard Gabriel: worse is better in 1990.
+  - Develop with minimal invention.
+  - Better to have underfeatute software that is rock solid
+- Simplicity
+- Completeness
+- C2 wiki was 150 lines of perl code.
+- Correctness: 
+- Consistent
+- 1968 NATO science conference. Software development process is iterative
+- 1968 afips. Influential conference..
+- Improve usability by making the software Faster. 
+- The fastest io is no io
+- Command line tools can be 235x faster than your Hadoop cluster
+- 299792458 is in no configuration file.
+- can you fit your code in your cognitive limit
+- lion's commentary of Unix 6th edition 9500 lines is a complete os.
+  - there are Java classes bigger than that
+
+- Stonehenge as an enterprise software.
+  - Mono lithos one huge stone difficult to move
+- UNIX philosophy.
+  - White one thing that does one thing and does it well.
+
+- 11 years of sun cycle reflect the SW industry cycle.
+- write programs to work together
+- ask Alfred Aho. Tdd on 1970 th
+
+
+- Ward Cunningham oopsla 92 technical dept
+
+
+- Jack W. Reeves:
+  - programming is a design activity
+- Alan Kay:
+  - oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
+- William Cook lambda calculus was the first object-oriented language (1941) 1932
+- Simon Peyton-Jones (mr. Haskell):
+  - excel is the world's most popular functional language
+
+- coordinatio languages: separate computation and coordination
+  - Unix pipe 1964
+  - Ken Thompson 1970 implementace pipe in Unix
+
+*** WIP Kevlin Henney - 1968
+:PROPERTIES:
+:CREATED:  [2019-02-26 Tue 20:34]
+:lg-authors: Kevlin%20Henney
+:lg-source: YouTube
+:lg-quality: worth returning to it
+:lg-tech-q: good
+:lg-yt-url: https://youtu.be/v-RkKohsF78
+:lg-serie: YOW! Conference 2018
+:lg-form:  conference-talk
+:CUSTOM_ID: YT:v-RkKohsF78
+:END:
+#+call: lg-get-props-entry()
+
+https://youtu.be/v-RkKohsF78
+
+- Pražské jaro.
+- Jimmy Hendrix
+- Led Zeppelin
+- Facebook in 1969
+- NATO congerence in Garmish (1968)
+- Peter McBride: software craftsmanship
+- Apollo project Margaret Heafield Hamilton inventés the software engineering term
+- AFIPS conference proceedings vol. 33 1968
+  - PERT .. createss only a paper
+  - most deadly think in SW: you specify what you are going to do and then you do it an
+  - design process is an iterative one
+  - unit test, modularity 
+  - Patterns: aggressive disregard to originality
+- Christopher Alexander: notes on the synthesis of form 
+  - book published in 1964
+  - referenced in many later works in system / subsystem thinking
+- Melvin Conway: how committees invent
+  - Conway's law mandatory to mention on each conference
+  - returns every 10 years
+  - communication structures define system design
+- Adam Thornhill:
+  - your code as a crime scene (book)
+  - talks about Conway's law.. based on much more data than the original Conway definition
+- Stonehenge.. 
+  - as a legacy system.. 
+  - how did they do it.. 
+  - we don't know
+  - there is no documentation 
+  - Doug Mcllroy: this is the UNIX philosophy:
+    - write programs that do one thing and do it well
+    - write programs to work together
+    - isn't this microservice definition
+- Alan Perlis (first recipient of the Turing award)
+  - a software system can be best designed if the testing is interlaced with the design instead of being used after the design
+- bi-quinary coded decimal system
+  - first system used in early computers
+- ALGOL 68
+  - int, long, void, bool, char, short, union, struct
+  - born shell was inspired by algol
+  - { did not exist at that time keyboard
+  - actually try to write { on Scandinavian keyboard it is worse than. Emacs
+  - start to look like lisp..
+  - TDD in algol 68
+- TDD instituted in 70 th wit AWK
+- Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
+- simula 67 
+  - definition os class and instance
+- pragmatic bullshit
+  - we use pragmatic Agile
+  - pragmatic functional
+  - pragmatic structured programming
+- lisp....
+*** WIP YOW! Conference 2018 - Chris Richardson - Events and Commands
 :PROPERTIES:
 :CREATED:  [2019-03-07 Thu 20:16]
 :lg-subject: YOW! Conference 2018 - Chris Richardson - Events and Commands
+:CUSTOM_ID: yt:fhZwzm-d9ys
 :END:
 #+call: lg-get-props-entry()
 
@@ -2679,14 +2854,10 @@ Eventuate.io
 Microservices.io/book (ctwyowconf18)
 :END:
 
-
-
 :TRIVIA:
-Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
+- Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
   - use chains of small transactions coordinated by asynchronous messages
 :END:
-
-
 :POINTS-TAKEN:
 - mainly
   - microservices are more than REST
@@ -2757,60 +2928,24 @@ Saga - 1987 paper Hector Garcia-Molina and Kenneth Salem
     - polling - but it introduces latency
 :END:
 
-*** TODO There is No Such Thing as a Microservice! - Chris Richardson January 2018
-:PROPERTIES:
-:lg-subject: There is No Such Thing as a Microservice! - Chris Richardson January 2018
-:END:
-#+call: lg-get-props-entry()
-
-
 *** TODO Developing Microservices with Aggregates by Chris Richardson
 :PROPERTIES:
 :CREATED:  [2019-03-08 Fri 06:40]
 :lg-subject: Developing Microservices with Aggregates by Chris Richardson
+:lg-yt-url: https://youtu.be/gR_EGN86fvg
+:CUSTOM_ID: YT:gR_EGN86fvg
 :END:
 #+call: lg-get-props-entry()
 
 
-https://youtu.be/gR_EGN86fvg
-** WIP Linda RISING [0/2]
-*** TODO SE-Radio 238: Linda Rising on the Agile Brain
-:PROPERTIES:
-:CREATED:  [2018-08-05 Sun 10:18]
-:lg-event-date: <2015-11-09 Mon>
-:lg-consumed: <2018-08-04 Sat>
-:lg-keywords: Soft%20Skills
-:lg-source: SE-Radio
-:lg-quality: worth returning to it
-:lg-authors: Linda%20Rising
-:lg-subject: SE-Radio 238: Linda Rising on the Agile Brain
-:END:
-#+call: lg-get-props-entry()
 
-
-**** My Remarks
-
-- you should provide feedback based on a efford not on the result
-- I need to listen once again
-
-**** Official Description
-
-SE-Radio Episode 238: Linda Rising on the Agile Brain
-
-11.09.15 by se-radio team
-
-Web player: http://podplayer.net/#/?id=7160439
-Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode-238-Linda-Rising-on-the-Agile-Brain.mp3
-
-- Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
-- They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
-- After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
-
-*** TODO Meeting resistance and moving forward — Linda Rising
+** Vimeo
+*** WIP Meeting resistance and moving forward — Linda Rising
 :PROPERTIES:
 :lg-subject: Watch Meeting resistance and moving forward — Linda Rising
 :lg-authors: Linda%20Rising
-:leadning_1:  https://vimeo.com/325143661
+:lg-vimeo-url:  https://vimeo.com/325143661
+:CUSTOM_ID: vimeo:325143661
 :END:
 #+call: lg-get-props-entry()
 
@@ -2882,165 +3017,40 @@ Cognitive-bias
   - cynics
     - are negative for the sake of being negative not RTO be helpful
       - typically focused on low level interests, not the greater good
-    - 
+     
  :END:
-** TODO Steven PINKER [0/0]
-** TODO Nassim TALEB
-** TODO Marek Orko VÁCHA
 
-* WIP Core Values [0/3]                                              :DOMAIN:
-:PROPERTIES:
-:CUSTOM_ID: CORE_VALUES
-:END:
-#+call: lg-get-props-entry()
-The moral aspect
-** TODO Code of Conduct                                                :TOPIC:
-** WIP SW developer responsibility                                   :TOPIC:
-- finally the code that was driving the engine in diesel gate was written by someone
-  - -> this developer(s) knew what are they doing
-  - 
-** WIP ACM ethics Code 
-:PROPERTIES:
-:learning_1: https://ethics.acm.org/
-:END:
-* WIP Concepts [0/3]                                                 :DOMAIN:
-:PROPERTIES:
-:CUSTOM_ID: CONCEPTS
-:END:
-#+call: lg-get-props-entry()
-
-** TODO Fat Tail Distribution                                        :TOPIC:
-** TODO Data Driven Decision                                         :TOPIC:
-** TODO Scepticism                                                   :TOPIC:
-* WIP Commented Videos                                              :CHAPTER:
-** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
-:PROPERTIES:
-:author:   Kevlin Henney
-:CREATED:  [2019-02-24 Sun 20:41]
-:lg-yt-url: https://youtu.be/AbgsfeGvg3E
-:CUSTOM_ID: YT:AbgsfeGvg3E
-:END:
-#+call: lg-get-props-entry()
-
-- https://youtu.be/AbgsfeGvg3E
-- 1968: year full of news
-- Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
-- Not a new ideas. 
-- Singleton single malt whiskey
-- System has either zero or multiple singleton
-- Rian Foote: Patterns are aggressive disregard of originality.
-- Richard Gabriel: worse is better in 1990.
-  - Develop with minimal invention.
-  - Better to have underfeatute software that is rock solid
-- Simplicity
-- Completeness
-- C2 wiki was 150 lines of perl code.
-- Correctness: 
-- Consistent
-- 1968 NATO science conference. Software development process is iterative
-- 1968 afips. Influential conference..
-- Improve usability by making the software Faster. 
-- The fastest io is no io
-- Command line tools can be 235x faster than your Hadoop cluster
-- 299792458 is in no configuration file.
-- can you fit your code in your cognitive limit
-- lion's commentary of Unix 6th edition 9500 lines is a complete os.
-  - there are Java classes bigger than that
-
-- Stonehenge as an enterprise software.
-  - Mono lithos one huge stone difficult to move
-- UNIX philosophy.
-  - White one thing that does one thing and does it well.
-
-- 11 years of sun cycle reflect the SW industry cycle.
-- write programs to work together
-- ask Alfred Aho. Tdd on 1970 th
-
-
-- Ward Cunningham oopsla 92 technical dept
-
-
-- Jack W. Reeves:
-  - programming is a design activity
-- Alan Kay:
-  - oop means only messaging,local retention and protection and hiding of state-process, and extreme late-binding of all things
-- William Cook lambda calculus was the first object-oriented language (1941) 1932
-- Simon Peyton-Jones (mr. Haskell):
-  - excel is the world's most popular functional language
-
-- coordinatio languages: separate computation and coordination
-  - Unix pipe 1964
-  - Ken Thompson 1970 implementace pipe in Unix
-
-** WIP Kevlin Henney - 1968
-:PROPERTIES:
-:CREATED:  [2019-02-26 Tue 20:34]
-:lg-authors: Kevlin%20Henney
-:lg-source: YouTube
-:lg-quality: worth returning to it
-:lg-tech-q: good
-:lg-yt-url: https://youtu.be/v-RkKohsF78
-:lg-serie: YOW! Conference 2018
-:lg-form:  conference-talk
-:CUSTOM_ID: YT:v-RkKohsF78
-:END:
-#+call: lg-get-props-entry()
-
-https://youtu.be/v-RkKohsF78
-
-- Pražské jaro.
-- Jimmy Hendrix
-- Led Zeppelin
-- Facebook in 1969
-- NATO congerence in Garmish (1968)
-- Peter McBride: software craftsmanship
-- Apollo project Margaret Heafield Hamilton inventés the software engineering term
-- AFIPS conference proceedings vol. 33 1968
-  - PERT .. createss only a paper
-  - most deadly think in SW: you specify what you are going to do and then you do it an
-  - design process is an iterative one
-  - unit test, modularity 
-  - Patterns: aggressive disregard to originality
-- Christopher Alexander: notes on the synthesis of form 
-  - book published in 1964
-  - referenced in many later works in system / subsystem thinking
-- Melvin Conway: how committees invent
-  - Conway's law mandatory to mention on each conference
-  - returns every 10 years
-  - communication structures define system design
-- Adam Thornhill:
-  - your code as a crime scene (book)
-  - talks about Conway's law.. based on much more data than the original Conway definition
-- Stonehenge.. 
-  - as a legacy system.. 
-  - how did they do it.. 
-  - we don't know
-  - there is no documentation 
-  - Doug Mcllroy: this is the UNIX philosophy:
-    - write programs that do one thing and do it well
-    - write programs to work together
-    - isn't this microservice definition
-- Alan Perlis (first recipient of the Turing award)
-  - a software system can be best designed if the testing is interlaced with the design instead of being used after the design
-- bi-quinary coded decimal system
-  - first system used in early computers
-- ALGOL 68
-  - int, long, void, bool, char, short, union, struct
-  - born shell was inspired by algol
-  - { did not exist at that time keyboard
-  - actually try to write { on Scandinavian keyboard it is worse than. Emacs
-  - start to look like lisp..
-  - TDD in algol 68
-- TDD instituted in 70 th wit AWK
-- Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
-- simula 67 
-  - definition os class and instance
-- pragmatic bullshit
-  - we use pragmatic Agile
-  - pragmatic functional
-  - pragmatic structured programming
-- lisp....
 * WIP Commented Podcasts                                            :CHAPTER:
+
+** SE-Radio [0/1]
+*** WIP SE-Radio 238: Linda Rising on the Agile Brain
+:PROPERTIES:
+:CREATED:  [2018-08-05 Sun 10:18]
+:lg-event-date: <2015-11-09 Mon>
+:lg-consumed: <2018-08-04 Sat>
+:lg-keywords: Soft%20Skills
+:lg-source: SE-Radio
+:lg-quality: worth returning to it
+:lg-authors: Linda%20Rising
+:lg-subject: SE-Radio 238: Linda Rising on the Agile Brain
+:lg-se-radio-url:  https://www.se-radio.net/2015/09/se-radio-episode-238-linda-rising-on-the-agile-brain/
+:CUSTOM_ID: se-radio-238
+:END:
+#+call: lg-get-props-entry()
+**** My Remarks
+- you should provide feedback based on a efford not on the result
+**** Official Description
+SE-Radio Episode 238: Linda Rising on the Agile Brain
+
+11.09.15 by se-radio team
+
+Web player: http://podplayer.net/#/?id=7160439
+Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode-238-Linda-Rising-on-the-Agile-Brain.mp3
+
+- Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
+- They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
+- After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
+
 * WIP Index                                                         :CHAPTER:
 :PROPERTIES:
 :header-args+: :results value table raw replace
@@ -3085,6 +3095,24 @@ https://youtu.be/v-RkKohsF78
 | Attacks Against GSMA's M2M Remote Provisioning                                  | https://youtu.be/rI9hvDDbdlE |
 | Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz   | https://youtu.be/avFR_Af0KGk |
 | Od Aristotela k Newtonovi                                                       | https://youtu.be/w9ulyaauBIE |
+** SE-Radio Podcast Epizodes
+:PROPERTIES:
+:header-args+: :var cols='(ITEM LG-SE-RADIO-URL)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-se-radio
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "N/D"))
+    (org-propview-collect cols "%S" '((boundp 'LG-SE-RADIO-URL)) nil '("README.org") nil colnames ))
+#+end_src
+
+#+call:collector-se-radio()
+
+#+RESULTS:
+| Item                                          | ref                                                                                    |
+|-----------------------------------------------+----------------------------------------------------------------------------------------|
+| SE-Radio 238: Linda Rising on the Agile Brain | https://www.se-radio.net/2015/09/se-radio-episode-238-linda-rising-on-the-agile-brain/ |
+
 
 
 * WIP To integrate                                                :NO_EXPORT:
