@@ -18,8 +18,8 @@
 #+AUTHOR: Richard Bouska
 
 
-#+name: lg-get-props-entry 
-#+begin_src emacs-lisp :exports none 
+#+name: lg-get-props-entry
+#+begin_src emacs-lisp :exports none
   (setq
    lg-properties-display-list
    (list '("lg-authors" "Authors" org-link-decode)
@@ -295,7 +295,7 @@ set2:
 *** json
 *** xml
 ** declarative vs imperative
-** [#B] Code complexity 
+** [#B] Code complexity
 *** Code complexity (big O)
 *** Amortized complexity
 ** TCP/IP
@@ -320,7 +320,7 @@ set2:
 - Thus, a cache-oblivious algorithm is designed to perform well, without modification, on multiple machines with different cache sizes, or for a memory hierarchy with different levels of cache having different sizes. Cache-oblivious algorithms are contrasted with explicit blocking, as in loop nest optimization, which explicitly breaks a problem into blocks that are optimally sized for a given cache.
 - Optimal cache-oblivious algorithms are known for matrix multiplication, matrix transposition, sorting, and several other problems. Some more general algorithms, such as Cooley–Tukey FFT, are optimally cache-oblivious under certain choices of parameters. Because these algorithms are only optimal in an asymptotic sense (ignoring constant factors), further machine-specific tuning may be required to obtain nearly optimal performance in an absolute sense. The goal of cache-oblivious algorithms is to reduce the amount of such tuning that is required.
 - Typically, a cache-oblivious algorithm works by a recursive divide and conquer algorithm, where the problem is divided into smaller and smaller subproblems. Eventually, one reaches a subproblem size that fits into cache, regardless of the cache size. For example, an optimal cache-oblivious matrix multiplication is obtained by recursively dividing each matrix into four sub-matrices to be multiplied, multiplying the submatrices in a depth-first fashion. In tuning for a specific machine, one may use a hybrid algorithm which uses blocking tuned for the specific cache sizes at the bottom level, but otherwise uses the cache-oblivious algorithm.
-*** 
+***
 * WIP Architecture [0/16]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
@@ -335,7 +335,7 @@ set2:
 ** WIP Messaging                                           :TOPIC:
 *** TODO Queue
 *** TODO Topics
-*** WIP QoS 
+*** WIP QoS
 - Each connection to the broker can specify a quality of service measure. These are classified in increasing order of overhead:
   - *At most once* - the message is sent only once and the client and broker take no additional steps to acknowledge delivery (fire and forget).
   - *At least once* - the message is re-tried by the sender multiple times until acknowledgement is received (acknowledged delivery).
@@ -424,10 +424,10 @@ set2:
 - Once the connection is opened, incoming messages from the server are delivered to your code in the form of events.
 - If there is an event field in the incoming message, the triggered event is the same as the event field value. If no event field is present, then a generic message event is fired.
 - Unlike WebSockets, server-sent events are unidirectional; that is, data messages are delivered in one direction, from the server to the client (such as a user's web browser).
-- That makes them an excellent choice when there's no need to send data from the client to the server in message form. 
+- That makes them an excellent choice when there's no need to send data from the client to the server in message form.
 - For example, EventSource is a useful approach for handling things like social media status updates, news feeds, or delivering data into a client-side storage mechanism like IndexedDB or web storage.
 **** TODO XMLHttpRequest (XHR)
-- objects are used to interact with servers. 
+- objects are used to interact with servers.
 - You can retrieve data from a URL without having to do a full page refresh.
 - This enables a Web page to update just part of a page without disrupting what the user is doing.
 - XMLHttpRequest is used heavily in AJAX programming.
@@ -478,15 +478,15 @@ set2:
 Axios: Axios is a Javascript library used to make HTTP requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. It can be used intercept HTTP requests and responses and enables client-side protection against XSRF. It also has the ability to cancel requests.
 
 #+begin_src js
-axios.get('url') 
-  .then((response) => { 
-  
-    // Code for handling the response 
-  }) 
-  .catch((error) => { 
-  
-    // Code for handling the error 
-  }) 
+axios.get('url')
+  .then((response) => {
+
+    // Code for handling the response
+  })
+  .catch((error) => {
+
+    // Code for handling the error
+  })
 #+end_src
 ** WIP REST
 *** What are the HTTP methods supported by REST?                 :QUESTION:
@@ -538,32 +538,32 @@ Consider following status codes:
 :learning_1: https://12factor.net/
 :END:
 #+call: lg-get-props-entry()
-1. Codebase
+1. *Codebase*
    - One codebase tracked in revision control, many deploys
-2. II. Dependencies
+2. *Dependencies*
    - Explicitly declare and isolate dependencies
-3. Config
+3. *Config*
    - Store config in the environment
-4. Backing services
+4. *Backing services*
    - Treat backing services as attached resources
-5. Build, release, run
+5. *Build, release, run*
    - Strictly separate build and run stages
-6. Processes
+6. *Processes*
    - Execute the app as one or more stateless processes
-7. Port binding
+7. *Port binding*
    - Export services via port binding
-8. Concurrency
+8. *Concurrency*
    - Scale out via the process model
-9. Disposability
+9. *Disposability*
    - Maximize robustness with fast startup and graceful shutdown
-10. Dev/prod parity
+10. *Dev/prod parity*
     - Keep development, staging, and production as similar as possible
-11. Logs
+11. *Logs*
     - Treat logs as event streams
-12. Admin processes
+12. *Admin processes*
     - Run admin/management tasks as one-off processes
 ** TODO 3Factor Apps
-** WIP OpenApiSpec / Open API 3.0 / Swagger 
+** WIP OpenApiSpec / Open API 3.0 / Swagger
 :PROPERTIES:
 :learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
 :learning_2: https://editor.swagger.io/
@@ -572,9 +572,7 @@ Consider following status codes:
 *** What Is OpenAPI?
 :ANSWER:
 - OpenAPI Specification (formerly known as Swagger Specification) is an open-source format for describing and documenting APIs. The Specification was originally developed in 2010 by Reverb Technologies (formerly Wordnik) as a way to keep the API design and documentation in sync. It has since become a de-facto standard for designing and describing RESTful APIs, and is used by millions of developers and organizations for developing their APIs, be it internal or client facing.
-
 - The latest version of OpenAPI is 3.0. OpenAPI definitions can be written in JSON or YAML. We recommend YAML, because it is easier to read and write.
-
 - A simple OpenAPI 3.0 specification looks like this:
 #+begin_src yaml
   openapi: 3.0.0
@@ -585,7 +583,7 @@ Consider following status codes:
   paths:
     /list:
       get:
-        description: Returns a list of stuff              
+        description: Returns a list of stuff
         responses:
           '200':
             description: Successful response
@@ -650,7 +648,7 @@ Consider following status codes:
 - Written another way, information hiding is the ability to prevent certain aspects of a class or software component from being accessible to its clients, using either programming language features (like private variables) or an explicit exporting policy
 *** WIP Encapsulation                                               :TOPIC:
 - The mechanism of Encapsulation in ObjectOriented Programming (OOP) is a direct application of Information Hiding
-*** WIP The Law of Demeter (LoD) or principle of least knowledge 
+*** WIP The Law of Demeter (LoD) or principle of least knowledge
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Law_of_Demeter
 :END:
@@ -790,12 +788,12 @@ Consider following status codes:
 *** partitionning
 - co to je?  rozdělení tabulek na více částí, může být vertikální či horizontální
 - proč se to používá?  např. zvýšení výkonu (nevypisuji z celé tabulky ale jen z jedné partition) / zátěž rozložena na více disků  rychlejší čtení, velké tabulky které se nevejdou na disk -> vice partiton
-*** inner vs outher join  
+*** inner vs outher join
 - typy spojení DB tabulek,
   - inner:  výsledek musí obsahovat průnik obou tabulek,
   - outer:  výsledek obsahuje data z jedné či druhé, případně z obou tabulek pokud klíč existuje v obou tabulkách …
 - záleží na typu outer joinu - Full/left/right
-*** DB Index 
+*** DB Index
 - Druhy  primary/unique/(secondary) index …. Speciální: partial (na části dat definovaný where condition) / functional (nepoužívá atribut, ale funkci nad atributem/atributy) / spatial (prostorový index nad geografickými daty)
  k čemu slouží? K rychlejšímu vyhledávání v tabulce, v případě unique/primary zamezuje vložení duplicity
 *** Constraint
@@ -810,13 +808,13 @@ Consider following status codes:
 - A temporary table, on the other hand, is a real database object that is initialized with the structure described by its DDL statement and possibly populated by actual rows.
 :END:
 #+call: lg-get-props-entry()
-*** CTE (with)  
+*** CTE (with)
 - syntaxe pro vytvoření dočasné tabulky, kterou mohu použít v následujícím sql dotazu,
 - lze pomocí ní dělat rekurzivní dotazy, výsledek je jen v paměti a neukládá se na disk (pokud mám dostatek working memory 😊 )
 *** DML/DDL
 - manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
 
-** WIP Distributed consensus: 
+** WIP Distributed consensus:
 *** Paxos                                                           :TOPIC:
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Paxos_(computer_science)
@@ -851,9 +849,9 @@ Consider following status codes:
 - TRANSACTION_REPEATABLE_READ
   - Dirty reads and non-repeatable reads are prevented; phantom reads can occur.
 - TRANSACTION_SERIALIZABLE
-  - Dirty reads, non-repeatable reads and phantom reads are prevented. 
+  - Dirty reads, non-repeatable reads and phantom reads are prevented.
 :END:
-*** ANSI/ISO levels - 
+*** ANSI/ISO levels -
 **** what they are
 :ANSWER:
 - serializable
@@ -868,7 +866,7 @@ Consider following status codes:
 - Even weaker is the Read Commited isolation level. Two consecutive select statements in a transaction can return different data. Contrary to the Read Repeatable level, this level allows not only the set of rows to change, but also the data that those rows contain. This can happen if another transaction modifies the rows.
 - The weakest isolation level is Read Uncommitted where dirty reads can occur. That means that non-committed changes from other transactions can affect a transaction.
 :END:
-** WIP Datawarehouse?  
+** WIP Datawarehouse?
 - úložiště dat,
 - organizovaných do určité struktury,
 - pro účely analýzy dat … podpora business procesů organizace
@@ -876,7 +874,7 @@ Consider following status codes:
 - tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay
 ** WIP Snowflake schema  structure
 - faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF
-** WIP WAL  / transactional log?  
+** WIP WAL  / transactional log?
 - log kde je historie všech provedených DB operací nad danou instancí/databází.
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
@@ -921,7 +919,7 @@ Consider following status codes:
 - *Active Everywhere / Zero-Downtime:* Since every Cassandra node is capable of performing read and write operations, data is quickly replicated across hybrid cloud environments and geographies. In the event a node fails, users are automatically routed to the nearest healthy node. They won’t even notice that a node has been knocked offline because applications behave as designed even in the event of failure. As a result, applications are always available and data is always accessible and never lost. What’s more, Cassandra’s built-in repair services fix problems immediately after they occur—without any manual intervention. Productivity doesn’t even need to take a hit should nodes fail.
 - *Scalability:* In traditional environments, scaling applications is a time-consuming and costly process typically accomplished by scaling vertically with more expensive machines. Cassandra enables you to scale horizontally by simply adding more nodes to the cluster. If, for example, four nodes can handle 200,000 transactions/second, eight nodes will be able to handle 400,000 transactions/second. (source)
 - *Seamless Replication:* Today’s leading enterprises are increasingly moving to multi-data center, hybrid cloud and even multi-cloud deployments to take advantage of the strengths of various deployments without getting locked into any single provider’s ecosystem. Getting the most out of multi-cloud environments, however, starts with having an underlying cloud database that offers: scalability, security, performance, and availability. For these reasons, it should come as no surprise that the cloud database market is expected to grow nearly 65% each year and reach $68.9 billion by 2022.
-*** WIP Apache Pig 
+*** WIP Apache Pig
 - is a high-level platform for creating programs that run on Apache Hadoop.
 - The language for this platform is called Pig Latin.[1]
 - Pig can execute its Hadoop jobs in MapReduce, Apache Tez, or Apache Spark.[2]
@@ -969,7 +967,7 @@ Consider following status codes:
 :learning_1: https://hbase.apache.org/
 :END:
 #+call: lg-get-props-entry()
-*** WIP Apache Parquet  
+*** WIP Apache Parquet
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Apache_Parquet
 :END:
@@ -989,14 +987,14 @@ Consider following status codes:
 - Avro uses a schema to structure the data that is being encoded.
 - It has two different types of schema languages; one for human editing (Avro IDL) and another which is more machine-readable based on JSON.[3]
 - It is similar to Thrift and Protocol Buffers, but does not require running a code-generation program when a schema changes (unless desired for statically-typed languages).
-- 
-*** WIP Apache ORC (Optimized Row Columnar) 
+-
+*** WIP Apache ORC (Optimized Row Columnar)
 - is a free and open-source column-oriented data storage format of the Apache Hadoop ecosystem.
 - It is similar to the other columnar-storage file formats available in the Hadoop ecosystem such as RCFile and Parquet.
 - It is compatible with most of the data processing frameworks in the Hadoop environment.
 - In February 2013, the Optimized Row Columnar (ORC) file format was announced by Hortonworks in collaboration with Facebook.[3]
 - A month later, the Apache Parquet format was announced, developed by Cloudera and Twitter.[4]
-*** WIP Protocol Buffers (Protobuf) 
+*** WIP Protocol Buffers (Protobuf)
 - is a method of serializing structured data.
 - It is useful in developing programs to communicate with each other over a wire or for storing data.
 - The method involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data.
@@ -1014,7 +1012,7 @@ Consider following status codes:
 :END:
 #+call: lg-get-props-entry()
 
-** TODO Scrum [0/3]                                                  :TOPIC: 
+** TODO Scrum [0/3]                                                  :TOPIC:
 *** TODO DoD
 *** TODO DoR
 *** TODO Sprint
@@ -1069,15 +1067,15 @@ Consider following status codes:
 | ap-southeast-1 | Asia Pacific (Singapore)   | Not required  | Not available     |
 | ap-southeast-2 | Asia Pacific (Sydney)      | Not required  | Not available     |
 | ap-northeast-1 | Asia Pacific (Tokyo)       | Not required  | Not available     |
-| ca-central-1   | Canada (Central)           | Not required  | Not available     |   
-| eu-central-1   | Europe (Frankfurt)         | Not required  | Not available     |   
-| eu-west-1      | Europe (Ireland)           | Not required  | Not available     |   
-| eu-west-2      | Europe (London)            | Not required  | Not available     |   
-| eu-south-1     | Europe (Milan)             | Required      | Not available     |   
-| eu-west-3      | Europe (Paris)             | Not required  | Not available     |   
-| eu-north-1     | Europe (Stockholm)         | Not required  | Not available     |   
-| me-south-1     | Middle East (Bahrain)      | Required      | Not available     |   
-| sa-east-1      | South America (São Paulo)  | Not required  | Not available     |  
+| ca-central-1   | Canada (Central)           | Not required  | Not available     |
+| eu-central-1   | Europe (Frankfurt)         | Not required  | Not available     |
+| eu-west-1      | Europe (Ireland)           | Not required  | Not available     |
+| eu-west-2      | Europe (London)            | Not required  | Not available     |
+| eu-south-1     | Europe (Milan)             | Required      | Not available     |
+| eu-west-3      | Europe (Paris)             | Not required  | Not available     |
+| eu-north-1     | Europe (Stockholm)         | Not required  | Not available     |
+| me-south-1     | Middle East (Bahrain)      | Required      | Not available     |
+| sa-east-1      | South America (São Paulo)  | Not required  | Not available     |
 
 *** Availability Zones
 - Each Region has multiple, isolated locations known as Availability Zones. - When you launch an instance, you can select an Availability Zone or let us choose one for you. If you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests.
@@ -1107,7 +1105,7 @@ Consider following status codes:
 *** VPC
 
 
-** AWS cli 
+** AWS cli
 - boto3
 - aws-shell
 ** GCP Services                                                      :TOPIC:
@@ -1225,36 +1223,38 @@ Some of the key principles of the Third Way are:
 - *Sharing.* A culture of openness and sharing within and between teams (and enabled with the proper tools) keeps everyone working toward the same goals and eases friction with hand-offs when issues arise.
 ** TODO Linux [0/36]
 *** TODO cron
-*** TODO runlevel / init / inittab 
+*** TODO runlevel / init / inittab
 *** TODO systemd
 *** TODO snap
 *** TODO apt
-*** TODO ssh 
+*** TODO ssh
 **** TODO how to create trust between computers
 **** TODO tarpit
-*** TODO awk 
+*** TODO awk
 :PROPERTIES:
 :learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
 :learning_1: https://linuxhint.com/20_awk_examples/
 :END:
 #+call: lg-get-props-entry()
-*** TODO sed 
-*** TODO grep 
+*** TODO sed
+*** TODO grep
 *** TODO tail
 *** TODO head
 *** TODO rsync
 *** TODO mount
 *** TODO ls / ps / htop
 *** TODO bash                                                       :TOPIC:
-**** co je to here doc?                                         :QUESTION:
-*** TODO co je to regexp
+**** here doc?                                         :QUESTION:
+**** bracket expansion?                                         :QUESTION:
+**** input/output redirection                                   :QUESTION:
+*** TODO regexp
+*** TODO stdin stdout stderr
 *** TODO list open ports
 *** TODO iptables
 *** TODO BPF
 *** TODO list open files
-*** TODO stdin stdout stderr
 *** TODO NFS
-*** TODO file types: 
+*** TODO file types:
 **** block device
 **** character device
 **** named pipe
@@ -1314,7 +1314,7 @@ From Git’s perspective, there are three areas where the file changes can be ke
 - When you do a commit, its actually what’s in the index that gets committed, and not what’s in the working directory.
 - You can use the git status command to see what’s in the index.
 :END:
-**** TODO squash? Waht it is? whan to use it awht it is good for? 
+**** TODO squash? Waht it is? whan to use it awht it is good for?
 **** TODO pull-request
 **** TODO cherry pick
 **** TODO flow
@@ -1371,29 +1371,29 @@ queries are responded by returning IP addresses in a rotation.
   - [[https://www.freshersemploy.com/]]
   - [[mailto:admin@freshersemploy.com][admin@freshersemploy.com]]
 
-**** What is DNS server?
+**** What is DNS server?                                        :QUESTION:
 - DNS servers resolve IP address to respective hostnames and it maintains directory or database to store the information.
 - When we try to access the website (like /*freshersemploy.com)*/, DNS servers help to translate to machine-readable language i.e. IP address (like /*104.28.27.67*/).
-**** What are the different types of records in DNS?
+**** What are the different types of records in DNS?            :QUESTION:
 - Some of commonly used of DNS records are A, CNAME, NS, MX, PTR, SOA etc.
-**** Explain SOA record?
+**** Explain SOA record?                                        :QUESTION:
 - Start of Authority(SOA) records stores essential information(like refresh rate, expiry, TTL etc) in domain name system(DNS) in a zone file.
 
 ; name TTL class rr Nameserver email-address freshersemploy.com. 12000 IN SOA ns.nameserver.com. root.ns.nameserver.com. ( 2098163206 ; Serial number
 12000 ; Refresh rate in seconds 3600 ; Update Retry in seconds 5788864; Expiry in seconds 100 ; minimum in seconds )
 
 #+begin_src dns
-; name TTL class rr Nameserver email-address   
-freshersemploy.com. 12000 IN SOA               
-ns.nameserver.com. root.ns.nameserver.com.     
-(                                              
-    2098163206 ; Serial number                     
-    12000 ; Refresh rate in seconds                
-    3600 ; Update Retry in seconds                 
-    5788864; Expiry in seconds                     
+; name TTL class rr Nameserver email-address
+freshersemploy.com. 12000 IN SOA
+ns.nameserver.com. root.ns.nameserver.com.
+(
+    2098163206 ; Serial number
+    12000 ; Refresh rate in seconds
+    3600 ; Update Retry in seconds
+    5788864; Expiry in seconds
     100 ; minimum in seconds )
 #+end_src
-                                                      
+
 
 - *Serial Number:* It has the serial number, which gets increments whenever there is a change in the DNS records.
 - *Refresh interval:* It gets refresh at the specific interval and if there any changes in the records, data is replicated.
@@ -1403,20 +1403,20 @@ ns.nameserver.com. root.ns.nameserver.com.
 
 A zone file should have only one SOA record and it must be at the top of it.
 
-**** What is the use of PTR in DNS?
+**** What is the use of PTR in DNS?                             :QUESTION:
 
 PTR(Pointer) records are used for mapping IP addresses which are associated with hostname name. It is also called has reverse DNS lookup as it
 resolves IP address to domain or hostname. There must be A record for every PTR record. PTR is mainly used for the mail server.
 
-**** Explain CNAME record?
+**** Explain CNAME record?                                      :QUESTION:
 - CNAME record stands for Canonical Name record. It used as the alias for domain or the Canonical name(another name) for a domain.
 - For example, suppose someone incorrectly types(or misspelled the website name) like fresher*s*employ.com as fresheremploy.com(we should also own this domain), then using CNAME record, we can redirect to fresher*s*employ.com
 - It is a type of resource record in DNS which is specified in the zone file. CNAME records should always point to another domain and never directly points to IP address.
 
-**** Explain Dynamic DNS
+**** Explain Dynamic DNS                                        :QUESTION:
 - Dynamic DNS helps for automatically updating the name servers whenever there is a change in the IP address in the Domain Name System(DNS).
 
-**** What is Resource Record?
+**** What is Resource Record?                                   :QUESTION:
 - Resource Record(RR) defines the elements or attributes of a domain name in DNS zone file like Address(A) record, Mail Exchange(MX) record etc. which helps in name resolutions.
 - Some of the most common Resource Records are:
 
@@ -1428,7 +1428,7 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 - SOA -- Start of Authority
 - NS -- Name Server
 
-**** What is DNS Zone?
+**** What is DNS Zone?                                          :QUESTION:
 - A DNS zone file contains the mapping between a domain name, IP address, recourse records etc. in text representative format. Also, DNS zone refers to the administrative responsibility in the DNS.
 
 **** Define TTL
@@ -1454,7 +1454,7 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 **** TODO docker image
 **** TODO docker compose
 **** TODO docker swarm
-**** TODO linux namespaces 
+**** TODO linux namespaces
 **** TODO cgroups
 **** TODO OCI
 **** TODO volumes
@@ -1492,7 +1492,7 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 :END:
 #+call: lg-get-props-entry()
 :ANSWER:
-matchLabels: 
+matchLabels:
 :END:
 **** WIP what is namespaceSelector?                             :QUESTION:
 :ANSWER:
@@ -1562,7 +1562,7 @@ example: matchLabels:{}
 :END:
 #+call: lg-get-props-entry()
 - ChatOps, a term widely credited to GitHub, is all about conversation-driven development.While in a chat room, team members type commands that the chatbot is configured to execute through custom scripts and plugins. These can range from code deployments, to security event responses, to team member notifications. By bringing your tools into your conversations and using a chatbot modified to work with key plugins and scripts, teams can automate tasks and collaborate, working better, cheaper and faster—allowing the entire team to collaborate in real time as commands are executed.
- 
+
 *** Rugged DevOps                                                 :CONCEPT:
 :PROPERTIES:
 :learning_1: https://ruggedsoftware.org/
@@ -1585,7 +1585,7 @@ example: matchLabels:{}
 :END:
 #+call: lg-get-props-entry()
 ** WIP React
-*** TODO React 
+*** TODO React
 *** TODO React Native
 *** TODO react-hooks
 *** TODO react-styled-components
@@ -1594,7 +1594,7 @@ example: matchLabels:{}
 ** TODO Next.js
 ** TODO Angular
 ** WIP PWA
-*** app-shell model 
+*** app-shell model
 
 ** WIP Web API
 *** Server-send events
@@ -1625,15 +1625,15 @@ example: matchLabels:{}
 An iframe is used to display a web page within a web page.
 Syntax:
 #+begin_src html
-<iframe src="URL"></iframe>  
+<iframe src="URL"></iframe>
 #+end_src
 Example:
 #+begin_src html
-<iframe src="demo_iframe.html" width="200px" height="200px"></iframe>  
+<iframe src="demo_iframe.html" width="200px" height="200px"></iframe>
 #+end_src
 Target to a link:
 #+begin_src html
-<iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>  
+<iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>
 #+end_src
 :END:
 *** TODO Google Fonts API
@@ -1776,8 +1776,8 @@ Origin
 :END:
 #+call: lg-get-props-entry()
 :ANSWER:
-- In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. 
-- As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message. 
+- In cryptography, an HMAC (sometimes expanded as either keyed-hash message authentication code or hash-based message authentication code) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key.
+- As with any MAC, it may be used to simultaneously verify both the data integrity and the authenticity of a message.
 :END:
 
 ** WIP SPIFFE                                                        :TOPIC:
@@ -1823,9 +1823,9 @@ curl --request POST \
 
 *** Scope
 :answer:
-A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf. 
+A mechanism that defines the specific actions applications can be allowed to do or information that they can request on a user’s behalf.
 Often, applications will want to make use of the information that has already been created in an online resource.
-To do so, the application must ask for authorization to access this information on a user’s behalf. 
+To do so, the application must ask for authorization to access this information on a user’s behalf.
 When an app requests permission to access a resource through an authorization server, it uses the Scope parameter to specify what access it needs,
 and the authorization server uses the Scope parameter to respond with the access that was actually granted.
 :end:
@@ -1878,7 +1878,7 @@ and the authorization server uses the Scope parameter to respond with the access
 - The processing of the "exp" claim requires that the current date/time MUST be before the expiration date/time listed in the "exp" claim.
 - Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
 - Its value MUST be a number containing a NumericDate value.
-- Use of this claim is OPTIONAL. 
+- Use of this claim is OPTIONAL.
 :END:
 *** What is registered claim name "nbf" (Not Before) Claim       :QUESTION:
 :ANSWER:
@@ -2163,8 +2163,8 @@ You need to use Comparable or Comparator interface to sort list of custom object
 :END:
 **** Difference between throw and throws keyword in Java?       :QUESTION:
 :ANSWER:
-- throws declare what exception a method can throw in case of error but throw keyword actually throws an exception. 
-- See Java Fundamentals: Exception Handling to learn more about Exception handling in Java. 
+- throws declare what exception a method can throw in case of error but throw keyword actually throws an exception.
+- See Java Fundamentals: Exception Handling to learn more about Exception handling in Java.
 :END:
 **** Difference between Iterator and Enumeration in Java?       :QUESTION:
 :ANSWER:
@@ -2188,7 +2188,7 @@ You need to use Comparable or Comparator interface to sort list of custom object
 :END:
 **** Difference between Comparator and Comparable in Java?  :QUESTION:
 :ANSWER:
-- Comparator defines custom ordering while Comparable defines the natural order of objects, e.g. the alphabetic order for String. See The Complete Java MasterClass to learn more about sorting in Java. 
+- Comparator defines custom ordering while Comparable defines the natural order of objects, e.g. the alphabetic order for String. See The Complete Java MasterClass to learn more about sorting in Java.
 :END:
 **** BigDecimal vs float                                        :QUESTION:
 **** what is the difference betwen checked and unchecked exception? :QUESTION:
@@ -2384,7 +2384,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** Can We Use Both Web Mvc and Webflux in the Same Application? :QUESTION:
 :ANSWER:
 - As of now, Spring Boot will only allow either Spring MVC or Spring WebFlux, as Spring Boot tries to auto-configure the context depending on the dependencies that exist in its classpath.
-- Also, Spring MVC cannot run on Netty. 
+- Also, Spring MVC cannot run on Netty.
 -  Moreover, MVC is a blocking paradigm and WebFlux is a non-blocking style, therefore we shouldn't be mixing both together, as they serve different purposes.
 :END:
 **** What Is the Role of the @Autowired Annotation?             :QUESTION:
@@ -2410,7 +2410,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** AdoptOpenJDK
 *** JDBC
 *** JMS
- 
+
 ** TODO Python
 ** TODO JS on a backend
 *** TODO NodeJS                                                     :TOPIC:
@@ -2560,7 +2560,7 @@ Each security talk she gives is full of sarcasm but useful an eye opening
 From 13th minute on she starts with practical suggestions.
 https://youtu.be/8NzkYsY7TOk
 YouTubeYouTube | DevOne
-DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle 
+DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle
 ** WIP Books
 *** Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations :AUDIBLE:
 - Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
@@ -2602,7 +2602,7 @@ From one of the world's most highly regarded social scientists, a transformative
 - By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
 
 *** Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers :AUDIBLE:
-- From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it.... 
+- From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it....
 *** Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know? :AUDIBLE:
 - The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
 *** Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature :AUDIBLE:
@@ -2667,7 +2667,7 @@ https://youtu.be/zkDVCQiveEo
 *** Hello World
 ** TODO Trisha GEE
 ** WIP Kevlin HENNEY [0/2]
-- interresting and usually funny conference talks 
+- interresting and usually funny conference talks
 - [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]
 - [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]
 ** WIP Michael PLÖD [0/2]
@@ -2711,7 +2711,7 @@ https://youtu.be/Z0zpSB85XGs
 https://youtu.be/j0XmixCsWjs
 ** TODO Chris ALLEN
 ** TODO Martin FOWLLER
-** TODO Martin KLEPPMANN 
+** TODO Martin KLEPPMANN
 :PROPERTIES:
 :book:     https://dataintensive.net/
 :END:
@@ -2733,7 +2733,7 @@ https://youtu.be/j0XmixCsWjs
 #+call: lg-get-props-entry()
 
 ** WIP Linda RISING [2/2]
-- Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org 
+- Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org
 -  [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
 -  [[#se-radio-238][SE-Radio 238: Linda Rising on the Agile Brain]]
 ** WIP Sirem Hofvander
@@ -2751,8 +2751,8 @@ The moral aspect
 ** WIP SW developer responsibility                                   :TOPIC:
 - finally the code that was driving the engine in diesel gate was written by someone
   - -> those developer(s) must have known what they were doing
-  - 
-** WIP ACM ethics Code 
+  -
+** WIP ACM ethics Code
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
@@ -2774,7 +2774,7 @@ The moral aspect
 ** TODO Leading vs Lagging indicators                              :CONCEPT:
 * WIP Commented sources                                            :CHAPTER:
 ** WIP Commented Videos                                            :CHAPTER:
-*** YouTube 
+*** YouTube
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -2787,7 +2787,7 @@ The moral aspect
 - https://youtu.be/AbgsfeGvg3E
 - 1968: year full of news
 - Algol 68 - to big to ambitious expression oriented. If and if. Has closure.
-- Not a new ideas. 
+- Not a new ideas.
 - Singleton single malt whiskey
 - System has either zero or multiple singleton
 - Rian Foote: Patterns are aggressive disregard of originality.
@@ -2797,11 +2797,11 @@ The moral aspect
 - Simplicity
 - Completeness
 - C2 wiki was 150 lines of perl code.
-- Correctness: 
+- Correctness:
 - Consistent
 - 1968 NATO science conference. Software development process is iterative
 - 1968 afips. Influential conference..
-- Improve usability by making the software Faster. 
+- Improve usability by making the software Faster.
 - The fastest io is no io
 - Command line tools can be 235x faster than your Hadoop cluster
 - 299792458 is in no configuration file.
@@ -2861,9 +2861,9 @@ https://youtu.be/v-RkKohsF78
   - PERT .. createss only a paper
   - most deadly think in SW: you specify what you are going to do and then you do it an
   - design process is an iterative one
-  - unit test, modularity 
+  - unit test, modularity
   - Patterns: aggressive disregard to originality
-- Christopher Alexander: notes on the synthesis of form 
+- Christopher Alexander: notes on the synthesis of form
   - book published in 1964
   - referenced in many later works in system / subsystem thinking
 - Melvin Conway: how committees invent
@@ -2873,11 +2873,11 @@ https://youtu.be/v-RkKohsF78
 - Adam Thornhill:
   - your code as a crime scene (book)
   - talks about Conway's law.. based on much more data than the original Conway definition
-- Stonehenge.. 
-  - as a legacy system.. 
-  - how did they do it.. 
+- Stonehenge..
+  - as a legacy system..
+  - how did they do it..
   - we don't know
-  - there is no documentation 
+  - there is no documentation
   - Doug Mcllroy: this is the UNIX philosophy:
     - write programs that do one thing and do it well
     - write programs to work together
@@ -2895,7 +2895,7 @@ https://youtu.be/v-RkKohsF78
   - TDD in algol 68
 - TDD instituted in 70 th wit AWK
 - Alfred Aho :  we instituted rigorous regression tests for all of the features of AWK. Any of the three of us who put in new feature first had to write a test for the new feature
-- simula 67 
+- simula 67
   - definition os class and instance
 - pragmatic bullshit
   - we use pragmatic Agile
@@ -2960,11 +2960,11 @@ Microservices.io/book (ctwyowconf18)
   - testability and deployability
   - loosely coupled teams
 
-- no acid transactiona position the easy w  
+- no acid transactiona position the easy w
   - no distributed transactions!
 - sagas are ACD not Acid
 - asynchronous messaging manages the Saga completion owing at least one delivery while preserving order
- 
+
 - Saga step = s transaction local to service
 - 2pc is not an option
 - sequencing Saga transactions
@@ -2973,7 +2973,7 @@ Microservices.io/book (ctwyowconf18)
     - failure: C(i-1)
 - coordination
   - choreography: *distributed* decision making
-    - simple.. for primitive cases. Higher connaissance cyclic dependencies ... Overloads domain objectsviin. I minimal 
+    - simple.. for primitive cases. Higher connaissance cyclic dependencies ... Overloads domain objectsviin. I minimal
   - orchestration: *centralized* decision making
     - orchestration objects implements state machine and invokes the participants
 
@@ -3086,7 +3086,7 @@ There is more CEO called David than womens CEO
     - unstructured interview 14%
     - reference checks 7%
     - years of experience 3%
-    - structured interview 26% 
+    - structured interview 26%
     - structured interview with sample test 29%
 :END:
 **** TODO GOTO 2019 • Mastering the Linux Command Line • Bert Jan Schrijver
@@ -3116,16 +3116,16 @@ Measurement of how much the quality you have
 
 Quality is a characteristic of a relationship with customers
 - Delivery date prediction
-  - time in process 
+  - time in process
     - units of time per unit of work
     - cycle time ... Maybe not a good name
     - weibull distribution not a standard distribution
-    - is a better way to handle 
+    - is a better way to handle
   - automatically inform manager about the delay on other features that will get delayed
     - better to discuss the impact with customer
     - when it comes to non-profit random .... NELSON RULES!
   - multi domain model curve
- 
+
 
 - 4 aspects
   - quality
@@ -3143,12 +3143,12 @@ Quality is a characteristic of a relationship with customers
 - Littles's law
   - if your arrival rate is higher than departure rate everything in your system will take a more time.
 
-  
+
 :Takeouts:
  - Don't use red and green as many man are colorblind
  - Data ... Thing just are ...  no judgment - productivity is lost by people being scared
- - Ron Jeffries: 
-   - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less. 
+ - Ron Jeffries:
+   - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less.
    - If I am the inventor of story points I am extremely sorry.
  - If you see multi modal curve it shows that you have multiple types of workload
 :End:
@@ -3196,9 +3196,9 @@ Cognitive-bias
   - we are not rational decision makers
   - preposition that people are rational is false
   - we are not convinced by
-    - rational argument 
-    - facts 
-    - Data 
+    - rational argument
+    - facts
+    - Data
       - scientific arguments
 - biases (heuristics that our brains use to protect itself)
   - confirmation bias
@@ -3233,7 +3233,7 @@ Cognitive-bias
   - cynics
     - are negative for the sake of being negative not RTO be helpful
       - typically focused on low level interests, not the greater good
-     
+
  :END:
 
 ** WIP Commented Podcasts                                          :CHAPTER:
@@ -3265,11 +3265,11 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
 - They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
-- 
+-
 ** TODO Commented Udemy [0/4]
 *** TODO Docker Mastery: The Complete Toolset From a Docker Captain
 - https://www.udemy.com/share/101WekBEEadVpUQXg=/
-- Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps 
+- Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps
 *** TODO Kubernetes Mastery: Hands-On Lessons From A Docker Captain
 - https://www.udemy.com/share/102iLUBEEadVpUQXg=/
 - Learn the latest Kubernetes features (1.16) and plugins while practicing DevOps workflows, from a container expert
@@ -3278,7 +3278,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - Build, automate, and monitor a server cluster for containers using the latest open source on Linux and Windows
 *** TODO Docker for Node.js Projects From a Docker Captain
 - https://www.udemy.com/share/1022zOBEEadVpUQXg=/
-- Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert 
+- Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert
 
 * WIP Index                                                         :CHAPTER:
 :PROPERTIES:
@@ -3372,7 +3372,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 *** cncf
 ** bookmarks Postgresql
 - https://iqsanswers.com/postgresql-interview-questions-answers/
-  
+
 ** bookmarks/other
 - https://haydenjames.io/linux-commands-frequently-used-by-linux-sysadmins-part-1
 - https://jeremiahflaga.github.io/2017/06/03/most-important-design-guideline-of-scott-myers/
@@ -3551,7 +3551,7 @@ Teach Yourself Computer Science - https://teachyourselfcs.com
 :END:
 #+call: lg-get-props-entry()
 **** my remarks
-- investigates the reverse proxies 
+- investigates the reverse proxies
 **** official description
 - Modern websites are browsed through a lens of transparent systems built to enhance performance, extract analytics and supply numerous additional services. This almost invisible attack surface has been largely overlooked for years.
 - In this presentation, I'll show how to use malformed requests and esoteric headers to coax these systems into revealing themselves and opening gateways into our victim's networks. I'll share how by combining these techniques with a little Bash I was able to thoroughly perforate DoD networks, trivially earn over $30k in vulnerability bounties, and accidentally exploit my own ISP.
@@ -3882,7 +3882,7 @@ Slack app security.
 | lg-subject  | Security                     |
 | lg-yt-url   | https://youtu.be/DwKzSO4yA_s |
 
-- The idea of a paperless office has been dreamed of for more than three decades. 
+- The idea of a paperless office has been dreamed of for more than three decades.
 - However, nowadays printers are still one of the most essential devices for daily work and common Internet users.
 - Instead of removing them, printers evolved from simple devices into complex network computer systems, installed directly into company networks, and carrying considerable confidential data in their print jobs.
 - This makes them to an attractive attack target.
@@ -3973,13 +3973,13 @@ What you'll learn on this podcast:
 • It is often said the the code is the only documentation you need but the code can’t tell you everything. You do need to document the things you can’t get from the code such as the architectural drivers, they key quality attributes and so on along with some high level diagrams and how you operate the system.
 • As you step into the role of architect go and find a mentor or a local meet-up. The major change is that you have to influence and lead people.
 
-This podcast is sponsored by AppDynamics. Software architects play a critical role in designing, executing, and migrating large infrastructures to the cloud. Download AppDynamic’s FREE eBook “10 Tips for Enterprise Cloud Migration” and launch your migration project with a proven plan. Download the eBook now at http://infoq.link/web_sndcld_appdynamics 
+This podcast is sponsored by AppDynamics. Software architects play a critical role in designing, executing, and migrating large infrastructures to the cloud. Download AppDynamic’s FREE eBook “10 Tips for Enterprise Cloud Migration” and launch your migration project with a proven plan. Download the eBook now at http://infoq.link/web_sndcld_appdynamics
 
 
-Subscribe: www.youtube.com/infoq 
+Subscribe: www.youtube.com/infoq
 Like InfoQ on Facebook: bit.ly/2jmlyG8
 Follow on Twitter: twitter.com/InfoQ
-Follow on LinkedIn: www.linkedin.com/company/infoq 
+Follow on LinkedIn: www.linkedin.com/company/infoq
 Want to see extented shownotes? Check the landing page on InfoQ: http://bit.ly/2xvq7qM
 
 *** TODO Experimental Creative Writing with the Vectorized Word by Allison Parrish
@@ -4001,8 +4001,8 @@ https://youtu.be/L3D0JEA1Jdc
 
 https://youtu.be/uOsMt-vrWQ4
 Knowledge is like the interest
-MMCH prof. Wadler je opravdu skvely prednasejici. 
-Cely tento playlist stoji za to, ale to to 20 hodin prednasek o Haskellu tak to zvazte, protoze jakmile zacnete uz se nebudete moci odtrhnout. 
+MMCH prof. Wadler je opravdu skvely prednasejici.
+Cely tento playlist stoji za to, ale to to 20 hodin prednasek o Haskellu tak to zvazte, protoze jakmile zacnete uz se nebudete moci odtrhnout.
 https://www.youtube.com/playlist?list=PL395B50FC04752DA8
 
 *** TODO Oliver Gould on Service Mesh for Microservices, LinkerD, and the Recently Released Conduit
@@ -4029,14 +4029,14 @@ Why listen to this podcast:
 - LinkerD and Conduit are two open service meshes made by Bouyant. Conduit has a small memory footprint and provides a convention over configuration approach to service mesh deployment.
 - Adopting Rust (language used for implementing the data plane in Conduit) requires thinking of memory differently, and the best way to adopt Rust is to read other people’s code.
 
-More on this: Quick scan our curated show notes on InfoQ http://bit.ly/2skWF61 
+More on this: Quick scan our curated show notes on InfoQ http://bit.ly/2skWF61
 
 You can also subscribe to the InfoQ newsletter to receive weekly updates on the hottest topics from professional software development. bit.ly/24x3IVq
 
-Subscribe: www.youtube.com/infoq 
+Subscribe: www.youtube.com/infoq
 Like InfoQ on Facebook: bit.ly/2jmlyG8
 Follow on Twitter: twitter.com/InfoQ
-Follow on LinkedIn: www.linkedin.com/company/infoq 
+Follow on LinkedIn: www.linkedin.com/company/infoq
 Check the landing page on InfoQ: http://bit.ly/2skWF61
 
 *** TODO Evolution of Emacs Lisp [pdf]
@@ -4099,7 +4099,7 @@ https://youtu.be/TRJndqZIGMw
 http://www.slideshare.net/cisoplatform7/asd-t09howtoavoidthetoptensoftwaresecurityflaws
 
 - c++ suck From sec perspective
-- 
+-
 
 - security defects
  - There is a security flaw. Design problems
@@ -4162,7 +4162,7 @@ Design flaws take 50% of security defects
        - expose methods or endpoints that consume structured types
      - NO
        - co-mingling data and control instructions in a single entity is bad
-       - beware of injection prone APIs 
+       - beware of injection prone APIs
          - XSS, SQL injection, shell injection
        - watch out for eval
   5. define an approach that ensures all data are explicitly validated
@@ -4260,13 +4260,13 @@ Now excel warns from using the flash fill
 
 https://youtu.be/HgtRAbE1nBM
 
-What is the operating system. Not that easy to define. But operating system isn't a operating system kernel. 
+What is the operating system. Not that easy to define. But operating system isn't a operating system kernel.
 
 History .. Burroughs B5000 MCP in 1961.  First os written in higher language. Way ahead of time.
 The
-MAC at MIT, CTSS (Second system syndrome). To be written in PL/I wrote os in non existent programming language. They didn't have a functional compiler. 
+MAC at MIT, CTSS (Second system syndrome). To be written in PL/I wrote os in non existent programming language. They didn't have a functional compiler.
 
-- UNIX was implemented entirely in assembly. 
+- UNIX was implemented entirely in assembly.
 - UNIX was a joke of Multics. UNIX was organic effort of 1968.
 - There was a B programming language. B was a interpreted language.
 - Some parts of B were rewritten in assembly for speed up.
@@ -4286,12 +4286,12 @@ Google develop Go. But with many idiosyncrasies
 There is a problem: GC. Does not force programmers to think and thinking is important.
 
 Rust brought a new concept of ownership. Power of garbage collected languages with the performance of manual memory management
-Unlike C , rust is highly compostable 
+Unlike C , rust is highly compostable
 Rust is able to statically checking who owns what when. But rust does not permit your to have not initialed structs.
 Cimooce property means that when you know how to control your memory doesn't mean that the others agree with your way doing so.
 Double linked lists is a problem as two own our data.
 Implemented a double linked list with two hash maps and it overperformed the c implementation.
-Rust uses B-trees. 
+Rust uses B-trees.
 
 Algebraic types
 Hygienic macros with full AST
@@ -4338,8 +4338,8 @@ https://youtu.be/9MKBex5p2lc
 - how it is with the salary
   - sample size looks ok
   - by chance probably not as the sample size is ok
-  - 
-  
+  -
+
 
 - stork pairs vs children born
   - actually the cause is the country size
@@ -4355,15 +4355,15 @@ https://youtu.be/9MKBex5p2lc
 - people who contributed to open source have in avg higher salary
 - People who contribute to open source tend to prefer spaces over tabs
 
-- actually the VCS is the distinguisher it is the git usage that separates people 
+- actually the VCS is the distinguisher it is the git usage that separates people
   - git higher
   - TFS lower salary
   - switch to git to get better salary - probably not
 
-- why is git so important.. 
-  - probably it says something about the company. 
+- why is git so important..
+  - probably it says something about the company.
 
-- GitHub.com/evelinag/tabs-spaces-talk 
+- GitHub.com/evelinag/tabs-spaces-talk
   - executable sources is R for the talk
 
 
@@ -4373,7 +4373,7 @@ https://youtu.be/9MKBex5p2lc
     - India
     - Poland
     - Russia
-   
+
 She's From Czech Republic.
   - there are two peaks in Germany Poland Russian federation
   - but it looks likany people From Europe mixed yearly salary and monthly salary.
@@ -4438,13 +4438,13 @@ Meetup talk
 https://youtu.be/kopTiMg5u9E
 
 - Underground ralroad?
- 
+
 - History...
 - It industry borrow a terminology from the sports?
-- Self organized human run API. 
+- Self organized human run API.
 - John p Parker wealthiest man in Ohio.
-- Lived a double live 
-- Brought people From 
+- Lived a double live
+- Brought people From
 - Not interesting
 - Hangout
 
@@ -4471,7 +4471,7 @@ https://www.youtube.com/channel/UCPHcNDphBAvooQI5U4yC0mA
 - Today on the show, we're talking about hiring with Jennifer Tu and Zee Spencer of Cohere, Thayer Prime of Team Prime, and software consultant Matt Patterson.
 - We talk about the entire developer hiring process from how to advertise your company to potential candidates, through coding tests and interviews, and all the way to the final decision process.
 - It's a great conversation with a lot of different perspectives and a lot of good advice.
-- 
+-
 - We’d like to hear from you.
 - What do you look for when hiring developers?
 - Let us know at http://techdoneright.io/56 or on Twitter at @tech_done_right
@@ -4677,13 +4677,13 @@ https://youtu.be/fki4nIvYJcc
 #+call: lg-get-props-entry()
 
 https://youtu.be/IhqxJCZKCz4
-   
+
 - not a kanban or scrum just agile
 - 26 richeat people own more than 3.8 mld
 - agle  means adaptible quick
 - not the strongest survive but thos mot adaptable for change
 - what is in agile manifesto
-   - individual ower 
+   - individual ower
 ....
 - google -  why are some teams so much more performant
 
@@ -4692,7 +4692,7 @@ https://youtu.be/IhqxJCZKCz4
     - members face one another and conversations energetic
     - members connect directly with one another not through their bosses
      - member periodically explore outside of the team and bring information black
-    - 
+    -
  - does size matter
      - oh yes
      - ideal team size is approx 6
@@ -4730,7 +4730,7 @@ https://youtu.be/IhqxJCZKCz4
 - team as a puzzle
   - competence
   - personality
-  - teams must be of different personalities 
+  - teams must be of different personalities
 
 - Core of Agile
   - communication + knowledge transfer=  working valuable software
