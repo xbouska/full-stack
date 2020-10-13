@@ -1014,15 +1014,17 @@ Consider following status codes:
 :END:
 #+call: lg-get-props-entry()
 
-** TODO Scrum                                                        :TOPIC:
+** TODO Scrum [0/3]                                                  :TOPIC: 
+*** TODO DoD
+*** TODO DoR
+*** TODO Sprint
 ** TODO Kanban                                                       :TOPIC:
 ** TODO XP                                                           :TOPIC:
 ** TODO Lean                                                         :TOPIC:
-** TODO Jira                                                         :TOPIC:
-** TODO Confluence                                                   :TOPIC:
-** TODO MOSCOW                                                       :TOPIC:
-** TODO DoD                                                          :TOPIC:
-** TODO DoR                                                          :TOPIC:
+** Tools
+*** TODO Jira                                                       :TOPIC:
+*** TODO Confluence                                                 :TOPIC:
+** TODO MOSCOW                                                       :CONCEPT:
 ** TODO Uml                                                          :TOPIC:
 ** TODO C4                                                           :TOPIC:
 ** WIP Arc42                                                         :TOPIC:
