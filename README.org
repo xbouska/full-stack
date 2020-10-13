@@ -34,10 +34,16 @@
      '("lg-topic" "Topic" identity)
      '("lg-url-1" "Url" identity)
      '("lg-yt-url" "Youtube" identity)
-     '("lg-vimeo-url" "Youtube" identity)
-     '("learning_1" "Learn more:" identity)
-     '("learning_2" "Learning" identity)
-     '("learning_3" "Learning" identity)
+     '("lg-vimeo-url" "Vimeo" identity)
+     '("learning_1" "Primary source:" identity)
+     '("learning_2" "Learn more:" identity)
+     '("learning_3" "Learn more:" identity)
+     '("learning_4" "Learn more:" identity)
+     '("learning_5" "Learn more:" identity)
+     '("learning_6" "Learn more:" identity)
+     '("learning_7" "Learn more:" identity)
+     '("learning_8" "Learn more:" identity)
+     '("learning_9" "Learn more:" identity)
      ))
   ;;-----------------------
 
@@ -115,7 +121,7 @@
 *** utf-8
 *** ASCII
 *** EBCDIC
-** Serialization Formats [0/4]
+** Serialization Formats [0/5]
 *** WIP yaml
 :PROPERTIES:
 :learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
@@ -295,10 +301,10 @@ set2:
 *** TODO json
 *** TODO xml
 *** TODO protobuf
-*** asn.1
-*** 
-** declarative vs imperative
-** [#B] Code complexity
+*** TODO ASN.1
+
+
+** Code complexity
 *** Code complexity (big O)
 *** Amortized complexity
 ** TCP/IP
@@ -813,7 +819,7 @@ Consider following status codes:
 *** DML/DDL
 - manipuklace s daty v tabulce (insert/delete/update) / definuje datové struktury (db,schema, tabulka) (create / drop / alter / rename)
 
-** WIP Distributed consensus:
+** WIP Distributed consensus:                                      :CONCEPT:
 *** Paxos                                                           :TOPIC:
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Paxos_(computer_science)
@@ -830,7 +836,7 @@ Consider following status codes:
 - There is also a mechanism to drop a permanently failed replica or to add a new replica.
 *** Raft                                                            :TOPIC:
 *** Zab                                                             :TOPIC:
-** WIP Transactions
+** WIP Transactions                                                :CONCEPT:
 *** transaction problems that are prevented by isolation:
 **** What are they and what they mean?
 :ASWER:
@@ -850,7 +856,7 @@ Consider following status codes:
 - TRANSACTION_SERIALIZABLE
   - Dirty reads, non-repeatable reads and phantom reads are prevented.
 :END:
-*** ANSI/ISO levels -
+*** ANSI/ISO levels
 **** what they are
 :ANSWER:
 - serializable
@@ -869,9 +875,9 @@ Consider following status codes:
 - úložiště dat,
 - organizovaných do určité struktury,
 - pro účely analýzy dat … podpora business procesů organizace
-** WIP Star schema  structure
+** WIP Star schema structure
 - tvořené faktovou tabulkou (jednotlivá měření) a dimenzemi (entity popisující fakta); dimenze mohou být denormalizovánay
-** WIP Snowflake schema  structure
+** WIP Snowflake schema structure
 - faktová tabulka (jednotlivá měření) + dimenze jsou normalizovány (jedna dimenze může být  složena z více tabulek)  3NF
 ** WIP WAL  / transactional log?
 - log kde je historie všech provedených DB operací nad danou instancí/databází.
@@ -881,15 +887,57 @@ Consider following status codes:
 
 ** WIP Tools [0/17]
 *** WIP PostgreSQL
-**** What is the current version of PostgreSQL                  :QUESTION:
-**** Explain about Multi version concurrency control?           :QUESTION:
+:PROPERTIES:
+:learning_1: https://www.highgo.ca/blog/ 
+:END:
+#+call: lg-get-props-entry()
+
+**** TODO What is the current version of PostgreSQL             :QUESTION:
+**** TODO Explain about Multi version concurrency control?      :QUESTION:
 :ANSWER:
 - Multi version concurrency control or MVCC is used to avoid unnecessary locking of the database.
 - This removes the time lag for the user to log into his database.
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
-
 **** TODO psql
+**** WIP B-Tree Index
+-  is the default index type in PostgreSQL that gets created when you do a ‘CREATE INDEX’ statement without mentioning the index name.
+- is index is much suitable for the data that can be sorted and can handle equality and range queries. The following command is used to create a btree index:
+#+begin_src sql
+CREATE INDEX name ON table (column); or
+CREATE INDEX name ON table USING BTREE (column);
+#+end_src
+**** WIP Hash Index
+- The hash index prior to PostgreSQL version 10 were almost discouraged for various reasons such as:
+
+- Not WAL logged hence not crash safe
+- Not replicated to stand-by server
+- Performance is not so good and may take a long time to build the index (depending on the  table size)
+- However since version 10, these problems have been resolved. They are now crash safe and are able to be replicated to standby server. They sometimes perform better than b-tree indexes and are also space efficient.
+- The Hash index only works with equality operators that means that you can only look up for data that matches exactly. However it is now much optimized and does a much faster lookup which makes this index a bit of specialized index that can be used where equal comparison is more important. The following command is used to create a hash index:
+#+begin_src sql
+CREATE INDEX name ON table USING HASH (column);
+#+end_src
+**** WIP Gist Index
+- Gist or Generalized Search Tree are useful when the data to be indexed is more complex than to do a simple equate or ranged comparison like finding nearest-neighbor and pattern matching. The example of such data includes geometric data, network address comparisons and full-text searches. 
+- The Gist index itself provides an infrastructure to implement different strategies for indexing data such as B-trees and R-trees. The following command is used to create a hash index:
+#+begin_src sql
+CREATE INDEX name ON table USING gist (column);
+#+end_src
+**** WIP SP-Gist Index
+- SP-Gist or Space partitioned Gist indexes are useful when the data can be grouped into non-overlapping groupings. Like Gist index, it also provides an infrastructure for implementing different indexing strategies. However SP-Gist is non-balanced in nature and divides data in partitions, so it allows the implementation of quad-trees, k-d trees, and radix trees (tries).
+**** WIP Gin Index
+- Generalized Inverted indexes are useful in indexing data that consist of multiple elements in a single column such as arrays, json documents (jsonb) or text search documents (tsvector).
+#+begin_src sql
+CREATE INDEX name ON table USING gin (column);
+#+end_src
+**** WIP BRIN Index
+- Block Range Indexes are useful for large size tables that have columns with some natural sort order. The BRIN index divides the table into block ranges and keeps a summary of those blocks. This summary includes min, max values of the range. The following command is used to create a hash index:
+#+begin_src sql
+CREATE INDEX name ON table USING brin (column);
+#+end_src
+
+
 *** TODO ORACLE:
 :ANSWER:
 - READ COMMITTED (the default)
@@ -2576,38 +2624,32 @@ DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW
 :PROPERTIES:
 :CUSTOM_ID: Thinking, Fast and Slow
 :END:
-By: Daniel Kahneman
-The guru to the gurus at last shares his knowledge with the rest of us....
-
-*** Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life :AUDIBLE:
-Series: Incerto
-- From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
-*** Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder :AUDIBLE:
-Series: Incerto
-- From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
-*** Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets :AUDIBLE:
-Series: Incerto
-- This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
+- The guru to the gurus at last shares his knowledge with the rest of us....
 
 *** Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable: :AUDIBLE:
-(With a new section: "On Robustness and Fragility": Incerto, Book 2)
-- A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
-- it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
+- (With a new section: "On Robustness and Fragility": Incerto, Book 2)
+  - A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
+  - it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
+*** Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets :AUDIBLE:
+- Series: Incerto
+  - This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
+*** Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder :AUDIBLE:
+- Series: Incerto
+  - From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
+*** Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life :AUDIBLE:
+- Series: Incerto
+  - From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
+*** Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results :AUDIBLE:
+- By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
 *** Stuart Firestein: Failure: Why Science Is so Successful       :AUDIBLE:
 - Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
 *** Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't :AUDIBLE:
 - Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
-
 *** Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction :AUDIBLE:
 From one of the world's most highly regarded social scientists, a transformative book on the habits of mind that lead to the best predictions....
-
 *** Daniel Coyle: The Culture Code: The Secrets of Highly Successful Groups :AUDIBLE:
 - In The Culture Code, Daniel Coyle goes inside some of the world's most successful organizations - including
 - Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
-
-*** Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results :AUDIBLE:
-- By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
-
 *** Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers :AUDIBLE:
 - From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it....
 *** Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know? :AUDIBLE:
@@ -2616,26 +2658,36 @@ From one of the world's most highly regarded social scientists, a transformative
 - In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
 *** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:NO_EXPORT:
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
-
 *** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
 *** Irvin D. Yalom: The Schopenhauer Cure: A Novel      :AUDIBLE:NO_EXPORT:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
 * WIP Psychology                                                     :DOMAIN:
-** Cognitive Biases                                                  :TOPIC:
-** TODO Milgram experiment
+** Cognitive Biases [0/2]                                            :TOPIC:
+*** WIP The Backfire Effect
+- The Misconception: When your beliefs are challenged with facts, you alter your opinions and incorporate the new information into your thinking.
+- The Truth: When your deepest convictions are challenged by contradictory evidence, your beliefs get stronger.
+*** TODO Confirmation bias
+
+** Famous experiments [0/5]                                          :TOPIC:
+*** TODO Milgram experiment
+*** TODO Robbers Cave Experiment
+*** TODO Little Albert Experiment
+*** TODO Stanford Prison Study
+*** TODO The Marshmallow Test
+
 ** Glossary                                                          :TOPIC:
-*** knowledge
+*** WIP Knowledge
 - definition
   - practical and/or theoretical understanding of a topic
 - obtained throughput
   - learning training experience
-*** skill
+*** WIP Skill
 - definition
   - things that one learns through training and/or through experience
 - obtained throughput
   - practicing, learning
-*** ability
+*** WIP Ability
 - definition
   - level of being able to perform or deliver a task
 - obtained throughput
@@ -2694,7 +2746,7 @@ https://youtu.be/Z0zpSB85XGs
 :lg-source: YouTube
 :lg-yt-url: https://youtu.be/RHg53wMflCc
 :lg-url-1: https://github.com/mploed/ddd-with-spring﻿
-:lg-subject: Webinar: Interna00l Building Blocks: Aggregates, Entities, Value Objects Part 3/5
+:lg-subject: Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5
 :END:
 #+call: lg-get-props-entry()
 ** TODO Brian GOETZ
@@ -2711,9 +2763,6 @@ https://youtu.be/Z0zpSB85XGs
 :lg-subject: Stop Treading Water:  Learning to Learn by Edward Kmett
 :END:
 #+call: lg-get-props-entry()
-
-
-
 
 https://youtu.be/j0XmixCsWjs
 ** TODO Chris ALLEN
@@ -2753,17 +2802,16 @@ https://youtu.be/j0XmixCsWjs
 :CUSTOM_ID: CORE_VALUES
 :END:
 #+call: lg-get-props-entry()
-The moral aspect
+The moral aspects
 ** TODO Code of Conduct                                                :TOPIC:
 ** WIP SW developer responsibility                                   :TOPIC:
 - finally the code that was driving the engine in diesel gate was written by someone
   - -> those developer(s) must have known what they were doing
-  -
 ** WIP ACM ethics Code
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/9]                                                 :DOMAIN:
+* WIP Concepts [0/10]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CONCEPTS
 :END:
@@ -2779,9 +2827,10 @@ The moral aspect
 ** TODO Intrinsic Motivation vs Extrinsic Motivation               :CONCEPT:
 ** TODO Chaos Engineering                                          :CONCEPT:
 ** TODO Leading vs Lagging indicators                              :CONCEPT:
-* WIP Commented sources                                            :CHAPTER:
-** WIP Commented Videos                                            :CHAPTER:
-*** YouTube
+** TODO declarative vs imperative                                  :CONCEPT:
+* WIP Commented Resources                                           :CHAPTER:
+** WIP Videos [/]                                        :CHAPTER:
+*** YouTube [0/7]
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -3159,10 +3208,7 @@ Quality is a characteristic of a relationship with customers
    - If I am the inventor of story points I am extremely sorry.
  - If you see multi modal curve it shows that you have multiple types of workload
 :End:
-
-
-
-*** Vimeo
+*** Vimeo [0/1]
 **** WIP Meeting resistance and moving forward — Linda Rising
 :PROPERTIES:
 :lg-subject: Watch Meeting resistance and moving forward — Linda Rising
@@ -3243,7 +3289,7 @@ Cognitive-bias
 
  :END:
 
-** WIP Commented Podcasts                                          :CHAPTER:
+** WIP Podcasts [/]                                      :CHAPTER:
 *** SE-Radio [0/1]
 **** WIP SE-Radio 238: Linda Rising on the Agile Brain
 :PROPERTIES:
@@ -3273,7 +3319,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
 -
-** TODO Commented Udemy [0/4]
+** TODO Udemy [0/4]
 *** TODO Docker Mastery: The Complete Toolset From a Docker Captain
 - https://www.udemy.com/share/101WekBEEadVpUQXg=/
 - Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps
@@ -3285,7 +3331,8 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - Build, automate, and monitor a server cluster for containers using the latest open source on Linux and Windows
 *** TODO Docker for Node.js Projects From a Docker Captain
 - https://www.udemy.com/share/1022zOBEEadVpUQXg=/
-- Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert
+- Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert 
+** TODO Blogs [/]
 
 * WIP Index                                                         :CHAPTER:
 :PROPERTIES:
