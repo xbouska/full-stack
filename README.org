@@ -2756,7 +2756,7 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/8]                                                 :DOMAIN:
+* WIP Concepts [0/9]                                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CONCEPTS
 :END:
@@ -2770,7 +2770,8 @@ The moral aspect
 ** TODO Immutability                                               :CONCEPT:
 ** TODO T - shaped /  π - shaped                                   :CONCEPT:
 ** TODO Intrinsic Motivation vs Extrinsic Motivation               :CONCEPT:
-** TODO Chaos Engineering
+** TODO Chaos Engineering                                          :CONCEPT:
+** TODO Leading vs Lagging indicators                              :CONCEPT:
 * WIP Commented sources                                            :CHAPTER:
 ** WIP Commented Videos                                            :CHAPTER:
 *** YouTube 
@@ -3091,6 +3092,68 @@ There is more CEO called David than womens CEO
 **** TODO GOTO 2019 • Mastering the Linux Command Line • Bert Jan Schrijver
 - Hezký video. Za 45 minut jsem se dozvěděl skoro všechno co už jsem o příkazové rádce v Linuxu věděl, ale hezky udělané
 - https://youtu.be/qmh7Uppd3x0
+
+**** TODO YOW! Conference 2018 - Cat Swetel - The Metrics You Should Use But Probably Don't
+:PROPERTIES:
+:CREATED:  [2019-03-04 Mon 20:41]
+:lg-yt-url: https://youtu.be/WEuHleDlpdc
+:CUSTOM_ID: YT:WEuHleDlpdc
+:END:
+#+call: lg-get-props-entry()
+
+:TOPICS:
+- Nelson rules
+- Weibull distribution
+- Littles's law
+- Leading indicators
+- Lagging indicators
+- #NOESTIMATES
+- Unlabeled axes
+:END:
+
+What is the quality?
+Measurement of how much the quality you have
+
+Quality is a characteristic of a relationship with customers
+- Delivery date prediction
+  - time in process 
+    - units of time per unit of work
+    - cycle time ... Maybe not a good name
+    - weibull distribution not a standard distribution
+    - is a better way to handle 
+  - automatically inform manager about the delay on other features that will get delayed
+    - better to discuss the impact with customer
+    - when it comes to non-profit random .... NELSON RULES!
+  - multi domain model curve
+ 
+
+- 4 aspects
+  - quality
+  - responsiveness
+  - productivity
+  - predictability
+
+
+- Throughput
+  - Units of work per unit of time
+
+
+- Leading  indicators Vs lagging indicators
+
+- Littles's law
+  - if your arrival rate is higher than departure rate everything in your system will take a more time.
+
+  
+:Takeouts:
+ - Don't use red and green as many man are colorblind
+ - Data ... Thing just are ...  no judgment - productivity is lost by people being scared
+ - Ron Jeffries: 
+   - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less. 
+   - If I am the inventor of story points I am extremely sorry.
+ - If you see multi modal curve it shows that you have multiple types of workload
+:End:
+
+
 
 *** Vimeo
 **** WIP Meeting resistance and moving forward — Linda Rising
@@ -3510,12 +3573,9 @@ https://youtu.be/4tuqI8V_cZw
 :lg-source: YouTube
 :lg-categoty: OAuth2
 :lg-subject: Refactoring Restify OAuth2
+:lg-yt-url: https://youtu.be/aHrwUnsPom0
 :END:
 #+call: lg-get-props-entry()
-
-
-
-https://youtu.be/aHrwUnsPom0
 
 *** TODO The three paths of Scaling with Akka - Fran Perez
 :PROPERTIES:
@@ -4154,70 +4214,6 @@ Design flaws take 50% of security defects
       - NO
 :END:
 
-*** TODO Cat Swetel - The Metrics You Should Use But Probably Don't
-:PROPERTIES:
-:CREATED:  [2019-03-04 Mon 20:41]
-:END:
-#+call: lg-get-props-entry()
-
-https://youtu.be/WEuHleDlpdc
-
-:TOPICS:
-Nelson rules
-Weibull distribution
-Littles's law
-Leading indicators
-Lagging indicators
-#NOESTIMATES
-Unlabeled axes
-:END:
-
-What is the quality?
-Measurement of how much teh quality you have
-
-Quality is a characteristic of a relationship with customers
-Delivery date prediction
-  - time in process 
-     - units of time per unit of work
-     - cycle time ... Maybe not a good name
-     -  weibull distribution not a standard distribution
-     -  is a better way to handle 
-  - automatically inform manager about the delay on other features that will get delayed
-   - better to discuss the impact with customer
-   - when it comes to non-profit random .... NELSON RULES!
-  - multi domain model curve
- 
-
-4 aspects
-  - quality
-  - responsiveness
-  - productivity
-  - predictability
-
-
-Throughput
-  Units of work per unit of time
-
-
-Leading  indicators Vs lagging indicators
-
-Littles's law
- - if your arrival rate is higher than departure rate everything in your system will take a more time.
-
-  
-:Takeouts:
- - Don't use red and green as many man are colorblind
- - Data ... Thing just are ...  no judgement - productivity is lost by people being scared
- - Ron Jeffries: 
-   - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less. 
-   - If I am the inventor of story points I am extremely sorry.
- - If you see multi modal curve it shows that you have multiple types of workload
-
- Worth seeing again
-Conference call
-
-:End:
-
 *** TODO Hila Peleg - Automatic Programming - How Far Can Machines Go
 :PROPERTIES:
 :CREATED:  [2019-03-06 Wed 19:23]
@@ -4227,7 +4223,7 @@ Conference call
 https://youtu.be/-EFTnauDZmY
 
 :TOPICS:
-technologycal-singulariry
+technological-singularity
 Programming-by-example
 Halting-problem
 REPL
@@ -4240,18 +4236,14 @@ Nicify-javascript
 Flash-fill
 :END:
 
-
 :POINTS-TAKEN:
 Automatic programming is hard
 User intent is hard
 Machines are not goog in common sense
 Phone complete language models from phone typing assistant does a surprisingly good job in writing program
 Perfect specification is actually a code
-General program of"find me a program that...." Cannot be solved
+General program of "find me a program that...." Cannot be solved
 We need to make a realistic expectations
-
-
-
 :END:
 
 :TRIVIA:
