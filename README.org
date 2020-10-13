@@ -18,10 +18,7 @@
 #+AUTHOR: Richard Bouska
 
 
-#+BEGIN_SRC emacs-lisp :exports none :results verbatim
-(org-html-export-to-html nil t nil nil)
- #+END_SRC
- 
+#+name: lg-get-props-entry 
 #+begin_src emacs-lisp :exports none 
   (setq
    lg-properties-display-list
@@ -38,7 +35,7 @@
      '("lg-url-1" "Url" identity)
      '("lg-yt-url" "Youtube" identity)
      '("lg-vimeo-url" "Youtube" identity)
-     '("learning_1" "Learning" identity)
+     '("learning_1" "Learn more:" identity)
      '("learning_2" "Learning" identity)
      '("learning_3" "Learning" identity)
      ))
@@ -51,16 +48,9 @@
          (when value
            (list (nth 1 propname) (funcall (nth 2 propname) value )))))
      lg-properties-display-list))
-
+     (lg-get-props)
 #+end_src
 
-#+RESULTS:
-: lg-get-props
-
-#+name: lg-get-props-entry
-#+begin_src emacs-lisp :exports results
-(lg-get-props)
-#+end_src
 
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
@@ -69,17 +59,47 @@
 :PROPERTIES:
 :CUSTOM_ID: SOFTWARE_ENGINEERING
 :END:
-#+call: lg-get-props-entry()
+
 ** WIP bit / byte / endian / float
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** one's complement
 *** two's complements
 *** BCD encoding
-*** ieee754 explain float: mantisa,exponent
-*** Endian
+*** Float: (ieee754)
+**** Explain mantisa, exponent                                  :QUESTION:
+**** How do you compare two float values?                       :QUESTION:
+**** Explain risk of using floating point in business programming :QUESTION:
+*** Endiannes
+*** binary / octal / hex
 ** WIP TCP/IP
-*** IP address / netmask
-*** CIDR
+*** IPv4 address / netmask / CIDR
+**** Calculate netmask
+**** Special IPv4 Ranges
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/IPv4#Special-use_addresses
+:END:
+#+call: lg-get-props-entry()
+
+|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Address block      | Address range               | Number of addresses | Scope           | Description                                                                                                                                                                   |
+|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.0.0.0/8          | 0.0.0.0–0.255.255.255       |            16777216 | Software        | Current network[3] (only valid as source address).                                                                                                                            |
+| 10.0.0.0/8         | 10.0.0.0–10.255.255.255     |            16777216 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 100.64.0.0/10      | 100.64.0.0–100.127.255.255  |             4194304 | Private network | Shared address space[5] for communications between a service provider and its subscribers when using a carrier-grade NAT.                                                     |
+| 127.0.0.0/8        | 127.0.0.0–127.255.255.255   |            16777216 | Host            | Used for loopback addresses to the local host.[3]                                                                                                                             |
+| 169.254.0.0/16     | 169.254.0.0–169.254.255.255 |               65536 | Subnet          | Used for link-local addresses[6] between two hosts on a single link when no IP address is otherwise specified, such as would have normally been retrieved from a DHCP server. |
+| 172.16.0.0/12      | 172.16.0.0–172.31.255.255   |             1048576 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 192.0.0.0/24       | 192.0.0.0–192.0.0.255       |                 256 | Private network | IETF Protocol Assignments.[3]                                                                                                                                                 |
+| 192.0.2.0/24       | 192.0.2.0–192.0.2.255       |                 256 | Documentation   | Assigned as TEST-NET-1, documentation and examples.[7]                                                                                                                        |
+| 192.88.99.0/24     | 192.88.99.0–192.88.99.255   |                 256 | Internet        | Reserved.[8] Formerly used for IPv6 to IPv4 relay[9] (included IPv6 address block 2002::/16).                                                                                 |
+| 192.168.0.0/16     | 192.168.0.0–192.168.255.255 |               65536 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 198.18.0.0/15      | 198.18.0.0–198.19.255.255   |              131072 | Private network | Used for benchmark testing of inter-network communications between two separate subnets.[10]                                                                                  |
+| 198.51.100.0/24    | 198.51.100.0–198.51.100.255 |                 256 | Documentation   | Assigned as TEST-NET-2, documentation and examples.[7]                                                                                                                        |
+| 203.0.113.0/24     | 203.0.113.0–203.0.113.255   |                 256 | Documentation   | Assigned as TEST-NET-3, documentation and examples.[7]                                                                                                                        |
+| 224.0.0.0/4        | 224.0.0.0–239.255.255.255   |           268435456 | Internet        | In use for IP multicast.[11] (Former Class D network).                                                                                                                        |
+| 240.0.0.0/4        | 240.0.0.0–255.255.255.254   |           268435455 | Internet        | Reserved for future use.[12] (Former Class E network).                                                                                                                        |
+| 255.255.255.255/32 | 255.255.255.255             |                   1 | Subnet          | Reserved for the "limited broadcast" destination address.[3][13]                                                                                                              |
+
 ** I18N
 *** iso-639
 *** bcp-47 / rfc-5646
@@ -861,15 +881,8 @@ Consider following status codes:
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
-** Tools [/]
-*** Liquibase
-- open source
-- tracks DB chanegs
-- allows work with data as well as with the schema
-- *changeset*:
-  - XML, JSON, YAML, SQL
-- can use context and label for filteriing chich chnages slould be applied where
-** WIP DBMS [0/15]
+
+** WIP Tools [0/17]
 *** WIP PostgreSQL
 **** What is the current version of PostgreSQL                  :QUESTION:
 **** Explain about Multi version concurrency control?           :QUESTION:
@@ -899,8 +912,7 @@ Consider following status codes:
 :learning_1: https://www.mongodb.com/cloud/atlas
 :END:
 #+call: lg-get-props-entry()
-*** MongoDB
-
+*** TODO MongoDB
 *** TODO Apache Drill
 *** TODO Apache Cassandra
 - *Open Source:* Modern software development organizations have overwhelmingly moved to adopt open source technologies, starting with the Linux operating system and progressing into infrastructure for managing data. Open source technologies are attractive because of their affordability and extensibility, as well as the flexibility to avoid vendor lock-in. Organizations adopting open source report higher speed of innovation and faster adoption.
@@ -989,6 +1001,13 @@ Consider following status codes:
 - It is useful in developing programs to communicate with each other over a wire or for storing data.
 - The method involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data.
 
+*** TODO Liquibase
+- open source
+- tracks DB chanegs
+- allows work with data as well as with the schema
+- *changeset*:
+  - XML, JSON, YAML, SQL
+- can use context and label for filteriing chich chnages slould be applied where
 * WIP Methodology [0/12]                                             :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: METHODOLOGY
@@ -1141,7 +1160,7 @@ Consider following status codes:
 :learning_1: https://min.io/product/overview
 :END:
 #+call: lg-get-props-entry()
-* WIP DEVOPS / SRE   [0/5]                                           :DOMAIN:
+* WIP DEVOPS / SRE   [0/6]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
@@ -1534,6 +1553,30 @@ example: matchLabels:{}
 *** TODO argocd                                                     :TOPIC:
 *** TODO fluxcd                                                     :TOPIC:
 *** TODO Prometheus                                                 :TOPIC:
+** WIP Concepts [0/1]
+*** TODO ChatOps                                                  :CONCEPT:
+:PROPERTIES:
+:learning_1: https://www.pagerduty.com/blog/what-is-chatops/
+:END:
+#+call: lg-get-props-entry()
+- ChatOps, a term widely credited to GitHub, is all about conversation-driven development.While in a chat room, team members type commands that the chatbot is configured to execute through custom scripts and plugins. These can range from code deployments, to security event responses, to team member notifications. By bringing your tools into your conversations and using a chatbot modified to work with key plugins and scripts, teams can automate tasks and collaborate, working better, cheaper and faster—allowing the entire team to collaborate in real time as commands are executed.
+ 
+*** Rugged DevOps                                                 :CONCEPT:
+:PROPERTIES:
+:learning_1: https://ruggedsoftware.org/
+:END:
+#+call: lg-get-props-entry()
+- The Rugged Manifesto:
+  - I am rugged and, more importantly, my code is rugged.
+  - I recognize that software has become a foundation of our modern world.
+  - I recognize the awesome responsibility that comes with this foundational role.
+  - I recognize that my code will be used in ways I cannot anticipate, in ways it was not designed, and for longer than it was ever intended.
+  - I recognize that my code will be attacked by talented and persistent adversaries who threaten our physical, economic, and national security.
+  - I recognize these things - and I choose to be rugged.
+  - I am rugged because I refuse to be a source of vulnerability or weakness.
+  - I am rugged because I assure my code will support its mission.
+  - I am rugged because my code can face these challenges and persist in spite of them.
+  - I am rugged, not because it is easy, but because it is necessary and I am up for the challenge.
 * WIP Web Front End [0/9]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: WEB
@@ -1935,18 +1978,37 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 - When CA needs to get a new chain (for example, because of upgrade from SHA-1 to SHA-256), they just increment the generation number.
 - This is good because obsolete certificates can be better identified.
 :END:
-** WIP concepts [0/2]
-*** WIP DevSecOps
+** WIP Concepts [0/2]
+*** WIP DevSecOps                                                 :CONCEPT:
 :PROPERTIES:
 :learning_1: https://snyk.io/devsecops/
+:learning_2: https://snyk.io/devsecops/
 :END:
 #+call: lg-get-props-entry()
+- DevSecOps manifesto:
+
+- Through Security as Code, we have and will learn that there is simply a better way for security practitioners, like us, to operate and contribute value with less friction. We know we must adapt our ways quickly and foster innovation to ensure data security and privacy issues are not left behind because we were too slow to change.
+- By developing security as code, we will strive to create awesome products and services, provide insights directly to developers, and generally favor iteration over trying to always come up with the best answer before a deployment. We will operate like developers to make security and compliance available to be consumed as services. We will unlock and unblock new paths to help others see their ideas become a reality.
+- We won't simply rely on scanners and reports to make code better. We will attack products and services like an outsider to help you defend what you've created. We will learn the loopholes, look for weaknesses, and we will work with you to provide remediation actions instead of long lists of problems for you to solve on your own.
+- We will not wait for our organizations to fall victim to mistakes and attackers. We will not settle for finding what is already known; instead, we will look for anomalies yet to be detected. We will strive to be a better partner by valuing what you value:
+
+- Manifesto:
+| Leaning in                             | over | Always Saying “No”                             |
+| Data & Security Science                | over | Fear, Uncertainty and Doubt                    |
+| Open Contribution & Collaboration      | over | Security-Only Requirements                     |
+| Consumable Security Services with APIs | over | Mandated Security Controls & Paperwork         |
+| Business Driven Security Scores        | over | Rubber Stamp Security                          |
+| Red & Blue Team Exploit Testing        | over | Relying on Scans & Theoretical Vulnerabilities |
+| 24x7 Proactive Security Monitoring     | over | Reacting after being Informed of an Incident   |
+| Shared Threat Intelligence             | over | Keeping Info to Ourselves                      |
+| Compliance Operations                  | over | Clipboards & Checklists                        |
+
 - What Is DevSecOps?
   + DevSecOps refers to the integration of security practices into a DevOps software delivery model.
   + Its foundation is a culture where development and operations are enabled through process and tooling to take part in a shared responsibility for delivering secure software.
   + The definition of DevSecOps, at a high-functioning level, is to integrate security objectives as early as possible in the lifecycle of software development.
   + While security is “everyone’s responsibility,” DevOps teams are uniquely positioned at the intersection of development and operations, empowered to apply security in both breadth and depth.
-*** TODO Zero Trust Network
+*** TODO Zero Trust Network                                       :CONCEPT:
 
 ** WIP Tools & Solutions [0/9]
 *** TODO Illumio Security
@@ -2487,6 +2549,16 @@ About scopes
 *** NDC
 *** QCon
 *** Beauty in Code
+*** Bifrost 2018
+- [[#YT:TbZ57raC1TE][Re Imagine The Hiring Process]]
+*** DevOneConf 2018
+ Siren Hofvander ...
+Each security talk she gives is full of sarcasm but useful an eye opening
+"I would never o that ... This could never happened to me ... really?"
+From 13th minute on she starts with practical suggestions.
+https://youtu.be/8NzkYsY7TOk
+YouTubeYouTube | DevOne
+DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle 
 ** WIP Books
 *** Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations :AUDIBLE:
 - Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
@@ -2560,7 +2632,7 @@ From one of the world's most highly regarded social scientists, a transformative
 - obtained throughput
   - natural capability
 
-* WIP Big Names        [0/22]                                        :DOMAIN:
+* WIP Big Names        [0/23]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -2658,13 +2730,11 @@ https://youtu.be/j0XmixCsWjs
 :END:
 #+call: lg-get-props-entry()
 
-
-** WIP Linda RISING [0/2]
+** WIP Linda RISING [2/2]
 - Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org 
-- [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
-- [[#se-radio-238][SE-Radio 238: Linda Rising on the Agile Brain]]
-
-
+-  [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
+-  [[#se-radio-238][SE-Radio 238: Linda Rising on the Agile Brain]]
+** WIP Sirem Hofvander
 ** TODO Steven PINKER [0/0]
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
@@ -2684,20 +2754,25 @@ The moral aspect
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/4]                                                 :DOMAIN:
+* WIP Concepts [0/8]                                                 :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CONCEPTS
 :END:
 #+call: lg-get-props-entry()
 
-** TODO Fat Tail Distribution                                        :TOPIC:
-** TODO Data Driven Decision                                         :TOPIC:
-** TODO Shift Left
+** TODO Fat Tail Distribution                                      :CONCEPT:
+** TODO Data Driven Decision                                       :CONCEPT:
+** TODO Shift Left                                                 :CONCEPT:
 - like shift left security
-** TODO Scepticism                                                   :TOPIC:
-* WIP Commented Videos                                              :CHAPTER:
-** YouTube 
-*** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
+** TODO Skepticism                                                 :CONCEPT:
+** TODO Immutability                                               :CONCEPT:
+** TODO T - shaped /  π - shaped                                   :CONCEPT:
+** TODO Intrinsic Motivation vs Extrinsic Motivation               :CONCEPT:
+** TODO Chaos Engineering
+* WIP Commented sources                                            :CHAPTER:
+** WIP Commented Videos                                            :CHAPTER:
+*** YouTube 
+**** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
 :CREATED:  [2019-02-24 Sun 20:41]
@@ -2756,7 +2831,7 @@ The moral aspect
   - Unix pipe 1964
   - Ken Thompson 1970 implementace pipe in Unix
 
-*** WIP Kevlin Henney - 1968
+**** WIP Kevlin Henney - 1968
 :PROPERTIES:
 :CREATED:  [2019-02-26 Tue 20:34]
 :lg-authors: Kevlin%20Henney
@@ -2824,7 +2899,7 @@ https://youtu.be/v-RkKohsF78
   - pragmatic functional
   - pragmatic structured programming
 - lisp....
-*** WIP YOW! Conference 2018 - Chris Richardson - Events and Commands
+**** WIP YOW! Conference 2018 - Chris Richardson - Events and Commands
 :PROPERTIES:
 :CREATED:  [2019-03-07 Thu 20:16]
 :lg-subject: YOW! Conference 2018 - Chris Richardson - Events and Commands
@@ -2928,7 +3003,7 @@ Microservices.io/book (ctwyowconf18)
     - polling - but it introduces latency
 :END:
 
-*** TODO Developing Microservices with Aggregates by Chris Richardson
+**** TODO Developing Microservices with Aggregates by Chris Richardson
 :PROPERTIES:
 :CREATED:  [2019-03-08 Fri 06:40]
 :lg-subject: Developing Microservices with Aggregates by Chris Richardson
@@ -2936,11 +3011,87 @@ Microservices.io/book (ctwyowconf18)
 :CUSTOM_ID: YT:gR_EGN86fvg
 :END:
 #+call: lg-get-props-entry()
+**** WIP Re Imagine The Hiring Process
+:PROPERTIES:
+:CREATED:  [2019-03-05 Tue 20:33]
+:lg-subject: Re Imagine The Hiring Process
+:lg-yt-url: https://youtu.be/TbZ57raC1TE
+:CUSTOM_ID: YT:TbZ57raC1TE
+:END:
+#+call: lg-get-props-entry()
 
+- Elle Meredith
+- Lachlan Hardy
+:TOPICS:
+- HumanResources
+- Diversity
+- Inclusion
+- Culture
+- Unconscious-bias
+- Privilege
+- Oppression
+- Fluency-heuristic
+- Collaborative-friction
+- Diversity-dept
+- Cultural-fit
+:END:
+:REFERENCES:
+Mark s. Luckie
+http://www.getluckie.net/
+https://hbr.org/product/an-everyone-culture-becoming-a-deliberately-developmental-organization/14259-HBK-ENG
+https://www.youtube.com/channel/UCuVsMYBwV0gJTsWRZ2Dj7iw/
+:END:
+:TRIVIA:
+There is more CEO called David than womens CEO
+:END:
+:POINTS-TAKEN:
+- Homogeneous teams feels more fluent - it is just a bias.
+- You must start diverse to keep a diverse team
+- Hiring is a part of the work (should be)
+- Language of the job postings:
+  - competitive terms are more appealing to man than to woman (hitting deadline, competitive work)
+    - Cooperating or teamwork in job posting: you get more women appliance
+- Whiteboard coding consider harmful
+- Organizations that call themselves meritocratic are actually more likely to discriminate
+- Have a supportive environment for diversity and beginners
+- psychological safety
+  - emotionally secure work environment where people bring their whole selves to work
+  - people trust each others
+  - don't blame people for mistakes
+- gradual iterative improvement
+  - process are improved to deliver long term benefits rather than focus on short term results
+  - change is expected as are mistakes
+  - learn fast learn often
+- good communication is vital
+  - discussions are better than assumptions
+  - clear expectations are defined then adjusted as necessary
+  - feedback is not just welcomed sought out
+  - diverse perspectives are actively engaged with
+- life is larger than work
+  - flexibility in when and where work is done
+  - engagement and support for employee and customer communities
+- shared values
+  - clearly stated goals and values that all staff share
+  - common sense requites commonality (not in contrast with diversity)
+  - efforts are targeted at meaningful goals
+- Hiring process
+  - diversify your inputs
+  - share what you have learned
+  - how is your marketing stacking up
+    - look at your company web page
+  - employee performance predictor
+    - unstructured interview 14%
+    - reference checks 7%
+    - years of experience 3%
+    - structured interview 26% 
+    - structured interview with sample test 29%
+:END:
+**** TODO GOTO 2019 • Mastering the Linux Command Line • Bert Jan Schrijver
+- Hezký video. Za 45 minut jsem se dozvěděl skoro všechno co už jsem o příkazové rádce v Linuxu věděl, ale hezky udělané
+- https://youtu.be/qmh7Uppd3x0
 
-
-** Vimeo
-*** WIP Meeting resistance and moving forward — Linda Rising
+*** Vimeo
+**** WIP Meeting resistance and moving forward — Linda Rising
 :PROPERTIES:
 :lg-subject: Watch Meeting resistance and moving forward — Linda Rising
 :lg-authors: Linda%20Rising
@@ -3020,10 +3171,9 @@ Cognitive-bias
      
  :END:
 
-* WIP Commented Podcasts                                            :CHAPTER:
-
-** SE-Radio [0/1]
-*** WIP SE-Radio 238: Linda Rising on the Agile Brain
+** WIP Commented Podcasts                                          :CHAPTER:
+*** SE-Radio [0/1]
+**** WIP SE-Radio 238: Linda Rising on the Agile Brain
 :PROPERTIES:
 :CREATED:  [2018-08-05 Sun 10:18]
 :lg-event-date: <2015-11-09 Mon>
@@ -3037,9 +3187,9 @@ Cognitive-bias
 :CUSTOM_ID: se-radio-238
 :END:
 #+call: lg-get-props-entry()
-**** My Remarks
+***** My Remarks
 - you should provide feedback based on a efford not on the result
-**** Official Description
+***** Official Description
 SE-Radio Episode 238: Linda Rising on the Agile Brain
 
 11.09.15 by se-radio team
@@ -3050,6 +3200,20 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
 - They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
+- 
+** TODO Commented Udemy [0/4]
+*** TODO Docker Mastery: The Complete Toolset From a Docker Captain
+- https://www.udemy.com/share/101WekBEEadVpUQXg=/
+- Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps 
+*** TODO Kubernetes Mastery: Hands-On Lessons From A Docker Captain
+- https://www.udemy.com/share/102iLUBEEadVpUQXg=/
+- Learn the latest Kubernetes features (1.16) and plugins while practicing DevOps workflows, from a container expert
+*** TODO Docker Swarm Mastery: DevOps Style Cluster Orchestration
+- https://www.udemy.com/share/101u3oBEEadVpUQXg=/
+- Build, automate, and monitor a server cluster for containers using the latest open source on Linux and Windows
+*** TODO Docker for Node.js Projects From a Docker Captain
+- https://www.udemy.com/share/1022zOBEEadVpUQXg=/
+- Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert 
 
 * WIP Index                                                         :CHAPTER:
 :PROPERTIES:
@@ -3068,7 +3232,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
     (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil '("README.org") nil colnames ))
 #+end_src
 #+call:collector-learning()
-** Youtube videos
+** YouTube Videos
 :PROPERTIES:
 :header-args+: :var cols='(ITEM LG-YT-URL)
 :header-args+: :var colnames='(Item ref)
@@ -3082,20 +3246,8 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 
 #+call:collector-yt()
 
-#+RESULTS:
-| Item                                                                            | ref                          |
-|---------------------------------------------------------------------------------+------------------------------|
-| Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5 | https://youtu.be/RHg53wMflCc |
-| GOTO 2018 • Old Is the New New • Kevlin Henney                                  | https://youtu.be/AbgsfeGvg3E |
-| Kevlin Henney - 1968                                                            | https://youtu.be/v-RkKohsF78 |
-| Avoiding Microservice Megadisasters - Jimmy Bogard                              | https://youtu.be/gfh-VCTwMw8 |
-| Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016        | https://youtu.be/rVnXzW31pWQ |
-| What Doctors Can Teach Us on Continuous Learning - Johnny Graber                | https://youtu.be/SuZZV74wTkw |
-| Exploiting Network Printers                                                     | https://youtu.be/DwKzSO4yA_s |
-| Attacks Against GSMA's M2M Remote Provisioning                                  | https://youtu.be/rI9hvDDbdlE |
-| Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz   | https://youtu.be/avFR_Af0KGk |
-| Od Aristotela k Newtonovi                                                       | https://youtu.be/w9ulyaauBIE |
-** SE-Radio Podcast Epizodes
+
+** SE-Radio Podcast Episodes
 :PROPERTIES:
 :header-args+: :var cols='(ITEM LG-SE-RADIO-URL)
 :header-args+: :var colnames='(Item ref)
@@ -3108,12 +3260,18 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 
 #+call:collector-se-radio()
 
-#+RESULTS:
-| Item                                          | ref                                                                                    |
-|-----------------------------------------------+----------------------------------------------------------------------------------------|
-| SE-Radio 238: Linda Rising on the Agile Brain | https://www.se-radio.net/2015/09/se-radio-episode-238-linda-rising-on-the-agile-brain/ |
 
-
+** Concepts
+:PROPERTIES:
+:header-args+: :var cols='(ITEM LG-SE-RADIO-URL)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-concepts
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((string-match "CONCEPT" TAGS)) nil '("README.org") nil colnames ))
+#+end_src
+#+call:collector-concepts()
 
 * WIP To integrate                                                :NO_EXPORT:
 ** TODO dog - used technologies
@@ -3524,13 +3682,6 @@ https://youtu.be/oSzxZWB9Qkg
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-source  | Blog    |
-| lg-subject | Systemd |
-
-
 Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough-for-portable-services.html
 
 *** TODO SE-Radio 241: Kyle Kingsbury on Consensus in Distributed Systems
@@ -3910,7 +4061,7 @@ http://www.slideshare.net/cisoplatform7/asd-t09howtoavoidthetoptensoftwaresecuri
 
 :TRIVIA:
 Only 1/8 of companies have a process
-Males fun of unknown unknowns
+Makes fun of unknown unknowns
 Microservice more dependencies - not a good thing in context of know your dependencies
 :END:
 
@@ -4053,7 +4204,7 @@ Littles's law
 
   
 :Takeouts:
- - Don't use red and green as many man are colourblind
+ - Don't use red and green as many man are colorblind
  - Data ... Thing just are ...  no judgement - productivity is lost by people being scared
  - Ron Jeffries: 
    - either I invented story points or I was there when it happened. Story points are thinly obfuscated time no more no less. 
@@ -4224,7 +4375,7 @@ https://youtu.be/9MKBex5p2lc
 
 - can you trust the data
   - us data
-  - there are two peakls
+  - there are two peaks
     - India
     - Poland
     - Russia
@@ -4302,82 +4453,6 @@ https://youtu.be/kopTiMg5u9E
 - Brought people From 
 - Not interesting
 - Hangout
-
-*** TODO Re Imagine The Hiring Process
-:PROPERTIES:
-:CREATED:  [2019-03-05 Tue 20:33]
-:lg-subject: Re Imagine The Hiring Process
-:END:
-#+call: lg-get-props-entry()
-
-https://youtu.be/TbZ57raC1TE
-
-- Elle Meredith
-- Lachlan Hardy
-:TOPICS:
-- HumanResources
-- Diversity
-- Inclusion
-- Culture
-- Unconscious-bias
-- Privilege
-- Oppression
-- Fluency-heuristic
-- Collaborative-friction
-- Diversity-dept
-- Cultural-fit
-:END:
-:REFERENCES:
-Mark s. Luckie
-http://www.getluckie.net/
-https://hbr.org/product/an-everyone-culture-becoming-a-deliberately-developmental-organization/14259-HBK-ENG
-https://www.youtube.com/channel/UCuVsMYBwV0gJTsWRZ2Dj7iw/
-:END:
-:TRIVIA:
-There is more CEO called David than womens CEO
-:END:
-:POINTS-TAKEN:
-- Homogeneous teams feels more fluent - it is just a bias.
-- You must start diverse to keep a diverse team
-- Hiring is a part of the work (should be)
-- Language of the job postings:
-  - competitive terms are more appealing to man than to woman (hitting deadline, competitive work)
-    - Cooperating or teamwork in job posting: you get more women appliance
-- Whiteboard coding consider harmful
-- Organizations that call themselves meritocratic are actually more likely to discriminate
-- Have a supportive environment for diversity and beginners
-- psychological safety
-  - emotionally secure work environment where people bring their whole selves to work
-  - people trust each others
-  - don't blame people for mistakes
-- gradual iterative improvement
-  - process are improved to deliver long term benefits rather than focus on short term results
-  - change is expected as are mistakes
-  - learn fast learn often
-- good communication is vital
-  - discussions are better than assumptions
-  - clear expectations are defined then adjusted as necessary
-  - feedback is not just welcomed sought out
-  - diverse perspectives are actively engaged with
-- life is larger than work
-  - flexibility in when and where work is done
-  - engagement and support for employee and customer communities
-- shared values
-  - clearly stated goals and values that all staff share
-  - common sense requites commonality (not in contrast with diversity)
-  - efforts are targeted at meaningful goals
-- Hiring process
-  - diversify your inputs
-  - share what you have learned
-  - how is your marketing stacking up
-    - look at your company web page
-  - employee performance predictor
-    - unstructured interview 14%
-    - reference checks 7%
-    - years of experience 3%
-    - structured interview 26% 
-    - with sample test 29%
-:END:
 
 *** TODO to see:
 
