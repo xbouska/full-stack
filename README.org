@@ -115,8 +115,8 @@
 *** utf-8
 *** ASCII
 *** EBCDIC
-** Formats
-*** yaml
+** Serialization Formats [0/4]
+*** WIP yaml
 :PROPERTIES:
 :learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
 :learning_2: https://yaml.org/spec/1.2/spec.html
@@ -292,8 +292,11 @@ set2:
 #+end_src
 **** What are the --- in yaml?
 **** What are the ... in yaml?
-*** json
-*** xml
+*** TODO json
+*** TODO xml
+*** TODO protobuf
+*** asn.1
+*** 
 ** declarative vs imperative
 ** [#B] Code complexity
 *** Code complexity (big O)
@@ -363,11 +366,7 @@ set2:
   - LRU eviction of keys
   - Automatic failover
   - You can use Redis from most programming languages out there.
-
 - Redis is written in ANSI C and works in most POSIX systems like Linux, *BSD, OS X without external dependencies. Linux and OS X are the two operating systems where Redis is developed and tested the most, and we recommend using Linux for deploying. Redis may work in Solaris-derived systems like SmartOS, but the support is best effort. There is no official support for Windows builds.
-
-
-
 *** TODO JMS
 *** WIP AMQP (Advanced Message Queuing Protocol)
 :PROPERTIES:
@@ -889,6 +888,7 @@ Consider following status codes:
 - This removes the time lag for the user to log into his database.
 - This feature or time lag occurs when some one else is on the content. All the transactions are kept as a record.
 :END:
+
 **** TODO psql
 *** TODO ORACLE:
 :ANSWER:
@@ -1751,7 +1751,7 @@ Origin
 ** TODO The Elm Architecture (TEA)
 - http://blog.jenkster.com/2016/06/how-elm-slays-a-ui-antipattern.html
 
-* WIP Security [0/13]                                                :DOMAIN:
+* WIP Security [0/14]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SECURITY
 :END:
@@ -2012,10 +2012,17 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
   + While security is “everyone’s responsibility,” DevOps teams are uniquely positioned at the intersection of development and operations, empowered to apply security in both breadth and depth.
 *** TODO Zero Trust Network                                       :CONCEPT:
 
-** WIP Tools & Solutions [0/9]
-*** TODO Illumio Security
+
+** WIP Software Composition Analysis (SCA) [0/2]
+:PROPERTIES:
+:learning_1: https://sudonull.com/post/27911-Forrester-Research-A-Comparison-of-Ten-Top-Software-Composition-Analysis-Vendors
+:END:
+#+call: lg-get-props-entry()
 *** TODO Snyk
 *** TODO Jfrog Xray
+
+** WIP Tools & Solutions [0/9]
+*** TODO Illumio Security
 *** TODO Burp Suite
 *** TODO Metasploit
 *** TODO wireshark
