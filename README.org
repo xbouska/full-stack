@@ -35,6 +35,8 @@
      '("lg-url-1" "Url" identity)
      '("lg-yt-url" "Youtube" identity)
      '("lg-vimeo-url" "Vimeo" identity)
+     '("lg-se-radio-url" "SE Radio" identity)
+     '("lg-full-stack-radio-url" "Full Stack Radio" identity)
      '("learning_1" "Primary source:" identity)
      '("learning_2" "Learn more:" identity)
      '("learning_3" "Learn more:" identity)
@@ -121,7 +123,15 @@
 *** utf-8
 *** ASCII
 *** EBCDIC
-** Serialization Formats [0/5]
+** Data Serialization Formats [0/5]
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats
+:END:
+#+call: lg-get-props-entry(aa=3)
+
+#+RESULTS:
+| Primary source: | https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats |
+
 *** WIP yaml
 :PROPERTIES:
 :learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
@@ -302,8 +312,6 @@ set2:
 *** TODO xml
 *** TODO protobuf
 *** TODO ASN.1
-
-
 ** Code complexity
 *** Code complexity (big O)
 *** Amortized complexity
@@ -352,6 +360,7 @@ set2:
 
 *** WIP Tools
 **** TODO Solace Pub/Sub Plus
+**** TODO NATS
 **** TODO Google Pub/Sub
 **** TODO AWS SNS
 **** TODO AWS SES
@@ -567,7 +576,18 @@ Consider following status codes:
     - Treat logs as event streams
 12. *Admin processes*
     - Run admin/management tasks as one-off processes
-** TODO 3Factor Apps
+** WIP Hasura 3Factor Apps
+- epizody 115 116 a 117.
+- Konkrétně epizoda 116 na kterou posílám odkaz je hodná poslechu.
+- 3f Apps je architektura ke které se blížíme.
+- V té 116 epizodě je právě celá diskuse o messagingu,  otázky msg fall-back..
+- Format diskuse je takový rozbíhavý, ale berou to že široka.
+- Zajímavý je to hodně tak po prvních osmi minutách a ke konci zase kecaji jenom tak zbůhdarma.
+- Pěkný je i to že to je diskuse mezi 3mi lidmi a ne všichni tomu rozumí, tak tam občas narazíš na blbosti.
+- Jo a je tam slyšet o čem že je ta technická architektura. 
+- https://www.codingblocks.net/episode116
+- 3factor app – Reliable Eventing
+- We discuss the second factor of Hasura's 3factor app, Reliable Eventing, as Allen says he still surfs the Internet (but really, does he?), it's never too late for pizza according to Joe, and Michael wants to un-hear things.
 ** WIP OpenApiSpec / Open API 3.0 / Swagger
 :PROPERTIES:
 :learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
@@ -1515,6 +1535,10 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 **** TODO DTR - docker trusted registry
 
 *** K8S / Kubernetes: [0/27]                                        :TOPIC:
+:PROPERTIES:
+:learning_1: https://classpert.com/kubernetes
+:END:
+#+call: lg-get-props-entry()
 **** TODO What is a service                                     :QUESTION:
 **** WIP What are network policies?                             :QUESTION:
 :PROPERTIES:
@@ -2613,66 +2637,73 @@ About scopes
 *** Bifrost 2018
 - [[#YT:TbZ57raC1TE][Re Imagine The Hiring Process]]
 *** DevOneConf 2018
- Siren Hofvander ...
-Each security talk she gives is full of sarcasm but useful an eye opening
-"I would never o that ... This could never happened to me ... really?"
-From 13th minute on she starts with practical suggestions.
-https://youtu.be/8NzkYsY7TOk
-YouTubeYouTube | DevOne
-DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle
+- [[#YT:8NzkYsY7TOk][Making Security an integrated part of the SW Dev Lifecycle]]
+
 ** WIP Books
-*** Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations :AUDIBLE:
+*** Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations :AUDIBLE:BOOK:
 - Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
 
-*** Daniel Kahneman: Thinking, Fast and Slow                      :AUDIBLE:
+*** Daniel Kahneman: Thinking, Fast and Slow                 :AUDIBLE:BOOK:
 :PROPERTIES:
 :CUSTOM_ID: Thinking, Fast and Slow
 :END:
 - The guru to the gurus at last shares his knowledge with the rest of us....
 
-*** Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable: :AUDIBLE:
+*** Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable: :AUDIBLE:BOOK:
 - (With a new section: "On Robustness and Fragility": Incerto, Book 2)
   - A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
   - it carries a massive impact; and, after the fact, we concoct an explanation that makes it appear less random, and more predictable, than it was....
-*** Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets :AUDIBLE:
+*** Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets :AUDIBLE:BOOK:
 - Series: Incerto
   - This audiobook is about luck, or more precisely, how we perceive and deal with luck in life and business....
-*** Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder :AUDIBLE:
+*** Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder :AUDIBLE:BOOK:
 - Series: Incerto
   - From the best-selling author of The Black Swan and one of the foremost thinkers of our time, a book on how some things actually benefit from disorder. Taleb’s message is revolutionary: What is not antifragile will surely perish....
-*** Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life :AUDIBLE:
+*** Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life :AUDIBLE:BOOK:
 - Series: Incerto
   - From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
-*** Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results :AUDIBLE:
+*** Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results :AUDIBLE:BOOK:
 - By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
-*** Stuart Firestein: Failure: Why Science Is so Successful       :AUDIBLE:
+*** Stuart Firestein: Failure: Why Science Is so Successful  :AUDIBLE:BOOK:
 - Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
-*** Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't :AUDIBLE:
+*** Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't :AUDIBLE:BOOK:
 - Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
-*** Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction :AUDIBLE:
+*** Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction :AUDIBLE:BOOK:
 From one of the world's most highly regarded social scientists, a transformative book on the habits of mind that lead to the best predictions....
-*** Daniel Coyle: The Culture Code: The Secrets of Highly Successful Groups :AUDIBLE:
+*** Daniel Coyle: The Culture Code: The Secrets of Highly Successful Groups :AUDIBLE:BOOK:
 - In The Culture Code, Daniel Coyle goes inside some of the world's most successful organizations - including
 - Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
-*** Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers :AUDIBLE:
+*** Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers :AUDIBLE:BOOK:
 - From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it....
-*** Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know? :AUDIBLE:
+*** Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know? :AUDIBLE:BOOK:
 - The intelligence failures surrounding the invasion of Iraq dramatically illustrate the necessity of developing standards for evaluating expert opinion....
-*** Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature :AUDIBLE:
+*** Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature :AUDIBLE:BOOK:
 - In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
-*** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:NO_EXPORT:
+*** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:NO_EXPORT:BOOK:
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
-*** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:
+*** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:BOOK:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
-*** Irvin D. Yalom: The Schopenhauer Cure: A Novel      :AUDIBLE:NO_EXPORT:
+*** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:NO_EXPORT:BOOK:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
+
+*** Michael A Britt: Psych Experiments: From Pavlov's dogs to Rorschach's inkblots, put psychology's most fascinating studies to the test :DEAD_TREE:BOOK:
+Forget the labs and lecture halls. You can conduct your very own psych experiments at home!
+
+Famous psychological experiments--from Freud's ego to the Skinner box--have changed the way science views human behavior. But how do these tests really work? In Psych Experiments, you'll learn how to test out these theories and experiments for yourself...no psychology degree required!
+
+Guided by Michael A. Britt, creator of popular podcast The Psych Files, you can conduct your own experiments when browsing your favorite websites (to test the "curiosity effect"), in restaurants (learning how to increase your tips), when presented with advertisements (you'd be surprised how much you're influenced by the color red), and even right on your smartphone (and why you panic when you can't find it). You'll even figure out how contagious yawning works!
+
+With this compulsively readable little book, you won't just read about the history of psychology--you'll live it!
 * WIP Psychology                                                     :DOMAIN:
-** Cognitive Biases [0/2]                                            :TOPIC:
+** Cognitive Biases [0/5]                                            :TOPIC:
 *** WIP The Backfire Effect
 - The Misconception: When your beliefs are challenged with facts, you alter your opinions and incorporate the new information into your thinking.
 - The Truth: When your deepest convictions are challenged by contradictory evidence, your beliefs get stronger.
 *** TODO Confirmation bias
-
+*** TODO Loss aversion
+*** TODO Parkinson's law of triviality
+- The tendency to give disproportionate weight to trivial issues. Also known as bikeshedding, this bias explains why an organization may avoid specialized or complex subjects, such as the design of a nuclear reactor, and instead focus on something easy to grasp or rewarding to the average participant, such as the design of an adjacent bike shed.
+*** TODO Pygmalion effect
 ** Famous experiments [0/5]                                          :TOPIC:
 *** TODO Milgram experiment
 *** TODO Robbers Cave Experiment
@@ -2796,7 +2827,9 @@ https://youtu.be/j0XmixCsWjs
 - Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org
 -  [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
 -  [[#se-radio-238][SE-Radio 238: Linda Rising on the Agile Brain]]
-** WIP Sirem Hofvander
+** WIP Siren Hofvander
+- @securitypony
+- [[YT:8NzkYsY7TOk][Making Security an integrated part of the SW Dev Lifecycle]]
 ** TODO Steven PINKER [0/0]
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
@@ -2839,7 +2872,7 @@ The moral aspects
 #+call: lg-get-props-entry()
 * WIP Commented Resources                                           :CHAPTER:
 ** WIP Videos [/]                                        :CHAPTER:
-*** YouTube [0/7]
+*** YouTube [0/8]
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -3217,6 +3250,23 @@ Quality is a characteristic of a relationship with customers
    - If I am the inventor of story points I am extremely sorry.
  - If you see multi modal curve it shows that you have multiple types of workload
 :End:
+**** TODO DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle
+:PROPERTIES:
+:lg-yt-url: https://youtu.be/8NzkYsY7TOk
+:CUSTOM_ID: YT:8NzkYsY7TOk
+:END:
+- Each security talk she gives is full of sarcasm but useful an eye opening
+- "I would never o that ... This could never happened to me ... really?"
+- From 13th minute on she starts with practical suggestions.
+- Názorně s nadhledem a sarkasmem o security.
+- "To by se mi nikdy nestalo. To bych nikdy neudělal? "
+- Hmm jo ale nejsme sami. Používáme cizí kód a možná*to* někdo udělal.
+- GDPR - hoďme na to ručníkna budeme dělá že se to nikdy nestalo.
+- Hmm a co to security experti co chodí v kravatě a c level managementu ukazují obrázek hackerů co mají kapucu a Anonymous masku na obličeji.
+- Jasně a proces vše vyřeší. Hmm a taky koláčové diagramy to je terpve terno.
+- A jasně že vývojáři milují kvanta formulářů.
+- A od 13. minuty končí sarkasm a začínají dobré praktické rady.
+- Na 38. Minutě je pár tipů a nástrojů
 *** Vimeo [0/1]
 **** WIP Meeting resistance and moving forward — Linda Rising
 :PROPERTIES:
@@ -3298,8 +3348,8 @@ Cognitive-bias
 
  :END:
 
-** WIP Podcasts [/]                                      :CHAPTER:
-*** SE-Radio [0/1]
+** WIP Podcasts [0/1]                                              :CHAPTER:
+*** WIP SE-Radio [0/1]
 **** WIP SE-Radio 238: Linda Rising on the Agile Brain
 :PROPERTIES:
 :CREATED:  [2018-08-05 Sun 10:18]
@@ -3311,9 +3361,10 @@ Cognitive-bias
 :lg-authors: Linda%20Rising
 :lg-subject: SE-Radio 238: Linda Rising on the Agile Brain
 :lg-se-radio-url:  https://www.se-radio.net/2015/09/se-radio-episode-238-linda-rising-on-the-agile-brain/
-:CUSTOM_ID: se-radio-238
+:CUSTOM_ID: se-radio:238
 :END:
 #+call: lg-get-props-entry()
+
 ***** My Remarks
 - you should provide feedback based on a efford not on the result
 ***** Official Description
@@ -3328,6 +3379,31 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
 -
+*** Full Stack Radio
+- A podcast for developers interested in building great software products. Hosted by Adam Wathan.
+**** 139: Alex DeBrie - DynamoDB for Relational Database Diehards
+:PROPERTIES:
+:CUSTOM_ID: full-stack-radio:139
+:lg-full-stack-radio-url:  https://fullstackradio.com/139
+:END:
+#+call: lg-get-props-entry()
+
+- Does DynamoDB only make sense for things like your cache, or is it a good choice for a primary data store?
+- An overview of the terminology used in DynamoDB and how the terminology compares to a relational database
+- How primary keys work in DynamoDB
+- What data types are available in DynamoDB
+- How DynamoDB is a schemaless database
+- Why it's important to understand your access patterns in advance with DynamoDB, unlike in a relational database
+- Understanding why and how you usually have multiple record types in a single DynamoDB table
+- What "index overloading" is in DynamoDB
+- Understanding partition keys and sort keys
+- How to structure your data in DynamoDB to make it possible to query related data, and how those queries work
+- How secondary indexes work, allowing you to access the same data in different ways
+- How to accommodate access patterns you didn't know about before you designed your schema
+- When to flatten relationships vs. nest them
+- Should you use DynamoDB if you aren't "web-scale"?
+- How local development works with DynamoDB
+
 ** TODO Udemy [0/4]
 *** TODO Docker Mastery: The Complete Toolset From a Docker Captain
 - https://www.udemy.com/share/101WekBEEadVpUQXg=/
@@ -3357,7 +3433,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+name: collector-learning
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "N/D"))
-    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil '("README.org") nil colnames ))
+    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil nil nil colnames ))
 #+end_src
 #+call:collector-learning()
 ** YouTube Videos
@@ -3368,12 +3444,11 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+name: collector-yt
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "N/D"))
-    (org-propview-collect cols "%S" '((boundp 'LG-YT-URL)) nil '("README.org") nil colnames ))
+    (org-propview-collect cols "%S" '((boundp 'LG-YT-URL)) nil nil nil colnames ))
 #+end_src
 
 
 #+call:collector-yt()
-
 
 ** SE-Radio Podcast Episodes
 :PROPERTIES:
@@ -3383,11 +3458,10 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+name: collector-se-radio
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "N/D"))
-    (org-propview-collect cols "%S" '((boundp 'LG-SE-RADIO-URL)) nil '("README.org") nil colnames ))
+    (org-propview-collect cols "%S" '((boundp 'LG-SE-RADIO-URL)) nil nil nil colnames ))
 #+end_src
 
 #+call:collector-se-radio()
-
 
 ** Concepts
 :PROPERTIES:
@@ -3397,9 +3471,42 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+name: collector-concepts
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "Not Yet Defined"))
-    (org-propview-collect cols "%S" '((string-match "CONCEPT" TAGS)) nil '("README.org") nil colnames ))
+    (org-propview-collect cols "%S" '((string-match "CONCEPT" TAGS)) nil nil nil colnames ))
 #+end_src
 #+call:collector-concepts()
+** Books
+:PROPERTIES:
+:header-args+: :var cols='(ITEM LG-BOOK-SUBJECT)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-books
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((string-match "BOOK" TAGS)) nil nil nil colnames ))
+#+end_src
+#+call:collector-books()
+
+#+RESULTS:
+| Item                                                                                                                                                             | ref             |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------|
+| Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations | Not Yet Defined |
+| Daniel Kahneman: Thinking, Fast and Slow                                                                                                                         | Not Yet Defined |
+| Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable:                                                                      | Not Yet Defined |
+| Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets                                                                | Not Yet Defined |
+| Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder                                                                                               | Not Yet Defined |
+| Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life                                                                                        | Not Yet Defined |
+| Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results                                                                                 | Not Yet Defined |
+| Stuart Firestein: Failure: Why Science Is so Successful                                                                                                          | Not Yet Defined |
+| Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't                                                                             | Not Yet Defined |
+| Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction                                                                                | Not Yet Defined |
+| Daniel Coyle: The Culture Code: The Secrets of Highly Successful Groups                                                                                          | Not Yet Defined |
+| Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers                                                            | Not Yet Defined |
+| Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know?                                                                                   | Not Yet Defined |
+| Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature                                                                                      | Not Yet Defined |
+| Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal                                 | Not Yet Defined |
+| Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst                                                                                          | Not Yet Defined |
+| Irvin D. Yalom: The Schopenhauer Cure: A Novel                                                                                                                   | Not Yet Defined |
+| Michael A Britt: Psych Experiments: From Pavlov's dogs to Rorschach's inkblots, put psychology's most fascinating studies to the test                            | Not Yet Defined |
 
 * WIP To integrate                                                :NO_EXPORT:
 ** TODO dog - used technologies
