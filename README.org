@@ -2811,7 +2811,7 @@ The moral aspects
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/10]                                                :DOMAIN:
+* WIP Concepts [0/11]                                                :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CONCEPTS
 :END:
@@ -2828,6 +2828,11 @@ The moral aspects
 ** TODO Chaos Engineering                                          :CONCEPT:
 ** TODO Leading vs Lagging indicators                              :CONCEPT:
 ** TODO declarative vs imperative                                  :CONCEPT:
+** TODO Backpressure Strategies                                    :CONCEPT:
+:PROPERTIES:
+:learning_1: https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7
+:END:
+#+call: lg-get-props-entry()
 * WIP Commented Resources                                           :CHAPTER:
 ** WIP Videos [/]                                        :CHAPTER:
 *** YouTube [0/7]
