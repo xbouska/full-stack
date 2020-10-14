@@ -885,7 +885,7 @@ Consider following status codes:
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
 
-** WIP Tools [0/17]
+** WIP Tools [0/18]
 *** WIP PostgreSQL
 :PROPERTIES:
 :learning_1: https://www.highgo.ca/blog/ 
@@ -1013,6 +1013,10 @@ CREATE INDEX name ON table USING brin (column);
 *** TODO HBase
 :PROPERTIES:
 :learning_1: https://hbase.apache.org/
+:END:
+#+call: lg-get-props-entry()
+*** TODO Nifi
+:PROPERTIES:
 :END:
 #+call: lg-get-props-entry()
 *** WIP Apache Parquet
@@ -2287,11 +2291,11 @@ try {
       e.printStackTrace();
   }
 #+end_src
-**** TODO JPA
 **** TODO Generics
 **** TODO Java 9 - project jigsaw
-**** TODO QueryDSL
-**** WIP Maven
+*** TODO JPA
+*** TODO QueryDSL
+*** WIP Maven
 ***** Jaký je rozdíl mezi <dependencies> a <dependencyManagement>? :QUESTION:
 :ANSWER:
 - dependencyManagement má smysl je v multi-module projektu, konkrétně v otcovském pomu.
@@ -2305,7 +2309,7 @@ try {
 - Většinou jde o dependence, které nám v JavaEE poskytne aplikační server
 - Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 :END:
-**** TODO Gradle
+*** TODO Gradle
 *** Spring & Spring Boot
 :PROPERTIES:
 :learning_1:  https://www.baeldung.com/spring-interview-questions
