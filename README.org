@@ -2750,7 +2750,7 @@ With this compulsively readable little book, you won't just read about the histo
 - obtained throughput
   - natural capability
 
-* WIP Big Names        [0/23]                                        :DOMAIN:
+* WIP Big Names        [0/24]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -2782,7 +2782,7 @@ https://youtu.be/zkDVCQiveEo
 ** TODO Hannah FRY
 *** Hello World
 ** TODO Trisha GEE
-** WIP Kevlin HENNEY [0/2]
+** WIP Kevlin HENNEY
 - interresting and usually funny conference talks
 - [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]
 - [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]
@@ -2806,6 +2806,9 @@ https://youtu.be/Z0zpSB85XGs
 :lg-subject: Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5
 :END:
 #+call: lg-get-props-entry()
+** TODO Mark REINHOLD
+- [[#YT:SyVLioZmbOM][Modern Java: Change is the Only Constant by Mark Reinhold]]
+- Java Lead architect
 ** TODO Brian GOETZ
 ** TODO Troy HUNT
 ** TODO Scott MEYERS
@@ -2894,7 +2897,7 @@ The moral aspects
 #+call: lg-get-props-entry()
 * WIP Commented Resources                                           :CHAPTER:
 ** WIP Videos [/]                                        :CHAPTER:
-*** YouTube [0/8]
+*** YouTube [0/9]
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -3290,6 +3293,17 @@ Quality is a characteristic of a relationship with customers
 - A jasně že vývojáři milují kvanta formulářů.
 - A od 13. minuty končí sarkasm a začínají dobré praktické rady.
 - Na 38. Minutě je pár tipů a nástrojů
+**** WIP Modern Java: Change is the Only Constant by Mark Reinhold 
+:PROPERTIES:
+:lg-yt-url: https://youtu.be/SyVLioZmbOM
+:CUSTOM_ID: YT:SyVLioZmbOM
+:END:
+#+call: lg-get-props-entry()
+- Mluví o novinkách v Java 9 10 a 11.
+- Nic objeveného ale kdo ho ještě neviděl mluvit, no proč né.
+
+
+
 *** Vimeo [0/1]
 **** WIP Meeting resistance and moving forward — Linda Rising
 :PROPERTIES:
