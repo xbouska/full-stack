@@ -108,7 +108,7 @@
 | 240.0.0.0/4        | 240.0.0.0–255.255.255.254   |           268435455 | Internet        | Reserved for future use.[12] (Former Class E network).                                                                                                                        |
 | 255.255.255.255/32 | 255.255.255.255             |                   1 | Subnet          | Reserved for the "limited broadcast" destination address.[3][13]                                                                                                              |
 
-** I18N
+`** I18N
 *** iso-639
 *** bcp-47 / rfc-5646
 ** Unicode
@@ -315,14 +315,18 @@ set2:
 ** Code complexity
 *** Code complexity (big O)
 *** Amortized complexity
-** TCP/IP
-*** IP address / netmask
-*** CIDR
-** basic data structures
-*** tree
-*** list
-*** hash
-** basic algorithms
+** Basic Data Structures
+*** List
+*** Set
+*** Map
+*** Tree
+*** Trie
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Trie
+:END:
+#+call: lg-get-props-entry()
+- In computer science, a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated; i.e., the value of the key is distributed across the structure. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string. Keys tend to be associated with leaves, though some inner nodes may correspond to keys of interest. Hence, keys are not necessarily associated with every node. For the space-optimized presentation of prefix tree, see compact prefix tree.
+** Basic Algorithms
 *** Stable vs unstable sorting
 ** Advanced Algorithm
 *** cache-oblivious algorithm
@@ -350,8 +354,6 @@ set2:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
 ** WIP Messaging                                           :TOPIC:
-*** TODO Queue
-*** TODO Topics
 *** WIP QoS
 - Each connection to the broker can specify a quality of service measure. These are classified in increasing order of overhead:
   - *At most once* - the message is sent only once and the client and broker take no additional steps to acknowledge delivery (fire and forget).
@@ -382,8 +384,11 @@ set2:
   - Automatic failover
   - You can use Redis from most programming languages out there.
 - Redis is written in ANSI C and works in most POSIX systems like Linux, *BSD, OS X without external dependencies. Linux and OS X are the two operating systems where Redis is developed and tested the most, and we recommend using Linux for deploying. Redis may work in Solaris-derived systems like SmartOS, but the support is best effort. There is no official support for Windows builds.
-*** TODO JMS
-*** WIP AMQP (Advanced Message Queuing Protocol)
+*** TODO JMS style mapping
+**** TODO Queue
+**** TODO Topics
+*** Protocols
+**** WIP AMQP (Advanced Message Queuing Protocol)
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol
 :END:
@@ -395,7 +400,7 @@ set2:
   - Azure Service Bus
   - *Solace PubSub+*, a multi-protocol broker in hardware, software, and cloud
 - beware there is more incompatible protcol versions 0-8, 0-9, 0-9-1
-*** WIP MQTT (Message Queuing Telemetry Transport)
+**** WIP MQTT (Message Queuing Telemetry Transport)
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/MQTT
 :END:
@@ -1633,9 +1638,21 @@ example: matchLabels:{}
 *** Cloud Formation                                                 :TOPIC:
 *** Hashicorp Consul                                                :TOPIC:
 *** Hashicorp Vault                                                 :TOPIC:
-*** Zookeeper                                                       :TOPIC:
-*** Kibana                                                          :TOPIC:
-*** Graphana                                                        :TOPIC:
+*** TODO Zookeeper                                                  :TOPIC:
+*** WIP Kibana                                                      :TOPIC:
+:PROPERTIES:
+:learning_1: https://logz.io/blog/grafana-vs-kibana/
+:END:
+#+call: lg-get-props-entry()
+- Kibana is the ‘K’ in the ELK Stack, the world’s most popular open source log analysis platform, and provides users with a tool for exploring, visualizing, and building dashboards on top of the log data stored in Elasticsearch clusters.
+- Kibana’s core feature is data querying and analysis. Using various methods, users can search the data indexed in Elasticsearch for specific events or strings within their data for root cause analysis and diagnostics. Based on these queries, users can use Kibana’s visualization features which allow users to visualize data in a variety of different ways, using charts, tables, geographical maps and other types of visualizations.
+*** WIP Graphana                                                    :TOPIC:
+:PROPERTIES:
+:learning_1: https://logz.io/blog/grafana-vs-kibana/
+:END:
+#+call: lg-get-props-entry()
+- Grafana is an open source visualization tool that can be used on top of a variety of different data stores but is most commonly used together with Graphite, InfluxDB, Prometheus, Elasticsearch and Logz.io. As it so happens, Grafana began as a fork of Kibana, trying to supply support for metrics (a.k.a. monitoring) that Kibana (at the time) did not provide much if any such support for.
+- Essentially, Grafana is a feature-rich replacement for Graphite-web, which helps users to easily create and edit dashboards. It contains a unique Graphite target parser that enables easy metric and function editing. Users can create comprehensive charts with smart axis formats (such as lines and points) as a result of Grafana’s fast, client-side rendering — even over long ranges of time — that uses Flot as a default option.
 *** ELK                                                             :TOPIC:
 *** DynaTrace                                                       :TOPIC:
 *** Piwik                                                           :TOPIC:
@@ -3262,6 +3279,7 @@ Quality is a characteristic of a relationship with customers
 :lg-yt-url: https://youtu.be/8NzkYsY7TOk
 :CUSTOM_ID: YT:8NzkYsY7TOk
 :END:
+#+call: lg-get-props-entry()
 - Each security talk she gives is full of sarcasm but useful an eye opening
 - "I would never o that ... This could never happened to me ... really?"
 - From 13th minute on she starts with practical suggestions.
