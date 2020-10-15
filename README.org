@@ -129,8 +129,6 @@
 :END:
 #+call: lg-get-props-entry(aa=3)
 
-#+RESULTS:
-| Primary source: | https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats |
 
 *** WIP yaml
 :PROPERTIES:
@@ -3511,28 +3509,6 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+end_src
 #+call:collector-books()
 
-#+RESULTS:
-| Item                                                                                                                                                             | ref             |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------|
-| Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations | Not Yet Defined |
-| Daniel Kahneman: Thinking, Fast and Slow                                                                                                                         | Not Yet Defined |
-| Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable:                                                                      | Not Yet Defined |
-| Nassim Nicholas Taleb: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets                                                                | Not Yet Defined |
-| Nassim Nicholas Taleb: Antifragile: Things That Gain from Disorder                                                                                               | Not Yet Defined |
-| Nassim Nicholas Taleb: Skin in the Game: Hidden Asymmetries in Daily Life                                                                                        | Not Yet Defined |
-| Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results                                                                                 | Not Yet Defined |
-| Stuart Firestein: Failure: Why Science Is so Successful                                                                                                          | Not Yet Defined |
-| Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't                                                                             | Not Yet Defined |
-| Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction                                                                                | Not Yet Defined |
-| Daniel Coyle: The Culture Code: The Secrets of Highly Successful Groups                                                                                          | Not Yet Defined |
-| Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers                                                            | Not Yet Defined |
-| Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know?                                                                                   | Not Yet Defined |
-| Steven Pinker: The Stuff of Thought: Language as a Window into Human Nature                                                                                      | Not Yet Defined |
-| Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal                                 | Not Yet Defined |
-| Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst                                                                                          | Not Yet Defined |
-| Irvin D. Yalom: The Schopenhauer Cure: A Novel                                                                                                                   | Not Yet Defined |
-| Michael A Britt: Psych Experiments: From Pavlov's dogs to Rorschach's inkblots, put psychology's most fascinating studies to the test                            | Not Yet Defined |
-
 * WIP To integrate                                                :NO_EXPORT:
 ** TODO dog - used technologies
 - AWS
@@ -4068,15 +4044,6 @@ Slack app security.
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors  | Jens%20Müller                |
-| lg-group    | black hat usa 2017           |
-| lg-keywords | Printers Postscript EPS IPP  |
-| lg-subject  | Security                     |
-| lg-yt-url   | https://youtu.be/DwKzSO4yA_s |
-
 - The idea of a paperless office has been dreamed of for more than three decades.
 - However, nowadays printers are still one of the most essential devices for daily work and common Internet users.
 - Instead of removing them, printers evolved from simple devices into complex network computer systems, installed directly into company networks, and carrying considerable confidential data in their print jobs.
@@ -4100,15 +4067,6 @@ Slack app security.
 :END:
 #+call: lg-get-props-entry()
 
-
-
-#+RESULTS:
-| lg-authors  | Maxime%20Meyer               |
-| lg-group    | black hat europe 2017        |
-| lg-keywords | eUICC                        |
-| lg-subject  | eUICC                        |
-| lg-yt-url   | https://youtu.be/rI9hvDDbdlE |
-
 GSMA is investigating, developing and standardizing an embedded SIM card with remote provisioning (that is, over-the-air installation of subscription data), called an eUICC,to improve the current mobile-phone subscription model.
 In this presentation, we will review remote-provisioning security mechanisms and show that these mechanisms are vulnerable to attacks that prevent network operators from providing service
 
@@ -4127,15 +4085,6 @@ The way the SIM card is manufactured. Esp for the iot and the new way of limitin
 :lg-subject: Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
 :END:
 #+call: lg-get-props-entry()
-
-
-
-#+RESULTS:
-| lg-authors    | Christian%20Wenz             |
-| lg-event-date | <2017-06-15 Thu>             |
-| lg-group      | NDC Oslo 2017                |
-| lg-subject    | OWASP                        |
-| lg-yt-url     | https://youtu.be/avFR_Af0KGk |
 
 - Since 2003, the Open Web Application Security Project curates a list of the top ten security risks for web applications.
 - After several delays, the 2017 list has finally been released in spring.
@@ -5772,10 +5721,6 @@ https://youtu.be/NXcu0BlbTrM
 :CREATED:  [2018-08-23 Thu 18:49]
 :lg-subject: Podněty moderní biomedicíny pro filosofii a etiku (11. hodina)
 :END:
-
-
-#+RESULTS:
-
 
 https://youtu.be/NCme5BSwNv0
 
