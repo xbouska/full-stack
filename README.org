@@ -2899,7 +2899,7 @@ The moral aspects
 #+call: lg-get-props-entry()
 * WIP Commented Resources                                           :CHAPTER:
 ** WIP Videos [/]                                        :CHAPTER:
-*** YouTube [0/9]
+*** YouTube [0/11]
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -3304,6 +3304,18 @@ Quality is a characteristic of a relationship with customers
 - Mluví o novinkách v Java 9 10 a 11.
 - Nic objeveného ale kdo ho ještě neviděl mluvit, no proč né.
 
+**** TODO Paying Technical Debt at Scale - Migrations @Stripe 
+- Něco i migracích a splácení technického dluhu - poučné  ...
+- Od 15:00 minuty. Every migration is a product
+- https://youtu.be/OFjvJmS_uDo 
+- YouTube | InfoQ
+**** TODO Data Modeling, Normalization and Denormalization 
+- Hezká a klasika.
+- Od 18:00 popisuje normální formy.
+- Ok trochou starý ale furt na tom něco je.
+- https://youtu.be/059NNng5BUQ 
+- http://www.postgresqltutorial.com/postgresql-identity-column/
+- YouTube | FOSDEM
 
 
 *** Vimeo [0/1]
@@ -3417,7 +3429,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - Johannes Thönes talks to Linda Rising, author, speaker and independent consultant, about the Agile Brain.
 - They start by talking about the fixed, talent-oriented mindset and then contrast with the lg-oriented mindset.
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
--
+
 *** Full Stack Radio
 :PROPERTIES:
 :lg-rss: https://feeds.transistor.fm/full-stack-radio
@@ -4236,6 +4248,12 @@ Practical Cryptography for Developers - https://cryptobook.nakov.com/
 :END:
 #+call: lg-get-props-entry()
 
+*** TODO YOW! Conference 2018
+:PROPERTIES:
+:lg-subject: YOW! Conference 2018
+:END:
+#+call: lg-get-props-entry()
+
 *** TODO GOTO 2018 • Why I Was Wrong About TypeScript • TJ VanToll
 :PROPERTIES:
 :CREATED:  [2019-02-24 Sun 08:15]
@@ -4243,12 +4261,6 @@ Practical Cryptography for Developers - https://cryptobook.nakov.com/
 #+call: lg-get-props-entry()
 
 https://youtu.be/AQOEZVG2WY0
-
-*** TODO YOW! Conference 2018
-:PROPERTIES:
-:lg-subject: YOW! Conference 2018
-:END:
-#+call: lg-get-props-entry()
 
 *** TODO Gary McGraw - How to Avoid the Top Ten Software Security Flaws
 :PROPERTIES:
