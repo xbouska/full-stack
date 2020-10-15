@@ -33,6 +33,7 @@
      '("lg-subject" "Subject" identity)
      '("lg-topic" "Topic" identity)
      '("lg-url-1" "Url" identity)
+     '("lg-rss" "Rss" identity)
      '("lg-yt-url" "Youtube" identity)
      '("lg-vimeo-url" "Vimeo" identity)
      '("lg-se-radio-url" "SE Radio" identity)
@@ -2873,12 +2874,13 @@ The moral aspects
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts [0/11]                                                :DOMAIN:
+* WIP Concepts and Terms [0/12]                                      :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CONCEPTS
 :END:
 #+call: lg-get-props-entry()
 
+** TODO Regression to the Mean                                     :CONCEPT:
 ** TODO Fat Tail Distribution                                      :CONCEPT:
 ** TODO Data Driven Decision                                       :CONCEPT:
 ** TODO Shift Left                                                 :CONCEPT:
@@ -3417,6 +3419,11 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - After establishing the terms, Linda explains how we know which mindset we are in currently and how we can change it for us and others,
 -
 *** Full Stack Radio
+:PROPERTIES:
+:lg-rss: https://feeds.transistor.fm/full-stack-radio
+:lg-url-1: http://fullstackradio.com
+:END:
+#+call: lg-get-props-entry()
 - A podcast for developers interested in building great software products. Hosted by Adam Wathan.
 **** 139: Alex DeBrie - DynamoDB for Relational Database Diehards
 :PROPERTIES:
@@ -3581,7 +3588,6 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 - https://micronaut.io/
 - https://github.com/mjoellnier/micronaut-vs-quarkus
 - https://github.com/quarkusio/quarkus
-- https://java.libhunt.com/
 - https://docs.solace.com/SDKPerf/SDKPerf.htm
 - https://architectelevator.com/book/
 - https://www.enterpriseintegrationpatterns.com/ramblings.html
@@ -4929,447 +4935,447 @@ https://youtu.be/IhqxJCZKCz4
 **** All in the Mind
 :PROPERTIES:
 :lg-rss: https://podcasts.files.bbci.co.uk/b006qxx9.rss
-:ld-url: http://www.bbc.co.uk/programmes/b006qxx9
+:lg-url-1: http://www.bbc.co.uk/programmes/b006qxx9
 :END:
 **** AWS Podcast
 :PROPERTIES:
 :lg-rss: https://d3gih7jbfe3jlq.cloudfront.net/aws-podcast.rss
-:ld-url: https://aws.amazon.com/podcasts/aws-podcast/
+:lg-url-1: https://aws.amazon.com/podcasts/aws-podcast/
 :END:
 **** Brain Science with Ginger Campbell, MD: Neuroscience for Everyone
 :PROPERTIES:
 :lg-rss: https://brainsciencepodcast.libsyn.com/rss
-:ld-url: http://brainsciencepodcast.com
+:lg-url-1: http://brainsciencepodcast.com
 :END:
 **** Ciel &amp; Espace
 :PROPERTIES:
 :lg-rss: http://ephemerides.cieletespace.fr
-:ld-url: https://www.cieletespace.fr
+:lg-url-1: https://www.cieletespace.fr
 :END:
 **** CodePen Radio
 :PROPERTIES:
 :lg-rss: https://blog.codepen.io/feed/podcast
-:ld-url: https://blog.codepen.io
+:lg-url-1: https://blog.codepen.io
 :END:
 **** Coding Blocks
 :PROPERTIES:
 :lg-rss: https://www.codingblocks.net/feed/podcast
-:ld-url: https://www.codingblocks.net
+:lg-url-1: https://www.codingblocks.net
 :END:
 **** Command Line Heroes
 :PROPERTIES:
 :lg-rss: https://feeds.pacific-content.com/commandlineheroes
-:ld-url: https://www.redhat.com/en/command-line-heroes
+:lg-url-1: https://www.redhat.com/en/command-line-heroes
 :END:
 **** CoRecursive with Adam Gordon Bell
 :PROPERTIES:
 :lg-rss: https://corecursive.com/feed
-:ld-url: http://corecursive.com
+:lg-url-1: http://corecursive.com
 :END:
 **** CPradio
 :PROPERTIES:
 :lg-rss: https://www.ranlevi.com/feed/cp_pod/
-:ld-url: https://cpradio.castos.com
+:lg-url-1: https://cpradio.castos.com
 :END:
 **** Darknet Diaries
 :PROPERTIES:
 :lg-rss: https://feeds.megaphone.fm/darknetdiaries
-:ld-url: https://darknetdiaries.com/
+:lg-url-1: https://darknetdiaries.com/
 :END:
 **** DevOps and Docker Talk
 :PROPERTIES:
 :lg-rss: https://feeds.transistor.fm/devops-and-docker-talk
-:ld-url: https://podcast.bretfisher.com
+:lg-url-1: https://podcast.bretfisher.com
 :END:
 **** DevOps Cafe Podcast
 :PROPERTIES:
 :lg-rss: https://devopscafe.libsyn.com/rss
-:ld-url: http://devopscafe.org
+:lg-url-1: http://devopscafe.org
 :END:
 **** EconTalk
 :PROPERTIES:
 :lg-rss: http://files.libertyfund.org/econtalk/EconTalk.xml
-:ld-url: https://www.EconTalk.org
+:lg-url-1: https://www.EconTalk.org
 :END:
 **** egghead.io developer chats
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/saRCLXVY
-:ld-url: https://egghead.io
+:lg-url-1: https://egghead.io
 :END:
 **** Elixir Wizards
 :PROPERTIES:
 :lg-rss: https://feeds.fireside.fm/smartlogic/rss
-:ld-url: https://smartlogic.io/podcast/elixir-wizards
+:lg-url-1: https://smartlogic.io/podcast/elixir-wizards
 :END:
 **** Emacs Chat
 :PROPERTIES:
 :lg-rss: https://sachachua.com/blog/category/podcast/emacs-chat-podcast/feed/
-:ld-url: https://sachachua.com/blog/category/podcast/emacs-chat-podcast/
+:lg-url-1: https://sachachua.com/blog/category/podcast/emacs-chat-podcast/
 :END:
 **** Engineering Culture by InfoQ
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:258266127/sounds.rss
-:ld-url: http://bit.ly/2dcGm4z
+:lg-url-1: http://bit.ly/2dcGm4z
 :END:
 **** French Podcast
 :PROPERTIES:
 :lg-rss: https://nsf.libsyn.com/rss
-:ld-url: http://www.newsinslowfrench.com
+:lg-url-1: http://www.newsinslowfrench.com
 :END:
 **** Full Stack Cast
 :PROPERTIES:
 :lg-rss: https://feed.pippa.io/public/shows/5c41923801f1e74d22ffbc9e
-:ld-url: https://shows.pippa.io/full-stack-cast
+:lg-url-1: https://shows.pippa.io/full-stack-cast
 :END:
 **** Full Stack Radio
 :PROPERTIES:
 :lg-rss: https://feeds.transistor.fm/full-stack-radio
-:ld-url: http://fullstackradio.com
+:lg-url-1: http://fullstackradio.com
 :END:
 **** Functional Geekery
 :PROPERTIES:
 :lg-rss: https://www.functionalgeekery.com/feed/mp3/
-:ld-url: https://www.functionalgeekery.com
+:lg-url-1: https://www.functionalgeekery.com
 :END:
 **** Going Linux
 :PROPERTIES:
 :lg-rss: https://goinglinux.com/mp3podcast.xml
-:ld-url: https://goinglinux.com
+:lg-url-1: https://goinglinux.com
 :END:
 **** Google Cloud Platform Podcast
 :PROPERTIES:
 :lg-rss: http://feeds.feedburner.com/gcppodcast
-:ld-url: https://www.gcppodcast.com
+:lg-url-1: https://www.gcppodcast.com
 :END:
 **** Hanselminutes with Scott Hanselman
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/gvtxUiIf
-:ld-url: https://www.hanselminutes.com
+:lg-url-1: https://www.hanselminutes.com
 :END:
 **** Haskell Weekly
 :PROPERTIES:
 :lg-rss: https://haskellweekly.news/podcast/feed.rss
-:ld-url: https://haskellweekly.news/podcast.html
+:lg-url-1: https://haskellweekly.news/podcast.html
 :END:
 **** Health Check
 :PROPERTIES:
 :lg-rss: https://podcasts.files.bbci.co.uk/p002vsyw.rss
-:ld-url: http://www.bbc.co.uk/programmes/p002vsyw
+:lg-url-1: http://www.bbc.co.uk/programmes/p002vsyw
 :END:
 **** Hope in Source
 :PROPERTIES:
 :lg-rss: https://feeds.transistor.fm/hope-in-source
-:ld-url: https://hopeinsource.com
+:lg-url-1: https://hopeinsource.com
 :END:
 **** Immune
 :PROPERTIES:
 :lg-rss: https://immune.libsyn.com/rss
-:ld-url: http://microbe.tv/immune
+:lg-url-1: http://microbe.tv/immune
 :END:
 **** Inside Health
 :PROPERTIES:
 :lg-rss: https://podcasts.files.bbci.co.uk/b019dl1b.rss
-:ld-url: http://www.bbc.co.uk/programmes/b019dl1b
+:lg-url-1: http://www.bbc.co.uk/programmes/b019dl1b
 :END:
 **** Kubernetes Podcast from Google
 :PROPERTIES:
 :lg-rss: https://kubernetespodcast.com/feeds/audio.xml
-:ld-url: https://kubernetespodcast.com
+:lg-url-1: https://kubernetespodcast.com
 :END:
 **** La Conversation scientifique
 :PROPERTIES:
 :lg-rss: http://radiofrance-podcast.net/podcast09/rss_13957.xml
-:ld-url: https://www.franceculture.fr/emissions/la-conversation-scientifique
+:lg-url-1: https://www.franceculture.fr/emissions/la-conversation-scientifique
 :END:
 **** La Méthode scientifique
 :PROPERTIES:
 :lg-rss: http://radiofrance-podcast.net/podcast09/rss_14312.xml
-:ld-url: http://www.radiofrance.fr/
+:lg-url-1: http://www.radiofrance.fr/
 :END:
 **** LambdaCast
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:239787249/sounds.rss
-:ld-url: https://www.patreon.com/lambdacast
+:lg-url-1: https://www.patreon.com/lambdacast
 :END:
 **** Leonardo Plus
 :PROPERTIES:
 :lg-rss: https://api.rozhlas.cz/data/v2/podcast/show/6482961.rss
-:ld-url: https://portal.rozhlas.cz/leonardo-plus-6482961
+:lg-url-1: https://portal.rozhlas.cz/leonardo-plus-6482961
 :END:
 **** Lex Fridman Podcast
 :PROPERTIES:
 :lg-rss: https://lexfridman.com/feed/podcast/
-:ld-url: https://lexfridman.com/podcast
+:lg-url-1: https://lexfridman.com/podcast
 :END:
 **** Linux Action News
 :PROPERTIES:
 :lg-rss: https://linuxactionnews.com/rss
-:ld-url: https://linuxactionnews.com
+:lg-url-1: https://linuxactionnews.com
 :END:
 **** LINUX Unplugged
 :PROPERTIES:
 :lg-rss: https://feeds.fireside.fm/linuxunplugged/rss
-:ld-url: https://linuxunplugged.com
+:lg-url-1: https://linuxunplugged.com
 :END:
 **** Magic Read Along
 :PROPERTIES:
 :lg-rss: http://www.magicreadalong.com/episode?format=rss
-:ld-url: http://www.magicreadalong.com/
+:lg-url-1: http://www.magicreadalong.com/
 :END:
 **** Maintainable
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/7y1CbAbN
-:ld-url: https://maintainable.fm
+:lg-url-1: https://maintainable.fm
 :END:
 **** Malicious Life
 :PROPERTIES:
 :lg-rss: https://malicious.life/feed/podcast/
-:ld-url: https://malicious.life
+:lg-url-1: https://malicious.life
 :END:
 **** Mobycast
 :PROPERTIES:
 :lg-rss: https://api.timber.fm/feeds/mobycast
-:ld-url: https://mobycast.fm
+:lg-url-1: https://mobycast.fm
 :END:
 **** Naked Genetics, from the Naked Scientists
 :PROPERTIES:
 :lg-rss: https://www.thenakedscientists.com/rss/naked_genetics.xml
-:ld-url: https://www.thenakedscientists.com/podcasts/naked-genetics
+:lg-url-1: https://www.thenakedscientists.com/podcasts/naked-genetics
 :END:
 **** NYC Haskell User's Group
 :PROPERTIES:
 :lg-rss: https://youtubecast.madriska.com/user/UCzNYHE7Kj6pBqq5h8LG9Zcg
-:ld-url: https://youtubecast.madriska.com/user/UCzNYHE7Kj6pBqq5h8LG9Zcg
+:lg-url-1: https://youtubecast.madriska.com/user/UCzNYHE7Kj6pBqq5h8LG9Zcg
 :END:
 **** Ockham’s Razor
 :PROPERTIES:
 :lg-rss: http://www.abc.net.au/radionational/feed/2883682/podcast.xml
-:ld-url: http://www.abc.net.au/radionational/programs/ockhamsrazor/
+:lg-url-1: http://www.abc.net.au/radionational/programs/ockhamsrazor/
 :END:
 **** omega tau - science &amp; engineering [English only]
 :PROPERTIES:
 :lg-rss: http://omegataupodcast.net/englishOnly.php
-:ld-url: http://omegataupodcast.net
+:lg-url-1: http://omegataupodcast.net
 :END:
 **** omega tau - wissenschaft &amp; technik [nur Deutsch]
 :PROPERTIES:
 :lg-rss: http://omegataupodcast.net/nurDeutsch.php
-:ld-url: http://omegataupodcast.net
+:lg-url-1: http://omegataupodcast.net
 :END:
 **** Parallel and Concurrent Haskell
 :PROPERTIES:
 :lg-rss: https://mytube.maljubeh.com/playlist?list=PLbgaMIhjbmEm_51-HWv9BQUXcmHYtl4sw
-:ld-url: https://www.youtube.com/playlist?list=PLbgaMIhjbmEm_51-HWv9BQUXcmHYtl4sw
+:lg-url-1: https://www.youtube.com/playlist?list=PLbgaMIhjbmEm_51-HWv9BQUXcmHYtl4sw
 :END:
 **** Pátečníci
 :PROPERTIES:
 :lg-rss: https://anchor.fm/s/125c68b0/podcast/rss
-:ld-url: http://www.patecnici.net/
+:lg-url-1: http://www.patecnici.net/
 :END:
 **** Planetárium
 :PROPERTIES:
 :lg-rss: https://api.rozhlas.cz/data/v2/podcast/show/6826205.rss
-:ld-url: https://portal.rozhlas.cz/planetarium-6826205
+:lg-url-1: https://portal.rozhlas.cz/planetarium-6826205
 :END:
 **** Podcast Science
 :PROPERTIES:
 :lg-rss: HTTP://feeds.feedburner.com/podcastscience
-:ld-url: http://www.podcastscience.fm
+:lg-url-1: http://www.podcastscience.fm
 :END:
 **** PodCTL - Enterprise Kubernetes
 :PROPERTIES:
 :lg-rss: https://feeds.buzzsprout.com/110399.rss
-:ld-url: http://blog.openshift.com
+:lg-url-1: http://blog.openshift.com
 :END:
 **** Reason Town
 :PROPERTIES:
 :lg-rss: https://anchor.fm/s/79070e8/podcast/rss
-:ld-url: https://reason.town
+:lg-url-1: https://reason.town
 :END:
 **** Scaling Postgres
 :PROPERTIES:
 :lg-rss: https://scalingpostgres.libsyn.com/rss
-:ld-url: https://www.scalingpostgres.com
+:lg-url-1: https://www.scalingpostgres.com
 :END:
 **** Science Café
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:11069813/sounds.rss
-:ld-url: http://www.sciencecafe.cz
+:lg-url-1: http://www.sciencecafe.cz
 :END:
 **** Sciences pour tous
 :PROPERTIES:
 :lg-rss: http://campus.univ-lyon1.fr/wp-content/uploads/podcast/podcast_sciences-pour-tous_fr-flux.xml
-:ld-url: http://sciencespourtous.univ-lyon1.fr/
+:lg-url-1: http://sciencespourtous.univ-lyon1.fr/
 :END:
 **** Self-Hosted
 :PROPERTIES:
 :lg-rss: https://feeds.fireside.fm/selfhosted/rss
-:ld-url: https://selfhosted.show
+:lg-url-1: https://selfhosted.show
 :END:
 **** Smart Drug Smarts: Brain Optimization | Nootropics | Neuroscience
 :PROPERTIES:
 :lg-rss: https://smartdrugsmarts.com/feed/podcast
-:ld-url: https://smartdrugsmarts.com
+:lg-url-1: https://smartdrugsmarts.com
 :END:
 **** Software Defined Talk
 :PROPERTIES:
 :lg-rss: https://feeds.fireside.fm/sdt/rss
-:ld-url: https://www.softwaredefinedtalk.com
+:lg-url-1: https://www.softwaredefinedtalk.com
 :END:
 **** Software Engineering Radio - the podcast for professional software developers
 :PROPERTIES:
 :lg-rss: https://seradio.libsyn.com/rss
-:ld-url: http://www.se-radio.net
+:lg-url-1: http://www.se-radio.net
 :END:
 **** Software Engineering Unlocked
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/K1_mv0CJ
-:ld-url: https://www.software-engineering-unlocked.com
+:lg-url-1: https://www.software-engineering-unlocked.com
 :END:
 **** Strange Loop
 :PROPERTIES:
 :lg-rss: https://audiobookpodcast.azurewebsites.net/List/Download/?book=Strange%20Loop
-:ld-url: http://audiobookpodcast.azurewebsites.net
+:lg-url-1: http://audiobookpodcast.azurewebsites.net
 :END:
 **** Stuff You Should Know
 :PROPERTIES:
 :lg-rss: https://feeds.megaphone.fm/stuffyoushouldknow
-:ld-url: https://www.howstuffworks.com
+:lg-url-1: https://www.howstuffworks.com
 :END:
 **** Tabs and Spaces Podcast
 :PROPERTIES:
 :lg-rss: https://tabsandspaces.libsyn.com/rss
-:ld-url: https://tabsandspaces.io
+:lg-url-1: https://tabsandspaces.io
 :END:
 **** Tech Done Right
 :PROPERTIES:
 :lg-rss: https://feeds.fireside.fm/techdoneright/rss
-:ld-url: https://www.techdoneright.io
+:lg-url-1: https://www.techdoneright.io
 :END:
 **** The Cloud Native Show
 :PROPERTIES:
 :lg-rss: https://anchor.fm/s/4474574/podcast/rss
-:ld-url: https://rackner.com
+:lg-url-1: https://rackner.com
 :END:
 **** The Frontside Podcast
 :PROPERTIES:
 :lg-rss: https://rss.simplecast.com/podcasts/96/rss
-:ld-url: https://frontside.io
+:lg-url-1: https://frontside.io
 :END:
 **** The Haskell Cast
 :PROPERTIES:
 :lg-rss: http://www.haskellcast.com/feed.xml
-:ld-url: http://www.haskellcast.com
+:lg-url-1: http://www.haskellcast.com
 :END:
 **** The InfoQ Podcast
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss
-:ld-url: http://bit.ly/1Xc6w4R
+:lg-url-1: http://bit.ly/1Xc6w4R
 :END:
 **** The K Files
 :PROPERTIES:
 :lg-rss: https://feeds.buzzsprout.com/812318.rss
-:ld-url: https://k8sfiles.com
+:lg-url-1: https://k8sfiles.com
 :END:
 **** The Naked Scientists Podcast
 :PROPERTIES:
 :lg-rss: https://www.thenakedscientists.com/naked_scientists_podcast.xml
-:ld-url: https://www.thenakedscientists.com/podcasts/naked-scientists-podcast
+:lg-url-1: https://www.thenakedscientists.com/podcasts/naked-scientists-podcast
 :END:
 **** The New Stack @ Scale
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:172286536/sounds.rss
-:ld-url: http://thenewstack.io
+:lg-url-1: http://thenewstack.io
 :END:
 **** The New Stack Analysts
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:94518611/sounds.rss
-:ld-url: http://thenewstack.io
+:lg-url-1: http://thenewstack.io
 :END:
 **** The New Stack Context
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:231433999/sounds.rss
-:ld-url: http://thenewstack.io/
+:lg-url-1: http://thenewstack.io/
 :END:
 **** The New Stack Makers
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:107605642/sounds.rss
-:ld-url: http://soundcloud.com/thenewstackmakers
+:lg-url-1: http://soundcloud.com/thenewstackmakers
 :END:
 **** The Numberphile Podcast
 :PROPERTIES:
 :lg-rss: https://www.numberphile.com/podcast?format=rss
-:ld-url: https://www.numberphile.com/podcast/
+:lg-url-1: https://www.numberphile.com/podcast/
 :END:
 **** The Privacy, Security, &amp; OSINT Show
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:261098918/sounds.rss
-:ld-url: http://soundcloud.com/user-98066669
+:lg-url-1: http://soundcloud.com/user-98066669
 :END:
 **** The Psych Files
 :PROPERTIES:
 :lg-rss: https://audioboom.com/channels/4847417.rss
-:ld-url: https://audioboom.com/channel/the-psych-files
+:lg-url-1: https://audioboom.com/channel/the-psych-files
 :END:
 **** The Readout Loud
 :PROPERTIES:
 :lg-rss: http://feeds.soundcloud.com/users/soundcloud:users:400438029/sounds.rss
-:ld-url: http://soundcloud.com/readout-loud
+:lg-url-1: http://soundcloud.com/readout-loud
 :END:
 **** The Stack Overflow Podcast
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/XA_851k3
-:ld-url: https://stackoverflow.blog/podcast/
+:lg-url-1: https://stackoverflow.blog/podcast/
 :END:
 **** The Undefined Podcast
 :PROPERTIES:
 :lg-rss: https://feeds.simplecast.com/8lcA0Is7
-:ld-url: https://undefined.fm
+:lg-url-1: https://undefined.fm
 :END:
 **** The Web Platform Podcast
 :PROPERTIES:
 :lg-rss: https://thewebplatform.libsyn.com/rss
-:ld-url: https://thewebplatformpodcast.com/
+:lg-url-1: https://thewebplatformpodcast.com/
 :END:
 **** This Week in Evolution
 :PROPERTIES:
 :lg-rss: https://twievo.libsyn.com/rss
-:ld-url: http://microbe.tv/twievo
+:lg-url-1: http://microbe.tv/twievo
 :END:
 **** This Week in Microbiology
 :PROPERTIES:
 :lg-rss: http://twimshow.microbeworld.libsynpro.com/rss
-:ld-url: http://www.asm.org/twim/
+:lg-url-1: http://www.asm.org/twim/
 :END:
 **** This Week in Virology
 :PROPERTIES:
 :lg-rss: http://twiv.microbeworld.libsynpro.com/twiv
-:ld-url: http://www.microbe.tv/twiv
+:lg-url-1: http://www.microbe.tv/twiv
 :END:
 **** Ubuntu Podcast
 :PROPERTIES:
 :lg-rss: https://ubuntupodcast.org/feed/podcast
-:ld-url: https://ubuntupodcast.org
+:lg-url-1: https://ubuntupodcast.org
 :END:
 **** Unlearn
 :PROPERTIES:
 :lg-rss: https://feeds.megaphone.fm/unlearn
-:ld-url: https://barryoreilly.com/podcast
+:lg-url-1: https://barryoreilly.com/podcast
 :END:
 **** Věda na doma
 :PROPERTIES:
 :lg-rss: https://anchor.fm/s/18ca4c58/podcast/rss
-:ld-url: https://anchor.fm/akademieved
+:lg-url-1: https://anchor.fm/akademieved
 :END:
 **** Wissenschaft | Deutsche Welle
 :PROPERTIES:
 :lg-rss: https://rss.dw.com/xml/podcast_Wissenschaft
-:ld-url: http://www.dw.de/dw/0,,12296,00.html?maca=de-podcast_wissenschaft-1688-xml-mrss
+:lg-url-1: http://www.dw.de/dw/0,,12296,00.html?maca=de-podcast_wissenschaft-1688-xml-mrss
 :END:
 **** You Are Not So Smart
 :PROPERTIES:
 :lg-rss: https://www.omnycontent.com/d/playlist/aaea4e69-af51-495e-afc9-a9760146922b/da047861-7121-4447-8ccb-ab1a00165c0e/337ad035-d2e9-4942-9e4d-ab1a00165c1c/podcast.rss
-:ld-url: http://www.youarenotsosmart.com/
+:lg-url-1: http://www.youarenotsosmart.com/
 :END:
 
 ** Videoteka
