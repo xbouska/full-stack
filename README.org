@@ -341,7 +341,7 @@ set2:
 - Optimal cache-oblivious algorithms are known for matrix multiplication, matrix transposition, sorting, and several other problems. Some more general algorithms, such as Cooley–Tukey FFT, are optimally cache-oblivious under certain choices of parameters. Because these algorithms are only optimal in an asymptotic sense (ignoring constant factors), further machine-specific tuning may be required to obtain nearly optimal performance in an absolute sense. The goal of cache-oblivious algorithms is to reduce the amount of such tuning that is required.
 - Typically, a cache-oblivious algorithm works by a recursive divide and conquer algorithm, where the problem is divided into smaller and smaller subproblems. Eventually, one reaches a subproblem size that fits into cache, regardless of the cache size. For example, an optimal cache-oblivious matrix multiplication is obtained by recursively dividing each matrix into four sub-matrices to be multiplied, multiplying the submatrices in a depth-first fashion. In tuning for a specific machine, one may use a hybrid algorithm which uses blocking tuned for the specific cache sizes at the bottom level, but otherwise uses the cache-oblivious algorithm.
 ***
-* WIP Architecture [0/17]                                            :DOMAIN:
+* WIP Architecture [0/18]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
 :END:
@@ -349,7 +349,7 @@ set2:
  *architecture* and *design*
 
 ** WIP DDD                                                           :TOPIC:
-*** bounded context                                               :TOPIC:
+*** Bounded Context                                               :TOPIC:
 *** ubiquotous language                                           :TOPIC:
 *** Entity and Value Object                                       :TOPIC:
 ** WIP Messaging                                           :TOPIC:
@@ -624,7 +624,7 @@ Consider following status codes:
 *** CQRS
 *** Single source of truth
 
-** WIP Patterns: (Enterprise Architecture Integration Patterns) [0/4]
+** WIP Enterprise Architecture Integration Patterns [0/4]
 *** WIP Integration Styles:
 **** TODO File Transfer
 **** TODO Shared Database
@@ -647,7 +647,30 @@ Consider following status codes:
 *** TODO Orchestration
 - centralized decision making
   - orchestration objects implements state machine and invokes the participants
-** TODO Patterns: Architectural
+** WIP Types of uservices design pattrns [0/6]
+:PROPERTIES:
+:learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
+:END:
+#+call: lg-get-props-entry()
+*** WIP Communication
+- It concerns the methods of communication between microservices and client apps (the frontend layer).
+*** WIP Internal communication
+- These design patterns constitute various ways microservices can communicate between each other.
+*** WIP Security
+- A variety of security-related concerns, such as the organization of the security layer, authorization and level of access to particular microservices for different types of users, etc.
+*** WIP Availability
+- Ensuring that all microservices are ready to address the needs of the system (regardless of how intense the traffic is), ensuring the lowest possible downtime. This includes activities such as making sure microservices can restart on another machine, or whether enough machines are available, microservices being able to report their current states on their own, health checks and more.
+*** WIP Service discovery
+- It refers to the methods microservices use to find each other and make their locations known.
+*** WIP Configuration
+- Setting parameters and monitoring the performance of the entire system to continuously optimize it as you go
+** TODO Microservices Design Patterns [/]
+:PROPERTIES:
+:learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
+:END:
+#+call: lg-get-props-entry()
+
+*** API Gateway
 *** Circuit Breaker
 *** CQRS
 *** Event Sourcing
@@ -1316,7 +1339,7 @@ Some of the key principles of the Third Way are:
 *** TODO apt
 *** TODO ssh
 **** TODO how to create trust between computers
-**** TODO tarpit
+*** TODO tarpit
 *** TODO awk
 :PROPERTIES:
 :learning_1: https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux
@@ -1375,11 +1398,10 @@ ip route sh
 *** Git                                                             :TOPIC:
 **** What is the use of Staging area or Indexing in Git?        :QUESTION:
 :ANSWER:
-From Git’s perspective, there are three areas where the file changes can be kept i.e.:
-- working directory,
-- staging area, and
-- repository.
-
+- From Git’s perspective, there are three areas where the file changes can be kept i.e.:
+  - working directory,
+  - staging area, and 
+  - repository.
 
 - First, you make changes in your project’s working directory stored on your computer file system.
 - All the changes remain here until you add them to an intermediate area called staging area.
@@ -1402,12 +1424,12 @@ From Git’s perspective, there are three areas where the file changes can be ke
 - You can use the git status command to see what’s in the index.
 :END:
 **** TODO squash? Waht it is? whan to use it awht it is good for?
-**** TODO pull-request
-**** TODO cherry pick
-**** TODO flow
-**** TODO git push
-**** TODO rebase vs merge - semantical and syntactical diff
-**** TODO stash
+**** TODO Pull request
+**** TODO Cherry pick
+**** TODO Flow
+**** TODO Push
+**** TODO Rebase vs Merge - semantical and syntactical diff
+**** TODO Stash
 *** WIP DNS                                                         :TOPIC:
 :PROPERTIES:
 :learning_1: https://www.freshersemploy.com/dns-interview-questions-answers/
@@ -1419,28 +1441,21 @@ From Git’s perspective, there are three areas where the file changes can be ke
 - It is used for storing the information for the domain name to IP and IP to the domain name. In other words, the name server is used for storing records of the domain names, Name servers help for convert domain name to IP address.
 **** What is DNS Spoofing?
 - DNS Spoofing occurs when a hacker is redirecting website traffic maliciously to spread the malware or to compromise the user's data through forged DNS record.
-
 - When a user visits a website(like freshersemploy.com) in a browser, it needs to be resolved from human-readable to machine-readable(i.e. IP addresses) using DNS resolver. To decrease the time and resolve faster, DNS resolvers cache the data and store for a specific time(until it expires). An attacker can inject forged DNS entry, thus causing DNS Cache Poisoning and instead of freshersemploy.com, the attacker will redirect it to the wrong domain or fake website.
 **** How can we prevent DNS Spoofing?
-
-DNS Spoofing or DNS Cache Poisoning can be avoided by following guidelines:
-
-- From a users point of view, it is almost impossible for users to detect whether the DNS records are compromised, but users should be alerted when accessing the sites like banking, payment website where credit card details are used by checking the domain name in the browser and does it have a valid SSL certificate.
-- Domain owner and DNS provider cannot avoid DNS Spoofing but surely can take protective measures to avoid the compromise of DNS records.
-  - Using Domain Name System Security Extensions(DNSSEC) which helps in determining the DNS records authenticity by signing each request with certified signature and this is recommended by ICANN. Still this in process of implementation.
+- DNS Spoofing or DNS Cache Poisoning can be avoided by following guidelines:
+  - From a users point of view, it is almost impossible for users to detect whether the DNS records are compromised, but users should be alerted when accessing the sites like banking, payment website where credit card details are used by checking the domain name in the browser and does it have a valid SSL certificate.
+  - Domain owner and DNS provider cannot avoid DNS Spoofing but surely can take protective measures to avoid the compromise of DNS records.
+    - Using Domain Name System Security Extensions(DNSSEC) which helps in determining the DNS records authenticity by signing each request with certified signature and this is recommended by ICANN. Still this in process of implementation.
 **** What is Round Robin DNS? What is the purpose of it?
-
-Round Robin DNS is a technique for load distribution, load balancing, fault-tolerance service such as mail server, FTP server etc. which enables
-distribution of load evenly among multiple servers using various DNS A addresses.
-
-Suppose a domain abc.com is configured with Round robin DNS which has 3 potential IP mapping to the same domain(i.e. freshersemploy.com) as follows:
-
-- freshersemploy.com -- 104.28.26.01
-- freshersemploy.com -- 104.28.26.02
-- freshersemploy.com -- 104.28.26.03
-
-Then the first request will go to 104.28.26.01, the second request will go to 104.28.26.02 and the third request will go to 104.28.26.03, thus DNS
-queries are responded by returning IP addresses in a rotation.
+- Round Robin DNS is a technique for load distribution, load balancing, fault-tolerance service such as mail server, FTP server etc. which enables istribution of load evenly among multiple servers using various DNS A addresses.
+- Suppose a domain abc.com is configured with Round robin DNS which has 3 potential IP mapping to the same domain(i.e. freshersemploy.com) as follows:
+#+begin_example
+freshersemploy.com -- 104.28.26.01
+freshersemploy.com -- 104.28.26.02
+freshersemploy.com -- 104.28.26.03
+#+end_example
+- Then the first request will go to ~104.28.26.01~, the second request will go to ~104.28.26.02~ and the third request will go to ~104.28.26.03~, thus DNS queries are responded by returning IP addresses in a rotation.
 **** What is primary and secondary name server?
 - Primary name server reads the data from the domain zone, it has DNS records of domain names and it replicates the data with the secondary name server.
 - A secondary name server is the back up of primary name server which is used for high reliability, in case the primary name server is having an issue or not reachable.
@@ -1747,7 +1762,7 @@ Target to a link:
 :learning_1:  https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html
 :END:
 #+call: lg-get-props-entry()
-**** Cookie Types
+**** COMPETE Cookie Types
 :ANSWER:
 - Two Types of Cookies
 - *Session cookies*
@@ -1781,28 +1796,28 @@ Target to a link:
 :END:
 #+call: lg-get-props-entry()
 *** TODO Less
-*** WIP CORS
+*** WIP CORS [0/5]
 :PROPERTIES:
 :learning_1: https://www.codecademy.com/articles/what-is-cors
 :learning_2: https://dev.to/ahmedatefae/web-security-knowledge-you-must-understand-it-part-i-https-tls-ssl-cors-csp-298l
 :END:
 #+call: lg-get-props-entry()
-**** what is CORS                                               :QUESTION:
+**** WIP what is CORS                                           :QUESTION:
 :ANSWER:
 - Cross-Origin Resource Sharing (CORS) is a mechanism that uses HTTP headers to specify:
   - which outer origin have access to the local assets and
   - how can access it
   - that is mean we can make a white list for the allowed Cross-Origins that has access to our assets.
 :END:
-**** How CORS works?                                            :QUESTION:
+**** WIP How CORS works?                                        :QUESTION:
 :ANSWER:
 - when the site makes a get request to get resource from the out server, the browser adds a header that contains the origin like the example Origin: http://www.example.com.
 - The server receives the preflight request and searches in its white-list for Access-Control-Allow-Origins about the giving origin and sends to the browser option call, then the browser will determine if the actual request is safe to send or not, example Access-Control-Allow-Origin: http://www.example.com or this header Access-Control-Allow-Origin: * will allow any request to take the resource.
 - if the server specifies the Methods it will compare the request method with its example Access-Control-Allow-Methods: PUT, DELETE.
 :END:
-**** Why is CORS necessary?                                     :QUESTION:
-**** How Does CORS Manage Requests From External Resources?     :QUESTION:
-**** What http headers were added by CORS?                      :QUESTION:
+**** TODO Why is CORS necessary?                                :QUESTION:
+**** TODO How Does CORS Manage Requests From External Resources? :QUESTION:
+**** WIP What http headers were added by CORS?                  :QUESTION:
 :ANSWER:
 #+begin_src html
 Access-Control-Allow-Origin
@@ -2067,8 +2082,12 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** WIP CSRF / XSRF
 :PROPERTIES:
 :learning_1: https://owasp.org/www-community/attacks/csrf
+:learning_2: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+:learning_3: http://www.adambarth.com/papers/2008/barth-jackson-mitchell-b.pdf
+:learning_4: https://devnet.kentico.com/articles/protection-against-cross-site-request-forgery-%28csrf-xsrf%29
 :END:
 #+call: lg-get-props-entry()
+
 ** TODO bastillion.io
 ** TODO PKI
 ** WIP X509
