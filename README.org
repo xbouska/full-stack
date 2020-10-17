@@ -64,12 +64,12 @@
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTRE
-* WIP Software Engineering [0/2]                                     :DOMAIN:
+* WIP Software Engineering [0/4]                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: SOFTWARE_ENGINEERING
 :END:
 
-** WIP bit / byte / endian / float
+** WIP Number Encoding
 *** XOR, OR, AND, Shift (logical vs aritmetic)
 *** one's complement
 *** two's complements
@@ -80,39 +80,7 @@
 **** Explain risk of using floating point in business programming :QUESTION:
 *** Endiannes
 *** binary / octal / hex
-** WIP TCP/IP
-*** IPv4 address / netmask / CIDR
-**** Calculate netmask
-**** Special IPv4 Ranges
-:PROPERTIES:
-:learning_1: https://en.wikipedia.org/wiki/IPv4#Special-use_addresses
-:END:
-#+call: lg-get-props-entry()
-
-|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Address block      | Address range               | Number of addresses | Scope           | Description                                                                                                                                                                   |
-|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.0.0.0/8          | 0.0.0.0–0.255.255.255       |            16777216 | Software        | Current network[3] (only valid as source address).                                                                                                                            |
-| 10.0.0.0/8         | 10.0.0.0–10.255.255.255     |            16777216 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
-| 100.64.0.0/10      | 100.64.0.0–100.127.255.255  |             4194304 | Private network | Shared address space[5] for communications between a service provider and its subscribers when using a carrier-grade NAT.                                                     |
-| 127.0.0.0/8        | 127.0.0.0–127.255.255.255   |            16777216 | Host            | Used for loopback addresses to the local host.[3]                                                                                                                             |
-| 169.254.0.0/16     | 169.254.0.0–169.254.255.255 |               65536 | Subnet          | Used for link-local addresses[6] between two hosts on a single link when no IP address is otherwise specified, such as would have normally been retrieved from a DHCP server. |
-| 172.16.0.0/12      | 172.16.0.0–172.31.255.255   |             1048576 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
-| 192.0.0.0/24       | 192.0.0.0–192.0.0.255       |                 256 | Private network | IETF Protocol Assignments.[3]                                                                                                                                                 |
-| 192.0.2.0/24       | 192.0.2.0–192.0.2.255       |                 256 | Documentation   | Assigned as TEST-NET-1, documentation and examples.[7]                                                                                                                        |
-| 192.88.99.0/24     | 192.88.99.0–192.88.99.255   |                 256 | Internet        | Reserved.[8] Formerly used for IPv6 to IPv4 relay[9] (included IPv6 address block 2002::/16).                                                                                 |
-| 192.168.0.0/16     | 192.168.0.0–192.168.255.255 |               65536 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
-| 198.18.0.0/15      | 198.18.0.0–198.19.255.255   |              131072 | Private network | Used for benchmark testing of inter-network communications between two separate subnets.[10]                                                                                  |
-| 198.51.100.0/24    | 198.51.100.0–198.51.100.255 |                 256 | Documentation   | Assigned as TEST-NET-2, documentation and examples.[7]                                                                                                                        |
-| 203.0.113.0/24     | 203.0.113.0–203.0.113.255   |                 256 | Documentation   | Assigned as TEST-NET-3, documentation and examples.[7]                                                                                                                        |
-| 224.0.0.0/4        | 224.0.0.0–239.255.255.255   |           268435456 | Internet        | In use for IP multicast.[11] (Former Class D network).                                                                                                                        |
-| 240.0.0.0/4        | 240.0.0.0–255.255.255.254   |           268435455 | Internet        | Reserved for future use.[12] (Former Class E network).                                                                                                                        |
-| 255.255.255.255/32 | 255.255.255.255             |                   1 | Subnet          | Reserved for the "limited broadcast" destination address.[3][13]                                                                                                              |
-
-`** I18N
-*** iso-639
-*** bcp-47 / rfc-5646
-** Unicode
+** WIP Text Encodings
 *** What is unicode
 :PROPERTIES:
 :learning_1:  http://www.unicode.org/standard/WhatIsUnicode.html
@@ -123,8 +91,133 @@
 - The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
 *** utf-8
 *** ASCII
+|----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+|    | _0   | _1   | _2   | _3   | _4   | _5   | _6   | _7   | _8   | _9   | _A   | _B   | _C   | _D   | _E   | _F   |
+|----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+| 0_ | NUL  | SOH  | STX  | ETX  | EOT  | ENQ  | ACK  | BEL  | BS   | HT   | LF   | VT   | FF   | CR   | SO   | SI   |
+|  0 | 0000 | 0001 | 0002 | 0003 | 0004 | 0005 | 0006 | 0007 | 0008 | 0009 | 000A | 000B | 000C | 000D | 000E | 000F |
+|----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+| 1_ | DLE  | DC1  | DC2  | DC3  | DC4  | NAK  | SYN  | ETB  | CAN  | EM   | SUB  | ESC  | FS   | GS   | RS   | US   |
+| 16 | 0010 | 0011 | 0012 | 0013 | 0014 | 0015 | 0016 | 0017 | 0018 | 0019 | 001A | 001B | 001C | 001D | 001E | 001F |
+|----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+| 2_ | SP   |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 32 |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+|----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+
+0020	!
+0021	"
+0022	#
+0023	$
+0024	%
+0025	&
+0026	'
+0027	(
+0028	)
+0029	*
+002A	+
+002B	,
+002C	-
+002D	.
+002E	/
+002F
+3_
+48	0
+0030	1
+0031	2
+0032	3
+0033	4
+0034	5
+0035	6
+0036	7
+0037	8
+0038	9
+0039	:
+003A	;
+003B	<
+003C	=
+003D	>
+003E	?
+003F
+4_
+64	@
+0040	A
+0041	B
+0042	C
+0043	D
+0044	E
+0045	F
+0046	G
+0047	H
+0048	I
+0049	J
+004A	K
+004B	L
+004C	M
+004D	N
+004E	O
+004F
+5_
+80	P
+0050	Q
+0051	R
+0052	S
+0053	T
+0054	U
+0055	V
+0056	W
+0057	X
+0058	Y
+0059	Z
+005A	[
+005B	\
+005C	]
+005D	^
+005E	_
+005F
+6_
+96	`
+0060	a
+0061	b
+0062	c
+0063	d
+0064	e
+0065	f
+0066	g
+0067	h
+0068	i
+0069	j
+006A	k
+006B	l
+006C	m
+006D	n
+006E	o
+006F
+7_
+112	p
+0070	q
+0071	r
+0072	s
+0073	t
+0074	u
+0075	v
+0076	w
+0077	x
+0078	y
+0079	z
+007A	{
+007B	|
+007C	}
+007D	~
+007E	DEL
+007F
+
+
 *** EBCDIC
-** Data Serialization Formats [0/5]
+** I18N
+*** iso 3169
+*** iso-639
+*** bcp-47 / rfc-5646
+** WIP Data Serialization Formats [0/5]
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats
 :END:
@@ -311,14 +404,27 @@ set2:
 *** TODO xml
 *** TODO protobuf
 *** TODO ASN.1
-** Code complexity
-*** Code complexity (big O)
-*** Amortized complexity
+** WIP Complexity [0/2]
+*** TODO Code complexity (big O)
+*** WIP Amortized Analysis 
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Amortized_analysis
+:END:
+#+call: lg-get-props-entry()
++ method for analyzing a given algorithm's complexity, or how much of a resource, especially time or memory, it takes to execute. The motivation for amortized analysis is that looking at the worst-case run time per operation, rather than per algorithm, can be too pessimistic.[1]
++ While certain operations for a given algorithm may have a significant cost in resources, other operations may not be as costly. The amortized analysis considers both the costly and less costly operations together over the whole series of operations of the algorithm. This may include accounting for different types of input, length of the input, and other factors that affect its performance.[2]
 ** Basic Data Structures
 *** List
 *** Set
 *** Map
+*** Queue
 *** Tree
+*** Finger Tree 
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/Finger_tree
+:END:
+#+call: lg-get-props-entry()
+- is a purely functional data structure that can be used to efficiently implement other functional data structures. A finger tree gives amortized constant time access to the "fingers" (leaves) of the tree, which is where data is stored, and concatenation and splitting logarithmic time in the size of the smaller piece. It also stores in each internal node the result of applying some associative operation to its descendants. This "summary" data stored in the internal nodes can be used to provide the functionality of data structures other than trees.
 *** Trie
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Trie
@@ -370,6 +476,11 @@ set2:
 **** TODO RabbbitMQ
 **** TODO Kafka
 **** WIP Redis
+:PROPERTIES:
+:learning_1: https://redis.io/topics/introduction
+:END:
+#+call: lg-get-props-entry()
+
 - Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
 - You can run atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing an element to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set.
 - In order to achieve its outstanding performance, Redis works with an in-memory dataset. Depending on your use case, you can persist it either by dumping the dataset to disk every once in a while, or by appending each command to a log. Persistence can be optionally disabled, if you just need a feature-rich, networked, in-memory cache.
@@ -552,7 +663,7 @@ Consider following status codes:
 *** TODO HATEOAS
 ** TODO GraphQL
 ** WIP 12 Factor Apps
-:PROPERTIES:
+:=PROPERTIES:
 :learning_1: https://12factor.net/
 :END:
 #+call: lg-get-props-entry()
@@ -647,7 +758,7 @@ Consider following status codes:
 *** TODO Orchestration
 - centralized decision making
   - orchestration objects implements state machine and invokes the participants
-** WIP Types of uservices design pattrns [0/6]
+** WIP μ-Services design patterns classes [0/6]
 :PROPERTIES:
 :learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
 :END:
@@ -664,7 +775,7 @@ Consider following status codes:
 - It refers to the methods microservices use to find each other and make their locations known.
 *** WIP Configuration
 - Setting parameters and monitoring the performance of the entire system to continuously optimize it as you go
-** TODO Microservices Design Patterns [/]
+** TODO μ-Services Design Patterns [/]
 :PROPERTIES:
 :learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
 :END:
@@ -739,17 +850,16 @@ Consider following status codes:
 :END:
 #+call: lg-get-props-entry()
 :ANSWER:
-- atomicity
-- consistency
-- isolation
-- durability
+- A ::  atomicity
+- C :: consistency
+- I :: isolation
+- D :: durability
 :END:
 *** WIP BASE
-**** what does it mean?                                         :QUESTION:
 :ANSWER:
-- Basic Availability
-- Soft-state
-- Eventual consistency
+- BA :: Basic Availability
+- S :: Soft-state
+- E :: Eventual consistency
 :END:
 *** ORM
 **** What ORM (object-relational-mapping ) means                :QUESTION:
@@ -762,9 +872,21 @@ Consider following status codes:
 - The object-relational impedance mismatch is a set of conceptual and technical difficulties that are often encountered when a relational database management system (RDBMS) is being served by an application program (or multiple application programs) written in an object-oriented programming language or style.
 - particularly because objects or class definitions must be mapped to database tables defined by a relational schema.
 :END:
-**** bottom up                                                  :QUESTION:
-**** tom down                                                   :QUESTION:
-**** meet in the middle                                         :QUESTION:
+**** Bottom Up                                          :QUESTION:CONCEPT:
+:PROPERTIES:
+:CUSTOM_ID: BOTTOM_UP
+:END:
+#+call: lg-get-props-entry()
+**** Top Down                                           :QUESTION:CONCEPT:
+:PROPERTIES:
+:CUSTOM_ID: TOP_DOWN
+:END:
+#+call: lg-get-props-entry()
+**** Meet in the Middle                                 :QUESTION:CONCEPT:
+:PROPERTIES:
+:CUSTOM_ID: MEET_IN_THE_MIDDLE
+:END:
+#+call: lg-get-props-entry()
 *** CAP theorem
 :PROPERTIES:
 :learning_1: https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e
@@ -1331,6 +1453,35 @@ Some of the key principles of the Third Way are:
 - *Lean.* Development teams are making use of lean principles to eliminate waste and optimize the value stream, such as minimizing WIP, making work visible, and reducing hand-off complexity and wait times.
 - *Measurement.* The organization is devoted to collecting data on their processes, deployments, etc., in order to understand their current capabilities and where improvements could be achieved.
 - *Sharing.* A culture of openness and sharing within and between teams (and enabled with the proper tools) keeps everyone working toward the same goals and eases friction with hand-offs when issues arise.
+** * WIP TCP/IP
+*** IPv4 address / netmask / CIDR
+**** Special IPv4 Ranges
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/IPv4#Special-use_addresses
+:END:
+#+call: lg-get-props-entry()
+
+|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Address block      | Address range               | Number of addresses | Scope           | Description                                                                                                                                                                   |
+|--------------------+-----------------------------+---------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.0.0.0/8          | 0.0.0.0–0.255.255.255       |            16777216 | Software        | Current network[3] (only valid as source address).                                                                                                                            |
+| 10.0.0.0/8         | 10.0.0.0–10.255.255.255     |            16777216 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 100.64.0.0/10      | 100.64.0.0–100.127.255.255  |             4194304 | Private network | Shared address space[5] for communications between a service provider and its subscribers when using a carrier-grade NAT.                                                     |
+| 127.0.0.0/8        | 127.0.0.0–127.255.255.255   |            16777216 | Host            | Used for loopback addresses to the local host.[3]                                                                                                                             |
+| 169.254.0.0/16     | 169.254.0.0–169.254.255.255 |               65536 | Subnet          | Used for link-local addresses[6] between two hosts on a single link when no IP address is otherwise specified, such as would have normally been retrieved from a DHCP server. |
+| 172.16.0.0/12      | 172.16.0.0–172.31.255.255   |             1048576 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 192.0.0.0/24       | 192.0.0.0–192.0.0.255       |                 256 | Private network | IETF Protocol Assignments.[3]                                                                                                                                                 |
+| 192.0.2.0/24       | 192.0.2.0–192.0.2.255       |                 256 | Documentation   | Assigned as TEST-NET-1, documentation and examples.[7]                                                                                                                        |
+| 192.88.99.0/24     | 192.88.99.0–192.88.99.255   |                 256 | Internet        | Reserved.[8] Formerly used for IPv6 to IPv4 relay[9] (included IPv6 address block 2002::/16).                                                                                 |
+| 192.168.0.0/16     | 192.168.0.0–192.168.255.255 |               65536 | Private network | Used for local communications within a private network.[4]                                                                                                                    |
+| 198.18.0.0/15      | 198.18.0.0–198.19.255.255   |              131072 | Private network | Used for benchmark testing of inter-network communications between two separate subnets.[10]                                                                                  |
+| 198.51.100.0/24    | 198.51.100.0–198.51.100.255 |                 256 | Documentation   | Assigned as TEST-NET-2, documentation and examples.[7]                                                                                                                        |
+| 203.0.113.0/24     | 203.0.113.0–203.0.113.255   |                 256 | Documentation   | Assigned as TEST-NET-3, documentation and examples.[7]                                                                                                                        |
+| 224.0.0.0/4        | 224.0.0.0–239.255.255.255   |           268435456 | Internet        | In use for IP multicast.[11] (Former Class D network).                                                                                                                        |
+| 240.0.0.0/4        | 240.0.0.0–255.255.255.254   |           268435455 | Internet        | Reserved for future use.[12] (Former Class E network).                                                                                                                        |
+| 255.255.255.255/32 | 255.255.255.255             |                   1 | Subnet          | Reserved for the "limited broadcast" destination address.[3][13]                                                                                                              |
+
+
 ** TODO Linux [0/36]
 *** TODO cron
 *** TODO runlevel / init / inittab
@@ -2404,28 +2555,23 @@ try {
 About scopes
 - Note: You must be using npm version 2 or greater to use scopes. To upgrade to the latest version of npm, on the command line, run npm install npm@latest -g
 - When you sign up for an npm user account or create an Org, you are granted a scope that matches your user or Org name. You can use this scope as a namespace for related packages.
-
 - A scope allows you to create a package with the same name as a package created by another user or Org without conflict.
-
 - When listed as a dependent in a package.json file, scoped packages are preceded by their scope name. The scope name is everything between the @ and the slash:
 
 - “npm” scope:
-#+begin_src
+#+begin_example
 @npm/package-name
-#+end_src
+#+end_example
 - “npmcorp” scope:
-#+begin_src
+#+begin_example
 @npmcorp/package-name
-#+end_src
+#+end_example
 - To create and publish public scoped packages, see “Creating and publishing scoped public packages”.
-
 - To create and publish private scoped packages, see “Creating and publishing private packages”.
-
 - Scopes and package visibility§
   - Unscoped packages are always public.
   - Private packages are always scoped.
   - Scoped packages are private by default; you must pass a command-line flag when publishing to make them public.
-
 - For more information on package scope and visibility, see “Package scope, access level, and visibility”.
 *** yarn
 *** nvm
@@ -2439,7 +2585,16 @@ About scopes
 *** Type systems
 **** strongly typed
 **** weakly typed
-* WIP Libraries and Frameworks
+*** Parameter passing
+**** Pass by Reference
+**** Pass By Name
+**** Pass By Value
+*** Recursion
+**** Tail call Optimization
+*** Evaluation type
+**** Lazy Evaluation
+**** Strict Evaluation
+* WIP Libraries and Frameworks                                       :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LIBRARIES_AND_RAMEWORKS
 :END:
@@ -2687,6 +2842,10 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 - [[#YT:8NzkYsY7TOk][Making Security an integrated part of the SW Dev Lifecycle]]
 
 ** WIP Books
+:PROPERTIES:
+:CUSTOM_ID: BOOKS
+:END:
+#+call: lg-get-props-entry()
 *** Gene Kim, Patrick Debois, John Willis, Jez Humble: The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations :AUDIBLE:BOOK:
 - Increase profitability, elevate work culture, and exceed productivity goals through DevOps practices....
 
@@ -2695,7 +2854,6 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :CUSTOM_ID: Thinking, Fast and Slow
 :END:
 - The guru to the gurus at last shares his knowledge with the rest of us....
-
 *** Nassim Nicholas Taleb: The Black Swan, Second Edition: The Impact of the Highly Improbable: :AUDIBLE:BOOK:
 - (With a new section: "On Robustness and Fragility": Incerto, Book 2)
   - A black swan is a highly improbable event with three principal characteristics: It is unpredictable;
@@ -2781,7 +2939,7 @@ With this compulsively readable little book, you won't just read about the histo
 - obtained throughput
   - natural capability
 
-* WIP Big Names        [0/24]                                        :DOMAIN:
+* WIP Big Names        [0/25]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -2879,6 +3037,7 @@ https://youtu.be/j0XmixCsWjs
 :END:
 #+call: lg-get-props-entry()
 
+** TODO Elizabeth STOKOE
 ** WIP Linda RISING
 - Linda Rising is an independent consultant who lives near Nashville, Tennessee. Linda has a Ph.D. from Arizona State University in object-based design metrics. Her background includes university teaching as well as work in industry in telecommunications, avionics, and tactical weapons systems. She is an internationally known presenter on topics related to agile development, patterns, retrospectives, the change process, and the connection between the latest neuroscience and software development. Linda is the author of numerous articles and five books. The latest, More Fearless Change, co-authored with Mary Lynn Manns. Her web site is: www.lindarising.org
 - [[#vimeo:325143661][Meeting resistance and moving forward — Linda Rising]]
@@ -2904,14 +3063,19 @@ The moral aspects
 :PROPERTIES:
 :learning_1: https://ethics.acm.org/
 :END:
-* WIP Concepts and Terms [0/12]                                      :DOMAIN:
-:PROPERTIES:
+* WIP Concepts and Terms [0/15]                                      :DOMAIN:
 :CUSTOM_ID: CONCEPTS
 :END:
 #+call: lg-get-props-entry()
-
 ** TODO Regression to the Mean                                     :CONCEPT:
+:PROPERTIES:
+:CUSTOM_ID: REGRESSION_TO_THE_MEAN
+:END:
+#+call: lg-get-props-entry()
 ** TODO Fat Tail Distribution                                      :CONCEPT:
+:PROPERTIES:
+:CUSTOM_ID: FAT_TAIL_DISTRIBUTION
+:END:
 ** TODO Data Driven Decision                                       :CONCEPT:
 ** TODO Shift Left                                                 :CONCEPT:
 - like shift left security
@@ -2927,9 +3091,12 @@ The moral aspects
 :learning_1: https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7
 :END:
 #+call: lg-get-props-entry()
+** TODO Strict vs Lazy Evaluation                                  :CONCEPT:
+** TODO Overqualified Query                                        :CONCEPT:
+** TODO Access Intent                                              :CONCEPT:
 * WIP Commented Resources                                           :CHAPTER:
 ** WIP Videos [/]                                        :CHAPTER:
-*** YouTube [0/11]
+*** YouTube [0/14]
 **** WIP GOTO 2018 • Old Is the New New • Kevlin Henney
 :PROPERTIES:
 :author:   Kevlin Henney
@@ -3346,6 +3513,13 @@ Quality is a characteristic of a relationship with customers
 - https://youtu.be/059NNng5BUQ 
 - http://www.postgresqltutorial.com/postgresql-identity-column/
 - YouTube | FOSDEM
+**** TODO CSAR: Prof. Elizabeth Stokoe  
+https://www.youtube.com/watch?v=-1TUF5N1b7E
+**** TODO The Interactional 'Nudge' - Talking About Talk 
+https://www.youtube.com/watch?v=e-QbxjXDwXU
+**** TODO Q&A - The Interactional Nudge - With Elizabeth Stokoe 
+https://www.youtube.com/watch?v=nrV0OWSJDHU
+
 
 
 *** Vimeo [0/1]
@@ -3510,10 +3684,11 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 :header-args+: :results value table raw replace
 :header-args+: :exports results
 :header-args+: :eval export
+:CUSTOM_ID: INDEX
 :END:
 ** Learning Links
 :PROPERTIES:
-:header-args+: :var cols='(ITEM LEARNING_1)
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
 :header-args+: :var colnames='(Item ref)
 :END:
 #+name: collector-learning
@@ -3524,7 +3699,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+call:collector-learning()
 ** YouTube Videos
 :PROPERTIES:
-:header-args+: :var cols='(ITEM LG-YT-URL)
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-YT-URL)
 :header-args+: :var colnames='(Item ref)
 :END:
 #+name: collector-yt
@@ -3532,13 +3707,10 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
   (let ((org-propview-default-value "N/D"))
     (org-propview-collect cols "%S" '((boundp 'LG-YT-URL)) nil nil nil colnames ))
 #+end_src
-
-
 #+call:collector-yt()
-
 ** SE-Radio Podcast Episodes
 :PROPERTIES:
-:header-args+: :var cols='(ITEM LG-SE-RADIO-URL)
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-SE-RADIO-URL)
 :header-args+: :var colnames='(Item ref)
 :END:
 #+name: collector-se-radio
@@ -3546,12 +3718,10 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
   (let ((org-propview-default-value "N/D"))
     (org-propview-collect cols "%S" '((boundp 'LG-SE-RADIO-URL)) nil nil nil colnames ))
 #+end_src
-
 #+call:collector-se-radio()
-
 ** Concepts
 :PROPERTIES:
-:header-args+: :var cols='(ITEM LG-SE-RADIO-URL)
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
 :header-args+: :var colnames='(Item ref)
 :END:
 #+name: collector-concepts
@@ -3562,7 +3732,7 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+call:collector-concepts()
 ** Books
 :PROPERTIES:
-:header-args+: :var cols='(ITEM LG-BOOK-SUBJECT)
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "BOOKS") ITEM) LG-BOOK-SUBJECT)
 :header-args+: :var colnames='(Item ref)
 :END:
 #+name: collector-books
