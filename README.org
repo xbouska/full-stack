@@ -2147,7 +2147,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 *** TODO hydra
 *** TODO nmap
 *** TODO nessus
-* WIP Languages & programming [0/11]                                 :DOMAIN:
+* WIP Programming Languages [0/13]                                   :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LANGUAGES
 :END:
@@ -2185,7 +2185,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 **** hylomorphisms
 **** paramorphisms
 
-** WIP Objecht Oriented Programming                                  :TOPIC:
+** WIP Object Oriented Programming                                  :TOPIC:
 *** Polymorphism
 *** Gof Design Patterns
 **** Creational Design Patterns
@@ -2241,8 +2241,8 @@ There are 11 behavioral design patterns defined in the GoF design patterns.
 :END:
 #+call: lg-get-props-entry()
 ** WIP TypeScript                                                    :TOPIC:
-** WIP Java                                                          :TOPIC:
-*** Basic Java
+** WIP Java                                                          :TOPIC: 
+*** Basics
 **** hashCode()
 ***** is this code wrong? yes / no / why                       :QUESTION:
 Imagine you replace all haskCode implementation by this - what will happen
@@ -2376,152 +2376,6 @@ try {
 - Nebo o tooly jako Lombok, které potřebujeme při kompilaci a nepotřebujeme na runtimu
 :END:
 *** TODO Gradle
-*** Spring & Spring Boot
-:PROPERTIES:
-:learning_1:  https://www.baeldung.com/spring-interview-questions
-:END:
-#+call: lg-get-props-entry()
-**** Jaký je rozdíl mezi JavaEE a Springem?                     :QUESTION:
-- JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
-- Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
-**** Difference between spring and spting boot                 :QUESTION:
-**** Co přinesl Spring Boot do Spring ekosystému?               :QUESTION:
-:ANSWER:
-- Strašně zjednodušený start aplikace.
-- Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".
-- Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
-- V každém případě je to one liner.
-- Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
-:END:
-**** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem? :QUESTION:
-:ANSWER:
-- JavaEE to má implicitní a Spring explicitní
-- V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
-- Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá.
-- Zapínáme si je explicitně pomocí anotace.
-:END:
-**** How Would You Enable Transactions in Spring and What Are Their Benefits? :QUESTION:
-:ANSWER:
-There are two distinct ways to configure Transactions:
-- with *annotations* or
-- by using *Aspect Oriented Programming* (AOP)  each with their advantages.
-
-The benefits of using Spring Transactions, according to the official docs, are:
-
-- Provide a consistent programming model across different transaction APIs such as JTA, JDBC, Hibernate, JPA, and JDO
-- Support declarative transaction management
-- Provide a simpler API for programmatic transaction management than some complex transaction APIs such as JTA
-- Integrate very well with Spring's various data access abstractions
-:END:
-**** What is the difference betweek JPA and Hibernate?          :QUESTION:
-:ANSWER:
-- JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
-- Hibernate is an implementation of Java Persistence API and offers benefits of loose coupling
-:END:
-**** Can use jetty instead of tomcat in spring-boot-starter-web? :QUESTION:
-:ANSWER:
-- Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:
-#+begin_src xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-    <exclusions>
-        <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-jetty</artifactId>
-</dependency>
-#+end_src
-:END:
-**** What Is Reactive Programming?                              :QUESTION:
-:ANSWER:
-- Reactive programming is about:
-  - non-blocking,
-  - event-driven applications that
-  - scale with a small number of threads, with
-  - back pressure being a key ingredient that aims to ensure producers don't overwhelm consumers.
-
-- The primary benefits of reactive programming are:
-
-- increased utilization of computing resources on multicore and multi-CPU hardware
-- and increased performance by reducing serialization
-- Reactive programming is generally event-driven, in contrast to reactive systems, which are message-driven.
-- Thus, using reactive programming does not mean we're building a reactive system, which is an architectural style.
-
-However, reactive programming may be used as a means to implement reactive systems if we follow the Reactive Manifesto, which is quite vital to understand.
-
-- Based on this, reactive systems have four important characteristics:
-  - Responsive: the system should respond in a timely manner
-  - Resilient: in case the system faces any failure, it should stay responsive
-  - Elastic: reactive systems can react to changes and stay responsive under varying workload
-  - Message-driven: reactive systems need to establish a boundary between components by relying on asynchronous message passing
-:END:
-**** What Is Spring Webflux?                                    :QUESTION:
-:ANSWER:
-- Spring WebFlux is Spring's reactive-stack web framework, and it's an alternative to Spring MVC.
-
-- In order to achieve this reactive model and be highly scalable, the entire stack is non-blocking. Check out our tutorial on Spring 5 WebFlux for additional details.
-:END:
-**** What Are the Mono and Flux Types?                          :QUESTION:
-:ANSWER:
-- The WebFlux framework in Spring Framework 5 uses Reactor as its async foundation.
-- This project provides two core types: Mono to represent a single async value, and Flux to represent a stream of async values.
-- They both implement the ~Publisher~ interface defined in the Reactive Streams specification.
-- Mono implements ~Publisher~ and returns 0 or 1 elements:
-#+begin_src java
-public abstract class Mono<T> implements Publisher<T> {...}
-#+end_src
-
-Also, Flux implements ~Publisher~ and returns N elements:
-#+begin_src java
-public abstract class Flux<T> implements Publisher<T> {...}
-#+end_src
-- By definition, the two types represent streams,
-  - hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method.
-  - Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
-:END:
-**** What Is the Use of Webclient and Webtestclient?            :QUESTION:
-:ANSWER:
-- *WebClient* is a component in the new Web Reactive framework that can act as a reactive client for performing non-blocking HTTP requests.
-  - Being a reactive client, it can handle reactive streams with back pressure, and it can take full advantage of Java 8 lambdas.
-  - It can also handle both sync and async scenarios.
-
-- On the other hand, the *WebTestClient* is a similar class that we can use in tests.
-  - Basically, it's a thin shell around the WebClient. It can connect to any server over an HTTP connection. It can also bind directly to WebFlux applications using mock request and response objects, without the need for an HTTP server.
-:END:
-**** What Are the Disadvantages of Using Reactive Streams?      :QUESTION:
-:ANSWER:
-The major disadvantages of using reactive streams are:
-
-- Troubleshooting a Reactive application is a bit difficult; be sure to check out our tutorial on debugging reactive streams for some handy debugging tips
-- There is limited support for reactive data stores, as traditional relational data stores have yet to embrace the reactive paradigm
-- There's an extra learning curve when implementing
-:END:
-**** Is Spring 5 Compatible With Older Versions of Java?        :QUESTION:
-:ANSWER:
-In order to take advantage of Java 8 features, the Spring codebase has been revamped. This means older versions of Java cannot be used. Hence, the framework requires a minimum of Java 8.
-:END:
-**** Can We Use Both Web Mvc and Webflux in the Same Application? :QUESTION:
-:ANSWER:
-- As of now, Spring Boot will only allow either Spring MVC or Spring WebFlux, as Spring Boot tries to auto-configure the context depending on the dependencies that exist in its classpath.
-- Also, Spring MVC cannot run on Netty.
--  Moreover, MVC is a blocking paradigm and WebFlux is a non-blocking style, therefore we shouldn't be mixing both together, as they serve different purposes.
-:END:
-**** What Is the Role of the @Autowired Annotation?             :QUESTION:
-- The @Autowired annotation can be used with fields or methods for injecting a bean by type.
-- This annotation allows Spring to resolve and inject collaborating beans into your bean.
-**** "Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?" :QUESTION:
-:ANSWER:
-- "Lépe se to testuje - máme větší kontrolu nad dependencemi a můžeme je mockovat dle libosti a velmi snadno.
-- Současně tím v testech vynucujeme nějakou inicializaci těchto dependencí. Jinak by klidně mohly být null.
-- Je to takový mnohem přirozenější a intuitivnější způsob inicializace v OOP světě.
-- Asi jediná nevýhoda: pokud bude dependencí hodně, začne to být trochu nepřehledné."
-:END:
 *** JavaEE / JakartaEE
 **** access intent
 ***** optimistic vs pessimistic
@@ -2535,10 +2389,11 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 **** AdoptOpenJDK
 *** JDBC
 *** JMS
-
 ** TODO Python
+** TODO Haskell
+** TODO Scala
+** TODO OCaml
 ** TODO JS on a backend
-*** TODO NodeJS                                                     :TOPIC:
 ** TODO JS environment
 *** npm
 **** Scoped Packages
@@ -2574,8 +2429,6 @@ About scopes
 - For more information on package scope and visibility, see “Package scope, access level, and visibility”.
 *** yarn
 *** nvm
-*** Name soem popular libraries?
-
 *** WIP Babel
 :PROPERTIES:
 :learning_1: https://babeljs.io/
@@ -2586,6 +2439,158 @@ About scopes
 *** Type systems
 **** strongly typed
 **** weakly typed
+* WIP Libraries and Frameworks
+:PROPERTIES:
+:CUSTOM_ID: LIBRARIES_AND_RAMEWORKS
+:END:
+** WIP Spring & Spring Boot
+:PROPERTIES:
+:learning_1:  https://www.baeldung.com/spring-interview-questions
+:END:
+#+call: lg-get-props-entry()
+*** Jaký je rozdíl mezi JavaEE a Springem?                       :QUESTION:
+- JavaEE je standard, který potřebuje aplikační server (JBoss, WebSphere, etc.) jakožto implementaci a runtime prostředí.
+- Spring je framework, který roztáčí vlastní Spring Context, což je taková obdoba kontejneru v JavaEE a v něm všechno běží.
+*** Difference between spring and spting boot                    :QUESTION:
+*** Co přinesl Spring Boot do Spring ekosystému?                 :QUESTION:
+:ANSWER:
+- Strašně zjednodušený start aplikace.
+- Vše je velmi opinionated a není potřeba napsat ani jednu řádku konfigurace, protože všechno má nějaký "rozumný default".
+- Aplikace může být standalone JAR proces, WAR nebo JAR s embedded Tomcatem.
+- V každém případě je to one liner.
+- Plus mnoho "starter" dependencí, kterými jde snadno přidat další moduly a tooly tímto opinionated stylem.
+:END:
+*** Jaký je hlavní rozdíl v transaction handlingu mezi JavaEE (od verze 3) a Springem? :QUESTION:
+:ANSWER:
+- JavaEE to má implicitní a Spring explicitní
+- V JavaEE deklarujeme EJB a ta má všechny své public metody automaticky v transakci v nějakém defaultním módu
+- Ve Springu deklarujeme beanu nějakého typu a automaticky nikdy žádné transakce nemá.
+- Zapínáme si je explicitně pomocí anotace.
+:END:
+*** How Would You Enable Transactions in Spring and What Are Their Benefits? :QUESTION:
+:ANSWER:
+There are two distinct ways to configure Transactions:
+- with *annotations* or
+- by using *Aspect Oriented Programming* (AOP)  each with their advantages.
+
+The benefits of using Spring Transactions, according to the official docs, are:
+
+- Provide a consistent programming model across different transaction APIs such as JTA, JDBC, Hibernate, JPA, and JDO
+- Support declarative transaction management
+- Provide a simpler API for programmatic transaction management than some complex transaction APIs such as JTA
+- Integrate very well with Spring's various data access abstractions
+:END:
+*** What is the difference betweek JPA and Hibernate?            :QUESTION:
+:ANSWER:
+- JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
+- Hibernate is an implementation of Java Persistence API and offers benefits of loose coupling
+:END:
+*** Can use jetty instead of tomcat in spring-boot-starter-web?  :QUESTION:
+:ANSWER:
+- Yes, we can use jetty instead of tomcat in spring-boot-starter-web, by removing the existing dependency and including the following:
+#+begin_src xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+#+end_src
+:END:
+*** What Is Reactive Programming?                                :QUESTION:
+:ANSWER:
+- Reactive programming is about:
+  - non-blocking,
+  - event-driven applications that
+  - scale with a small number of threads, with
+  - back pressure being a key ingredient that aims to ensure producers don't overwhelm consumers.
+
+- The primary benefits of reactive programming are:
+
+- increased utilization of computing resources on multicore and multi-CPU hardware
+- and increased performance by reducing serialization
+- Reactive programming is generally event-driven, in contrast to reactive systems, which are message-driven.
+- Thus, using reactive programming does not mean we're building a reactive system, which is an architectural style.
+
+However, reactive programming may be used as a means to implement reactive systems if we follow the Reactive Manifesto, which is quite vital to understand.
+
+- Based on this, reactive systems have four important characteristics:
+  - Responsive: the system should respond in a timely manner
+  - Resilient: in case the system faces any failure, it should stay responsive
+  - Elastic: reactive systems can react to changes and stay responsive under varying workload
+  - Message-driven: reactive systems need to establish a boundary between components by relying on asynchronous message passing
+:END:
+*** What Is Spring Webflux?                                      :QUESTION:
+:ANSWER:
+- Spring WebFlux is Spring's reactive-stack web framework, and it's an alternative to Spring MVC.
+
+- In order to achieve this reactive model and be highly scalable, the entire stack is non-blocking. Check out our tutorial on Spring 5 WebFlux for additional details.
+:END:
+*** What Are the Mono and Flux Types?                            :QUESTION:
+:ANSWER:
+- The WebFlux framework in Spring Framework 5 uses Reactor as its async foundation.
+- This project provides two core types: Mono to represent a single async value, and Flux to represent a stream of async values.
+- They both implement the ~Publisher~ interface defined in the Reactive Streams specification.
+- Mono implements ~Publisher~ and returns 0 or 1 elements:
+#+begin_src java
+public abstract class Mono<T> implements Publisher<T> {...}
+#+end_src
+
+Also, Flux implements ~Publisher~ and returns N elements:
+#+begin_src java
+public abstract class Flux<T> implements Publisher<T> {...}
+#+end_src
+- By definition, the two types represent streams,
+  - hence they're both lazy, which means nothing is executed until we consume the stream using the subscribe() method.
+  - Both types are immutable, therefore calling any method will return a new instance of Flux or Mono.
+:END:
+*** What Is the Use of Webclient and Webtestclient?              :QUESTION:
+:ANSWER:
+- *WebClient* is a component in the new Web Reactive framework that can act as a reactive client for performing non-blocking HTTP requests.
+  - Being a reactive client, it can handle reactive streams with back pressure, and it can take full advantage of Java 8 lambdas.
+  - It can also handle both sync and async scenarios.
+
+- On the other hand, the *WebTestClient* is a similar class that we can use in tests.
+  - Basically, it's a thin shell around the WebClient. It can connect to any server over an HTTP connection. It can also bind directly to WebFlux applications using mock request and response objects, without the need for an HTTP server.
+:END:
+*** What Are the Disadvantages of Using Reactive Streams?        :QUESTION:
+:ANSWER:
+The major disadvantages of using reactive streams are:
+
+- Troubleshooting a Reactive application is a bit difficult; be sure to check out our tutorial on debugging reactive streams for some handy debugging tips
+- There is limited support for reactive data stores, as traditional relational data stores have yet to embrace the reactive paradigm
+- There's an extra learning curve when implementing
+:END:
+*** Is Spring 5 Compatible With Older Versions of Java?          :QUESTION:
+:ANSWER:
+In order to take advantage of Java 8 features, the Spring codebase has been revamped. This means older versions of Java cannot be used. Hence, the framework requires a minimum of Java 8.
+:END:
+*** Can We Use Both Web Mvc and Webflux in the Same Application? :QUESTION:
+:ANSWER:
+- As of now, Spring Boot will only allow either Spring MVC or Spring WebFlux, as Spring Boot tries to auto-configure the context depending on the dependencies that exist in its classpath.
+- Also, Spring MVC cannot run on Netty.
+-  Moreover, MVC is a blocking paradigm and WebFlux is a non-blocking style, therefore we shouldn't be mixing both together, as they serve different purposes.
+:END:
+*** What Is the Role of the @Autowired Annotation?               :QUESTION:
+- The @Autowired annotation can be used with fields or methods for injecting a bean by type.
+- This annotation allows Spring to resolve and inject collaborating beans into your bean.
+*** "Spring 4.3 přinesl constructor-based dependency injection i bez nutnosti anotace Autowired. Jaké jsou výhody a nevýhody takového DI?" :QUESTION:
+:ANSWER:
+- "Lépe se to testuje - máme větší kontrolu nad dependencemi a můžeme je mockovat dle libosti a velmi snadno.
+- Současně tím v testech vynucujeme nějakou inicializaci těchto dependencí. Jinak by klidně mohly být null.
+- Je to takový mnohem přirozenější a intuitivnější způsob inicializace v OOP světě.
+- Asi jediná nevýhoda: pokud bude dependencí hodně, začne to být trochu nepřehledné."
+:END:
+
+** TODO NodeJS                                                       :TOPIC:
 
 * WIP Quality and Testing   [0/7]                                    :DOMAIN:
 :PROPERTIES:
@@ -2738,7 +2743,13 @@ Guided by Michael A. Britt, creator of popular podcast The Psych Files, you can 
 With this compulsively readable little book, you won't just read about the history of psychology--you'll live it!
 * WIP Psychology                                                     :DOMAIN:
 ** Cognitive Biases [0/5]                                            :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: COGNITIVE_BIASES
+:END:
 *** WIP The Backfire Effect
+:PROPERTIES:
+:learning_1: https://youarenotsosmart.com/2011/06/10/the-backfire-effect/
+:END:
 - The Misconception: When your beliefs are challenged with facts, you alter your opinions and incorporate the new information into your thinking.
 - The Truth: When your deepest convictions are challenged by contradictory evidence, your beliefs get stronger.
 *** TODO Confirmation bias
