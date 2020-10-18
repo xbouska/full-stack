@@ -70,9 +70,13 @@
 :END:
 #+call: lg-get-props-entry()
 ** WIP Number Encoding
-*** XOR, OR, AND, Shift (logical vs aritmetic)
-*** one's complement
-*** two's complements
+:PROPERTIES:
+:CUSTOM_ID: NUMBER_ENCODING
+:END:
+#+call: lg-get-props-entry()
+*** OR, AND, XOR, Shift (logical vs arithmetic)
+*** One's Complement
+*** Two's Complement
 *** BCD encoding
 *** Float: (ieee754)
 **** Explain mantisa, exponent                                  :QUESTION:
@@ -127,8 +131,27 @@
 
 *** EBCDIC
 ** TODO I18N
-*** iso 3169
+:PROPERTIES:
+:CUSTOM_ID: I18N
+:END:
+#+call: lg-get-props-entry()
+*** iso-3166
+:PROPERTIES:
+:learning_1: https://en.wikipedia.org/wiki/ISO_3166
+:CUSTOM_ID: ISO_3166
+:END:
+#+call: lg-get-props-entry()
+- ISO 3166 is a standard published by the International Organization for Standardization (ISO) that defines codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states). The official name of the standard is Codes for the representation of names of countries and their subdivisions.
 *** iso-639
+:PROPERTIES:
+:CUSTOM_ID: ISO_639
+:learning_1: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+:END:
+#+call: lg-get-props-entry()
+- ISO 639 is a standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1) and three-letter (639-2 and 639-3) lowercase abbreviation, amended in later versions of the nomenclature.
+- ISO 639-2/T: three-letter codes, for the same languages as 639-1
+- ISO 639-2/B: three-letter codes, mostly the same as 639-2/T, but with some codes derived from English names rather than native names of languages (in the following table, these differing codes are highlighted in boldface)
+- ISO 639-3: three-letter codes, the same as 639-2/T for languages, but with distinct codes for each variety of an ISO 639 macrolanguage
 *** bcp-47 / rfc-5646
 ** WIP Data Serialization Formats [0/5]
 :PROPERTIES:
@@ -611,23 +634,9 @@ Consider following status codes:
 ** WIP Hasura 3Factor Apps
 :PROPERTIES:
 :CUSTOM_ID: 3_FACTOR_APPS
+:learning_1: https://3factor.app/
 :END:
 #+call: lg-get-props-entry()
-*** Factor #1: Realtime GraphQL
-- Apart from providing an amazing frontend developer experience, GraphQL is a crucial component in 3factor architecture as it allows flexible API access and realtime capabilities. The GraphQL API should have the following properties:
-- Low-latency: An end-user should see instant feedback of an action (i.e. state manipulation) and not have to wait long on an API (<100ms ideal, upto 1 second at worst).
-- Support subscriptions: Consume information “realtime” from the backend via GraphQL Subscriptions. Avoid the use of continuous polling (for scalability).
-
-*** Factor #2: Reliable eventing
-- In 3factor, business logic is initiated via events. This removes complex state management in your API layer and defers it to bespoke business logic functions. Events can also be persisted so that entire history of state is available for observability. Further, the event system must have the following 2 properties:
-- Atomic: Mutations to the application state should atomically create event(s).
-- Reliable: Events should be delivered (to any consumer) with atleast-once guarantee.
-
-*** Factor #3: Async serverless
-- Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
-- Idempotent: The code should be prepared for duplicate delivery of events.
-- Out-of-order: Events may not be guaranteed to be received in any realtime order. The code should not depend on any expected sequence of events.
-
 
 - epizody 115 116 a 117.
 - Konkrétně epizoda 116 na kterou posílám odkaz je hodná poslechu.
@@ -637,9 +646,27 @@ Consider following status codes:
 - Zajímavý je to hodně tak po prvních osmi minutách a ke konci zase kecaji jenom tak zbůhdarma.
 - Pěkný je i to že to je diskuse mezi 3mi lidmi a ne všichni tomu rozumí, tak tam občas narazíš na blbosti.
 - Jo a je tam slyšet o čem že je ta technická architektura. 
+
+- https://www.codingblocks.net/episode115
 - https://www.codingblocks.net/episode116
-- 3factor app – Reliable Eventing
-- We discuss the second factor of Hasura's 3factor app, Reliable Eventing, as Allen says he still surfs the Internet (but really, does he?), it's never too late for pizza according to Joe, and Michael wants to un-hear things.
+- https://www.codingblocks.net/episode117
+
+*** Factor #1: Realtime GraphQL
+- Apart from providing an amazing frontend developer experience, GraphQL is a crucial component in 3factor architecture as it allows flexible API access and realtime capabilities. The GraphQL API should have the following properties:
+- Low-latency: An end-user should see instant feedback of an action (i.e. state manipulation) and not have to wait long on an API (<100ms ideal, upto 1 second at worst).
+- Support subscriptions: Consume information “realtime” from the backend via GraphQL Subscriptions. Avoid the use of continuous polling (for scalability).
+
+*** Factor #2: Reliable Eventing
+- In 3factor, business logic is initiated via events. This removes complex state management in your API layer and defers it to bespoke business logic functions. Events can also be persisted so that entire history of state is available for observability. Further, the event system must have the following 2 properties:
+- Atomic: Mutations to the application state should atomically create event(s).
+- Reliable: Events should be delivered (to any consumer) with atleast-once guarantee.
+
+*** Factor #3: Async Serverless
+- Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
+- Idempotent: The code should be prepared for duplicate delivery of events.
+- Out-of-order: Events may not be guaranteed to be received in any realtime order. The code should not depend on any expected sequence of events.
+
+
 ** WIP OpenApiSpec / Open API 3.0 / Swagger
 :PROPERTIES:
 :learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
@@ -666,11 +693,6 @@ Consider following status codes:
             description: Successful response
 #+end_src
 :END:
-
-** WIP micro-service-architecture
-*** Saga
-*** CQRS
-*** Single source of truth
 
 ** WIP Enterprise Architecture Integration Patterns [0/4]
 *** WIP Integration Styles:
@@ -728,18 +750,24 @@ Consider following status codes:
 - It refers to the methods microservices use to find each other and make their locations known.
 *** WIP Configuration
 - Setting parameters and monitoring the performance of the entire system to continuously optimize it as you go
-** TODO μ-Services Design Patterns [/]
+** TODO μ-Services Design Patterns [0/2]
 :PROPERTIES:
 :learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
 :END:
 #+call: lg-get-props-entry()
-*** API Gateway                                                   :PATTERN:
-*** Circuit Breaker                                               :PATTERN:
+*** TODO API Gateway                                              :PATTERN:
+*** TODO Circuit Breaker                                          :PATTERN:
 *** CQRS                                                          :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: CQRS
+:learning_1: http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/
+:END:
+
 *** Event Sourcing                                                :PATTERN:
 *** Sidecar                                                       :PATTERN:
 *** Backend-for-Frontend                                          :PATTERN:
 *** Strangler Pattern                                             :PATTERN:
+*** Saga                                                          :PATTERN:
 
 ** TODO Event Sourcing                                             :PATTERN:
 ** TODO CQRS                                                       :PATTERN:
@@ -2970,7 +2998,7 @@ With this compulsively readable little book, you won't just read about the histo
 - obtained throughput
   - natural capability
 
-* WIP Big Names        [0/25]                                        :DOMAIN:
+* WIP Big Names        [0/27]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: BIG_NAMES
 :END:
@@ -3076,6 +3104,8 @@ https://youtu.be/j0XmixCsWjs
 ** WIP Siren Hofvander
 - twitter: @securitypony
 - [[#YT:8NzkYsY7TOk][Making Security an integrated part of the SW Dev Lifecycle]]
+** TODO Eugenia CHENG
+** TODO David SPIVAK
 ** TODO Steven PINKER [0/0]
 ** TODO Nassim TALEB
 ** TODO Marek Orko VÁCHA
