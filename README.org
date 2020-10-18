@@ -79,6 +79,12 @@
 **** How do you compare two float values?                       :QUESTION:
 **** Explain risk of using floating point in business programming :QUESTION:
 *** Endiannes
+:PROPERTIES:
+:CUSTOM_ID: ENDIANNESS
+:learning_1: https://en.wikipedia.org/wiki/Endianness
+:END:
+#+call: lg-get-props-entry()
+- In computing, endianness is the order or sequence of bytes of a word of digital data in computer memory. Endianness is primarily expressed as big-endian (BE) or little-endian (LE). A big-endian system stores the most significant byte of a word at the smallest memory address and the least significant byte at the largest. A little-endian system, in contrast, stores the least-significant byte at the smallest address. Endianness may also be used to describe the order in which the bits are transmitted over a communication channel. Bit-endianess is seldom used in other contexts.
 *** binary / octal / hex
 ** WIP Text Encodings
 *** What is unicode
@@ -607,6 +613,22 @@ Consider following status codes:
 :CUSTOM_ID: 3_FACTOR_APPS
 :END:
 #+call: lg-get-props-entry()
+*** Factor #1: Realtime GraphQL
+- Apart from providing an amazing frontend developer experience, GraphQL is a crucial component in 3factor architecture as it allows flexible API access and realtime capabilities. The GraphQL API should have the following properties:
+- Low-latency: An end-user should see instant feedback of an action (i.e. state manipulation) and not have to wait long on an API (<100ms ideal, upto 1 second at worst).
+- Support subscriptions: Consume information “realtime” from the backend via GraphQL Subscriptions. Avoid the use of continuous polling (for scalability).
+
+*** Factor #2: Reliable eventing
+- In 3factor, business logic is initiated via events. This removes complex state management in your API layer and defers it to bespoke business logic functions. Events can also be persisted so that entire history of state is available for observability. Further, the event system must have the following 2 properties:
+- Atomic: Mutations to the application state should atomically create event(s).
+- Reliable: Events should be delivered (to any consumer) with atleast-once guarantee.
+
+*** Factor #3: Async serverless
+- Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
+- Idempotent: The code should be prepared for duplicate delivery of events.
+- Out-of-order: Events may not be guaranteed to be received in any realtime order. The code should not depend on any expected sequence of events.
+
+
 - epizody 115 116 a 117.
 - Konkrétně epizoda 116 na kterou posílám odkaz je hodná poslechu.
 - 3f Apps je architektura ke které se blížíme.
@@ -767,7 +789,7 @@ Consider following status codes:
 :learning_1:  https://martinfowler.com/articles/evodb.html
 :END:
 #+call: lg-get-props-entry()
-* WIP Data [0/9]                                                     :DOMAIN:
+* WIP Data [0/10]                                                    :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DATA
 :END:
@@ -990,6 +1012,13 @@ Consider following status codes:
 - Z logu se zapisují záznamy do datových souborů.
 - Z logu se dá obnovit databáze do určitého časového okamžiku (PITR-Point In Time Recovery);
 - u postgre se dá použít například i k replikaci databáze
+** WIP MVCC Multiversion concurrency control
+:PROPERTIES:
+:CUSTOM_ID: MVCC
+:learning_1: https://en.wikipedia.org/wiki/Multiversion_concurrency_control
+:END:
+#+call: lg-get-props-entry()
+- Multiversion concurrency control (MCC or MVCC), is a concurrency control method commonly used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory.
 
 ** WIP Tools [0/18]
 *** WIP PostgreSQL
@@ -1239,33 +1268,52 @@ CREATE INDEX name ON table USING brin (column);
 | sa-east-1      | South America (São Paulo)  | Not required  | Not available     |
 
 *** Availability Zones
-- Each Region has multiple, isolated locations known as Availability Zones. - When you launch an instance, you can select an Availability Zone or let us choose one for you. If you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests.
+- Each Region has multiple, isolated locations known as Availability Zones.
+- When you launch an instance, you can select an Availability Zone or let us choose one for you.
+- If you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests.
 ** WIP AWS Services                                                  :TOPIC:
-*** EC2 (Amazon Elastic Compute Cloud)
-**** AMI
-*** ELB CLB ALB
-*** EFS
-*** Route53
-*** Beanstalk
-*** RDS
-*** AWS Wavelength
-- AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
+*** EC2 (Amazon Elastic Compute Cloud)                                :AWS:
+**** AMI                                                             :AWS:
+*** ELB CLB ALB                                                       :AWS:
+*** Route 53                                                          :AWS:
+*** Beanstalk                                                         :AWS:
+*** RDS                                                               :AWS:
 *** API Gateway
-*** Lambda
-*** DynamoDB
+:PROPERTIES:
+:CUSTOM_ID: AMAZON_API_GATEWAY
+:learning_1: https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
+:END:
+#+call: lg-get-props-entry()
+- is an AWS service for creating, publishing, maintaining, monitoring, and securing REST, HTTP, and WebSocket APIs at any scale. API developers can create APIs that access AWS or other web services, as well as data stored in the AWS Cloud. As an API Gateway API developer, you can create APIs for use in your own client applications. Or you can make your APIs available to third-party app developers. For more information, see Who uses API Gateway?.
+- API Gateway creates RESTful APIs that:
+  - Are HTTP-based.
+  - Enable stateless client-server communication.
+  - Implement standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE.
+- For more information about API Gateway REST APIs and HTTP APIs, see Choosing between HTTP APIs and REST APIs, Working with HTTP APIs, Use API Gateway to create REST APIs, and Creating a REST API in Amazon API Gateway.
+- API Gateway creates WebSocket APIs that:
+  - Adhere to the WebSocket protocol, which enables stateful, full-duplex communication between client and server.
+  - Route incoming messages based on message content.
+- For more information about API Gateway WebSocket APIs, see Use API Gateway to create WebSocket APIs and About WebSocket APIs in API Gateway.
+*** AWS Lambda                                                        :AWS:
+:PROPERTIES:
+:CUSTOM_ID: AWS_LAMBDA
+:END:
+#+call: lg-get-props-entry()
+*** Wavelength                                                        :AWS:
+- AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
+*** DynamoDB                                                          :AWS:
+*** Kinesis                                                           :AWS:
+*** EFS                                                               :AWS:
+*** SNS                                                               :AWS:
+*** S3                                                                :AWS:
+*** CloudWatch                                                        :AWS:
+*** CloudFormation                                                    :AWS:
+*** SAM                                                               :AWS:
+*** CloudFront                                                        :AWS:
+*** Secrets Manager                                                   :AWS:
+*** VPC                                                               :AWS:
+
 *** Elasticsearch
-*** Kinesis
-*** SNS
-*** S3
-*** CloudWatch
-*** CloudFormation
-*** SAM
-*** CloudFront
-*** Secrets Manager
-*** Route 53
-*** VPC
-
-
 ** AWS cli
 - boto3
 - aws-shell
@@ -2237,7 +2285,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :CUSTOM_ID: LANGUAGES
 :END:
 #+call: lg-get-props-entry()
-** WIP Functional Programming  [0/5]                                 :TOPIC:
+** WIP Functional Paradigm  [0/8]                                    :TOPIC:
 *** WIP Lambda Calculus                                             :TOPIC:
 **** α-conversion
 - changing bound variables
@@ -2246,31 +2294,60 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 **** η-reduction
 - which captures a notion of extensionality.
 *** TODO Immutability                                               :TOPIC:
-**** Persistent data structure (Chris Okasaki)
+*** TODO Idempotency
+*** TODO Continuation Passing Style
+*** TODO Persistent data structure (Chris Okasaki)
 *** TODO Algebraic Data Types
 *** WIP Patterns
 **** TODO Monoid
+:PROPERTIES:
+:CUSTOM_ID: MONOID
+:END:
+#+call: lg-get-props-entry()
 **** TODO Functor
+:PROPERTIES:
+:CUSTOM_ID: FUNCTOR
+:END:
+#+call: lg-get-props-entry()
 **** TODO Pro Functor
+:PROPERTIES:
+:CUSTOM_ID: PRO_FUNCTOR
+:END:
+#+call: lg-get-props-entry()
 **** TODO Applicative
+:PROPERTIES:
+:CUSTOM_ID: APPLICATIVE
+:END:
+#+call: lg-get-props-entry()
 **** TODO Monad
-**** TODO Kleisli Operator
+:PROPERTIES:
+:CUSTOM_ID: MONAD
+:END:
+#+call: lg-get-props-entry()
+**** TODO Kleisli Arrow
+:PROPERTIES:
+:CUSTOM_ID: KLEISLI_ARROW
+:END:
+#+call: lg-get-props-entry()
 **** TODO Free Monad
+:PROPERTIES:
+:CUSTOM_ID: FREE_MONAD
+:END:
+#+call: lg-get-props-entry()
 **** TODO Fix
 :PROPERTIES:
 :learning_1: https://www.parsonsmatt.org/2016/10/26/grokking_fix.html
 :END:
 #+call: lg-get-props-entry()
-**** TODO Optics
-***** Lenses
-***** Prisms
+**** Lenses
+**** Prisms
 *** TODO Recursion Schemes
 **** catamorphisms
 **** anamorphisms
 **** hylomorphisms
 **** paramorphisms
 
-** WIP Object Oriented Programming                                  :TOPIC:
+** WIP Object Oriented Paradigm                           :TOPIC:
 *** Polymorphism
 *** Gof Patterns
 :PROPERTIES:
@@ -2765,6 +2842,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** Mocha                                                        :OUTDATED:
 *** FantomJS                                                     :OUTDATED:
 *** Protractor
+*** Cucumber
 * WIP Learning Channels [0/6]                                        :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: LEARNING_CHANNELS
