@@ -16,7 +16,15 @@
 #+LANGUAGE: en
 #+TITLE: full-stack
 #+AUTHOR: Richard Bouska
+#+LANGUAGE: en 
+#+DESCRIPTION: What to know / what to learn
+#+ODT_STYLES_FILE: "./OrgOdtStyles.xml"
 
+#+begin_src emacs-lisp :exports none
+;;(setq org-odt-content-template-file "./OrgOdtContentTemplate-orig.xml")
+(setq org-odt-content-template-file "./OrgOdtContentTemplate.xml")
+;;(makunbound 'org-odt-content-template-file)
+ #+end_src
 
 #+name: lg-get-props-entry
 #+begin_src emacs-lisp :exports none
@@ -665,8 +673,6 @@ Consider following status codes:
 - Write business logic as event handling functions. Each function only cares about one event and is hence small & cohesive. The easiest way to deploy such functions is in serverless compute. Serverless minimizes backend ops and gives “infinite” scalability while being cost-efficient. The serverless functions should follow few best-practices:
 - Idempotent: The code should be prepared for duplicate delivery of events.
 - Out-of-order: Events may not be guaranteed to be received in any realtime order. The code should not depend on any expected sequence of events.
-
-
 ** WIP OpenApiSpec / Open API 3.0 / Swagger
 :PROPERTIES:
 :learning_1: https://app.swaggerhub.com/help/tutorials/openapi-3-tutorial
@@ -750,24 +756,24 @@ Consider following status codes:
 - It refers to the methods microservices use to find each other and make their locations known.
 *** WIP Configuration
 - Setting parameters and monitoring the performance of the entire system to continuously optimize it as you go
-** TODO μ-Services Design Patterns [0/2]
+** TODO μ-Services Design Patterns [0/8]
 :PROPERTIES:
 :learning_1: https://tsh.io/blog/design-patterns-in-microservices-api-gateway-bff-and-more/
 :END:
 #+call: lg-get-props-entry()
 *** TODO API Gateway                                              :PATTERN:
 *** TODO Circuit Breaker                                          :PATTERN:
-*** CQRS                                                          :PATTERN:
+*** WIP CQRS                                                      :PATTERN:
 :PROPERTIES:
 :CUSTOM_ID: CQRS
 :learning_1: http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/
 :END:
 
-*** Event Sourcing                                                :PATTERN:
-*** Sidecar                                                       :PATTERN:
-*** Backend-for-Frontend                                          :PATTERN:
-*** Strangler Pattern                                             :PATTERN:
-*** Saga                                                          :PATTERN:
+*** TODO Event Sourcing                                           :PATTERN:
+*** TODO Sidecar                                                  :PATTERN:
+*** TODO Backend-for-Frontend                                     :PATTERN:
+*** TODO Strangler Pattern                                        :PATTERN:
+*** TODO Saga                                                     :PATTERN:
 
 ** TODO Event Sourcing                                             :PATTERN:
 ** TODO CQRS                                                       :PATTERN:
@@ -1048,7 +1054,7 @@ Consider following status codes:
 #+call: lg-get-props-entry()
 - Multiversion concurrency control (MCC or MVCC), is a concurrency control method commonly used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory.
 
-** WIP Tools [0/18]
+** WIP Tools [0/22]
 *** WIP PostgreSQL
 :PROPERTIES:
 :learning_1: https://www.highgo.ca/blog/ 
@@ -1107,16 +1113,20 @@ CREATE INDEX name ON table USING brin (column);
 - SERIALIZABLE.
   - that what Oracle call SERIALIZABLE is actually snapshot isolation.
 :END:
-*** Big Table
-*** Big Query
+*** TODO Big Table                                                    :GCP:
+:PROPERTIES:
+:CUSTOM_ID: GCP_BIG_TABLE
+:END:
+*** WIP Big Query                                                     :GCP:
 :PROPERTIES:
 :learning_1: https://cloud.google.com/files/BigQueryTechnicalWP.pdf
 :learning_2: https://cloud.google.com/bigquery/streaming-data-into-bigquery
+:CUSTOM_ID: GCP_BIG_QUERY
 :END:
 #+call: lg-get-props-entry()
-*** Elastic Search
+*** TODO Elastic Search
 **** Bloom Filter
-*** Atlas MongoDB
+*** TODO Atlas MongoDB
 :PROPERTIES:
 :learning_1: https://www.mongodb.com/cloud/atlas
 :END:
@@ -1249,7 +1259,7 @@ CREATE INDEX name ON table USING brin (column);
 ** WIP Kaizen (Continuous Improvement)                               :TOPIC:
 - is a strategy where employees at all levels of a company work together proactively to achieve regular, incremental improvements to the manufacturing process.
 - In a sense, it combines the collective talents within a company to create a powerful engine for improvement.
-* WIP Cloud  [0/7]                                                   :DOMAIN:
+* WIP Cloud  [0/12]                                                  :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: CLOUD
 :END:
@@ -1306,7 +1316,7 @@ CREATE INDEX name ON table USING brin (column);
 *** Route 53                                                          :AWS:
 *** Beanstalk                                                         :AWS:
 *** RDS                                                               :AWS:
-*** API Gateway
+*** API Gateway                                                       :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AMAZON_API_GATEWAY
 :learning_1: https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
@@ -1327,25 +1337,34 @@ CREATE INDEX name ON table USING brin (column);
 :CUSTOM_ID: AWS_LAMBDA
 :END:
 #+call: lg-get-props-entry()
-*** Wavelength                                                        :AWS:
-- AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
 *** DynamoDB                                                          :AWS:
 *** Kinesis                                                           :AWS:
 *** EFS                                                               :AWS:
 *** SNS                                                               :AWS:
 *** S3                                                                :AWS:
+*** EBS                                                               :AWS:
+:PROPERTIES:
+:CUSTOM_ID: AWS_EBS
+:END:
+#+call: lg-get-props-entry()
 *** CloudWatch                                                        :AWS:
 *** CloudFormation                                                    :AWS:
-*** SAM                                                               :AWS:
 *** CloudFront                                                        :AWS:
 *** Secrets Manager                                                   :AWS:
 *** VPC                                                               :AWS:
+:PROPERTIES:
+:CUSTOM_ID: AWS_VPC
+:END:
 
+*** Wavelength                                                        :AWS:
+- AWS Wavelength allows developers to build applications that deliver ultra-low latencies to mobile devices and end users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend an Amazon Virtual Private Cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon Elastic Compute Cloud (EC2) instances to run applications that require ultra-low latency and a connection to AWS services in the Region.
 *** Elasticsearch
-** AWS cli
-- boto3
-- aws-shell
-** GCP Services                                                      :TOPIC:
+** TODO AWS Tools and Frameworks
+*** TODO boto3                                                        :AWS:
+*** TODO aws-shell                                                    :AWS:
+*** TODO SAM                                                          :AWS:
+
+** TODO GCP Services                                                 :TOPIC:
 *** TODO BigQuery
 *** TODO PubSub
 *** TODO composer
@@ -1376,20 +1395,18 @@ CREATE INDEX name ON table USING brin (column);
 **** What sort of apps is Firebase good for?
 - There’s really no limit to the types of apps that can be helped by Firebase products. There are only limits to the platforms it can be used on. iOS and Android are the primary targets for the Firebase SDKs, and there’s increasing support for web, Flutter, Unity, and C++. You should also know there’s an Admin SDK available for a variety of languages, to be used with any backend components you might require.
 - On top of those SDKs, there’s a library called FirebaseUI (Android, iOS, web) that provides a bunch of helpful utilities to make development with Firebase even easier. And there are also projects such as AngularFire that wrap the web SDKs for use with Angular. These are open source. Firebase likes open source.
-
-
-** GCP CLI                                                           :TOPIC:
+** TODO GCP CLI                                                      :TOPIC:
 - gcloud
 
-** FINOPS                                                            :TOPIC:
+** TODO FINOPS                                                       :TOPIC:
 *** GCP Cost Model
 *** AWS Cost Model
 *** data at rest cost
 *** transfer cost
 *** CPU cost
-** Storage:
-*** AWS S3
-*** GCS bucket
+** WIP Storage:
+*** AWS S3                                                            :AWS:
+*** GCS bucket                                                        :GCP:
 **** api
 **** what it is good for
 *** WIP MinIO Object Storage
@@ -1397,7 +1414,7 @@ CREATE INDEX name ON table USING brin (column);
 :learning_1: https://min.io/product/overview
 :END:
 #+call: lg-get-props-entry()
-* WIP DEVOPS / SRE   [0/6]                                           :DOMAIN:
+* WIP DEVOPS / SRE   [0/9]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
@@ -1705,7 +1722,7 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 
 **** TODO What is  DKIM
 
-*** Artifactory
+*** JFrog: Artifactory
 *** Nexus ... sunset
 *** Docker                                                          :TOPIC:
 **** TODO dockerhub :-)
@@ -1721,83 +1738,6 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 **** TODO BuildKit
 **** TODO DTR - docker trusted registry
 
-*** K8S / Kubernetes: [0/27]                                        :TOPIC:
-:PROPERTIES:
-:learning_1: https://classpert.com/kubernetes
-:END:
-#+call: lg-get-props-entry()
-**** TODO What is a service                                     :QUESTION:
-**** WIP What are network policies?                             :QUESTION:
-:PROPERTIES:
-:learning_1: https://github.com/ahmetb/kubernetes-network-policy-recipes
-:learning_1: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
-:END:
-#+call: lg-get-props-entry()
-:ANSWER:
-- firewall on the  pod level
-:END:
-**** WIP what are labels?
-:ANSWER:
-- key value pairs that can be assigned to majority of Kubernetes objects
-:END:
-**** WIP What are network policies rules?                       :QUESTION:
-:ANSWER:
-1) traffic is allowed unless there is a network policy that blocks it
-2) rules apply as soon as pod is selected and it is deny by default unless stated differently
-3) you then only write rules that allow (whitelist)
-4) rules are aditive "ored" i.e. or is applied and single allow rule is enough to open the flow
-5) network policies are scoped to a namespace they are deployed to
-6) ports in rules are ports on pods not ports of services
-:END:
-**** WIP what are podSelectors?                                 :QUESTION:
-:PROPERTIES:
-:learning_1:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
-:END:
-#+call: lg-get-props-entry()
-:ANSWER:
-matchLabels:
-:END:
-**** WIP what is namespaceSelector?                             :QUESTION:
-:ANSWER:
-:END:
-**** WIP what is empty selector:                                :QUESTION:
-:ANSWER:
-example: matchLabels:{}
-:END:
-**** WIP what ipBlock and hwhat are they good for?
-**** WIP what is a network policy plugin and how you enable that?
-:answer:
-- Calico,  for example
-- iptables vs overlay network (calico is iptables based)
-:end:
-**** WIP what is a RBAC
-:PROPERTIES:
-:learning_1: https://www.cncf.io/blog/2018/08/01/demystifying-rbac-in-kubernetes/
-:END:
-#+call: lg-get-props-entry()
-**** WIP network policy API
-**** TODO whats is kube-dns
-**** TODO helm
-**** TODO chart
-**** TODO template
-**** TODO cluster
-**** TODO pod
-**** TODO node
-**** TODO service mesh
-**** TODO ingress controller
-**** TODO ingress and exgress?
-**** TODO etcd
-**** TODO secret
-**** TODO operator
-**** WIP CRD / Custom Resources
-:answer:
-- A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.
-- A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
-- Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods.
-:end:
-**** TODO liveness/readines probes
-**** TODO kubectl
-*** CNCF
 *** Terraform                                                       :TOPIC:
 **** resource
 **** module
@@ -1807,8 +1747,8 @@ example: matchLabels:{}
 *** Puppet                                                          :TOPIC:
 *** Ansible                                                         :TOPIC:
 *** Cloud Formation                                                 :TOPIC:
-*** Hashicorp Consul                                                :TOPIC:
-*** Hashicorp Vault                                                 :TOPIC:
+*** Hashicorp: Consul                                               :TOPIC:
+*** Hashicorp: Vault                                                :TOPIC:
 *** TODO Zookeeper                                                  :TOPIC:
 *** WIP Kibana                                                      :TOPIC:
 :PROPERTIES:
@@ -1824,12 +1764,89 @@ example: matchLabels:{}
 #+call: lg-get-props-entry()
 - Grafana is an open source visualization tool that can be used on top of a variety of different data stores but is most commonly used together with Graphite, InfluxDB, Prometheus, Elasticsearch and Logz.io. As it so happens, Grafana began as a fork of Kibana, trying to supply support for metrics (a.k.a. monitoring) that Kibana (at the time) did not provide much if any such support for.
 - Essentially, Grafana is a feature-rich replacement for Graphite-web, which helps users to easily create and edit dashboards. It contains a unique Graphite target parser that enables easy metric and function editing. Users can create comprehensive charts with smart axis formats (such as lines and points) as a result of Grafana’s fast, client-side rendering — even over long ranges of time — that uses Flot as a default option.
-*** ELK                                                             :TOPIC:
-*** DynaTrace                                                       :TOPIC:
-*** Piwik                                                           :TOPIC:
+*** TODO ELK                                                        :TOPIC:
+*** TODO DynaTrace                                                  :TOPIC:
+*** TODO Piwik                                                      :TOPIC:
 *** TODO argocd                                                     :TOPIC:
 *** TODO fluxcd                                                     :TOPIC:
 *** TODO Prometheus                                                 :TOPIC:
+** TODO CNCF                                                         :TOPIC:
+** WIP K8S / Kubernetes: [0/27]                                      :TOPIC:
+:PROPERTIES:
+:learning_1: https://classpert.com/kubernetes
+:END:
+#+call: lg-get-props-entry()
+*** TODO What is a service                                       :QUESTION:
+*** WIP What are network policies?                               :QUESTION:
+:PROPERTIES:
+:learning_1: https://github.com/ahmetb/kubernetes-network-policy-recipes
+:learning_1: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
+:END:
+#+call: lg-get-props-entry()
+:ANSWER:
+- firewall on the  pod level
+:END:
+*** WIP what are labels?
+:ANSWER:
+- key value pairs that can be assigned to majority of Kubernetes objects
+:END:
+*** WIP What are network policies rules?                         :QUESTION:
+:ANSWER:
+1) traffic is allowed unless there is a network policy that blocks it
+2) rules apply as soon as pod is selected and it is deny by default unless stated differently
+3) you then only write rules that allow (whitelist)
+4) rules are aditive "ored" i.e. or is applied and single allow rule is enough to open the flow
+5) network policies are scoped to a namespace they are deployed to
+6) ports in rules are ports on pods not ports of services
+:END:
+*** WIP what are podSelectors?                                   :QUESTION:
+:PROPERTIES:
+:learning_1:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
+:END:
+#+call: lg-get-props-entry()
+:ANSWER:
+matchLabels:
+:END:
+*** WIP what is namespaceSelector?                               :QUESTION:
+:ANSWER:
+:END:
+*** WIP what is empty selector:                                  :QUESTION:
+:ANSWER:
+example: matchLabels:{}
+:END:
+*** WIP what ipBlock and hwhat are they good for?
+*** WIP what is a network policy plugin and how you enable that?
+:answer:
+- Calico,  for example
+- iptables vs overlay network (calico is iptables based)
+:end:
+*** WIP what is a RBAC
+:PROPERTIES:
+:learning_1: https://www.cncf.io/blog/2018/08/01/demystifying-rbac-in-kubernetes/
+:END:
+#+call: lg-get-props-entry()
+*** WIP network policy API
+*** TODO whats is kube-dns
+*** TODO helm
+*** TODO chart
+*** TODO template
+*** TODO cluster
+*** TODO pod
+*** TODO node
+*** TODO service mesh
+*** TODO ingress controller
+*** TODO ingress and exgress?
+*** TODO etcd
+*** TODO secret
+*** TODO operator
+*** WIP CRD / Custom Resources
+:answer:
+- A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.
+- A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
+- Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods.
+:end:
+*** TODO liveness/readines probes
+*** TODO kubectl
 ** WIP Concepts [0/6]
 *** TODO ChatOps                                                  :CONCEPT:
 :PROPERTIES:
@@ -3815,6 +3832,29 @@ Episode: http://feedproxy.google.com/~r/se-radio/~5/5G8ZZrFHC5I/SE-Radio-Episode
 #+end_src
 #+call:collector-patterns()
 
+** Index of AWS Related Topics 
+:PROPERTIES:
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-aws
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((string-match "AWS" TAGS)) nil nil nil colnames ))
+#+end_src
+#+call:collector-aws()
+
+** Index of GCP Related Topics
+:PROPERTIES:
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
+:header-args+: :var colnames='(Item ref)
+:END:
+#+name: collector-gcp
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((string-match "GCP" TAGS)) nil nil nil colnames ))
+#+end_src
+#+call:collector-gcp()
 
 * WIP To integrate                                                :NO_EXPORT:
 ** TODO dog - used technologies
