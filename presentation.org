@@ -1,32 +1,67 @@
 * Full stack [0%]
 ** TODO What it is [0%]
 - [ ] My personal initiative -  evening / weekend 
-*** Is it purely technical? --- No
-- [ ] there are parts dedicated to ethics, psychology
-- [ ] is the politics ...NO!
-- [ ] I like statistics
-- [ ] I like psychology
-- [ ] I like linguistics
+*** Is it purely technical?
+- [ ] No
+  - [ ] there are parts dedicated to ethics, psychology
+  - [ ] statistics not elaborated yet
+  - [ ] psychology - just what you need to work and survive with other developers
+  - [ ] linguistics - just a touch
+  - [ ] *no politics*
+*** What it contains really / what are the domains/topics?
+|--------------------------+-------------------------------------------------------------------|
+| CHAPTER                  | topic                                                             |
+|--------------------------+-------------------------------------------------------------------|
+| Software Engineering     | Basics                                                            |
+| Architecture             | DDD,μ-Services, Design principles, 12 Factor Apps                 |
+| Data                     | SQL, Transactions, Streaming , BigData                            |
+| Methodology              | Agile, Scrum, Kanban, Arc42, C4, Kaizen                           |
+| Cloud                    | AWS, GCP, Cloud Native                                            |
+| DEVOPS / SRE             | Accelerate, Calms, The Three Ways                                 |
+| Web Front End            | React, Angular, PWA, ELM, Web API, Next.JS                        |
+| Security                 | OWASP, JWT, OIDC, PKI, Kali, Burp Suite                           |
+| Programming Languages    | Java, JS, TS, Scala, Haskell, OCaml,                              |
+| Libraries and Frameworks | Spring, Node, ...                                                 |
+| Quality and Testing      | AB testing Blue-Green, Cyclomatic Complexity..., Jest, Protractor |
+| Learning Channels        | Udemy, SE-Radio,... Conferences                                   |
+| Psychology               | Biases                                                            |
+| Big Names                | People to follow                                                  |
+| Core Values              | To be a good developer                                            |
+| Concepts and Terms       | glossary, dictionary                                              |
+| Commented Resources      | videos, podcasts, books, I have read with comments                |
+| Index                    | of primary sources, videos, concepts, books, patterns             |
+|                          |                                                                   |
 ** TODO How complete it is [0%]
 - [ ] Not much
-  - [ ] a skeleton (the first level is +/- well defined)
+  - [ ] a skeleton (the first level is +/- defined)
   - [ ] there is not a single point that I consider 100% complete
-  - [ ] it is living document - i.e. it will never be completed
+  - [ ] it is living document
+  - [ ] it will be never completed as new things are coming and old are getting obsolete
 ** TODO What is it good for (me personally)
 - [ ] I listen, watch and read a lot (particularly IT topics)
   - [ ] I keep track on topics that I consider useful
-  - [ ] I share a lot of what I have read found recently with my colleagues by #SLACK ... 
+  - [ ] I share a lot of what I have read found recently with my colleagues by #SLACK ...
 ** TODO What is it good for in EDH
-- [ ] initially set of remarks used during potential new team member candidate
-- [ ] now chapter leaders are also 
+- [ ] initially ... set of remarks used during potential new team member candidate
+- [ ] now chapter leaders are also using this for finding chapter subjects
+- [ ] team members to find new area of interrest
+** TODO How can It be useful for me?
+*** You can see what EDH is using [0%]
+- [ ] Well not 100%
+  - Main Frame is not there (COBOL, CICS, IMS, JCL,PL/1, )
+  - AS/400 is not there (RPG SYNON DB2)
+- [ ] There are technologies that are not in our stack actively
+  - Haskell, Scala
+  - I just consider them useful
 ** TODO How to use it
-- [ ] Just browse the HTML version and be insired
+- [ ] Just browse the HTML version and be inspired
 - [ ] it is available on the gitlabee even for modification
-- 
+- [ ] maybe ... to migrate to github in order to keep it opened 
+  - [ ] no secrets there  ... nothing any outsider can misuse against Renault
 ** TODO Original work
 - [ ] not at all :-( - I copy paste from official documentation, blogs, wikipedia
   - [ ] there is *always* link to original source - my aim is not to steal someone else work
-  - 
+  - [ ] credit is kept ... (need to be sure)
 
 ** TODO Can I Help
 *** I don`t know ...
@@ -35,22 +70,15 @@
 - [ ] OK ping me then ...
   - [ ] I can open the repository for writing
   - [ ] or we can agree on pull requests
-** TODO How can It be useful for me?
-*** You can see what EDH is using [0%]
-- [ ] Well not 100%
-  - Main is not there (COBOL, CICS, IMS, JCL,PL/1, )
-  - AS/400 is not there (RPG SYNON DB2)
-- [ ] There are technologies that are not in our stack actively
-  - Haskell, Scala
-  - I just consider them useful
-
 ** TODO How is it organized
 - [ ] tree like structure
 - [ ] TAGS
 - [ ] properties
 - [ ] small elisp scripts for "re-collection and building links"
-- 
+
 ** TODO Emacs? WTF we are not in 1976?
+- [ ] single self contained document - no need a server
 - [ ] well it is just a text file
+  - [ ] use IDEA, Sublime, VS Code, Notepad++
 - [ ] if you want to consume you can use browser
-- 
+
