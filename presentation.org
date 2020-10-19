@@ -1,0 +1,56 @@
+* Full stack [0%]
+** TODO What it is [0%]
+- [ ] My personal initiative -  evening / weekend 
+*** Is it purely technical? --- No
+- [ ] there are parts dedicated to ethics, psychology
+- [ ] is the politics ...NO!
+- [ ] I like statistics
+- [ ] I like psychology
+- [ ] I like linguistics
+** TODO How complete it is [0%]
+- [ ] Not much
+  - [ ] a skeleton (the first level is +/- well defined)
+  - [ ] there is not a single point that I consider 100% complete
+  - [ ] it is living document - i.e. it will never be completed
+** TODO What is it good for (me personally)
+- [ ] I listen, watch and read a lot (particularly IT topics)
+  - [ ] I keep track on topics that I consider useful
+  - [ ] I share a lot of what I have read found recently with my colleagues by #SLACK ... 
+** TODO What is it good for in EDH
+- [ ] initially set of remarks used during potential new team member candidate
+- [ ] now chapter leaders are also 
+** TODO How to use it
+- [ ] Just browse the HTML version and be insired
+- [ ] it is available on the gitlabee even for modification
+- 
+** TODO Original work
+- [ ] not at all :-( - I copy paste from official documentation, blogs, wikipedia
+  - [ ] there is *always* link to original source - my aim is not to steal someone else work
+  - 
+
+** TODO Can I Help
+*** I don`t know ...
+- [ ] It is in org-mode (a variant of MD format)
+*** So what? MD and org-mode are almost identical
+- [ ] OK ping me then ...
+  - [ ] I can open the repository for writing
+  - [ ] or we can agree on pull requests
+** TODO How can It be useful for me?
+*** You can see what EDH is using [0%]
+- [ ] Well not 100%
+  - Main is not there (COBOL, CICS, IMS, JCL,PL/1, )
+  - AS/400 is not there (RPG SYNON DB2)
+- [ ] There are technologies that are not in our stack actively
+  - Haskell, Scala
+  - I just consider them useful
+
+** TODO How is it organized
+- [ ] tree like structure
+- [ ] TAGS
+- [ ] properties
+- [ ] small elisp scripts for "re-collection and building links"
+- 
+** TODO Emacs? WTF we are not in 1976?
+- [ ] well it is just a text file
+- [ ] if you want to consume you can use browser
+- 
