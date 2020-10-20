@@ -770,13 +770,35 @@ Consider following status codes:
 :END:
 
 *** TODO Event Sourcing                                           :PATTERN:
-*** TODO Sidecar                                                  :PATTERN:
-*** TODO Backend-for-Frontend                                     :PATTERN:
-*** TODO Strangler Pattern                                        :PATTERN:
-*** TODO Saga                                                     :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: EVENT_SOURCING
+:END:
+#+call: lg-get-props-entry()
 
-** TODO Event Sourcing                                             :PATTERN:
-** TODO CQRS                                                       :PATTERN:
+*** TODO Sidecar                                                  :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: SIDECAR
+:END:
+#+call: lg-get-props-entry()
+
+*** TODO Backend-for-Frontend                                     :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: BACKEND_FOR_FRONTEND
+:END:
+#+call: lg-get-props-entry()
+
+*** TODO Strangler                                        :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: STRANGLER
+:END:
+#+call: lg-get-props-entry()
+
+*** TODO Saga                                                     :PATTERN:
+:PROPERTIES:
+:CUSTOM_ID: SAGA
+:END:
+#+call: lg-get-props-entry()
+
 ** TODO CRUD                                                       :PATTERN:
 ** WIP (Pragmatic) Design principes [0/11]
 *** TODO DRY                                                        :TOPIC:
@@ -790,12 +812,21 @@ Consider following status codes:
 - The different patterns and principles used in GRASP are controller, creator, indirection, information expert, low coupling, high cohesion, polymorphism, protected variations, and pure fabrication. All these patterns answer some software problems, and these problems are common to almost every software development project. These techniques have not been invented to create new ways of working, but to better document and standardize old, tried-and-tested programming principles in object-oriented design.
 - Computer scientist Craig Larman states that "the critical design tool for software development is a mind well educated in design principles. It is not UML or any other technology."[2] Thus, GRASP are really a mental toolset, a learning aid to help in the design of object-oriented software.
 *** WIP SOLID
+:PROPERTIES:
+:CUSTOM_ID: SOLID
+:END:
+#+call: lg-get-props-entry()
 - *S* single responsibility
 - *O* open–closed
 - *L* liskov substitution
 - *I* interface segregation
 - *D* dependency inversion
 *** TODO YAGNI                                                      :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: YAGNI
+:END:
+#+call: lg-get-props-entry()
+
 *** TODO Open/Close principal                                       :TOPIC:
 *** TODO High Cohesion                                              :TOPIC:
 *** TODO Low Coupling                                               :TOPIC:
@@ -887,15 +918,32 @@ Consider following status codes:
 :END:
 #+call: lg-get-props-entry()
 *** Wall: Write Ahead Logs
-**** what it is good for
+:PROPERTIES:
+:CUSTOM_ID: WALL
+:END:
+#+call: lg-get-props-entry()
+
 *** Eventual Consistency
+:PROPERTIES:
+:CUSTOM_ID: EVENTUAL_CONSISTENCY
+:END:
+#+call: lg-get-props-entry()
+
 *** Multi master replication
 *** OLAP
-#+BEGIN_NOTE
-- OnLine Transactional Processing
-#+END_NOTE
-*** OLTP
+:PROPERTIES:
+:CUSTOM_ID: OLAP
+:END:
+#+call: lg-get-props-entry()
+
 - OnLine Analytical Processing
+*** OLTP
+:PROPERTIES:
+:CUSTOM_ID: OLTP
+:END:
+#+call: lg-get-props-entry()
+
+- OnLine Transactional Processing
 *** Slowly Moving Dimensions
 **** What is it?                                                :QUESTION:
 :ANSWER:
