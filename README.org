@@ -2440,6 +2440,9 @@ ip addr sh
 ip route sh
 #+end_src
 *** TODO nmap
+:PROPERTIES:
+:CUSTOM_ID: nmap
+:END:
 *** TODO nc
 :PROPERTIES:
 :CUSTOM_ID: nc
@@ -2469,6 +2472,9 @@ ip route sh
 :CUSTOM_ID: wget
 :END:
 *** TODO curl
+:PROPERTIES:
+:CUSTOM_ID: curl
+:END:
 *** TODO find
 :PROPERTIES:
 :CUSTOM_ID: find
@@ -4405,10 +4411,12 @@ From one of the world's most highly regarded social scientists, a transformative
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
 *** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
+:CUSTOM_ID: Robert-M-Sapolsky-Behave-The-Biology-of-Humans-at-Our-Best-and-Worst
 :END:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
 *** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
+:CUSTOM_ID: Irvin-D-Yalom-The-Schopenhauer-Cure-A-Novel
 :END:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
 
@@ -6378,7 +6386,7 @@ The way the SIM card is manufactured. Esp for the iot and the new way of limitin
 :CREATED:  [2018-08-15 Wed 08:00]
 :lg-yt-url: https://youtu.be/avFR_Af0KGk
 :lg-group: NDC Oslo 2017
-:lg-authors: Christian%20Wenz
+:lg-authors: Christian Wenz
 :lg-categoty: OWASP
 :lg-event-date: <2017-06-15 Čt>
 :lg-subject: Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
@@ -7840,8 +7848,9 @@ https://youtu.be/iE-E7oJAyNE
 :lg-serie: MFF FJDP
 :lg-authors: Pavel%20Krtouš
 :lg-format: Lecture
-:lg-yt-url: https://youtu.be/w9ulyaauBIE
+:lg_yt_url: https://youtu.be/w9ulyaauBIE
 :lg-subject: Od Aristotela k Newtonovi
+:CUSTOM_ID: Od-Aristotela-k-Newtonovi
 :END:
 
 **** Pavel Krtouš - Newton vs. Mach (MFF FJDP 21.2.2019)
