@@ -136,6 +136,9 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 :CUSTOM_ID: bcd-encoding
 :END:
 *** Float: (ieee754)
+:PROPERTIES:
+:CUSTOM_ID: float-ieee754
+:END:
 **** Explain mantisa, exponent                                  :QUESTION:
 **** How do you compare two float values?                       :QUESTION:
 **** Explain risk of using floating point in business programming :QUESTION:
@@ -147,6 +150,9 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 #+call: lg-get-props-entry()
 - In computing, endianness is the order or sequence of bytes of a word of digital data in computer memory. Endianness is primarily expressed as big-endian (BE) or little-endian (LE). A big-endian system stores the most significant byte of a word at the smallest memory address and the least significant byte at the largest. A little-endian system, in contrast, stores the least-significant byte at the smallest address. Endianness may also be used to describe the order in which the bits are transmitted over a communication channel. Bit-endianess is seldom used in other contexts.
 *** binary / octal / hex
+:PROPERTIES:
+:CUSTOM_ID: binary-octal-hex
+:END:
 ** WIP Text Encodings
 *** What is unicode
 :PROPERTIES:
@@ -157,7 +163,13 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 - The Unicode Standard provides a unique number for every character, no matter what platform, device, application or language. It has been adopted by all modern software providers and now allows data to be transported through many different platforms, devices and applications without corruption. Support of Unicode forms the foundation for the representation of languages and symbols in all major operating systems, search engines, browsers, laptops, and smart phonesplus the Internet and World Wide Web (URLs, HTML, XML, CSS, JSON, etc.). Supporting Unicode is the best way to implement ISO/IEC 10646.
 - The emergence of the Unicode Standard and the availability of tools supporting it are among the most significant recent global software technology trends.
 *** utf-8
+:PROPERTIES:
+:CUSTOM_ID: utf-8
+:END:
 *** ASCII
+:PROPERTIES:
+:CUSTOM_ID: ascii
+:END:
 |-----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
 |     |   _0 |   _1 |   _2 |   _3 |   _4 |   _5 |   _6 |   _7 |   _8 |   _9 | _A   | _B   | _C   | _D   | _E   | _F   |
 |-----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
@@ -187,6 +199,9 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 |-----+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------+------|
 
 *** EBCDIC
+:PROPERTIES:
+:CUSTOM_ID: ebcdic
+:END:
 ** TODO I18N
 :PROPERTIES:
 :CUSTOM_ID: I18N
@@ -2582,6 +2597,15 @@ ip route sh
 :PROPERTIES:
 :CUSTOM_ID: react-styled-components
 :END:
+*** Redux toolkit
+:PROPERTIES:
+:CUSTOM_ID: REDUX_TOOLKIT
+:learning_1: https://redux.js.org/redux-toolkit/overview
+:END:
+- What is Redux Toolkit?
+- Redux Toolkit is our official, opinionated, batteries-included toolset for efficient Redux development. It is intended to be the standard way to write Redux logic, and we strongly recommend that you use it.
+- It includes several utility functions that simplify the most common Redux use cases, including store setup, defining reducers, immutable update logic, and even creating entire "slices" of state at once without writing any action creators or action types by hand. It also includes the most widely used Redux addons, like Redux Thunk for async logic and Reselect for writing selector functions, so that you can use them right away.
+
 ** TODO Relay
 :PROPERTIES:
 :CUSTOM_ID: Relay
@@ -4425,8 +4449,9 @@ From one of the world's most highly regarded social scientists, a transformative
 :PROPERTIES:
 :END:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
-*** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:NO_EXPORT:BOOK:
+*** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:BOOK:
 :PROPERTIES:
+:CUSTOM_ID: aaaa
 :END:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
 
