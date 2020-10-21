@@ -120,9 +120,21 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 :END:
 #+call: lg-get-props-entry()
 *** OR, AND, XOR, Shift (logical vs arithmetic)
+:PROPERTIES:
+:CUSTOM_ID: or-and-xor
+:END:
 *** One's Complement
+:PROPERTIES:
+:CUSTOM_ID: ones-complement
+:END:
 *** Two's Complement
+:PROPERTIES:
+:CUSTOM_ID: twos-complement
+:END:
 *** BCD encoding
+:PROPERTIES:
+:CUSTOM_ID: bcd-encoding
+:END:
 *** Float: (ieee754)
 **** Explain mantisa, exponent                                  :QUESTION:
 **** How do you compare two float values?                       :QUESTION:
@@ -4411,12 +4423,10 @@ From one of the world's most highly regarded social scientists, a transformative
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
 *** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Robert-M-Sapolsky-Behave-The-Biology-of-Humans-at-Our-Best-and-Worst
 :END:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
 *** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Irvin-D-Yalom-The-Schopenhauer-Cure-A-Novel
 :END:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
 
