@@ -5513,9 +5513,10 @@ Cognitive-bias
 #+name: collector-books
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "Not Yet Defined"))
-    (org-propview-collect cols "%S" '((string-match "BOOK" TAGS)) nil nil nil colnames ))
+    (org-propview-collect cols "%S" '((and(s-contains? "BOOK" TAGS)(not(s-contains? "NO_EXPORT" TAGS)))) nil nil nil colnames ))
 #+end_src
 #+call:collector-books()
+
 
 ** Index of Patterns
 :PROPERTIES:
