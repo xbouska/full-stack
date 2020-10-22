@@ -140,8 +140,17 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 :CUSTOM_ID: float-ieee754
 :END:
 **** Explain mantisa, exponent                                  :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: Explain-mantisa-exponent
+:END:
 **** How do you compare two float values?                       :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: How-do-you-compare-two-float-values
+:END:
 **** Explain risk of using floating point in business programming :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: Explain-risk-of-using-floating-point-in-business-programming
+:END:
 *** Endiannes
 :PROPERTIES:
 :CUSTOM_ID: ENDIANNESS
@@ -154,9 +163,13 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 :CUSTOM_ID: binary-octal-hex
 :END:
 ** WIP Text Encodings
+:PROPERTIES:
+:CUSTOM_ID: Text-Encodings
+:END:
 *** What is unicode
 :PROPERTIES:
 :learning_1:  http://www.unicode.org/standard/WhatIsUnicode.html
+:CUSTOM_ID: What-is-unicode
 :END:
 #+call: lg-get-props-entry()
 
@@ -225,9 +238,13 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 - ISO 639-2/B: three-letter codes, mostly the same as 639-2/T, but with some codes derived from English names rather than native names of languages (in the following table, these differing codes are highlighted in boldface)
 - ISO 639-3: three-letter codes, the same as 639-2/T for languages, but with distinct codes for each variety of an ISO 639 macrolanguage
 *** bcp-47 / rfc-5646
+:PROPERTIES:
+:CUSTOM_ID: bcp-47-rfc-5646
+:END:
 ** WIP Data Serialization Formats [0/5]
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats
+:CUSTOM_ID: Data-Serialization-Formats-0-5
 :END:
 #+call: lg-get-props-entry(aa=3)
 
@@ -236,6 +253,7 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 :PROPERTIES:
 :learning_1: https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/
 :learning_2: https://yaml.org/spec/1.2/spec.html
+:CUSTOM_ID: yaml
 :END:
 #+call: lg-get-props-entry()
 #+begin_src yaml
@@ -4443,10 +4461,12 @@ From one of the world's most highly regarded social scientists, a transformative
 - In The Stuff of Thought, Steven Pinker marries two of the subjects he knows best: language and human nature. The result is a fascinating look at how our words explain our nature....
 *** Simon Conway Morris (Editor): The Deep Structure of Biology: Is Convergence Sufficiently Ubiquitous to Give a Directional Signal :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
+:CUSTOM_ID: Simon-Conway-Morris-Editor-The-Deep-Structure-of-Biology-Is-Convergence-Sufficiently-Ubiquitous-to-Give-a-Directional-Signal
 :END:
 - Twelve renowned scientists and theologians offer penetrating insights into the evolution dialogue in The Deep Structure of Biology....
 *** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
+:CUSTOM_ID: Robert-M-Sapolsky-Behave-The-Biology-of-Humans-at-Our-Best-and-Worst
 :END:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
 *** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:BOOK:
@@ -5512,9 +5532,22 @@ Cognitive-bias
 #+name: collector-yt
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "N/D"))
-    (org-propview-collect cols "%S" '((boundp 'LG-YT-URL)) nil nil nil colnames ))
+    (org-propview-collect cols "%S" '((and(boundp 'LG-YT-URL)(not(boundp 'NO_INDEX)))) nil nil '(NO_INDEX) colnames ))
 #+end_src
 #+call:collector-yt()
+
+#+RESULTS:
+| Item                                                                                           | ref                          |
+|------------------------------------------------------------------------------------------------+------------------------------|
+| [[#Webinar-Internal-Building-Blocks-Aggregates-Entities-Value-Objects-Part-3-5][Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5]]                | https://youtu.be/RHg53wMflCc |
+| [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]                                                 | https://youtu.be/AbgsfeGvg3E |
+| [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]                                                                           | https://youtu.be/v-RkKohsF78 |
+| [[#YT:gR_EGN86fvg][Developing Microservices with Aggregates by Chris Richardson]]                                   | https://youtu.be/gR_EGN86fvg |
+| [[#YT:TbZ57raC1TE][Re Imagine The Hiring Process]]                                                                  | https://youtu.be/TbZ57raC1TE |
+| [[#YT:WEuHleDlpdc][YOW! Conference 2018 - Cat Swetel - The Metrics You Should Use But Probably Don't]]              | https://youtu.be/WEuHleDlpdc |
+| [[#YT:8NzkYsY7TOk][DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle]] | https://youtu.be/8NzkYsY7TOk |
+| [[#YT:SyVLioZmbOM][Modern Java: Change is the Only Constant by Mark Reinhold]]                                      | https://youtu.be/SyVLioZmbOM |
+
 ** Index of SE-Radio Podcast Episodes
 :PROPERTIES:
 :header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-SE-RADIO-URL)
@@ -5595,6 +5628,7 @@ Cognitive-bias
 * WIP To integrate                                                :NO_EXPORT:
 :PROPERTIES:
 :CUSTOM_ID: To-integrate
+:NO_INDEX: t
 :END:
 ** TODO dog - used technologies
 :PROPERTIES:
@@ -5727,6 +5761,7 @@ Cognitive-bias
 *** TODO OpenID Connect Core 1.0 incorporating errata set 1
 :PROPERTIES:
 :learning_1: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
+:CUSTOM_ID: OpenID-Connect-Core-1-0-incorporating-errata-set-1
 :END:
 - OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 - This specification defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User. It also describes the security and privacy considerations for using OpenID Connect.
@@ -6081,6 +6116,7 @@ https://youtu.be/4tuqI8V_cZw
 :lg-categoty: OAuth2
 :lg-subject: Refactoring Restify OAuth2
 :lg-yt-url: https://youtu.be/aHrwUnsPom0
+:CUSTOM_ID: Refactoring-Restify-OAuth2
 :END:
 #+call: lg-get-props-entry()
 
@@ -6151,6 +6187,7 @@ https://youtu.be/Br7-ry5swIg
 :lg-yt-url: https://youtu.be/gfh-VCTwMw8
 :lg-duration: 45:26
 :lg-subject: Avoiding Microservice Megadisasters - Jimmy Bogard
+:CUSTOM_ID: Avoiding-Microservice-Megadisasters-Jimmy-Bogard
 :END:
 #+call: lg-get-props-entry()
 
@@ -6320,6 +6357,7 @@ https://youtu.be/iZa_XKpj9X4
 :CREATED:  [2018-08-12 Sun 09:42]
 :lg-yt-url: https://youtu.be/rVnXzW31pWQ
 :lg-subject: Kevin Johnson & Jason Gillam - Next Gen Web Pen Testing - AppSecUSA 2016
+:CUSTOM_ID: Kevin-Johnson-Jason-Gillam-Next-Gen-Web-Pen-Testing-AppSecUSA-2016
 :END:
 #+call: lg-get-props-entry()
 
@@ -6367,6 +6405,7 @@ Slack app security.
 :lg-yt-url: https://youtu.be/SuZZV74wTkw
 :lg-source: YouTube
 :lg-subject: What Doctors Can Teach Us on Continuous Learning - Johnny Graber
+:CUSTOM_ID: What-Doctors-Can-Teach-Us-on-Continuous-Learning-Johnny-Graber
 :END:
 #+call: lg-get-props-entry()
 
@@ -6384,6 +6423,7 @@ Slack app security.
 :lg-categoty: Security
 :lg-keywords: Printers Postscript EPS IPP
 :lg-subject: Exploiting Network Printers
+:CUSTOM_ID: Exploiting-Network-Printers
 :END:
 #+call: lg-get-props-entry()
 :OFFICIAL-DESCRIPTION:
@@ -6407,6 +6447,7 @@ Slack app security.
 :lg-url-1: https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning.pdf
 :lg-url-2: https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning-wp.pdf
 :lg-subject: Attacks Against GSMA's M2M Remote Provisioning
+:CUSTOM_ID: Attacks-Against-GSMA's-M2M-Remote-Provisioning
 :END:
 #+call: lg-get-props-entry()
 :OFFICIAL-DESCRIPTION:
@@ -6426,6 +6467,7 @@ The way the SIM card is manufactured. Esp for the iot and the new way of limitin
 :lg-categoty: OWASP
 :lg-event-date: <2017-06-15 Čt>
 :lg-subject: Web Application Security Risks: A Look at OWASP Top Ten 2017 - Christian Wenz
+:CUSTOM_ID: Web-Application-Security-Risks-A-Look-at-OWASP-Top-Ten-2017-Christian-Wenz
 :END:
 #+call: lg-get-props-entry()
 
@@ -7884,7 +7926,7 @@ https://youtu.be/iE-E7oJAyNE
 :lg-serie: MFF FJDP
 :lg-authors: Pavel%20Krtouš
 :lg-format: Lecture
-:lg_yt_url: https://youtu.be/w9ulyaauBIE
+:lg-yt-url: https://youtu.be/w9ulyaauBIE
 :lg-subject: Od Aristotela k Newtonovi
 :CUSTOM_ID: Od-Aristotela-k-Newtonovi
 :END:
