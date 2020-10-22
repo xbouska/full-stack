@@ -6083,11 +6083,12 @@ Teach Yourself Computer Science - https://teachyourselfcs.com
 *** TODO Cracking the Lens: Targeting HTTP's Hidden Attack-Surface
 :PROPERTIES:
 :CREATED:  [2018-08-09 Thu 07:18]
-:RB_YOUTUBE: https://youtu.be/zP4b3pw94s0
+:lg-yt-url: https://youtu.be/zP4b3pw94s0
 :lg-subject: Cracking the Lens: Targeting HTTP's Hidden Attack-Surface
 :CUSTOM_ID: Cracking-the-Lens-Targeting-HTTP's-Hidden-Attack-Surface
 :END:
 #+call: lg-get-props-entry()
+
 :MY-REMARKS:
 - investigates the reverse proxies
 :END:
