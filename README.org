@@ -5,7 +5,7 @@
 #+SETUPFILE: ./theme-readtheorg.setup
 #+BEGIN_COMMENT
 #+OPTIONS: html-style:nil
- #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
 #+OPTIONS: d:t  prop:nil tags:t |:t H:7 num:4 toc:t ^:nil p:nil html-style:nil pri:t
 #+EXCLUDE_TAGS: NO_EXPORT
@@ -101,6 +101,9 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
                (setq quit-flag t))
              (org-entry-put nil "CUSTOM_ID" id))))))))
 #+end_src
+
+#+RESULTS:
+: my/ensure-headline-ids
 
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
@@ -524,7 +527,7 @@ set2:
 - Optimal cache-oblivious algorithms are known for matrix multiplication, matrix transposition, sorting, and several other problems. Some more general algorithms, such as Cooley–Tukey FFT, are optimally cache-oblivious under certain choices of parameters. Because these algorithms are only optimal in an asymptotic sense (ignoring constant factors), further machine-specific tuning may be required to obtain nearly optimal performance in an absolute sense. The goal of cache-oblivious algorithms is to reduce the amount of such tuning that is required.
 - Typically, a cache-oblivious algorithm works by a recursive divide and conquer algorithm, where the problem is divided into smaller and smaller subproblems. Eventually, one reaches a subproblem size that fits into cache, regardless of the cache size. For example, an optimal cache-oblivious matrix multiplication is obtained by recursively dividing each matrix into four sub-matrices to be multiplied, multiplying the submatrices in a depth-first fashion. In tuning for a specific machine, one may use a hybrid algorithm which uses blocking tuned for the specific cache sizes at the bottom level, but otherwise uses the cache-oblivious algorithm.
 
-* WIP Architecture [0/18]                                            :DOMAIN:
+* WIP Architecture [0/15]                                            :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: ARCHITECTURE
 :END:
@@ -572,27 +575,27 @@ set2:
 :PROPERTIES:
 :CUSTOM_ID: NATS
 :END:
-**** TODO Google Pub/Sub
+**** TODO Google Pub/Sub                                             :GCP:
 :PROPERTIES:
 :CUSTOM_ID: Google-Pub-Sub
 :END:
-**** TODO AWS SNS
+**** TODO AWS SNS                                                    :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AWS-SNS
 :END:
-**** TODO AWS SNS FIFO
+**** TODO AWS SNS FIFO                                               :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AWS-SNS-FIFO
 :END:
-**** TODO AWS SES
+**** TODO AWS SES                                                    :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AWS-SES
 :END:
-**** TODO AWS SQS
+**** TODO AWS SQS                                                    :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AWS-SQS
 :END:
-**** TODO AWS Kinesis
+**** TODO AWS Kinesis                                                :AWS:
 :PROPERTIES:
 :CUSTOM_ID: AWS-Kinesis
 :END:
@@ -603,7 +606,7 @@ set2:
 **** TODO Kafka
 :PROPERTIES:
 :CUSTOM_ID: Kafka
-:END:hh
+:END:
 **** WIP Redis
 :PROPERTIES:
 :learning_1: https://redis.io/topics/introduction
@@ -668,124 +671,6 @@ set2:
 - MQTT relies on the TCP protocol for data transmission. A variant, MQTT-SN, is used over other transports such as UDP or Bluetooth.
 - MQTT sends connection credentials in plain text format and does not include any measures for security or authentication. This can be provided by using TLS to encrypt and protect the transferred information against interception, modification or forgery.
 - The default unencrypted MQTT port is 1883. The encrypted port is 8883.[16]
-
-** WIP HTTP Family                                                   :TOPIC:
-:PROPERTIES:
-:CUSTOM_ID: HTTP-Family
-:END:
-*** HTTP
-:PROPERTIES:
-:CUSTOM_ID: HTTP
-:END:
-**** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
-:PROPERTIES:
-:CUSTOM_ID: What-is-the-use-of-Accept-and-Content-Type-Headers-in-HTTP-Request
-:END:
-:ANSWER:
-- Accept headers:
-  - tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as application/xml then XML response will be sent. For Accept header application/json, server will send the JSON response.
-- Content-Type header:
-  - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
-:END:
-**** WIP What is Server-Sent Events  (SSE)                      :QUESTION:
-:PROPERTIES:
-:CUSTOM_ID: What-is-Server-Sent-Events-SSE
-:END:
-:ANSWER:
-- is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
-- They are commonly used to send message updates or continuous data streams to a browser client
-  - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
-    - through which a client requests a particular URL in order to receive an event stream.
-:END:
-**** WIP What are WebSockets                                    :QUESTION:
-:PROPERTIES:
-:CUSTOM_ID: What-are-WebSockets
-:END:
-**** WIP EventSource
-:PROPERTIES:
-:learning_1: https://developer.mozilla.org/en-US/docs/Web/API/EventSource
-:CUSTOM_ID: EventSource
-:END:
-#+call: lg-get-props-entry()
-- The EventSource interface is web content's interface to server-sent events.
-- An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format.
-- The connection remains open until closed by calling EventSource.close().
-- Once the connection is opened, incoming messages from the server are delivered to your code in the form of events.
-- If there is an event field in the incoming message, the triggered event is the same as the event field value. If no event field is present, then a generic message event is fired.
-- Unlike WebSockets, server-sent events are unidirectional; that is, data messages are delivered in one direction, from the server to the client (such as a user's web browser).
-- That makes them an excellent choice when there's no need to send data from the client to the server in message form.
-- For example, EventSource is a useful approach for handling things like social media status updates, news feeds, or delivering data into a client-side storage mechanism like IndexedDB or web storage.
-**** TODO XMLHttpRequest (XHR)
-:PROPERTIES:
-:CUSTOM_ID: XMLHttpRequest-XHR
-:END:
-- objects are used to interact with servers.
-- You can retrieve data from a URL without having to do a full page refresh.
-- This enables a Web page to update just part of a page without disrupting what the user is doing.
-- XMLHttpRequest is used heavily in AJAX programming.
-- Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
-**** WIP Fetch
-:PROPERTIES:
-:CUSTOM_ID: Fetch
-:END:
-- Fetch is a fairly recent addition to the JavaScript world (introduced in 2015) utilizing a modern syntax for making requests from the browser.
-- Like most modern JS written today, Fetch is based on Promises rather than callbacks.
-- In our project, the Fetch example can be seen here and the code is shown below:
-
-#+begin_src js
-<!DOCTYPE html>
-<head>
-  <title>FETCH Example</title>
-</head>
-
-<body>
-  <div>
-    <h1>Select Reddit Sub</h1>
-    <div id="list"></div>
-
-  </div>
-
-  <script>
-    (function(){
-      fetch('/api/endpoint')
-        .then(payload => payload.json())
-        .then(resp => {
-          var data = resp.data // array of Reddit subs returned from "endpoint.js"
-          console.log(JSON.stringify(data))
-          var html = '<ol>'
-          data.forEach(function(sub){
-            html += '<a href="/axios/'+sub.path+'">'+sub.name+'</a><br />'
-          })
-          html += '</ol>'
-          document.getElementById('list').innerHTML = html
-        })
-        .catch(err => {
-          console.log('ERROR. Something went wrong.')
-        })
-    })()
-  </script>
-</body>
-</html>
-#+end_src
-
-- The actual Fetch request takes place in the <script> tag between lines 16 and 33. On line 16, we make a request to the url "/api/endpoint" which returns a list of Reddit subs available to view. The initial response is on line 17 ("payload") which we then convert into JSON and parse starting on line 19. The "data" object is an array of Reddit subs with "name" and "path" keys. In lines 22 through 28, we populate a <div> tag with id "list" using the objects in the data array and connect each element to a link to view the sub content.
-**** WIP axios
-:PROPERTIES:
-:CUSTOM_ID: axios
-:END:
-Axios: Axios is a Javascript library used to make HTTP requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. It can be used intercept HTTP requests and responses and enables client-side protection against XSRF. It also has the ability to cancel requests.
-
-#+begin_src js
-axios.get('url')
-  .then((response) => {
-
-    // Code for handling the response
-  })
-  .catch((error) => {
-
-    // Code for handling the error
-  })
-#+end_src
 ** WIP REST
 :PROPERTIES:
 :CUSTOM_ID: REST
@@ -2217,7 +2102,7 @@ CREATE INDEX name ON table USING brin (column);
 :CUSTOM_ID: MinIO-Object-Storage
 :END:
 #+call: lg-get-props-entry()
-* WIP DEVOPS / SRE   [0/9]                                           :DOMAIN:
+* WIP DEVOPS / SRE   [0/6]                                           :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS
 :END:
@@ -2328,8 +2213,6 @@ Some of the key principles of the Third Way are:
 | 224.0.0.0/4        | 224.0.0.0–239.255.255.255   |         268 435 456 | Internet        | In use for IP multicast.[11] (Former Class D network).                                                                                                                        |
 | 240.0.0.0/4        | 240.0.0.0–255.255.255.254   |         268 435 455 | Internet        | Reserved for future use.[12] (Former Class E network).                                                                                                                        |
 | 255.255.255.255/32 | 255.255.255.255             |                   1 | Subnet          | Reserved for the "limited broadcast" destination address.[3][13]                                                                                                              |
-
-
 ** TODO Linux [0/36]
 :PROPERTIES:
 :CUSTOM_ID: Linux-0-36
@@ -2521,6 +2404,401 @@ ip route sh
 :PROPERTIES:
 :CUSTOM_ID: find
 :END:
+
+** TODO Tools
+:PROPERTIES:
+:CUSTOM_ID: Tools
+:END:
+*** Git                                                             :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Git
+:END:
+**** What is the use of Staging area or Indexing in Git?        :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-the-use-of-Staging-area-or-Indexing-in-Git
+:END:
+:ANSWER:
+- From Git’s perspective, there are three areas where the file changes can be kept i.e.:
+  - working directory,
+  - staging area, and 
+  - repository.
+
+- First, you make changes in your project’s working directory stored on your computer file system.
+- All the changes remain here until you add them to an intermediate area called staging area.
+
+- You can stage the changes by executing ~git add .~
+- This staging area gives you a preview of your next commit and basically lets you fine-tune your commits.
+- You can add or remove changes in the staging area until you are satisfied with the version you are going to commit.
+
+- Once you verify your changes and sign off the stage changed, then you can finally commit the changes.
+- Upon commit, they go the local repository i.e. into ~.git/objects~ directory.
+
+- If you use Git GUI, then you will see the option to stage your changes.
+
+- In the below screenshot, the file sample.txt is under unstaged changes area which means that it’s in your working directory.
+
+- Staging is also referred to as indexing because git maintains an index file to keep track of your file changes across these three areas.
+- The files which are staged are currently in your index.
+- When you add changes to the staging area, then the information in the index gets updated.
+- When you do a commit, its actually what’s in the index that gets committed, and not what’s in the working directory.
+- You can use the git status command to see what’s in the index.
+:END:
+**** TODO squash? Waht it is? whan to use it awht it is good for?
+:PROPERTIES:
+:CUSTOM_ID: squash-Waht-it-is-whan-to-use-it-awht-it-is-good-for
+:END:
+**** TODO Pull request
+:PROPERTIES:
+:CUSTOM_ID: Pull-request
+:END:
+**** TODO Cherry pick
+:PROPERTIES:
+:CUSTOM_ID: Cherry-pick
+:END:
+**** TODO Flow
+:PROPERTIES:
+:CUSTOM_ID: Flow
+:END:
+**** TODO Push
+:PROPERTIES:
+:CUSTOM_ID: Push
+:END:
+**** TODO Rebase vs Merge - semantical and syntactical diff
+:PROPERTIES:
+:CUSTOM_ID: Rebase-vs-Merge-semantical-and-syntactical-diff
+:END:
+**** TODO Stash
+:PROPERTIES:
+:CUSTOM_ID: Stash
+:END:
+*** WIP DNS                                                         :TOPIC:
+:PROPERTIES:
+:learning_1: https://www.freshersemploy.com/dns-interview-questions-answers/
+:CUSTOM_ID: DNS
+:END:
+#+call: lg-get-props-entry()
+**** What is DNS?
+:PROPERTIES:
+:CUSTOM_ID: What-is-DNS
+:END:
+- Domain Name Systems(DNS) maps domain names with Internet Protocol(IP) address, thus helping computer for translating human-readable(domain name) to machine-readable language(IP address).
+**** What is Nameserver?
+:PROPERTIES:
+:CUSTOM_ID: What-is-Nameserver
+:END:
+- It is used for storing the information for the domain name to IP and IP to the domain name. In other words, the name server is used for storing records of the domain names, Name servers help for convert domain name to IP address.
+**** What is DNS Spoofing?
+:PROPERTIES:
+:CUSTOM_ID: What-is-DNS-Spoofing
+:END:
+- DNS Spoofing occurs when a hacker is redirecting website traffic maliciously to spread the malware or to compromise the user's data through forged DNS record.
+- When a user visits a website(like freshersemploy.com) in a browser, it needs to be resolved from human-readable to machine-readable(i.e. IP addresses) using DNS resolver. To decrease the time and resolve faster, DNS resolvers cache the data and store for a specific time(until it expires). An attacker can inject forged DNS entry, thus causing DNS Cache Poisoning and instead of freshersemploy.com, the attacker will redirect it to the wrong domain or fake website.
+**** How can we prevent DNS Spoofing?
+:PROPERTIES:
+:CUSTOM_ID: How-can-we-prevent-DNS-Spoofing
+:END:
+- DNS Spoofing or DNS Cache Poisoning can be avoided by following guidelines:
+  - From a users point of view, it is almost impossible for users to detect whether the DNS records are compromised, but users should be alerted when accessing the sites like banking, payment website where credit card details are used by checking the domain name in the browser and does it have a valid SSL certificate.
+  - Domain owner and DNS provider cannot avoid DNS Spoofing but surely can take protective measures to avoid the compromise of DNS records.
+    - Using Domain Name System Security Extensions(DNSSEC) which helps in determining the DNS records authenticity by signing each request with certified signature and this is recommended by ICANN. Still this in process of implementation.
+**** What is Round Robin DNS? What is the purpose of it?
+:PROPERTIES:
+:CUSTOM_ID: What-is-Round-Robin-DNS-What-is-the-purpose-of-it
+:END:
+- Round Robin DNS is a technique for load distribution, load balancing, fault-tolerance service such as mail server, FTP server etc. which enables istribution of load evenly among multiple servers using various DNS A addresses.
+- Suppose a domain abc.com is configured with Round robin DNS which has 3 potential IP mapping to the same domain(i.e. freshersemploy.com) as follows:
+#+begin_example
+freshersemploy.com -- 104.28.26.01
+freshersemploy.com -- 104.28.26.02
+freshersemploy.com -- 104.28.26.03
+#+end_example
+- Then the first request will go to ~104.28.26.01~, the second request will go to ~104.28.26.02~ and the third request will go to ~104.28.26.03~, thus DNS queries are responded by returning IP addresses in a rotation.
+**** What is primary and secondary name server?
+:PROPERTIES:
+:CUSTOM_ID: What-is-primary-and-secondary-name-server
+:END:
+- Primary name server reads the data from the domain zone, it has DNS records of domain names and it replicates the data with the secondary name server.
+- A secondary name server is the back up of primary name server which is used for high reliability, in case the primary name server is having an issue or not reachable.
+**** What is DNS resolver?
+:PROPERTIES:
+:CUSTOM_ID: What-is-DNS-resolver
+:END:
+- DNS resolvers are being used by ISP (Internet service provider) for the user request to resolve the domain name. If a user request for google.com, DNS resolver needs to contact TLD(Top Level Domain) i.e. .com, for translation of domain name to IP address and it caches the data if the user again queries for the same domain, thus reducing the loads on the server and response time.
+**** What is the difference between URL and Domain?
+:PROPERTIES:
+:CUSTOM_ID: What-is-the-difference-between-URL-and-Domain
+:END:
+- URL stands for Uniform Resource Locator. URL specifies the full address of a webpage. It consists of three components: protocol(like HTTP, mailto, ftp), domain name(like freshersemploy.com) and file name(eg. homepage.html)
+- e.g.:
+  - [[https://www.freshersemploy.com/]]
+  - [[https://www.freshersemploy.com/html-interview-questions-answers/]]
+  - [[mailto:admin@freshersemploy.com]]
+
+- A domain is the name of a website with the top-level domain(like .com, .org etc.). A domain is a part of URL.
+- e.g.:
+  - [[https://www.freshersemploy.com/]]
+  - [[mailto:admin@freshersemploy.com][admin@freshersemploy.com]]
+
+**** What is DNS server?                                        :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-DNS-server
+:END:
+- DNS servers resolve IP address to respective hostnames and it maintains directory or database to store the information.
+- When we try to access the website (like /*freshersemploy.com)*/, DNS servers help to translate to machine-readable language i.e. IP address (like /*104.28.27.67*/).
+**** What are the different types of records in DNS?            :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-are-the-different-types-of-records-in-DNS
+:END:
+- Some of commonly used of DNS records are A, CNAME, NS, MX, PTR, SOA etc.
+**** Explain SOA record?                                        :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: Explain-SOA-record
+:END:
+- Start of Authority(SOA) records stores essential information(like refresh rate, expiry, TTL etc) in domain name system(DNS) in a zone file.
+
+; name TTL class rr Nameserver email-address freshersemploy.com. 12000 IN SOA ns.nameserver.com. root.ns.nameserver.com. ( 2098163206 ; Serial number
+12000 ; Refresh rate in seconds 3600 ; Update Retry in seconds 5788864; Expiry in seconds 100 ; minimum in seconds )
+
+#+begin_src dns
+; name TTL class rr Nameserver email-address
+freshersemploy.com. 12000 IN SOA
+ns.nameserver.com. root.ns.nameserver.com.
+(
+    2098163206 ; Serial number
+    12000 ; Refresh rate in seconds
+    3600 ; Update Retry in seconds
+    5788864; Expiry in seconds
+    100 ; minimum in seconds )
+#+end_src
+
+
+- *Serial Number:* It has the serial number, which gets increments whenever there is a change in the DNS records.
+- *Refresh interval:* It gets refresh at the specific interval and if there any changes in the records, data is replicated.
+- *Retry:* If the propagation gets failed, it will retry after specific time which is defined in the zone file.
+- *Expire:* It is set to have an expiry date, as specified in the zone file. Also used for secondary server how long it should be active in case the primary DNS server is down.
+- *TTL:* It has the default time-to-live(TTL),
+
+A zone file should have only one SOA record and it must be at the top of it.
+
+**** What is the use of PTR in DNS?                             :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-the-use-of-PTR-in-DNS
+:END:
+
+PTR(Pointer) records are used for mapping IP addresses which are associated with hostname name. It is also called has reverse DNS lookup as it
+resolves IP address to domain or hostname. There must be A record for every PTR record. PTR is mainly used for the mail server.
+
+**** Explain CNAME record?                                      :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: Explain-CNAME-record
+:END:
+- CNAME record stands for Canonical Name record. It used as the alias for domain or the Canonical name(another name) for a domain.
+- For example, suppose someone incorrectly types(or misspelled the website name) like fresher*s*employ.com as fresheremploy.com(we should also own this domain), then using CNAME record, we can redirect to fresher*s*employ.com
+- It is a type of resource record in DNS which is specified in the zone file. CNAME records should always point to another domain and never directly points to IP address.
+
+**** Explain Dynamic DNS                                        :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: Explain-Dynamic-DNS
+:END:
+- Dynamic DNS helps for automatically updating the name servers whenever there is a change in the IP address in the Domain Name System(DNS).
+
+**** What is Resource Record?                                   :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-Resource-Record
+:END:
+- Resource Record(RR) defines the elements or attributes of a domain name in DNS zone file like Address(A) record, Mail Exchange(MX) record etc. which helps in name resolutions.
+- Some of the most common Resource Records are:
+
+- A -- IPv4 Address record
+- AAAA -- IPv6 Address record
+- CNAME -- Canonical Name
+- MX -- Mail Exchange
+- PTR -- Pointer
+- SOA -- Start of Authority
+- NS -- Name Server
+
+**** What is DNS Zone?                                          :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-DNS-Zone
+:END:
+- A DNS zone file contains the mapping between a domain name, IP address, recourse records etc. in text representative format. Also, DNS zone refers to the administrative responsibility in the DNS.
+
+**** Define TTL
+:PROPERTIES:
+:CUSTOM_ID: Define-TTL
+:END:
+- Time-to-live caches the DNS records for a specific period of time(when TTL expires, it has to query new record). It helps in queries the records faster, eventually reducing the load on the DNS server.
+
+**** Explain MX record?
+:PROPERTIES:
+:CUSTOM_ID: Explain-MX-record
+:END:
+- Mail Exchange(MX) record is a type of resource record which is used for email sending and delivery. It must be specified in the DNS zone files mails for the domain.
+
+**** What is Forward Lookup
+:PROPERTIES:
+:CUSTOM_ID: What-is-Forward-Lookup
+:END:
+- Forward Lookup is used to find the IP address through the domain name.
+
+**** What is Reverse Lookup
+:PROPERTIES:
+:CUSTOM_ID: What-is-Reverse-Lookup
+:END:
+- Reverse Lookup is used for finding the domain name through it IP.
+
+
+**** TODO What is  DKIM
+:PROPERTIES:
+:CUSTOM_ID: What-is-DKIM
+:END:
+
+*** JFrog: Artifactory
+:PROPERTIES:
+:CUSTOM_ID: JFrog-Artifactory
+:END:
+*** Nexus ... sunset
+:PROPERTIES:
+:CUSTOM_ID: Nexus-sunset
+:END:
+*** Docker                                                          :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Docker
+:END:
+**** TODO dockerhub :-)
+:PROPERTIES:
+:CUSTOM_ID: dockerhub
+:END:
+**** TODO docker file
+:PROPERTIES:
+:CUSTOM_ID: docker-file
+:END:
+**** TODO docker image
+:PROPERTIES:
+:CUSTOM_ID: docker-image
+:END:
+**** TODO docker compose
+:PROPERTIES:
+:CUSTOM_ID: docker-compose
+:END:
+**** TODO docker swarm
+:PROPERTIES:
+:CUSTOM_ID: docker-swarm
+:END:
+**** TODO linux namespaces
+:PROPERTIES:
+:CUSTOM_ID: linux-namespaces
+:END:
+**** TODO cgroups
+:PROPERTIES:
+:CUSTOM_ID: cgroups
+:END:
+**** TODO OCI
+:PROPERTIES:
+:CUSTOM_ID: OCI
+:END:
+**** TODO volumes
+:PROPERTIES:
+:CUSTOM_ID: volumes
+:END:
+**** TODO networks
+:PROPERTIES:
+:CUSTOM_ID: networks
+:END:
+**** TODO BuildKit
+:PROPERTIES:
+:CUSTOM_ID: BuildKit
+:END:
+**** TODO DTR - docker trusted registry
+:PROPERTIES:
+:CUSTOM_ID: DTR-docker-trusted-registry
+:END:
+
+*** Terraform                                                       :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Terraform
+:END:
+**** resource
+:PROPERTIES:
+:CUSTOM_ID: resource
+:END:
+**** module
+:PROPERTIES:
+:CUSTOM_ID: module
+:END:
+**** state
+:PROPERTIES:
+:CUSTOM_ID: state
+:END:
+**** backend
+:PROPERTIES:
+:CUSTOM_ID: backend
+:END:
+*** Chef                                                            :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Chef
+:END:
+*** Puppet                                                          :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Puppet
+:END:
+*** Ansible                                                         :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Ansible
+:END:
+*** Cloud Formation                                                 :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Cloud-Formation
+:END:
+*** Hashicorp: Consul                                               :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Hashicorp-Consul
+:END:
+*** Hashicorp: Vault                                                :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Hashicorp-Vault
+:END:
+*** TODO Zookeeper                                                  :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Zookeeper
+:END:
+*** WIP Kibana                                                      :TOPIC:
+:PROPERTIES:
+:learning_1: https://logz.io/blog/grafana-vs-kibana/
+:CUSTOM_ID: Kibana
+:END:
+#+call: lg-get-props-entry()
+- Kibana is the ‘K’ in the ELK Stack, the world’s most popular open source log analysis platform, and provides users with a tool for exploring, visualizing, and building dashboards on top of the log data stored in Elasticsearch clusters.
+- Kibana’s core feature is data querying and analysis. Using various methods, users can search the data indexed in Elasticsearch for specific events or strings within their data for root cause analysis and diagnostics. Based on these queries, users can use Kibana’s visualization features which allow users to visualize data in a variety of different ways, using charts, tables, geographical maps and other types of visualizations.
+*** WIP Graphana                                                    :TOPIC:
+:PROPERTIES:
+:learning_1: https://logz.io/blog/grafana-vs-kibana/
+:CUSTOM_ID: Graphana
+:END:
+#+call: lg-get-props-entry()
+- Grafana is an open source visualization tool that can be used on top of a variety of different data stores but is most commonly used together with Graphite, InfluxDB, Prometheus, Elasticsearch and Logz.io. As it so happens, Grafana began as a fork of Kibana, trying to supply support for metrics (a.k.a. monitoring) that Kibana (at the time) did not provide much if any such support for.
+- Essentially, Grafana is a feature-rich replacement for Graphite-web, which helps users to easily create and edit dashboards. It contains a unique Graphite target parser that enables easy metric and function editing. Users can create comprehensive charts with smart axis formats (such as lines and points) as a result of Grafana’s fast, client-side rendering — even over long ranges of time — that uses Flot as a default option.
+*** TODO ELK                                                        :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: ELK
+:END:
+*** TODO DynaTrace                                                  :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: DynaTrace
+:END:
+*** TODO Piwik                                                      :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: Piwik
+:END:
+*** TODO argocd                                                     :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: argocd
+:END:
+*** TODO fluxcd                                                     :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: fluxcd
+:END:
+*** TODO Prometheus                                                 :TOPIC:
 ** TODO Observability
 :PROPERTIES:
 :CUSTOM_ID: Observability
@@ -2541,11 +2819,11 @@ ip route sh
 :PROPERTIES:
 :CUSTOM_ID: traces
 :END:
-
 ** WIP Concepts [0/6]
 :PROPERTIES:
-:CUSTOM_ID: Concepts-0-6
+:CUSTOM_ID: Concepts
 :END:
+#+call: lg-get-props-entry()
 *** TODO ChatOps                                                  :CONCEPT:
 :PROPERTIES:
 :learning_1: https://www.pagerduty.com/blog/what-is-chatops/
@@ -2586,6 +2864,168 @@ ip route sh
 *** TODO SLA                                                      :CONCEPT: 
 :PROPERTIES:
 :CUSTOM_ID: SLA
+:END:
+
+** TODO CNCF                                                         :TOPIC:
+:PROPERTIES:
+:CUSTOM_ID: CNCF
+:END:
+** WIP K8S / Kubernetes: [0/27]                                      :TOPIC:
+:PROPERTIES:
+:learning_1: https://classpert.com/kubernetes
+:CUSTOM_ID: K8S-Kubernetes-0-27
+:END:
+#+call: lg-get-props-entry()
+*** TODO What is a service                                       :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-a-service
+:END:
+*** WIP What are network policies?                               :QUESTION:
+:PROPERTIES:
+:learning_1: https://github.com/ahmetb/kubernetes-network-policy-recipes
+:learning_1: https://www.infoq.com/news/2019/12/network-isolation-kubernetes/
+:CUSTOM_ID: What-are-network-policies
+:END:
+#+call: lg-get-props-entry()
+:ANSWER:
+- firewall on the  pod level
+:END:
+*** WIP what are labels?
+:PROPERTIES:
+:CUSTOM_ID: what-are-labels
+:END:
+:ANSWER:
+- key value pairs that can be assigned to majority of Kubernetes objects
+:END:
+*** WIP What are network policies rules?                         :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-are-network-policies-rules
+:END:
+:ANSWER:
+1) traffic is allowed unless there is a network policy that blocks it
+2) rules apply as soon as pod is selected and it is deny by default unless stated differently
+3) you then only write rules that allow (whitelist)
+4) rules are aditive "ored" i.e. or is applied and single allow rule is enough to open the flow
+5) network policies are scoped to a namespace they are deployed to
+6) ports in rules are ports on pods not ports of services
+:END:
+*** WIP what are podSelectors?                                   :QUESTION:
+:PROPERTIES:
+:learning_1:  https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
+:CUSTOM_ID: what-are-podSelectors
+:END:
+#+call: lg-get-props-entry()
+:ANSWER:
+matchLabels:
+:END:
+*** WIP what is namespaceSelector?                               :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: what-is-namespaceSelector
+:END:
+:ANSWER:
+:END:
+*** WIP what is empty selector:                                  :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: what-is-empty-selector
+:END:
+:ANSWER:
+example: matchLabels:{}
+:END:
+*** WIP what ipBlock and hwhat are they good for?
+:PROPERTIES:
+:CUSTOM_ID: what-ipBlock-and-hwhat-are-they-good-for
+:END:
+*** WIP what is a network policy plugin and how you enable that?
+:PROPERTIES:
+:CUSTOM_ID: what-is-a-network-policy-plugin-and-how-you-enable-that
+:END:
+:answer:
+- Calico,  for example
+- iptables vs overlay network (calico is iptables based)
+:end:
+*** WIP what is a RBAC
+:PROPERTIES:
+:learning_1: https://www.cncf.io/blog/2018/08/01/demystifying-rbac-in-kubernetes/
+:CUSTOM_ID: what-is-a-RBAC
+:END:
+#+call: lg-get-props-entry()
+*** WIP network policy API
+:PROPERTIES:
+:CUSTOM_ID: network-policy-API
+:END:
+*** TODO whats is kube-dns
+:PROPERTIES:
+:CUSTOM_ID: whats-is-kube-dns
+:END:
+*** TODO helm
+:PROPERTIES:
+:CUSTOM_ID: helm
+:END:
+*** TODO chart
+:PROPERTIES:
+:CUSTOM_ID: chart
+:END:
+*** TODO template
+:PROPERTIES:
+:CUSTOM_ID: template
+:END:
+*** TODO cluster
+:PROPERTIES:
+:CUSTOM_ID: cluster
+:END:
+*** TODO pod
+:PROPERTIES:
+:CUSTOM_ID: pod
+:END:
+*** TODO node
+:PROPERTIES:
+:CUSTOM_ID: node
+:END:
+*** TODO service mesh
+:PROPERTIES:
+:CUSTOM_ID: service-mesh
+:END:
+*** TODO ingress controller
+:PROPERTIES:
+:CUSTOM_ID: ingress-controller
+:END:
+*** TODO ingress and exgress?
+:PROPERTIES:
+:CUSTOM_ID: ingress-and-exgress
+:END:
+*** TODO etcd
+:PROPERTIES:
+:CUSTOM_ID: etcd
+:END:
+*** TODO secret
+:PROPERTIES:
+:CUSTOM_ID: secret
+:END:
+*** TODO operator
+:PROPERTIES:
+:CUSTOM_ID: operator
+:END:
+*** WIP CRD / Custom Resources
+:PROPERTIES:
+:CUSTOM_ID: CRD-Custom-Resources
+:END:
+:answer:
+- A resource is an endpoint in the Kubernetes API that stores a collection of API objects of a certain kind; for example, the built-in pods resource contains a collection of Pod objects.
+- A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
+- Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods.
+:end:
+*** TODO liveness/readines probes
+:PROPERTIES:
+:CUSTOM_ID: liveness-readines-probes
+:END:
+*** TODO kubectl
+:PROPERTIES:
+:CUSTOM_ID: kubectl
+:END:
+
+** TODO gitops
+:PROPERTIES:
+:CUSTOM_ID: gitops
 :END:
 * WIP Web Front End [0/9]                                            :DOMAIN:
 :PROPERTIES:
@@ -2645,6 +3085,120 @@ ip route sh
 :PROPERTIES:
 :CUSTOM_ID: app-shell-model
 :END:
+
+** WIP HTTP
+:PROPERTIES:
+:CUSTOM_ID: HTTP
+:END:
+*** What is the use of Accept and Content-Type Headers in HTTP Request? :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-the-use-of-Accept-and-Content-Type-Headers-in-HTTP-Request
+:END:
+:ANSWER:
+- Accept headers:
+  - tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as application/xml then XML response will be sent. For Accept header application/json, server will send the JSON response.
+- Content-Type header:
+  - is used to tell server what is the format of data being sent in the request. If Content-Type header is application/xml then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+:END:
+*** WIP What is Server-Sent Events  (SSE)                        :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-is-Server-Sent-Events-SSE
+:END:
+:ANSWER:
+- is a standard describing how servers can initiate data transmission towards clients once an initial client connection has been established.
+- They are commonly used to send message updates or continuous data streams to a browser client
+  - designed to enhance native, cross-browser streaming through a JavaScript API called EventSource,
+    - through which a client requests a particular URL in order to receive an event stream.
+:END:
+*** WIP What are WebSockets                                      :QUESTION:
+:PROPERTIES:
+:CUSTOM_ID: What-are-WebSockets
+:END:
+*** WIP EventSource
+:PROPERTIES:
+:learning_1: https://developer.mozilla.org/en-US/docs/Web/API/EventSource
+:CUSTOM_ID: EventSource
+:END:
+#+call: lg-get-props-entry()
+- The EventSource interface is web content's interface to server-sent events.
+- An EventSource instance opens a persistent connection to an HTTP server, which sends events in text/event-stream format.
+- The connection remains open until closed by calling EventSource.close().
+- Once the connection is opened, incoming messages from the server are delivered to your code in the form of events.
+- If there is an event field in the incoming message, the triggered event is the same as the event field value. If no event field is present, then a generic message event is fired.
+- Unlike WebSockets, server-sent events are unidirectional; that is, data messages are delivered in one direction, from the server to the client (such as a user's web browser).
+- That makes them an excellent choice when there's no need to send data from the client to the server in message form.
+- For example, EventSource is a useful approach for handling things like social media status updates, news feeds, or delivering data into a client-side storage mechanism like IndexedDB or web storage.
+*** TODO XMLHttpRequest (XHR)
+:PROPERTIES:
+:CUSTOM_ID: XMLHttpRequest-XHR
+:END:
+- objects are used to interact with servers.
+- You can retrieve data from a URL without having to do a full page refresh.
+- This enables a Web page to update just part of a page without disrupting what the user is doing.
+- XMLHttpRequest is used heavily in AJAX programming.
+- Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
+*** WIP Fetch
+:PROPERTIES:
+:CUSTOM_ID: Fetch
+:END:
+- Fetch is a fairly recent addition to the JavaScript world (introduced in 2015) utilizing a modern syntax for making requests from the browser.
+- Like most modern JS written today, Fetch is based on Promises rather than callbacks.
+- In our project, the Fetch example can be seen here and the code is shown below:
+
+#+begin_src js
+<!DOCTYPE html>
+<head>
+  <title>FETCH Example</title>
+</head>
+
+<body>
+  <div>
+    <h1>Select Reddit Sub</h1>
+    <div id="list"></div>
+
+  </div>
+
+  <script>
+    (function(){
+      fetch('/api/endpoint')
+        .then(payload => payload.json())
+        .then(resp => {
+          var data = resp.data // array of Reddit subs returned from "endpoint.js"
+          console.log(JSON.stringify(data))
+          var html = '<ol>'
+          data.forEach(function(sub){
+            html += '<a href="/axios/'+sub.path+'">'+sub.name+'</a><br />'
+          })
+          html += '</ol>'
+          document.getElementById('list').innerHTML = html
+        })
+        .catch(err => {
+          console.log('ERROR. Something went wrong.')
+        })
+    })()
+  </script>
+</body>
+</html>
+#+end_src
+
+- The actual Fetch request takes place in the <script> tag between lines 16 and 33. On line 16, we make a request to the url "/api/endpoint" which returns a list of Reddit subs available to view. The initial response is on line 17 ("payload") which we then convert into JSON and parse starting on line 19. The "data" object is an array of Reddit subs with "name" and "path" keys. In lines 22 through 28, we populate a <div> tag with id "list" using the objects in the data array and connect each element to a link to view the sub content.
+*** WIP axios
+:PROPERTIES:
+:CUSTOM_ID: axios
+:END:
+Axios: Axios is a Javascript library used to make HTTP requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. It can be used intercept HTTP requests and responses and enables client-side protection against XSRF. It also has the ability to cancel requests.
+
+#+begin_src js
+axios.get('url')
+  .then((response) => {
+
+    // Code for handling the response
+  })
+  .catch((error) => {
+
+    // Code for handling the error
+  })
+#+end_src
 
 ** WIP Web API
 :PROPERTIES:
@@ -4487,7 +5041,7 @@ With this compulsively readable little book, you won't just read about the histo
 :PROPERTIES:
 :CUSTOM_ID: Psychology
 :END:
-** Cognitive Biases [0/5]                                            :TOPIC:
+** Cognitive Biases [0/6]                                            :TOPIC:
 :PROPERTIES:
 :CUSTOM_ID: COGNITIVE_BIASES
 :END:
@@ -4514,6 +5068,10 @@ With this compulsively readable little book, you won't just read about the histo
 *** TODO Pygmalion effect
 :PROPERTIES:
 :CUSTOM_ID: Pygmalion-effect
+:END:
+*** TODO Selection Bias / Survivor Bias
+:PROPERTIES:
+:CUSTOM_ID: Selection-Bias-Survivor-Bias
 :END:
 ** Famous experiments [0/5]                                          :TOPIC:
 :PROPERTIES:
@@ -5680,7 +6238,6 @@ Cognitive-bias
 :END:
 - https://learngitbranching.js.org/
 - https://www.softwaretestinghelp.com/git-interview-questions/
-
 ** bookmarks/kubernetes
 :PROPERTIES:
 :CUSTOM_ID: bookmarks-kubernetes
