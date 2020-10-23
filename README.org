@@ -102,9 +102,6 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
              (org-entry-put nil "CUSTOM_ID" id))))))))
 #+end_src
 
-#+RESULTS:
-: my/ensure-headline-ids
-
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTRE
@@ -563,7 +560,7 @@ set2:
   - *At least once* - the message is re-tried by the sender multiple times until acknowledgement is received (acknowledged delivery).
   - *Exactly once* - the sender and receiver engage in a two-level handshake to ensure only one copy of the message is received (assured delivery).
 
-*** WIP TooCXpls
+*** WIP Tools
 :PROPERTIES:
 :CUSTOM_ID: MESSAGING_TOOLS
 :END:
@@ -582,6 +579,10 @@ set2:
 **** TODO AWS SNS
 :PROPERTIES:
 :CUSTOM_ID: AWS-SNS
+:END:
+**** TODO AWS SNS FIFO
+:PROPERTIES:
+:CUSTOM_ID: AWS-SNS-FIFO
 :END:
 **** TODO AWS SES
 :PROPERTIES:
@@ -602,7 +603,7 @@ set2:
 **** TODO Kafka
 :PROPERTIES:
 :CUSTOM_ID: Kafka
-:END:
+:END:hh
 **** WIP Redis
 :PROPERTIES:
 :learning_1: https://redis.io/topics/introduction
@@ -854,8 +855,6 @@ Consider following status codes:
 ** WIP 12 Factor Apps
 :PROPERTIES:
 :CUSTOM_ID: 12_FACTOR_APPS
-:END:
-:=PROPERTIES:
 :learning_1: https://12factor.net/
 :END:
 #+call: lg-get-props-entry()
@@ -883,7 +882,6 @@ Consider following status codes:
     - Treat logs as event streams
 12. *Admin processes*
     - Run admin/management tasks as one-off processes
-#+call: lg-get-props-entry()
 ** WIP Hasura 3Factor Apps
 :PROPERTIES:
 :CUSTOM_ID: 3_FACTOR_APPS
@@ -2089,7 +2087,7 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: boto3
 :END:
-*** TODO aws-shell                                                    :AWS:
+*** TODO aws-cli                                                      :AWS:
 :PROPERTIES:
 :CUSTOM_ID: aws-shell
 :END:
@@ -4256,11 +4254,9 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 *** COMPETE Enzyme vs react-testing-library
 :PROPERTIES:
 :CUSTOM_ID: Enzyme-vs-react-testing-library
-:END:
-:PROPERTIES:
 :learning_1: https://blog.logrocket.com/enzyme-vs-react-testing-library-a-mindset-shift/
-#+call: lg-get-props-entry()
 :END:
+#+call: lg-get-props-entry()
 - With react-testing-library, you’re able to easily write tests that represent well enough how the application is experienced by users.
 - Let’s say that when you write your tests with react-testing-library, you’re testing your application as if you were the user interacting with the application’s interface.
 - On the other hand, when you’re writing your tests with Enzyme, even though you are also able to achieve the same level of confidence that you might get with react-testing-library, it is a bit more cumbersome to build your test structure in a way that resembles a real user.
@@ -4466,11 +4462,13 @@ From one of the world's most highly regarded social scientists, a transformative
 *** Robert M. Sapolsky: Behave: The Biology of Humans at Our Best and Worst :AUDIBLE:NO_EXPORT:BOOK:
 :PROPERTIES:
 :CUSTOM_ID: Robert-M-Sapolsky-Behave-The-Biology-of-Humans-at-Our-Best-and-Worst
+:NO_INDEX: t
 :END:
 - More than a decade in the making, this game-changing book is Robert Sapolsky's genre-shattering attempt to answer the question of why we do what we do....
-*** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:BOOK:
+*** Irvin D. Yalom: The Schopenhauer Cure: A Novel :AUDIBLE:BOOK:NO_EXPORT:
 :PROPERTIES:
-:CUSTOM_ID: aaaa
+:CUSTOM_ID: YALOM_THE_SCHOPENHAUER_CURE
+:NO_INDEX: t
 :END:
 - Suddenly confronted with his own mortality after a routine checkup, eminent psychotherapist Julius Hertzfeld is forced to reexamine his life and work....
 
@@ -5519,9 +5517,11 @@ Cognitive-bias
 #+name: collector-learning
 #+begin_src elisp  :eval no
   (let ((org-propview-default-value "N/D"))
-    (org-propview-collect cols "%S" '((boundp 'LEARNING_1)) nil nil nil colnames ))
+    (org-propview-collect cols "%S" '((and(boundp 'LEARNING_1)(not(boundp 'NO_INDEX)))) nil nil '(NO_INDEX) colnames ))
 #+end_src
 #+call:collector-learning()
+
+
 ** Index of YouTube Videos
 :PROPERTIES:
 :header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-YT-URL)
@@ -5535,17 +5535,6 @@ Cognitive-bias
 #+end_src
 #+call:collector-yt()
 
-#+RESULTS:
-| Item                                                                                           | ref                          |
-|------------------------------------------------------------------------------------------------+------------------------------|
-| [[#Webinar-Internal-Building-Blocks-Aggregates-Entities-Value-Objects-Part-3-5][Webinar: Internal Building Blocks: Aggregates, Entities, Value Objects Part 3/5]]                | https://youtu.be/RHg53wMflCc |
-| [[#YT:AbgsfeGvg3E][GOTO 2018 • Old Is the New New • Kevlin Henney]]                                                 | https://youtu.be/AbgsfeGvg3E |
-| [[#YT:v-RkKohsF78][Kevlin Henney - 1968]]                                                                           | https://youtu.be/v-RkKohsF78 |
-| [[#YT:gR_EGN86fvg][Developing Microservices with Aggregates by Chris Richardson]]                                   | https://youtu.be/gR_EGN86fvg |
-| [[#YT:TbZ57raC1TE][Re Imagine The Hiring Process]]                                                                  | https://youtu.be/TbZ57raC1TE |
-| [[#YT:WEuHleDlpdc][YOW! Conference 2018 - Cat Swetel - The Metrics You Should Use But Probably Don't]]              | https://youtu.be/WEuHleDlpdc |
-| [[#YT:8NzkYsY7TOk][DevOneConf 2018 - Siren Hofvander - Making Security an integrated part of the SW Dev Lifecycle]] | https://youtu.be/8NzkYsY7TOk |
-| [[#YT:SyVLioZmbOM][Modern Java: Change is the Only Constant by Mark Reinhold]]                                      | https://youtu.be/SyVLioZmbOM |
 
 ** Index of SE-Radio Podcast Episodes
 :PROPERTIES:
