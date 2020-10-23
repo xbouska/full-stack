@@ -105,7 +105,6 @@ E.g., ↯ We'll go on a ∀∃⇅ adventure
 #+RESULTS:
 : my/ensure-headline-ids
 
-
 #+BEGIN_CENTRE
 *What is considered a full-stack - Richard's point of view*
  #+END_CENTRE
@@ -6291,7 +6290,7 @@ https://youtu.be/oSzxZWB9Qkg
 :END:
 #+call: lg-get-props-entry()
 
-Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough-for-portable-services.html
+- Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough-for-portable-services.html
 
 *** TODO SE-Radio 241: Kyle Kingsbury on Consensus in Distributed Systems
 :PROPERTIES:
@@ -6312,6 +6311,7 @@ Walkthrough for Systemd Portable Services - http://0pointer.net/blog/walkthrough
 - Kyle talks about some specific databases, including MongoDB, Riak, and Redis, and discusses how they maintain and achieve  or fail to achieve  a consistent state.
 - Finally, there’s some advice for practitioners on how to pick a solution and understand its properties.
   :END:
+
 *** TODO SE-Radio Episode 330: Natalie Silvanovich on Attack Surface Reduction
 :PROPERTIES:
 :CREATED:  [2018-08-08 Wed 22:54]
