@@ -6078,8 +6078,6 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((and(boundp 'LEARNING_1)(not(boundp 'NO_INDEX)))) nil nil '(NO_INDEX) colnames ))
 #+end_src
 #+call:collector-learning()
-
-
 ** Index of YouTube Videos
 :PROPERTIES:
 :header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-YT-URL)
