@@ -584,6 +584,10 @@ set2:
 :PROPERTIES:
 :CUSTOM_ID: AWS-SNS
 :END:
+**** TODO AWS SNS FIFO
+:PROPERTIES:
+:CUSTOM_ID: AWS-SNS-FIFO
+:END:
 **** TODO AWS SES
 :PROPERTIES:
 :CUSTOM_ID: AWS-SES
@@ -603,7 +607,7 @@ set2:
 **** TODO Kafka
 :PROPERTIES:
 :CUSTOM_ID: Kafka
-:END:
+:END:hh
 **** WIP Redis
 :PROPERTIES:
 :learning_1: https://redis.io/topics/introduction
