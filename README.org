@@ -7,16 +7,15 @@
 #+OPTIONS: html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-style.css" />
 #+END_COMMENT
-#+OPTIONS: d:t  prop:nil tags:t |:t H:7 num:4 toc:t ^:nil p:nil html-style:nil pri:t
+#+OPTIONS: d:t prop:nil tags:t |:t H:5 num:4 toc:t ^:nil p:nil html-style:nil pri:t
 #+EXCLUDE_TAGS: NO_EXPORT
 #+EXPORT_FILE_NAME: public/fullstack.html
-#+STARTUP:  overview entitiespretty
+#+STARTUP:  entitiespretty overview
 #+TODO:  TODO WIP | COMPETE OBSOLETE
 #+CREATOR: org-mode
 #+LANGUAGE: en
 #+TITLE: full-stack
 #+AUTHOR: Richard Bouska
-#+LANGUAGE: en 
 #+DESCRIPTION: What to know / what to learn
 #+ODT_STYLES_FILE: "./OrgOdtStyles.xml"
 
@@ -1864,7 +1863,7 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: AWS-Services
 :END:
-*** EC2 (Amazon Elastic Compute Cloud)                                :AWS:
+*** EC2 (Amazon Elastic Compute Cloud)                        :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: EC2-Amazon-Elastic-Compute-Cloud
 :END:
@@ -1872,23 +1871,23 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: AMI
 :END:
-*** ELB CLB ALB                                                       :AWS:
+*** ELB CLB ALB                                               :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: ELB-CLB-ALB
 :END:
-*** Route 53                                                          :AWS:
+*** Route 53                                                  :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: Route-53
 :END:
-*** Beanstalk                                                         :AWS:
+*** Beanstalk                                                 :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: Beanstalk
 :END:
-*** RDS                                                               :AWS:
+*** RDS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: RDS
 :END:
-*** API Gateway                                                       :AWS:
+*** API Gateway                                               :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: AMAZON_API_GATEWAY
 :learning_1: https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
@@ -1904,49 +1903,49 @@ CREATE INDEX name ON table USING brin (column);
   - Adhere to the WebSocket protocol, which enables stateful, full-duplex communication between client and server.
   - Route incoming messages based on message content.
 - For more information about API Gateway WebSocket APIs, see Use API Gateway to create WebSocket APIs and About WebSocket APIs in API Gateway.
-*** AWS Lambda                                                        :AWS:
+*** AWS Lambda                                                :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: AWS_LAMBDA
 :END:
 #+call: lg-get-props-entry()
-*** DynamoDB                                                          :AWS:
+*** DynamoDB                                                  :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: DynamoDB
 :END:
-*** Kinesis                                                           :AWS:
+*** Kinesis                                                   :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: Kinesis
 :END:
-*** EFS                                                               :AWS:
+*** EFS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: EFS
 :END:
-*** SNS                                                               :AWS:
+*** SNS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: SNS
 :END:
-*** S3                                                                :AWS:
+*** S3                                                        :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: S3
 :END:
-*** EBS                                                               :AWS:
+*** EBS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: AWS_EBS
 :END:
 #+call: lg-get-props-entry()
-*** CloudWatch                                                        :AWS:
+*** CloudWatch                                                :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: CloudWatch
 :END:
-*** CloudFormation                                                    :AWS:
+*** CloudFormation                                            :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: CloudFormation
 :END:
-*** CloudFront                                                        :AWS:
+*** CloudFront                                                :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: CloudFront
 :END:
-*** Secrets Manager                                                   :AWS:
+*** Secrets Manager                                           :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: Secrets-Manager
 :END:
@@ -1985,11 +1984,11 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: GCP-Services
 :END:
-*** TODO BigQuery
+*** TODO BigQuery                                             :GCP:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: BigQuery
 :END:
-*** TODO PubSub
+*** TODO PubSub                                               :GCP:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: PubSub
 :END:
@@ -2080,7 +2079,7 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: Storage
 :END:
-*** AWS S3                                                            :AWS:
+*** AWS S3                                                    :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: AWS-S3
 :END:
@@ -2398,7 +2397,7 @@ ip route sh
 :END:
 *** TODO curl
 :PROPERTIES:
-:CUSTOM_ID: curl
+:CUSTOM_ID: LINUX-CURL
 :END:
 *** TODO find
 :PROPERTIES:
@@ -2407,7 +2406,7 @@ ip route sh
 
 ** TODO Tools
 :PROPERTIES:
-:CUSTOM_ID: Tools
+:CUSTOM_ID: DEVOPS-TOOLS
 :END:
 *** Git                                                             :TOPIC:
 :PROPERTIES:
@@ -3213,7 +3212,7 @@ axios.get('url')
 - These incoming messages can be treated as Events + data inside the web page.
 *** Tools
 :PROPERTIES:
-:CUSTOM_ID: Tools
+:CUSTOM_ID: WEB-TOOLS
 :END:
 **** SoapUI
 :PROPERTIES:
@@ -3864,7 +3863,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 
 ** WIP Tools & Solutions [0/9]
 :PROPERTIES:
-:CUSTOM_ID: Tools-Solutions-0-9
+:CUSTOM_ID: Tools-Solutions
 :END:
 *** TODO Illumio Security
 :PROPERTIES:
@@ -3888,7 +3887,7 @@ Auth0 exposes a JWKS endpoint for each tenant, which is found at https://YOUR_DO
 :END:
 *** TODO nmap
 :PROPERTIES:
-:CUSTOM_ID: nmap
+:CUSTOM_ID: PENTESTING-NMAP
 :END:
 *** TODO nessus
 :PROPERTIES:
@@ -6168,6 +6167,20 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((string-match "GCP" TAGS)) nil nil nil colnames ))
 #+end_src
 #+call:collector-gcp()
+
+** Index of AWS Services
+:PROPERTIES:
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
+:header-args+: :var colnames='(Item ref)
+:CUSTOM_ID: Index-of-AWS-Related-Topics
+:END:
+#+name: collector-aws
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((and(string-match "AWS" TAGS) (string-match "SERVICE" TAGS))) nil nil nil colnames ))
+#+end_src
+#+call:collector-aws()
+
 
 * WIP To integrate                                                :NO_EXPORT:
 :PROPERTIES:
