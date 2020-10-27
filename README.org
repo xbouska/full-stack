@@ -1468,7 +1468,7 @@ Consider following status codes:
 #+call: lg-get-props-entry()
 - Multiversion concurrency control (MCC or MVCC), is a concurrency control method commonly used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory.
 
-** WIP Tools [0/22]
+** WIP Tools [0/23]
 :PROPERTIES:
 :CUSTOM_ID: DATA_TOOLS
 :END:
@@ -1594,7 +1594,12 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: Apache-Drill
 :END:
-*** TODO Apache Cassandra
+*** TODO Apache Samza                                                :TOOL:
+:PROPERTIES:
+:CUSTOM_ID: APACHE_STAMZA
+:END:
+- A distributed stream processing framework
+*** TODO Apache Cassandra                                            :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Apache-Cassandra
 :END:
@@ -6188,11 +6193,6 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((string-match "TOOL" TAGS)) nil nil nil colnames ))
 #+end_src
 #+call:collector-tools()
-
-#+RESULTS:
-| Item | ref |
-|------+-----|
-
 
 
 * WIP To integrate                                                :NO_EXPORT:
