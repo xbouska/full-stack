@@ -3671,7 +3671,7 @@ and the authorization server uses the Scope parameter to respond with the access
 *** RS256 vs HS256: What's the difference?
 :PROPERTIES:
 :learning_1: https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
-:CUSTOM_ID: RS256-vs-HS256-What's-the-difference
+:CUSTOM_ID: RS256_VS_HS256
 :END:
 #+call: lg-get-props-entry()
 :ANSWER:
@@ -3681,8 +3681,8 @@ and the authorization server uses the Scope parameter to respond with the access
 - If you will be developing the application consuming the JWTs, you can safely use HS256, because you will have control on who uses the secret keys. If, on the other hand, you don't have control over the client, or you have no way of securing a secret key, RS256 will be a better fit, since the consumer only needs to know the public (shared) key.
 - Since the public key is usually made available from metadata endpoints, clients can be programmed to retrieve the public key automatically. If this is the case (as it is with the .Net Core libraries), you will have less work to do on configuration (the libraries will fetch the public key from the server). Symmetric keys, on the other hand, need to be exchanged out of band (ensuring a secure communication channel), and manually updated if there is a signing key rollover.
 - Auth0 provides metadata endpoints for the OIDC, SAML and WS-Fed protocols, where the public keys can be retrieved. You can see those endpoints under the "Advanced Settings" of a client.
-- The OIDC metadata endpoint, for example, takes the form of https://{account domain}/.well-known/openid-configuration.
-  - If you browse to that URL, you will see a JSON object with a reference to https://{account domain}/.well-known/jwks.json, which contains the public key (or keys) of the account.
+- The OIDC metadata endpoint, for example, takes the form of ~https://{account domain}/.well-known/openid-configuration~.
+  - If you browse to that URL, you will see a JSON object with a reference to ~https://{account domain}/.well-known/jwks.json~, which contains the public key (or keys) of the account.
 - If you look at the RS256 samples, you will see that you don't need to configure the public key anywhere: it's retrieved automatically by the framework.
 :END:
 
@@ -4968,7 +4968,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
   - From the New York Times best-selling author of The Black Swan, a bold new work that challenges many of our long-held beliefs about risk and reward, politics and religion....
 *** Barry O'Reilly: Unlearn: Let Go of Past Success to Achieve Extraordinary Results :AUDIBLE:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Barry-O'Reilly-Unlearn-Let-Go-of-Past-Success-to-Achieve-Extraordinary-Results
+:CUSTOM_ID: O_REILLY:UNLEARN
 :END:
 - By intentionally and routinely applying the system of unlearning, you’ll be able to adapt your mindset, adopt new behaviors, acquire new skills, and explore new options that will totally transform your performance and the business you lead....
 *** Stuart Firestein: Failure: Why Science Is so Successful  :AUDIBLE:BOOK:
@@ -4978,7 +4978,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 - Stuart Firestein shows us that the scientific enterprise is riddled with mistakes and errors - and that this is a good thing!...
 *** Nate Silver: The Signal and the Noise: Why So Many Predictions Fail - but Some Don't :AUDIBLE:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Nate-Silver-The-Signal-and-the-Noise-Why-So-Many-Predictions-Fail-but-Some-Don't
+:CUSTOM_ID: SILVER:SIGNAL_AND_NOISE
 :END:
 - Drawing on his own groundbreaking work, Silver examines the world of prediction, investigating how we can distinguish a true signal from a universe of noisy data....
 *** Philip Tetlock , Dan Gardner: Superforecasting: The Art and Science of Prediction :AUDIBLE:BOOK:
@@ -4994,7 +4994,7 @@ From one of the world's most highly regarded social scientists, a transformative
 - Pixar, and the US Navy's SEAL Team Six - and reveals what makes them tick....
 *** Andy Greenberg: Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers :AUDIBLE:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Andy-Greenberg-Sandworm-A-New-Era-of-Cyberwar-and-the-Hunt-for-the-Kremlin's-Most-Dangerous-Hackers
+:CUSTOM_ID: GREENBERG:SANDWORM
 :END:
 - From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it....
 *** Philip E. Tetlock: Expert Political Judgment: How Good is it? How can We Know? :AUDIBLE:BOOK:
@@ -5027,15 +5027,12 @@ From one of the world's most highly regarded social scientists, a transformative
 
 *** Michael A Britt: Psych Experiments: From Pavlov's dogs to Rorschach's inkblots, put psychology's most fascinating studies to the test :DEAD_TREE:BOOK:
 :PROPERTIES:
-:CUSTOM_ID: Michael-A-Britt-Psych-Experiments-From-Pavlov's-dogs-to-Rorschach's-inkblots-put-psychology's-most-fascinating-studies-to-the-test
+:CUSTOM_ID: BRITT:PSYCH_EXPERIMENTS
 :END:
-Forget the labs and lecture halls. You can conduct your very own psych experiments at home!
-
-Famous psychological experiments--from Freud's ego to the Skinner box--have changed the way science views human behavior. But how do these tests really work? In Psych Experiments, you'll learn how to test out these theories and experiments for yourself...no psychology degree required!
-
-Guided by Michael A. Britt, creator of popular podcast The Psych Files, you can conduct your own experiments when browsing your favorite websites (to test the "curiosity effect"), in restaurants (learning how to increase your tips), when presented with advertisements (you'd be surprised how much you're influenced by the color red), and even right on your smartphone (and why you panic when you can't find it). You'll even figure out how contagious yawning works!
-
-With this compulsively readable little book, you won't just read about the history of psychology--you'll live it!
+- Forget the labs and lecture halls. You can conduct your very own psych experiments at home!
+- Famous psychological experiments--from Freud's ego to the Skinner box--have changed the way science views human behavior. But how do these tests really work? In Psych Experiments, you'll learn how to test out these theories and experiments for yourself...no psychology degree required!
+- Guided by Michael A. Britt, creator of popular podcast The Psych Files, you can conduct your own experiments when browsing your favorite websites (to test the "curiosity effect"), in restaurants (learning how to increase your tips), when presented with advertisements (you'd be surprised how much you're influenced by the color red), and even right on your smartphone (and why you panic when you can't find it). You'll even figure out how contagious yawning works!
+- With this compulsively readable little book, you won't just read about the history of psychology--you'll live it!
 * WIP Psychology                                                     :DOMAIN:
 :PROPERTIES:
 :CUSTOM_ID: Psychology
@@ -5061,16 +5058,16 @@ With this compulsively readable little book, you won't just read about the histo
 :END:
 *** TODO Parkinson's law of triviality
 :PROPERTIES:
-:CUSTOM_ID: Parkinson's-law-of-triviality
+:CUSTOM_ID: LAW_OF_TRIVIALITY
 :END:
 - The tendency to give disproportionate weight to trivial issues. Also known as bikeshedding, this bias explains why an organization may avoid specialized or complex subjects, such as the design of a nuclear reactor, and instead focus on something easy to grasp or rewarding to the average participant, such as the design of an adjacent bike shed.
 *** TODO Pygmalion effect
 :PROPERTIES:
-:CUSTOM_ID: Pygmalion-effect
+:CUSTOM_ID: PYGMALION_EFFECT
 :END:
 *** TODO Selection Bias / Survivor Bias
 :PROPERTIES:
-:CUSTOM_ID: Selection-Bias-Survivor-Bias
+:CUSTOM_ID: SURVIVOR_BIAS
 :END:
 ** Famous experiments [0/5]                                          :TOPIC:
 :PROPERTIES:
@@ -5096,7 +5093,6 @@ With this compulsively readable little book, you won't just read about the histo
 :PROPERTIES:
 :CUSTOM_ID: The-Marshmallow-Test
 :END:
-
 ** Glossary                                                          :TOPIC:
 :PROPERTIES:
 :CUSTOM_ID: Glossary
@@ -5154,7 +5150,7 @@ https://youtu.be/MXbJPe30ONQ
 :lg-authors: Bartosz%20MILEWSKI
 :lg-categoty: Category Theory
 :lg-subject: Category Theory II 8.1: F-Algebras, Lambek's lemma
-:CUSTOM_ID: Category-Theory-II-8-1-F-Algebras-Lambek's-lemma
+:CUSTOM_ID: CATEGORY_THEORY_II_8_1:F_ALGEBRA_LAMBEK_S_LEMMA
 :END:
 #+call: lg-get-props-entry()
 
@@ -5862,7 +5858,7 @@ Quality is a characteristic of a relationship with customers
 https://www.youtube.com/watch?v=-1TUF5N1b7E
 **** TODO The Interactional 'Nudge' - Talking About Talk 
 :PROPERTIES:
-:CUSTOM_ID: The-Interactional-'Nudge'-Talking-About-Talk
+:CUSTOM_ID: THE_INTERACTIONAL_NUDGE_TALKING_ABOUT_TALK
 :END:
 https://www.youtube.com/watch?v=e-QbxjXDwXU
 **** TODO Q&A - The Interactional Nudge - With Elizabeth Stokoe 
@@ -6180,6 +6176,23 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((and(string-match "AWS" TAGS) (string-match "SERVICE" TAGS))) nil nil nil colnames ))
 #+end_src
 #+call:collector-aws()
+** Index of TOOLS
+:PROPERTIES:
+:header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LEARNING_1)
+:header-args+: :var colnames='(Item ref)
+:CUSTOM_ID: INDEX_OF_TOOLS
+:END:
+#+name: collector-tools
+#+begin_src elisp  :eval no
+  (let ((org-propview-default-value "Not Yet Defined"))
+    (org-propview-collect cols "%S" '((string-match "TOOL" TAGS)) nil nil nil colnames ))
+#+end_src
+#+call:collector-tools()
+
+#+RESULTS:
+| Item | ref |
+|------+-----|
+
 
 
 * WIP To integrate                                                :NO_EXPORT:
