@@ -462,57 +462,54 @@ set2:
 #+call: lg-get-props-entry()
 + method for analyzing a given algorithm's complexity, or how much of a resource, especially time or memory, it takes to execute. The motivation for amortized analysis is that looking at the worst-case run time per operation, rather than per algorithm, can be too pessimistic.[1]
 + While certain operations for a given algorithm may have a significant cost in resources, other operations may not be as costly. The amortized analysis considers both the costly and less costly operations together over the whole series of operations of the algorithm. This may include accounting for different types of input, length of the input, and other factors that affect its performance.[2]
-** Basic Data Structures
+** Basic Data Structures [0/7]
 :PROPERTIES:
 :CUSTOM_ID: Basic-Data-Structures
 :END:
-*** List
+*** TODO List
 :PROPERTIES:
 :CUSTOM_ID: List
 :END:
-*** Set
+*** TODO Set
 :PROPERTIES:
 :CUSTOM_ID: Set
 :END:
-*** Map
+*** TODO Map
 :PROPERTIES:
 :CUSTOM_ID: Map
 :END:
-*** Queue
+*** TODO Queue
 :PROPERTIES:
 :CUSTOM_ID: DATA_STRUCTURE_QUEUE
 :END:
-*** Tree
+*** TODO Tree
 :PROPERTIES:
 :CUSTOM_ID: Tree
 :END:
-*** Finger Tree 
+*** WIP Finger Tree 
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Finger_tree
 :CUSTOM_ID: Finger-Tree
 :END:
 #+call: lg-get-props-entry()
 - is a purely functional data structure that can be used to efficiently implement other functional data structures. A finger tree gives amortized constant time access to the "fingers" (leaves) of the tree, which is where data is stored, and concatenation and splitting logarithmic time in the size of the smaller piece. It also stores in each internal node the result of applying some associative operation to its descendants. This "summary" data stored in the internal nodes can be used to provide the functionality of data structures other than trees.
-*** Trie
+*** WIP Trie
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Trie
 :CUSTOM_ID: Trie
 :END:
 #+call: lg-get-props-entry()
 - In computer science, a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated; i.e., the value of the key is distributed across the structure. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string. Keys tend to be associated with leaves, though some inner nodes may correspond to keys of interest. Hence, keys are not necessarily associated with every node. For the space-optimized presentation of prefix tree, see compact prefix tree.
-** Basic Algorithms
+** Algorithms [0/3]
 :PROPERTIES:
-:CUSTOM_ID: Basic-Algorithms
+:CUSTOM_ID: ALGORITHMS
 :END:
-*** Stable vs unstable sorting
+
+*** WIP Stable vs Unstable sorting
 :PROPERTIES:
 :CUSTOM_ID: Stable-vs-unstable-sorting
 :END:
-** Advanced Algorithm
-:PROPERTIES:
-:CUSTOM_ID: Advanced-Algorithm
-:END:
-*** cache-oblivious algorithm
+*** WIP Cache-Oblivious Algorithm
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Cache-oblivious_algorithm
 :learning_2: http://erikdemaine.org/papers/BRICS2002/paper.pdf
@@ -525,6 +522,10 @@ set2:
 - Thus, a cache-oblivious algorithm is designed to perform well, without modification, on multiple machines with different cache sizes, or for a memory hierarchy with different levels of cache having different sizes. Cache-oblivious algorithms are contrasted with explicit blocking, as in loop nest optimization, which explicitly breaks a problem into blocks that are optimally sized for a given cache.
 - Optimal cache-oblivious algorithms are known for matrix multiplication, matrix transposition, sorting, and several other problems. Some more general algorithms, such as Cooley–Tukey FFT, are optimally cache-oblivious under certain choices of parameters. Because these algorithms are only optimal in an asymptotic sense (ignoring constant factors), further machine-specific tuning may be required to obtain nearly optimal performance in an absolute sense. The goal of cache-oblivious algorithms is to reduce the amount of such tuning that is required.
 - Typically, a cache-oblivious algorithm works by a recursive divide and conquer algorithm, where the problem is divided into smaller and smaller subproblems. Eventually, one reaches a subproblem size that fits into cache, regardless of the cache size. For example, an optimal cache-oblivious matrix multiplication is obtained by recursively dividing each matrix into four sub-matrices to be multiplied, multiplying the submatrices in a depth-first fashion. In tuning for a specific machine, one may use a hybrid algorithm which uses blocking tuned for the specific cache sizes at the bottom level, but otherwise uses the cache-oblivious algorithm.
+*** TODO Parsers [/]
+:PROPERTIES:
+:CUSTOM_ID: PARSERS
+:END:
 
 * WIP Architecture [0/15]                                            :DOMAIN:
 :PROPERTIES:
