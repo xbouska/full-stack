@@ -1469,7 +1469,7 @@ Consider following status codes:
 #+call: lg-get-props-entry()
 - Multiversion concurrency control (MCC or MVCC), is a concurrency control method commonly used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory.
 
-** WIP Tools [0/23]
+** WIP Tools [0/24]
 :PROPERTIES:
 :CUSTOM_ID: DATA_TOOLS
 :END:
@@ -1629,6 +1629,13 @@ CREATE INDEX name ON table USING brin (column);
 - Runs Everywhere:
   - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
   - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
+*** TODO Apache Hadoop YARN                                          :TOOL:
+:PROPERTIES:
+:CUSTOM_ID: HADOOP_YARN
+:END:
+- The fundamental idea of YARN is to split up the functionalities of resource management and job scheduling/monitoring into separate daemons. The idea is to have a global ResourceManager (RM) and per-application ApplicationMaster (AM). An application is either a single job or a DAG of jobs.
+- The ResourceManager and the NodeManager form the data-computation framework. The ResourceManager is the ultimate authority that arbitrates resources among all the applications in the system. The NodeManager is the per-machine framework agent who is responsible for containers, monitoring their resource usage (cpu, memory, disk, network) and reporting the same to the ResourceManager/Scheduler.
+- The per-application ApplicationMaster is, in effect, a framework specific library and is tasked with negotiating resources from the ResourceManager and working with the NodeManager(s) to execute and monitor the tasks.
 
 *** WIP Apache Oozie Workflow Scheduler for Hadoop
 :PROPERTIES:
@@ -1887,8 +1894,17 @@ CREATE INDEX name ON table USING brin (column);
 :END:
 *** Beanstalk                                                 :AWS:SERVICE:
 :PROPERTIES:
-:CUSTOM_ID: Beanstalk
+:CUSTOM_ID: AWS_BEANSTALK
 :END:
+#+call: lg-get-props-entry()
+*** WIP ECS                                                   :AWS:SERVICE:
+:PROPERTIES:
+:CUSTOM_ID: AWS_ECS
+:END:
+#+call: lg-get-props-entry()
+- Amazon Elastic Container Service (Amazon ECS) allows you to easily run, scale, and secure Docker container applications on AWS. Applications packaged as containers locally will deploy and run in the same way as containers managed by Amazon ECS. Amazon ECS eliminates the need to install, operate, and scale your own container orchestration and cluster management infrastructure, and allows you to focus on the resource needs and availability requirements of your containerized application.
+- Amazon ECS enables you to grow from a single container to thousands of containers across hundreds of instances without creating additional complexity in how you run your application. You can run anything: applications, batch jobs, or microservices. Amazon ECS abstracts away all the complexity of the infrastructure so you can focus on designing, building, and running containerized applications.
+- With Amazon ECS, you can use AWS Fargate to fully manage your infrastructure and just focus on deploying containers Or, you can choose to have complete visibility and control of your underlying server cluster from creating and terminating Docker containers to viewing detailed cluster state information. You can integrate and use your own container scheduler or connect Amazon ECS into your existing software delivery process, such as continuous integration and delivery systems.
 *** RDS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: RDS
