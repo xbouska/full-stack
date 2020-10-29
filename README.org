@@ -1468,7 +1468,7 @@ Consider following status codes:
 #+call: lg-get-props-entry()
 - Multiversion concurrency control (MCC or MVCC), is a concurrency control method commonly used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory.
 
-** WIP Tools [0/23]
+** WIP Tools [0/24]
 :PROPERTIES:
 :CUSTOM_ID: DATA_TOOLS
 :END:
@@ -1628,6 +1628,13 @@ CREATE INDEX name ON table USING brin (column);
 - Runs Everywhere:
   - Spark runs on Hadoop, Apache Mesos, Kubernetes, standalone, or in the cloud. It can access diverse data sources.
   - You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, on Mesos, or on Kubernetes. Access data in HDFS, Alluxio, Apache Cassandra, Apache HBase, Apache Hive, and hundreds of other data sources.
+*** TODO Apache Hadoop YARN                                          :TOOL:
+:PROPERTIES:
+:CUSTOM_ID: HADOOP_YARN
+:END:
+- The fundamental idea of YARN is to split up the functionalities of resource management and job scheduling/monitoring into separate daemons. The idea is to have a global ResourceManager (RM) and per-application ApplicationMaster (AM). An application is either a single job or a DAG of jobs.
+- The ResourceManager and the NodeManager form the data-computation framework. The ResourceManager is the ultimate authority that arbitrates resources among all the applications in the system. The NodeManager is the per-machine framework agent who is responsible for containers, monitoring their resource usage (cpu, memory, disk, network) and reporting the same to the ResourceManager/Scheduler.
+- The per-application ApplicationMaster is, in effect, a framework specific library and is tasked with negotiating resources from the ResourceManager and working with the NodeManager(s) to execute and monitor the tasks.
 
 *** WIP Apache Oozie Workflow Scheduler for Hadoop
 :PROPERTIES:
