@@ -1893,8 +1893,17 @@ CREATE INDEX name ON table USING brin (column);
 :END:
 *** Beanstalk                                                 :AWS:SERVICE:
 :PROPERTIES:
-:CUSTOM_ID: Beanstalk
+:CUSTOM_ID: AWS_BEANSTALK
 :END:
+#+call: lg-get-props-entry()
+*** WIP ECS                                                   :AWS:SERVICE:
+:PROPERTIES:
+:CUSTOM_ID: AWS_ECS
+:END:
+#+call: lg-get-props-entry()
+- Amazon Elastic Container Service (Amazon ECS) allows you to easily run, scale, and secure Docker container applications on AWS. Applications packaged as containers locally will deploy and run in the same way as containers managed by Amazon ECS. Amazon ECS eliminates the need to install, operate, and scale your own container orchestration and cluster management infrastructure, and allows you to focus on the resource needs and availability requirements of your containerized application.
+- Amazon ECS enables you to grow from a single container to thousands of containers across hundreds of instances without creating additional complexity in how you run your application. You can run anything: applications, batch jobs, or microservices. Amazon ECS abstracts away all the complexity of the infrastructure so you can focus on designing, building, and running containerized applications.
+- With Amazon ECS, you can use AWS Fargate to fully manage your infrastructure and just focus on deploying containers Or, you can choose to have complete visibility and control of your underlying server cluster from creating and terminating Docker containers to viewing detailed cluster state information. You can integrate and use your own container scheduler or connect Amazon ECS into your existing software delivery process, such as continuous integration and delivery systems.
 *** RDS                                                       :AWS:SERVICE:
 :PROPERTIES:
 :CUSTOM_ID: RDS
