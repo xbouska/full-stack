@@ -1473,7 +1473,7 @@ Consider following status codes:
 :PROPERTIES:
 :CUSTOM_ID: DATA_TOOLS
 :END:
-*** WIP PostgreSQL
+*** WIP PostgreSQL                                                   :TOOL:
 :PROPERTIES:
 :learning_1: https://www.highgo.ca/blog/ 
 :CUSTOM_ID: PostgreSQL
@@ -1551,9 +1551,7 @@ CREATE INDEX name ON table USING gin (column);
 #+begin_src sql
 CREATE INDEX name ON table USING brin (column);
 #+end_src
-
-
-*** TODO ORACLE:
+*** TODO ORACLE:                                                     :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: ORACLE
 :END:
@@ -1573,7 +1571,7 @@ CREATE INDEX name ON table USING brin (column);
 :CUSTOM_ID: GCP_BIG_QUERY
 :END:
 #+call: lg-get-props-entry()
-*** TODO Elastic Search
+*** TODO Elastic Search                                              :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Elastic-Search
 :END:
@@ -1581,17 +1579,17 @@ CREATE INDEX name ON table USING brin (column);
 :PROPERTIES:
 :CUSTOM_ID: Bloom-Filter
 :END:
-*** TODO Atlas MongoDB
+*** TODO Atlas MongoDB                                               :TOOL:
 :PROPERTIES:
 :learning_1: https://www.mongodb.com/cloud/atlas
 :CUSTOM_ID: Atlas-MongoDB
 :END:
 #+call: lg-get-props-entry()
-*** TODO MongoDB
+*** TODO MongoDB                                                     :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: MongoDB
 :END:
-*** TODO Apache Drill
+*** TODO Apache Drill                                                :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Apache-Drill
 :END:
@@ -1610,7 +1608,7 @@ CREATE INDEX name ON table USING brin (column);
 - *Active Everywhere / Zero-Downtime:* Since every Cassandra node is capable of performing read and write operations, data is quickly replicated across hybrid cloud environments and geographies. In the event a node fails, users are automatically routed to the nearest healthy node. They won’t even notice that a node has been knocked offline because applications behave as designed even in the event of failure. As a result, applications are always available and data is always accessible and never lost. What’s more, Cassandra’s built-in repair services fix problems immediately after they occur—without any manual intervention. Productivity doesn’t even need to take a hit should nodes fail.
 - *Scalability:* In traditional environments, scaling applications is a time-consuming and costly process typically accomplished by scaling vertically with more expensive machines. Cassandra enables you to scale horizontally by simply adding more nodes to the cluster. If, for example, four nodes can handle 200,000 transactions/second, eight nodes will be able to handle 400,000 transactions/second. (source)
 - *Seamless Replication:* Today’s leading enterprises are increasingly moving to multi-data center, hybrid cloud and even multi-cloud deployments to take advantage of the strengths of various deployments without getting locked into any single provider’s ecosystem. Getting the most out of multi-cloud environments, however, starts with having an underlying cloud database that offers: scalability, security, performance, and availability. For these reasons, it should come as no surprise that the cloud database market is expected to grow nearly 65% each year and reach $68.9 billion by 2022.
-*** WIP Apache Pig
+*** WIP Apache Pig                                                   :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Apache-Pig
 :END:
@@ -1619,7 +1617,7 @@ CREATE INDEX name ON table USING brin (column);
 - Pig can execute its Hadoop jobs in MapReduce, Apache Tez, or Apache Spark.[2]
 - Pig Latin abstracts the programming from the Java MapReduce idiom into a notation which makes MapReduce programming high level, similar to that of SQL for relational database management systems.
 - Pig Latin can be extended using user-defined functions (UDFs) which the user can write in Java, Python, JavaScript, Ruby or Groovy[3] and then call directly from the language.
-*** WIP Sparc
+*** WIP Sparc                                                        :TOOL:
 :PROPERTIES:
 :learning_1: https://spark.apache.org/
 :CUSTOM_ID: Sparc
@@ -1637,7 +1635,7 @@ CREATE INDEX name ON table USING brin (column);
 - The ResourceManager and the NodeManager form the data-computation framework. The ResourceManager is the ultimate authority that arbitrates resources among all the applications in the system. The NodeManager is the per-machine framework agent who is responsible for containers, monitoring their resource usage (cpu, memory, disk, network) and reporting the same to the ResourceManager/Scheduler.
 - The per-application ApplicationMaster is, in effect, a framework specific library and is tasked with negotiating resources from the ResourceManager and working with the NodeManager(s) to execute and monitor the tasks.
 
-*** WIP Apache Oozie Workflow Scheduler for Hadoop
+*** WIP Apache Oozie Workflow Scheduler for Hadoop                   :TOOL:
 :PROPERTIES:
 :learning_1: https://oozie.apache.org
 :CUSTOM_ID: Apache-Oozie-Workflow-Scheduler-for-Hadoop
@@ -1650,36 +1648,36 @@ CREATE INDEX name ON table USING brin (column);
 - Oozie is integrated with the rest of the Hadoop stack supporting several types of Hadoop jobs out of the box (such as Java map-reduce, Streaming map-reduce, Pig, Hive, Sqoop and Distcp) as well as system specific jobs (such as Java programs and shell scripts).
 - Oozie is a scalable, reliable and extensible system.
 
-*** TODO Hadoop
+*** TODO Hadoop                                                      :TOOL:
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Apache_Hadoop
 :CUSTOM_ID: Hadoop
 :END:
 #+call: lg-get-props-entry()
-*** TODO hue
+*** TODO hue                                                         :TOOL:
 :PROPERTIES:
 :learning_1: https://gethue.com/
 :CUSTOM_ID: hue
 :END:
 #+call: lg-get-props-entry()
-*** TODO Hive
+*** TODO Hive                                                        :TOOL:
 :PROPERTIES:
 :learning_1: https://hive.apache.org/
 :CUSTOM_ID: Hive
 :END:
 #+call: lg-get-props-entry()
-*** TODO HBase
+*** TODO HBase                                                       :TOOL:
 :PROPERTIES:
 :learning_1: https://hbase.apache.org/
 :CUSTOM_ID: HBase
 :END:
 #+call: lg-get-props-entry()
-*** TODO Nifi
+*** TODO Nifi                                                        :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Nifi
 :END:
 #+call: lg-get-props-entry()
-*** WIP Apache Parquet
+*** WIP Apache Parquet                                             :FORMAT:
 :PROPERTIES:
 :learning_1: https://en.wikipedia.org/wiki/Apache_Parquet
 :CUSTOM_ID: Apache-Parquet
@@ -1689,7 +1687,7 @@ CREATE INDEX name ON table USING brin (column);
 - It is similar to the other columnar-storage file formats available in Hadoop namely RCFile and ORC.
 - It is compatible with most of the data processing frameworks in the Hadoop environment.
 - It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk.
-*** WIP Apache Avro
+*** WIP Apache Avro                                                :FORMAT:
 :PROPERTIES:
 :learning_1: https://avro.apache.org
 :CUSTOM_ID: Apache-Avro
@@ -1702,7 +1700,7 @@ CREATE INDEX name ON table USING brin (column);
 - It has two different types of schema languages; one for human editing (Avro IDL) and another which is more machine-readable based on JSON.[3]
 - It is similar to Thrift and Protocol Buffers, but does not require running a code-generation program when a schema changes (unless desired for statically-typed languages).
 -
-*** WIP Apache ORC (Optimized Row Columnar)
+*** WIP Apache ORC (Optimized Row Columnar)                        :FORMAT:
 :PROPERTIES:
 :CUSTOM_ID: Apache-ORC-Optimized-Row-Columnar
 :END:
@@ -1711,7 +1709,7 @@ CREATE INDEX name ON table USING brin (column);
 - It is compatible with most of the data processing frameworks in the Hadoop environment.
 - In February 2013, the Optimized Row Columnar (ORC) file format was announced by Hortonworks in collaboration with Facebook.[3]
 - A month later, the Apache Parquet format was announced, developed by Cloudera and Twitter.[4]
-*** WIP Protocol Buffers (Protobuf)
+*** WIP Protocol Buffers (Protobuf)                                :FORMAT:
 :PROPERTIES:
 :CUSTOM_ID: Protocol-Buffers-Protobuf
 :END:
@@ -1719,7 +1717,7 @@ CREATE INDEX name ON table USING brin (column);
 - It is useful in developing programs to communicate with each other over a wire or for storing data.
 - The method involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data.
 
-*** TODO Liquibase
+*** TODO Liquibase                                                   :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Liquibase
 :END:
@@ -4768,19 +4766,19 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :CUSTOM_ID: QUALITY
 :END:
 #+call: lg-get-props-entry()
-** TODO Blue green deployment
+** TODO Blue green deployment                                      :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: Blue-green-deployment
 :END:
-** TODO AB testing
+** TODO AB testing                                                 :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: AB-testing
 :END:
-** TODO Code coverage
+** TODO Code coverage                                              :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: Code-coverage
 :END:
-** TODO Cyclomatic complexity                                        :TOPIC:
+** TODO Cyclomatic complexity                                      :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: Cyclomatic-complexity
 :END:
@@ -4796,7 +4794,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :CUSTOM_ID: Tools-1-2
 :END:
-*** WIP Jest
+*** WIP Jest                                                         :TOOL:
 :PROPERTIES:
 :learning_1: https://jestjs.io/
 :CUSTOM_ID: Jest
@@ -4815,7 +4813,7 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
   - react-test-libraries
 - contains Istambul as a JS coverage tool
 
-*** Enzyme                                                       :OUTDATED:
+*** Enzyme                                                  :OUTDATED:TOOL:
 :PROPERTIES:
 :learning_1: https://enzymejs.github.io/enzyme/
 :CUSTOM_ID: Enzyme
@@ -4837,11 +4835,11 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 - On the other hand, when you’re writing your tests with Enzyme, even though you are also able to achieve the same level of confidence that you might get with react-testing-library, it is a bit more cumbersome to build your test structure in a way that resembles a real user.
 - In general, what you might see in codebases when looking at tests with Enzyme is that you’re actually testing the props and state of your components, meaning you are testing the internal behavior of components to confirm that the correct view is being presented to users.
 
-*** Jasmine                                                      :OUTDATED:
+*** Jasmine                                                 :OUTDATED:TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Jasmine
 :END:
-*** Istambul                                                     :OUTDATED:
+*** Istambul                                                :OUTDATED:TOOL:
 :PROPERTIES:
 :learning_1: https://istanbul.js.org/
 :CUSTOM_ID: Istambul
@@ -4860,15 +4858,15 @@ In order to take advantage of Java 8 features, the Spring codebase has been reva
 :PROPERTIES:
 :CUSTOM_ID: Mocha
 :END:
-*** FantomJS                                                     :OUTDATED:
+*** FantomJS                                                :OUTDATED:TOOL:
 :PROPERTIES:
 :CUSTOM_ID: FantomJS
 :END:
-*** Protractor
+*** Protractor                                              :OUTDATED:TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Protractor
 :END:
-*** Cucumber
+*** Cucumber                                                         :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Cucumber
 :END:
@@ -5063,31 +5061,31 @@ From one of the world's most highly regarded social scientists, a transformative
 :PROPERTIES:
 :CUSTOM_ID: COGNITIVE_BIASES
 :END:
-*** WIP The Backfire Effect
+*** WIP The Backfire Effect                                       :CONCEPT:
 :PROPERTIES:
 :learning_1: https://youarenotsosmart.com/2011/06/10/the-backfire-effect/
 :CUSTOM_ID: The-Backfire-Effect
 :END:
 - The Misconception: When your beliefs are challenged with facts, you alter your opinions and incorporate the new information into your thinking.
 - The Truth: When your deepest convictions are challenged by contradictory evidence, your beliefs get stronger.
-*** TODO Confirmation bias
+*** TODO Confirmation bias                                        :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: Confirmation-bias
 :END:
-*** TODO Loss aversion
+*** TODO Loss aversion                                            :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: Loss-aversion
 :END:
-*** TODO Parkinson's law of triviality
+*** TODO Parkinson's law of triviality                            :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: LAW_OF_TRIVIALITY
 :END:
 - The tendency to give disproportionate weight to trivial issues. Also known as bikeshedding, this bias explains why an organization may avoid specialized or complex subjects, such as the design of a nuclear reactor, and instead focus on something easy to grasp or rewarding to the average participant, such as the design of an adjacent bike shed.
-*** TODO Pygmalion effect
+*** TODO Pygmalion effect                                         :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: PYGMALION_EFFECT
 :END:
-*** TODO Selection Bias / Survivor Bias
+*** TODO Selection Bias / Survivor Bias                           :CONCEPT:
 :PROPERTIES:
 :CUSTOM_ID: SURVIVOR_BIAS
 :END:
@@ -6108,7 +6106,6 @@ Cognitive-bias
 #+end_src
 #+call:collector-yt()
 
-
 ** Index of SE-Radio Podcast Episodes
 :PROPERTIES:
 :header-args+: :var cols='((format "[[#%s][%s]]" (if (boundp 'CUSTOM_ID) CUSTOM_ID "INDEX") ITEM) LG-SE-RADIO-URL)
@@ -6145,7 +6142,6 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((and(s-contains? "BOOK" TAGS)(not(s-contains? "NO_EXPORT" TAGS)))) nil nil nil colnames ))
 #+end_src
 #+call:collector-books()
-
 
 ** Index of Patterns
 :PROPERTIES:
@@ -6210,6 +6206,7 @@ Cognitive-bias
     (org-propview-collect cols "%S" '((string-match "TOOL" TAGS)) nil nil nil colnames ))
 #+end_src
 #+call:collector-tools()
+
 
 
 * WIP To integrate                                                :NO_EXPORT:
@@ -6374,10 +6371,12 @@ Cognitive-bias
 :PROPERTIES:
 :CUSTOM_ID: zap
 :END:
-** bookmarks/unsorted [0/59]
+** bookmarks/unsorted [0/58]
 :PROPERTIES:
 :CUSTOM_ID: bookmarks-unsorted-0-59
 :END:
+*** TODO Circle CI maturity model
+- https://docs.google.com/spreadsheets/d/131XZCEb8LoXqy79WWrhCX4sBnGhCM1nAIz4feFZJsEo/edit#gid=0
 *** TODO https://cloud.google.com/blog/products/data-analytics/presto-optional-component-now-available-on-dataproc
 :PROPERTIES:
 :CUSTOM_ID: https-cloud-google-com-blog-products-data-analytics-presto-optional-component-now-available-on-dataproc
@@ -6606,6 +6605,7 @@ Cognitive-bias
 :PROPERTIES:
 :CUSTOM_ID: https-martinfowler-com-articles-evodb-html
 :END:
+
 ** bookmarks/Statistics [0/4]
 :PROPERTIES:
 :CUSTOM_ID: bookmarks-Statistics-0-4
