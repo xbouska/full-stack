@@ -6339,7 +6339,7 @@ Cognitive-bias
 - https://linoxide.com/mail/ldapsearch-command-test-ldap-connection/
 ** bookmarks/oidc [0/2]
 :PROPERTIES:
-:CUSTOM_ID: bookmarks-oidc-0-2
+:CUSTOM_ID: bookmarks-oidc
 :END:
 *** TODO OpenID Connect Core 1.0 incorporating errata set 1
 :PROPERTIES:
@@ -6363,14 +6363,15 @@ Cognitive-bias
 - https://oauth.net/2/scope/
 - https://auth0.com/docs/authorization/which-oauth-2-0-flow-should-i-use
 - https://github.com/IdentityModel/oidc-client-js
-** security [0/2]
+** bookmarks/security [0/2]
 :PROPERTIES:
-:CUSTOM_ID: security-0-2
+:CUSTOM_ID: bookmarks-security
 :END:
 *** TODO zap
 :PROPERTIES:
 :CUSTOM_ID: zap
 :END:
+*** TODO https://kalilinuxtutorials.com/scout-suite-multi-cloud-security-auditing-tool/
 ** bookmarks/unsorted [0/58]
 :PROPERTIES:
 :CUSTOM_ID: bookmarks-unsorted-0-59
