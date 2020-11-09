@@ -7910,6 +7910,8 @@ https://youtu.be/IhqxJCZKCz4
        - corrections
        - neglecting input
        - accentuate own opinions
+** Udemy
+*** TODO https://www.udemy.com/course/understanding-typescript/
 ** podcasts
 :PROPERTIES:
 :CUSTOM_ID: podcasts
