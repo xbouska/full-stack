@@ -2428,7 +2428,7 @@ ip route sh
 :PROPERTIES:
 :CUSTOM_ID: DEVOPS-TOOLS
 :END:
-*** Git                                                             :TOPIC:
+*** Git                                                             :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Git
 :END:
@@ -2672,11 +2672,12 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 :CUSTOM_ID: What-is-DKIM
 :END:
 
-*** JFrog: Artifactory
+*** TODO CoreDNS                                                     :TOOL:
+*** JFrog: Artifactory                                               :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: JFrog-Artifactory
 :END:
-*** Nexus ... sunset
+*** Nexus ... sunset                                                 :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Nexus-sunset
 :END:
@@ -2733,7 +2734,7 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 :CUSTOM_ID: DTR-docker-trusted-registry
 :END:
 
-*** Terraform                                                       :TOPIC:
+*** Terraform                                                       :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Terraform
 :END:
@@ -2753,31 +2754,31 @@ resolves IP address to domain or hostname. There must be A record for every PTR 
 :PROPERTIES:
 :CUSTOM_ID: backend
 :END:
-*** Chef                                                            :TOPIC:
+*** Chef                                                            :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Chef
 :END:
-*** Puppet                                                          :TOPIC:
+*** Puppet                                                          :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Puppet
 :END:
-*** Ansible                                                         :TOPIC:
+*** Ansible                                                         :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Ansible
 :END:
-*** Cloud Formation                                                 :TOPIC:
+*** Cloud Formation                                                 :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Cloud-Formation
 :END:
-*** Hashicorp: Consul                                               :TOPIC:
+*** Hashicorp: Consul                                               :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Hashicorp-Consul
 :END:
-*** Hashicorp: Vault                                                :TOPIC:
+*** Hashicorp: Vault                                                :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Hashicorp-Vault
 :END:
-*** TODO Zookeeper                                                  :TOPIC:
+*** TODO Zookeeper                                                  :TOOL:
 :PROPERTIES:
 :CUSTOM_ID: Zookeeper
 :END:
