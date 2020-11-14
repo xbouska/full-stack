@@ -14,8 +14,8 @@
 #+TODO:  TODO WIP | COMPETE OBSOLETE
 #+CREATOR: org-mode
 #+LANGUAGE: en
-#+TITLE: full-stack
-#+AUTHOR: Richard Bouska
+#+TITLE: The Full Stack
+#+AUTHOR: Richard Bouška
 #+DESCRIPTION: What to know / what to learn
 #+ODT_STYLES_FILE: "./OrgOdtStyles.xml"
 
